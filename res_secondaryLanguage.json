@@ -11,105 +11,222 @@
     },
     "projects": [
       {
-        "title": "Animal Shelter",
-        "startDate": "2020",
-        "description": "Najbardziej rozbudowana aplikacja nad którą miałam okazję pracować. Poznałam dużo technologii a mój kod by sprawdzany przez super opiekuna. Aplikacja obsługuje wszystkie procesy adopcji i pozwala na przechowywanie wszelkiej dokumentacji związanej z adopcją zwierząt ze schroniska.",
+        "title": "Genomic Analysis and Computational Medicine",
+        "startDate": "2022 - 2023",
+        "description": "Genomics is at the forefront of modern medicine, and leveraging machine learning techniques can significantly enhance our ability to understand and classify diseases based on genetic data. In my work in the Boyle Laboratory at the University of Michigan, Michigan Medicine, we employ the Sei framework to process genetic sequence information and ultimately build a robust disease classification model. Sei is a deep learning sequence model that predicts sequence regulatory activities that annotate flanking features. We introduce this method to investigate Short Tandem Repeats (STRs) to determine whether there are subclasses of Short Tandem Repeats defined by their genomic context. Furthermore, we use this method to annotate multiple positions in the flanking sequences.",
         "images": [
-          "images/portfolio/animal-shelter/p1.jpg",
-          "images/portfolio/animal-shelter/p2.jpg"
+          "images/portfolio/boyle-lab/p1.jpg"
         ],
-        "url": "",
+        "url": "https://github.com/SummerAnn/STR_SEI_Genomics",
         "technologies": [
           {
-            "class": "devicon-angularjs-plain",
-            "name": "Angular"
+            "class": "devicon-python-plain",
+            "name": "Python"
           },
           {
-            "class": "devicon-typescript-plain",
-            "name": "TypeScript"
+            "class": "devicon-jupyter-plain",
+            "name": "Jupyter"
           },
           {
-            "class": "devicon-csharp-plain",
-            "name": "C#"
+            "class": "devicon-numpy-plain",
+            "name": "NumPy"
+          },
+          {
+            "class": "devicon-pytorch-plain",
+            "name": "PyTorch"
+          },
+          {
+            "class": "devicon-pandas-plain",
+            "name": "Pandas"
+          },
+          {
+            "class": "devicon-linux-plain",
+            "name": "Linux"
+          },
+          {
+            "class": "devicon-r-plain",
+            "name": "R"
           }
         ]
       },
       {
-        "title": "Photography",
-        "startDate": "2018",
-        "description": "Osobisty projekt na przedmiot ze studiów. Byłam odpowiedzilna za testowanie aplikacji, która optymalizuje zdjęcia z pomocą popularnych algorytmów używanych przed edytory grafiki takie jak Pixlr czy Adobe Photoshop. Otrzymałam 5-tkę za projekt :)",
+        "title": "Educational Game Development",
+        "startDate": "2023",
+        "description": "In the Summer of 2023, I interned with Backyard Brains and the Center for the Promotion of Science in Serbia. I designed and developed three innovative educational games using webcam eye-tracking. I improved my software engineering proficiency through full-stack development of learning games that leveraged the existing cognitive science research on the attention schema conceptualization of human consciousness. Importantly, the eye tracking program that I developed can be implemented by end users without computer science expertise, which makes it accessible to a broader audience. Throughout the design, development, and experimentation phases, I assimilated invaluable lessons in user-centric design, advanced computational algorithms, real-time data processing, and the symbiotic relationship between humans and technology.",
         "images": [
-          "images/portfolio/photography/p1.jpg",
-          "images/portfolio/photography/p2.jpg"
+          "images/portfolio/backyard-brains/p1.jpg",
+          "images/portfolio/backyard-brains/p2.jpg"
         ],
-        "url": "https://github.com",
+        "url": "https://schema.backyardbrains.com/",
         "technologies": [
           {
-            "class": "devicon-react-original",
-            "name": "React"
+            "class": "devicon-python-plain",
+            "name": "Python"
           },
           {
-            "class": "devicon-javascript-plain",
-            "name": "JavaScript"
+            "class": "devicon-nodejs-plain",
+            "name": "Node.js"
+          },
+          {
+            "class": "devicon-flutter-plain",
+            "name": "Flutter"
+          },
+          {
+            "class": "devicon-flask-plain",
+            "name": "Flask"
+          },
+          {
+            "class": "devicon-html5-plain",
+            "name": "HTML 5"
+          },
+          {
+            "class": "devicon-css3-plain",
+            "name": "CSS 3"
+          }
+
+        ]
+      },
+      {
+        "title": "Machine Learning Explainability",
+        "startDate": "2022 - 2023",
+        "description": "I co-authored a Human-Computer Interaction (HCI) study focused on the growing sub-field of Machine Learning and Artificial Intelligence Explainability. The study synthesized pedagogical research on active learning and quizzes as teaching tools and HCI/Explainability research methodologies.",
+        "images": [
+          "images/portfolio/comphci/p1.jpg"
+        ],
+        "url": ".",
+        "technologies": [
+          {
+            "class": "devicon-python-plain",
+            "name": "Python"
+          },
+          {
+            "class": "devicon-django-plain",
+            "name": "Django"
           }
         ]
       },
       {
-        "title": "3D Object Viewer",
-        "startDate": "2015",
-        "description": "Jedna z pierwszych aplikacji nad którymi pracowałam na stażu. Musiałam przygotować front-end dla aplikacji, która pokazuje modele 3D znanych budynków. To był także mój pierwszy projekt w frameworku Angular. Dużo się nauczyłam!",
+        "title": "Music",
+        "startDate": "2019 - 2023",
+        "description": "I am a singer/songwriter with two EPs available on Spotify, Apple Music, and YouTube.",
         "images": [
-          "images/portfolio/adventure/p1.jpg",
-          "images/portfolio/adventure/p2.jpg"
+          "images/portfolio/music/p2.jpg"
         ],
-        "url": "https://github.com",
+        "url": "https://summerann.onuniverse.com/",
         "technologies": [
           {
-            "class": "devicon-angularjs-plain",
-            "name": "Angular"
+            "class": "devicon-python-plain",
+            "name": "Python"
           },
           {
-            "class": "devicon-typescript-plain",
-            "name": "TypeScript"
-          },
-          {
-            "class": "devicon-csharp-plain",
-            "name": "C#"
+            "class": "devicon-django-plain",
+            "name": "Django"
           }
+        ]
+      },
+      {
+        "title": "Modeling",
+        "startDate": "2018 - 2023",
+        "description": "I am a model working in California, Paris, Korea, and New York.",
+        "images": [
+          "images/portfolio/modeling/p1.jpg",
+          "images/portfolio/modeling/p2.jpg",
+          "images/portfolio/modeling/p3.jpg",
+          "images/portfolio/modeling/p4.jpg",
+          "images/portfolio/modeling/p5.jpg",
+          "images/portfolio/modeling/p6.jpg",
+          "images/portfolio/modeling/p7.jpg",
+          "images/portfolio/modeling/p8.jpg",
+          "images/portfolio/modeling/p9.jpg",
+          "images/portfolio/modeling/p10.jpg",
+          "images/portfolio/modeling/p11.jpg"
+        ],
+        "url": "https://www.instagram.com/summereunann/",
+        "technologies": [
+          {
+            "class": "",
+            "name": ""
+          },
+          {
+            "class": "",
+            "name": ""
+          } 
         ]
       }
+
     ],
     "experience": [
       {
-        "company": "DefOpenSource",
-        "title": "Front-End Developer",
-        "years": "10.2019 - obecnie",
+        "company": "University of Michigan Medicine, Computational Medicine",
+        "title": "Deep Learning/Machine Learning Research",
+        "years": "8/2022 - Present",
         "mainTech": [
-          "Angular 8/9/10"
+          "Python",
+          "C++"
         ],
         "technologies": [
-          "REST API",
-          "RxJS",
-          "JavaScript",
-          "Bootstrap",
-          "MDBootstrap",
-          "EF Core",
-          "Angular Material"
+          "Deep Learning",
+          "Machine Learning",
+          "Batch Pipeline for Cluster Detection",
+          "NumPy",
+          "Pandas",
+          "CRISPR (Cas3-YanLab)",
+          "K-means Analysis",
+          "Louvain Analysis",
+          "Primary Component Analysis"
         ]
       },
       {
-        "company": "Serros Solutions",
-        "title": "Stażystka",
-        "years": "01.2018 - 09.2019",
+        "company": "University of Michigan, College of Engineering",
+        "title": "Machine Learning Researcher",
+        "years": "7/2023 - present",
         "mainTech": [
-          "Angular 7/8"
+          "Python",
+          "Django"
         ],
         "technologies": [
-          "REST API",
-          "RxJS",
-          "Swagger",
-          "JavaScript",
-          "DHTMLX Gantt"
+          "MySQL",
+          "Keras Sequential Models",
+          "Model Optimization",
+          "Stochastic Gradient Descent",
+          "Apache"
+        ]
+      },
+      {
+        "company": "Backyard Brains",
+        "title": "Full-Stack Software Engineer",
+        "years": "6/2023 - 8/2023",
+        "mainTech": [
+          "Node.js",
+          "Python",
+          "Flask"
+        ],
+        "technologies": [
+          "Flutter",
+          "Django",
+          "HTML",
+          "CSS"
+        ]
+      },
+      {
+        "company": "University of Michigan Medicine, Todd Laboratory",
+        "title": "Research Assistant",
+        "years": "5/2022 - 9/2022",
+        "mainTech": [
+          "SQL",
+          "R"
+        ],
+        "technologies": [
+          "Mass Spectrometry",
+          "Western Blot",
+          "Cell/Tissue Culture",
+          "PCR",
+          "Gene Transfer",
+          "RNA Generation",
+          "Image Scanning",
+          "Plasmid Vector",
+          "DNA Transfection",
+          "Behavioral Analysis"
         ]
       }
     ]
