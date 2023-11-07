@@ -1,0 +1,179 @@
+{
+    "basic_info": {
+      "name": "Summer Ann",
+      "titles": [ "Full-Stack Software Engineer", "Machine Learning Researcher", "Bioinformatics Researcher", "Mobile App Developer" ],
+      "social": [
+        {
+          "name": "github",
+          "url": "https://github.com/SummerAnn",
+          "class": "fab fa-github"
+        },
+        {
+          "name": "instagram",
+          "url": "https://www.instagram.com/summereunann/",
+          "class": "fab fa-instagram"
+        },
+        {
+          "name": "youtube", 
+          "url": "https://www.youtube.com/watch?v=SlssfnVdLlA",
+          "class": "fab fa-youtube"
+        },
+        {
+          "name": "spotify", 
+          "url": "https://open.spotify.com/artist/2LCLnET4J0BsEbwztWl7OL?si=D-Bl8oKkTGCH9tBn0ni9qw",
+          "class": "fab fa-spotify"
+        },
+        {
+          "name": "apple", 
+          "url": "https://music.apple.com/us/artist/s-u-m-m-e-r/1602559220",
+          "class": "fab fa-apple"
+        },
+        {
+          "name": "email", 
+          "url": "mailto:anneun@umich.edu",
+          "class": "fab fa-google"
+        }
+      ],
+      "image": "myProfile.jpg"
+    },
+    "skills": {
+      "icons": [
+        {
+          "name": "Python",
+          "class": "devicon-python-plain",
+          "level": "95"
+        },
+        {
+          "name": "C",
+          "class": "devicon-c-plain",
+          "level": "95"
+        },
+        {
+          "name": "C++",
+          "class": "devicon-cplusplus-plain",
+          "level": "95"
+        },
+        {
+          "name": "Java",
+          "class": "devicon-java-plain",
+          "level": "95"
+        },
+        {
+          "name": "JavaScript",
+          "class": "devicon-javascript-plain",
+          "level": "95"
+        },
+        {
+          "name": "TypeScript",
+          "class": "devicon-typescript-plain",
+          "level": "95"
+        },
+        {
+          "name": "R",
+          "class": "devicon-r-plain",
+          "level": "95"
+        },
+        {
+          "name": "HTML 5",
+          "class": "devicon-html5-plain",
+          "level": "95"
+        },
+        {
+          "name": "CSS 3",
+          "class": "devicon-css3-plain",
+          "level": "95"
+        },
+        {
+          "name": "Django",
+          "class": "devicon-django-plain",
+          "level": "95"
+        },
+        {
+          "name": "Flask",
+          "class": "devicon-flask-plain",
+          "level": "95"
+        },
+        {
+          "name": "Swift",
+          "class": "devicon-swift-plain",
+          "level": "95"
+        },
+        {
+          "name": "React",
+          "class": "devicon-react-plain",
+          "level": "95"
+        },
+        {
+          "name": "Flutter",
+          "class": "devicon-flutter-plain",
+          "level": "95"
+        },
+        {
+          "name": "Ruby",
+          "class": "devicon-ruby-plain",
+          "level": "95"
+        },
+        {
+          "name": "Nest.js",
+          "class": "devicon-nestjs-plain",
+          "level": "95"
+        },
+        {
+          "name": "Vue.js",
+          "class": "devicon-vuejs-plain",
+          "level": "95"
+        },
+        {
+          "name": "Go",
+          "class": "devicon-go-plain",
+          "level": "95"
+        },
+        {
+          "name": "Docker",
+          "class": "devicon-docker-plain",
+          "level": "95"
+        },
+        {
+          "name": "MySql",
+          "class": "devicon-mysql-plain",
+          "level": "95"
+        },
+        {
+          "name": "MongoDB",
+          "class": "devicon-mongodb-plain",
+          "level": "95"
+        },
+
+        {
+          "name": "Jupyter",
+          "class": "devicon-jupyter-plain",
+          "level": "95"
+        },
+        {
+          "name": "Linux",
+          "class": "devicon-linux-plain",
+          "level": "95"
+        },
+        {
+          "name": "MATLAB",
+          "class": "devicon-matlab-plain",
+          "level": "95"
+        },
+        {
+          "name": "NumPy",
+          "class": "devicon-numpy-plain",
+          "level": "95"
+        },
+        {
+          "name": "PyTorch",
+          "class": "devicon-pytorch-plain",
+          "level": "95"
+        },
+        {
+          "name": "Pandas",
+          "class": "devicon-pandas-plain",
+          "level": "95"
+        }
+      ]
+    }
+  }
