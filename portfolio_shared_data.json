@@ -32,6 +32,11 @@
           "name": "email", 
           "url": "mailto:anneun@umich.edu",
           "class": "fab fa-google"
+        },
+        {
+          "name": "linkedin", 
+          "url": "https://www.linkedin.com/in/eunhyung-ann/",
+          "class": "fab fa-linkedin"
         }
       ],
       "image": "myProfile.jpg"
