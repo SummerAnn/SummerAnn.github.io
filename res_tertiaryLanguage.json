@@ -1,0 +1,231 @@
+{
+  "basic_info": {
+      "description_header": "Hallo",
+      "description": "Ich bin Summer Ann! Ich bin eine inspirierte junge Unternehmerin, Softwareentwicklerin und UX/UI-Designerin, Forscherin im Bereich Maschinelles Lernen, Bioinformatik und Computational Medicine. Ich bin auch Schauspielerin, Sängerin und Model. Danke für deinen Besuch auf meiner Seite! Wenn dir mein Video oben gefallen hat, findest du es hier: https://youtu.be/SlssfnVdLlA",
+      "section_name": {
+          "about": "Über mich",
+          "projects": "Projekte",
+          "skills": "Fähigkeiten",
+          "experience": "Erfahrung"
+      }
+  },
+  "projects": [
+      {
+          "title": "Genomische Analyse und Computational Medicine",
+          "startDate": "2022 - 2023",
+          "description": "Die Genomik steht an vorderster Front der modernen Medizin, und die Nutzung von maschinellem Lernen kann unsere Fähigkeit, Krankheiten anhand genetischer Daten zu verstehen und zu klassifizieren, erheblich verbessern. In meiner Arbeit im Boyle Laboratory an der University of Michigan, Michigan Medicine, verwenden wir das Sei-Framework zur Verarbeitung genetischer Sequenzinformationen und zum Aufbau eines robusten Krankheitsklassifikationsmodells. Sei ist ein tiefes Sequenzmodell, das Sequenzregulatorische Aktivitäten vorhersagt, die flankierende Merkmale annotieren. Wir führen diese Methode ein, um Short Tandem Repeats (STRs) zu untersuchen und festzustellen, ob es Untergruppen von Short Tandem Repeats gibt, die durch ihren genomischen Kontext definiert sind. Darüber hinaus verwenden wir diese Methode, um mehrere Positionen in den flankierenden Sequenzen zu annotieren.",
+          "images": [
+              "images/portfolio/boyle-lab/p1.jpg"
+          ],
+          "url": "https://github.com/SummerAnn/STR_SEI_Genomics",
+          "technologies": [
+              {
+                  "class": "devicon-python-plain",
+                  "name": "Python"
+              },
+              {
+                  "class": "devicon-jupyter-plain",
+                  "name": "Jupyter"
+              },
+              {
+                  "class": "devicon-numpy-plain",
+                  "name": "NumPy"
+              },
+              {
+                  "class": "devicon-pytorch-plain",
+                  "name": "PyTorch"
+              },
+              {
+                  "class": "devicon-pandas-plain",
+                  "name": "Pandas"
+              },
+              {
+                  "class": "devicon-linux-plain",
+                  "name": "Linux"
+              },
+              {
+                  "class": "devicon-r-plain",
+                  "name": "R"
+              }
+          ]
+      },
+      {
+          "title": "Entwicklung von Bildungsspielen",
+          "startDate": "2023",
+          "description": "Im Sommer 2023 absolvierte ich ein Praktikum bei Backyard Brains und dem Center for the Promotion of Science in Serbien. Ich habe drei innovative Bildungsspiele mit Eye-Tracking-Webcams entworfen und entwickelt. Ich verbesserte meine Softwareentwicklungsfähigkeiten durch die Entwicklung von Lernspielen, die auf bestehender Forschung zur kognitiven Wissenschaft über die Aufmerksamkeitsschema-Konzeptualisierung des menschlichen Bewusstseins basieren. Wichtig ist, dass das von mir entwickelte Eye-Tracking-Programm von Endbenutzern ohne Informatikkenntnisse implementiert werden kann, was es einem breiteren Publikum zugänglich macht. Während des Design-, Entwicklungs- und Experimentierprozesses habe ich wertvolle Erkenntnisse über benutzerzentriertes Design, fortgeschrittene Rechenalgorithmen, Echtzeit-Datenverarbeitung und die symbiotische Beziehung zwischen Menschen und Technologie gewonnen.",
+          "images": [
+              "images/portfolio/backyard-brains/p1.jpg",
+              "images/portfolio/backyard-brains/p2.jpg"
+          ],
+          "url": "https://schema.backyardbrains.com/",
+          "technologies": [
+              {
+                  "class": "devicon-python-plain",
+                  "name": "Python"
+              },
+              {
+                  "class": "devicon-nodejs-plain",
+                  "name": "Node.js"
+              },
+              {
+                  "class": "devicon-flutter-plain",
+                  "name": "Flutter"
+              },
+              {
+                  "class": "devicon-flask-plain",
+                  "name": "Flask"
+              },
+              {
+                  "class": "devicon-html5-plain",
+                  "name": "HTML 5"
+              },
+              {
+                  "class": "devicon-css3-plain",
+                  "name": "CSS 3"
+              }
+          ]
+      },
+      {
+          "title": "Maschinelles Lernen und Erklärbarkeit",
+          "startDate": "2022 - 2023",
+          "description": "Ich habe an einer Studie zur Human-Computer Interaction (HCI) mit dem Schwerpunkt auf dem wachsenden Teilgebiet der Erklärbarkeit von maschinellem Lernen und künstlicher Intelligenz mitgearbeitet. Die Studie synthetisierte pädagogische Forschung zu aktiven Lernmethoden und Quizzen als Lehrmittel sowie Forschungsmethoden zur HCI/Erklärbarkeit.",
+          "images": [
+              "images/portfolio/comphci/p1.jpg"
+          ],
+          "url": ".",
+          "technologies": [
+              {
+                  "class": "devicon-python-plain",
+                  "name": "Python"
+              },
+              {
+                  "class": "devicon-django-plain",
+                  "name": "Django"
+              }
+          ]
+      },
+      {
+          "title": "Musik",
+          "startDate": "2019 - 2023",
+          "description": "Ich bin Sängerin und Songschreiberin mit zwei EPs, die auf Spotify, Apple Music und YouTube verfügbar sind.",
+          "images": [
+              "images/portfolio/music/p2.jpg"
+          ],
+          "url": "https://summerann.onuniverse.com/",
+          "technologies": [
+              {
+                  "class": "devicon-python-plain",
+                  "name": "Python"
+              },
+              {
+                  "class": "devicon-django-plain",
+                  "name": "Django"
+              }
+          ]
+      },
+      {
+          "title": "Modeln",
+          "startDate": "2018 - 2023",
+          "description": "Ich arbeite als Model in Kalifornien, Paris, Korea und New York.",
+          "images": [
+              "images/portfolio/modeling/p1.jpg",
+              "images/portfolio/modeling/p2.jpg",
+              "images/portfolio/modeling/p3.jpg",
+              "images/portfolio/modeling/p4.jpg",
+              "images/portfolio/modeling/p5.jpg",
+              "images/portfolio/modeling/p6.jpg",
+              "images/portfolio/modeling/p7.jpg",
+              "images/portfolio/modeling/p8.jpg",
+              "images/portfolio/modeling/p9.jpg",
+              "images/portfolio/modeling/p10.jpg",
+              "images/portfolio/modeling/p11.jpg"
+          ],
+          "url": "https://www.instagram.com/summereunann/",
+          "technologies": [
+              {
+                  "class": "",
+                  "name": ""
+              },
+              {
+                  "class": "",
+                  "name": ""
+              }
+          ]
+      }
+  ],
+  "experience": [
+      {
+          "company": "University of Michigan Medicine, Computational Medicine",
+          "title": "Forschung im Bereich Deep Learning/Maschinelles Lernen",
+          "years": "8/2022 - Heute",
+          "mainTech": [
+              "Python",
+              "C++"
+          ],
+          "technologies": [
+              "Deep Learning",
+              "Maschinelles Lernen",
+              "Batch-Pipeline zur Clustererkennung",
+              "NumPy",
+              "Pandas",
+              "CRISPR (Cas3-YanLab)",
+              "K-Means-Analyse",
+              "Louvain-Analyse",
+              "Hauptkomponentenanalyse"
+          ]
+      },
+      {
+          "company": "University of Michigan, College of Engineering",
+          "title": "Forscher im Bereich Maschinelles Lernen",
+          "years": "7/2023 - heute",
+          "mainTech": [
+              "Python",
+              "Django"
+          ],
+          "technologies": [
+              "MySQL",
+              "Keras Sequential Models",
+              "Modelloptimierung",
+              "Stochastischer Gradientenabstieg",
+              "Apache"
+          ]
+      },
+      {
+          "company": "Backyard Brains",
+          "title": "Full-Stack-Softwareentwicklerin",
+          "years": "6/2023 - 8/2023",
+          "mainTech": [
+              "Node.js",
+              "Python",
+              "Flask"
+          ],
+          "technologies": [
+              "Flutter",
+              "Django",
+              "HTML",
+              "CSS"
+          ]
+      },
+      {
+          "company": "University of Michigan Medicine, Todd Laboratory",
+          "title": "Forschungsassistentin",
+          "years": "5/2022 - 9/2022",
+          "mainTech": [
+              "SQL",
+              "R"
+          ],
+          "technologies": [
+              "Massenspektrometrie",
+              "Western Blot",
+              "Zell-/Gewebekultur",
+              "PCR",
+              "Gentransfer",
+              "RNA-Erzeugung",
+              "Bildscannen",
+              "Plasmidvektor",
+              "DNA-Transfektion",
+              "Verhaltensanalyse"
+          ]
+      }
+  ]
+}
