@@ -39,9 +39,9 @@
           "class": "fab fa-linkedin-in"
         },
         {
-          "name": "doc", 
+          "name": "leanpub", 
           "url": "https://acrobat.adobe.com/link/review?uri=urn:aaid:scds:US:4c2dcfb2-2d3f-34c8-9586-80128df1e36a",
-          "class": "fas fa-file-alt"
+          "class": "fab fa-leanpub"
         }
       ],
       "image": "myProfile.jpg"
