@@ -37,6 +37,11 @@
           "name": "linkedin", 
           "url": "https://www.linkedin.com/in/eunhyung-ann/",
           "class": "fab fa-linkedin-in"
+        },
+        {
+          "name": "resume", 
+          "url": "https://acrobat.adobe.com/link/review?uri=urn:aaid:scds:US:4c2dcfb2-2d3f-34c8-9586-80128df1e36a",
+          "class": "fab fa-file-pdf"
         }
       ],
       "image": "myProfile.jpg"
