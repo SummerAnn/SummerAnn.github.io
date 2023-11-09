@@ -228,6 +228,28 @@
           "DNA Transfection",
           "Behavioral Analysis"
         ]
+      },
+      {
+        "company": "University of Michigan School of Dentistry, Dr. Mishina Lab",
+        "title": "Undergraduate Researcher",
+        "years": "9/2021 - 9/2022",
+        "mainTech": [
+          "SQL",
+          "R",
+          "CAD"
+        ],
+        "technologies": [
+          "Mass Spectrometry",
+          "XMA lab",
+          "Cell/Tissue Culture",
+          "PCR",
+          "Gene Transfer",
+          "RNA Generation",
+          "Image Scanning",
+          "Plasmid Vector",
+          "DNA Transfection",
+          "Behavioral Analysis"
+        ]
       }
     ]
   }
