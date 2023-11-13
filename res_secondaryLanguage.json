@@ -186,10 +186,11 @@
         ]
       },
       {
-        "title": "가수",
+        "title": "가수/배우",
         "startDate": "2019 - 2023",
         "description": " Spotify, Apple Music 및 YouTube에서 사용할 수 있는 두 개의 EP를 가진 싱어송라이터입니다.",
         "images": [
+          "images/portfolio/music/p1.jpg",
           "images/portfolio/music/p2.jpg"
         ],
         "url": "https://summerann.onuniverse.com/",
