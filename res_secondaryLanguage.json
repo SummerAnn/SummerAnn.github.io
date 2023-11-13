@@ -186,6 +186,43 @@
         ]
       },
       {
+        "title": "UX/UI 디자인",
+        "startDate": "2021 - present",
+        "description": "User Interface/ User Experience Desigan for 30+ clients",
+        "images": [
+          "images/portfolio/web_design/p0.jpg",
+          "images/portfolio/web_design/p2.jpg",
+          "images/portfolio/web_design/p1.jpg"
+        ],
+        "url": ".",
+        "technologies": [
+          {
+            "class": "devicon-html5-plain",
+            "name": "HTML 5"
+          },
+          {
+            "class": "devicon-css3-plain",
+            "name": "CSS3"
+          },
+          {
+            "class": "devicon-flutter-plain",
+            "name": "Flutter"
+          },
+          {
+            "class": "devicon-flask-plain",
+            "name": "Flask"
+          },
+          {
+            "class": "devicon-react-plain",
+            "name": "React"
+          },
+          {
+            "class": "devicon-python-plain",
+            "name": "Python"
+          }
+        ]
+      },
+      {
         "title": "가수/배우",
         "startDate": "2019 - 2023",
         "description": " Spotify, Apple Music 및 YouTube에서 사용할 수 있는 두 개의 EP를 가진 싱어송라이터입니다.",

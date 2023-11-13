@@ -185,6 +185,43 @@
         ]
       },
       {
+        "title": "UX/UI Design for App and Webapp",
+        "startDate": "2021 - present",
+        "description": "User Interface/ User Experience Desigan for 30+ clients",
+        "images": [
+          "images/portfolio/web_design/p0.jpg",
+          "images/portfolio/web_design/p2.jpg",
+          "images/portfolio/web_design/p1.jpg"
+        ],
+        "url": ".",
+        "technologies": [
+          {
+            "class": "devicon-html5-plain",
+            "name": "HTML 5"
+          },
+          {
+            "class": "devicon-css3-plain",
+            "name": "CSS3"
+          },
+          {
+            "class": "devicon-flutter-plain",
+            "name": "Flutter"
+          },
+          {
+            "class": "devicon-flask-plain",
+            "name": "Flask"
+          },
+          {
+            "class": "devicon-react-plain",
+            "name": "React"
+          },
+          {
+            "class": "devicon-python-plain",
+            "name": "Python"
+          }
+        ]
+      },
+      {
         "title": "Musik",
         "startDate": "2019 - 2023",
         "description": "Ich bin Sängerin/Songschreiberin mit zwei EPs, die auf Spotify, Apple Music und YouTube verfügbar sind.",
