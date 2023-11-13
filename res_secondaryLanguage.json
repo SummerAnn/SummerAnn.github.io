@@ -15,7 +15,9 @@
         "startDate": "2022 - 2023",
         "description": "전 데이터를 기반으로 질병을 이해하고 분류하는 데 기계 학습 기술을 활용합니다. 미시간 대학교, 미시간 의학부의 Boyle 연구실에서 일하며, 유전자 시퀀스 정보를 처리하고 강력한 질병 분류 모델을 구축합니다.",
         "images": [
-          "images/portfolio/boyle-lab/p1.jpg"
+          "images/portfolio/boyle-lab/p1.jpg",
+          "images/portfolio/boyle-lab/p2.jpg",
+          "images/portfolio/boyle-lab/p3.jpg"
         ],
         "url": "https://github.com/SummerAnn/STR_SEI_Genomics",
         "technologies": [
@@ -107,7 +109,9 @@
         "description": "웹캠 동체시력 추적을 사용하는 혁신적인 교육용 게임을 설계하고 개발했습니다. 인간의 의식에 대한 주의 스키마 개념화에 대한 기존 인지 과학 연구를 활용했습니다.",
         "images": [
           "images/portfolio/backyard-brains/p1.jpg",
-          "images/portfolio/backyard-brains/p2.jpg"
+          "images/portfolio/backyard-brains/p2.jpg",
+          "images/portfolio/backyard-brains/p3.jpg",
+          "images/portfolio/backyard-brains/p4.jpg"
         ],
         "url": "https://schema.backyardbrains.com/",
         "technologies": [

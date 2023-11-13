@@ -15,7 +15,9 @@
         "startDate": "2022 - Présent",
         "description": "La génomique est à la pointe de la médecine moderne, et l'utilisation de techniques d'apprentissage automatique peut considérablement améliorer notre capacité à comprendre et à classer les maladies basées sur des données génétiques. Dans mon travail au laboratoire Boyle de l'Université du Michigan, Michigan Medicine, nous utilisons le cadre Sei pour traiter les informations de séquences génétiques et finalement construire un modèle robuste de classification des maladies. Sei est un modèle de séquence d'apprentissage profond qui prédit les activités régulatrices des séquences annotant les caractéristiques adjacentes. Nous introduisons cette méthode pour étudier les répétitions en tandem courtes (STRs) afin de déterminer s'il existe des sous-classes de STR définies par leur contexte génomique. De plus, nous utilisons cette méthode pour annoter plusieurs positions dans les séquences flanquantes.",
         "images": [
-          "images/portfolio/boyle-lab/p1.jpg"
+            "images/portfolio/boyle-lab/p1.jpg",
+            "images/portfolio/boyle-lab/p2.jpg",
+            "images/portfolio/boyle-lab/p3.jpg"
         ],
         "url": "https://github.com/SummerAnn/STR_SEI_Genomics",
         "technologies": [
@@ -105,8 +107,10 @@
         "startDate": "2023",
         "description": "À l'été 2023, j'ai fait un stage chez Backyard Brains et au Centre pour la Promotion de la Science en Serbie. J'ai conçu et développé trois jeux éducatifs innovants utilisant le suivi oculaire par webcam. J'ai amélioré ma compétence en ingénierie logicielle grâce au développement full-stack de jeux d'apprentissage exploitant les recherches existantes en sciences cognitives sur la conceptualisation de la conscience humaine selon le schéma d'attention. Notamment, le programme de suivi oculaire que j'ai développé peut être mis en œuvre par les utilisateurs finaux sans expertise en informatique, ce qui le rend accessible à un public plus large. Tout au long des phases de conception, de développement et d'expérimentation, j'ai assimilé des leçons inestimables en matière de conception centrée sur l'utilisateur, d'algorithmes computationnels avancés, de traitement de données en temps réel et de la relation symbiotique entre les humains et la technologie.",
         "images": [
-          "images/portfolio/backyard-brains/p1.jpg",
-          "images/portfolio/backyard-brains/p2.jpg"
+            "images/portfolio/backyard-brains/p1.jpg",
+            "images/portfolio/backyard-brains/p2.jpg",
+            "images/portfolio/backyard-brains/p3.jpg",
+            "images/portfolio/backyard-brains/p4.jpg"
         ],
         "url": "https://schema.backyardbrains.com/",
         "technologies": [

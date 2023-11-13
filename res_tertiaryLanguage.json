@@ -15,7 +15,9 @@
         "startDate": "2022 - Heute",
         "description": "Die Genomik steht an der Spitze der modernen Medizin, und der Einsatz von Techniken des Maschinellen Lernens kann unsere Fähigkeit, Krankheiten auf der Grundlage genetischer Daten zu verstehen und zu klassifizieren, erheblich verbessern. In meiner Arbeit im Boyle Labor an der Universität von Michigan, Michigan Medicine, verwenden wir das Sei-Framework, um genetische Sequenzinformationen zu verarbeiten und letztendlich ein robustes Krankheitsklassifizierungsmodell zu erstellen. Sei ist ein Deep-Learning-Sequenzmodell, das die regulatorischen Aktivitäten von Sequenzen vorhersagt, die angrenzende Merkmale annotieren. Wir führen diese Methode ein, um Kurztandemwiederholungen (STRs) zu untersuchen und festzustellen, ob es Untergruppen von Kurztandemwiederholungen gibt, die durch ihren genomischen Kontext definiert sind. Darüber hinaus verwenden wir diese Methode, um mehrere Positionen in den flankierenden Sequenzen zu annotieren.",
         "images": [
-          "images/portfolio/boyle-lab/p1.jpg"
+            "images/portfolio/boyle-lab/p1.jpg",
+            "images/portfolio/boyle-lab/p2.jpg",
+            "images/portfolio/boyle-lab/p3.jpg"
         ],
         "url": "https://github.com/SummerAnn/STR_SEI_Genomics",
         "technologies": [
@@ -105,8 +107,10 @@
         "startDate": "2023",
         "description": "Im Sommer 2023 absolvierte ich ein Praktikum bei Backyard Brains und dem Zentrum für die Förderung der Wissenschaft in Serbien. Ich entwarf und entwickelte drei innovative Bildungsspiele unter Verwendung von Webcam-Augenverfolgung. Ich verbesserte meine Softwareentwicklungskompetenz durch Full-Stack-Entwicklung von Lernspielen, die die bestehende kognitionswissenschaftliche Forschung über das Aufmerksamkeitsschema zur Konzeptualisierung des menschlichen Bewusstseins nutzten. Wichtig ist, dass das von mir entwickelte Augenverfolgungsprogramm von Endnutzern ohne Informatikkenntnisse implementiert werden kann, was es einem breiteren Publikum zugänglich macht. Während der Design-, Entwicklungs- und Experimentierphasen eignete ich mir wertvolle Lektionen im benutzerzentrierten Design, fortgeschrittenen rechnergestützten Algorithmen, Echtzeit-Datenverarbeitung und der symbiotischen Beziehung zwischen Menschen und Technologie an.",
         "images": [
-          "images/portfolio/backyard-brains/p1.jpg",
-          "images/portfolio/backyard-brains/p2.jpg"
+            "images/portfolio/backyard-brains/p1.jpg",
+            "images/portfolio/backyard-brains/p2.jpg",
+            "images/portfolio/backyard-brains/p3.jpg",
+            "images/portfolio/backyard-brains/p4.jpg"
         ],
         "url": "https://schema.backyardbrains.com/",
         "technologies": [

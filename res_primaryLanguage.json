@@ -15,7 +15,9 @@
         "startDate": "2022 - Present",
         "description": "Genomics is at the forefront of modern medicine, and leveraging machine learning techniques can significantly enhance our ability to understand and classify diseases based on genetic data. In my work in the Boyle Laboratory at the University of Michigan, Michigan Medicine, we employ the Sei framework to process genetic sequence information and ultimately build a robust disease classification model. Sei is a deep learning sequence model that predicts sequence regulatory activities that annotate flanking features. We introduce this method to investigate Short Tandem Repeats (STRs) to determine whether there are subclasses of Short Tandem Repeats defined by their genomic context. Furthermore, we use this method to annotate multiple positions in the flanking sequences.",
         "images": [
-          "images/portfolio/boyle-lab/p1.jpg"
+          "images/portfolio/boyle-lab/p1.jpg",
+          "images/portfolio/boyle-lab/p2.jpg",
+          "images/portfolio/boyle-lab/p3.jpg"
         ],
         "url": "https://github.com/SummerAnn/STR_SEI_Genomics",
         "technologies": [
@@ -107,7 +109,9 @@
         "description": "In the Summer of 2023, I interned with Backyard Brains and the Center for the Promotion of Science in Serbia. I designed and developed three innovative educational games using webcam eye-tracking. I improved my software engineering proficiency through full-stack development of learning games that leveraged the existing cognitive science research on the attention schema conceptualization of human consciousness. Importantly, the eye tracking program that I developed can be implemented by end users without computer science expertise, which makes it accessible to a broader audience. Throughout the design, development, and experimentation phases, I assimilated invaluable lessons in user-centric design, advanced computational algorithms, real-time data processing, and the symbiotic relationship between humans and technology.",
         "images": [
           "images/portfolio/backyard-brains/p1.jpg",
-          "images/portfolio/backyard-brains/p2.jpg"
+          "images/portfolio/backyard-brains/p2.jpg",
+          "images/portfolio/backyard-brains/p3.jpg",
+          "images/portfolio/backyard-brains/p4.jpg"
         ],
         "url": "https://schema.backyardbrains.com/",
         "technologies": [
