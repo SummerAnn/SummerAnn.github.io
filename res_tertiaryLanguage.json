@@ -109,6 +109,27 @@
           ]
       },
       {
+        "title": "Temporomandibular Joint Disorder with Evc2 mutant mice, XROMM analysis on abnormal jaw movement and pain",
+        "startDate": "2021 - 2022",
+        "description": "I analyzed  XROMM X-ray Reconstruction of Moving Morphology, data using XMA lab.",
+        "images": [
+          "images/portfolio/conference/pic3.jpg",
+          "images/portfolio/conference/pic2.jpg",
+          "images/portfolio/conference/pic1.jpg"
+        ],
+        "url": ".",
+        "technologies": [
+          {
+            "class": "devicon-r-plain",
+            "name": "R"
+          },
+          {
+            "class": "devicon-python-plain",
+            "name": "Python"
+          }
+        ]
+      },
+      {
           "title": "Musik",
           "startDate": "2019 - 2023",
           "description": "Ich bin Sängerin und Songschreiberin mit zwei EPs, die auf Spotify, Apple Music und YouTube verfügbar sind.",
