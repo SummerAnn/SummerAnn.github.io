@@ -1,117 +1,167 @@
 {
-  "basic_info": {
+    "basic_info": {
       "description_header": "Hallo",
-      "description": "Ich bin Summer Ann! Ich bin eine inspirierte junge Unternehmerin, Softwareentwicklerin und UX/UI-Designerin, Forscherin im Bereich Maschinelles Lernen, Bioinformatik und Computational Medicine. Ich bin auch Schauspielerin, Sängerin und Model. Danke für deinen Besuch auf meiner Seite! Wenn dir mein Video oben gefallen hat, findest du es hier: https://youtu.be/SlssfnVdLlA",
+      "description": "Ich bin Summer Ann! Ich bin eine inspirierte junge Unternehmerin, Softwareingenieurin und UX/UI-Designerin, sowie Forscherin in den Bereichen Maschinelles Lernen, Bioinformatik und Computermedizin. Ich bin auch Schauspielerin, Sängerin und Model. Danke für deinen Besuch auf meiner Seite! Wenn dir mein Video oben gefallen hat, kannst du es hier finden: https://youtu.be/SlssfnVdLlA",
       "section_name": {
-          "about": "Über mich",
-          "projects": "Projekte",
-          "skills": "Fähigkeiten",
-          "experience": "Erfahrung"
+        "about": "Über mich",
+        "projects": "Projekte",
+        "skills": "Fähigkeiten",
+        "experience": "Erfahrung"
       }
-  },
-  "projects": [
+    },
+    "projects": [
       {
-          "title": "Genomische Analyse und Computational Medicine",
-          "startDate": "2022 - 2023",
-          "description": "Die Genomik steht an vorderster Front der modernen Medizin, und die Nutzung von maschinellem Lernen kann unsere Fähigkeit, Krankheiten anhand genetischer Daten zu verstehen und zu klassifizieren, erheblich verbessern. In meiner Arbeit im Boyle Laboratory an der University of Michigan, Michigan Medicine, verwenden wir das Sei-Framework zur Verarbeitung genetischer Sequenzinformationen und zum Aufbau eines robusten Krankheitsklassifikationsmodells. Sei ist ein tiefes Sequenzmodell, das Sequenzregulatorische Aktivitäten vorhersagt, die flankierende Merkmale annotieren. Wir führen diese Methode ein, um Short Tandem Repeats (STRs) zu untersuchen und festzustellen, ob es Untergruppen von Short Tandem Repeats gibt, die durch ihren genomischen Kontext definiert sind. Darüber hinaus verwenden wir diese Methode, um mehrere Positionen in den flankierenden Sequenzen zu annotieren.",
-          "images": [
-              "images/portfolio/boyle-lab/p1.jpg"
-          ],
-          "url": "https://github.com/SummerAnn/STR_SEI_Genomics",
-          "technologies": [
-              {
-                  "class": "devicon-python-plain",
-                  "name": "Python"
-              },
-              {
-                  "class": "devicon-jupyter-plain",
-                  "name": "Jupyter"
-              },
-              {
-                  "class": "devicon-numpy-plain",
-                  "name": "NumPy"
-              },
-              {
-                  "class": "devicon-pytorch-plain",
-                  "name": "PyTorch"
-              },
-              {
-                  "class": "devicon-pandas-plain",
-                  "name": "Pandas"
-              },
-              {
-                  "class": "devicon-linux-plain",
-                  "name": "Linux"
-              },
-              {
-                  "class": "devicon-r-plain",
-                  "name": "R"
-              }
-          ]
+        "title": "Genomanalyse und Computermedizin",
+        "startDate": "2022 - Heute",
+        "description": "Die Genomik steht an der Spitze der modernen Medizin, und der Einsatz von Techniken des Maschinellen Lernens kann unsere Fähigkeit, Krankheiten auf der Grundlage genetischer Daten zu verstehen und zu klassifizieren, erheblich verbessern. In meiner Arbeit im Boyle Labor an der Universität von Michigan, Michigan Medicine, verwenden wir das Sei-Framework, um genetische Sequenzinformationen zu verarbeiten und letztendlich ein robustes Krankheitsklassifizierungsmodell zu erstellen. Sei ist ein Deep-Learning-Sequenzmodell, das die regulatorischen Aktivitäten von Sequenzen vorhersagt, die angrenzende Merkmale annotieren. Wir führen diese Methode ein, um Kurztandemwiederholungen (STRs) zu untersuchen und festzustellen, ob es Untergruppen von Kurztandemwiederholungen gibt, die durch ihren genomischen Kontext definiert sind. Darüber hinaus verwenden wir diese Methode, um mehrere Positionen in den flankierenden Sequenzen zu annotieren.",
+        "images": [
+          "images/portfolio/boyle-lab/p1.jpg"
+        ],
+        "url": "https://github.com/SummerAnn/STR_SEI_Genomics",
+        "technologies": [
+          {
+            "class": "devicon-python-plain",
+            "name": "Python"
+          },
+          {
+            "class": "devicon-jupyter-plain",
+            "name": "Jupyter"
+          },
+          {
+            "class": "devicon-numpy-plain",
+            "name": "NumPy"
+          },
+          {
+            "class": "devicon-pytorch-plain",
+            "name": "PyTorch"
+          },
+          {
+            "class": "devicon-pandas-plain",
+            "name": "Pandas"
+          },
+          {
+            "class": "devicon-linux-plain",
+            "name": "Linux"
+          },
+          {
+            "class": "devicon-r-plain",
+            "name": "R"
+          }
+        ]
       },
       {
-          "title": "Entwicklung von Bildungsspielen",
-          "startDate": "2023",
-          "description": "Im Sommer 2023 absolvierte ich ein Praktikum bei Backyard Brains und dem Center for the Promotion of Science in Serbien. Ich habe drei innovative Bildungsspiele mit Eye-Tracking-Webcams entworfen und entwickelt. Ich verbesserte meine Softwareentwicklungsfähigkeiten durch die Entwicklung von Lernspielen, die auf bestehender Forschung zur kognitiven Wissenschaft über die Aufmerksamkeitsschema-Konzeptualisierung des menschlichen Bewusstseins basieren. Wichtig ist, dass das von mir entwickelte Eye-Tracking-Programm von Endbenutzern ohne Informatikkenntnisse implementiert werden kann, was es einem breiteren Publikum zugänglich macht. Während des Design-, Entwicklungs- und Experimentierprozesses habe ich wertvolle Erkenntnisse über benutzerzentriertes Design, fortgeschrittene Rechenalgorithmen, Echtzeit-Datenverarbeitung und die symbiotische Beziehung zwischen Menschen und Technologie gewonnen.",
-          "images": [
-              "images/portfolio/backyard-brains/p1.jpg",
-              "images/portfolio/backyard-brains/p2.jpg"
-          ],
-          "url": "https://schema.backyardbrains.com/",
-          "technologies": [
-              {
-                  "class": "devicon-python-plain",
-                  "name": "Python"
-              },
-              {
-                  "class": "devicon-nodejs-plain",
-                  "name": "Node.js"
-              },
-              {
-                  "class": "devicon-flutter-plain",
-                  "name": "Flutter"
-              },
-              {
-                  "class": "devicon-flask-plain",
-                  "name": "Flask"
-              },
-              {
-                  "class": "devicon-html5-plain",
-                  "name": "HTML 5"
-              },
-              {
-                  "class": "devicon-css3-plain",
-                  "name": "CSS 3"
-              },
-              {
-                "class": "devicon-tensorflow-plain",
-                "name": "TensorFlow"
-              }
-          ]
+        "title": "Entwicklung von mobilen Apps",
+        "startDate": "2023",
+        "description": "Ich habe die Budgetverwaltungs- und Investitions-App mit KI-Finanzanalyse mit Barcode-Scanning und algorithmischem Handelsteil entwickelt, mit clientseitigen dynamischen Seiten unter Verwendung von REST API, Flask, REACT, HTML und CSS. Veröffentlichung im November 2023. Noch in der Entwicklung einer voll funktionsfähigen Instagram-Klon-App mit Funktionen wie Liken, Kommentieren, Posten usw.",
+        "images": [
+          "images/portfolio/App/p1.jpg",
+          "images/portfolio/App/p2.jpg",
+          "images/portfolio/App/p3.jpg",
+          "images/portfolio/App/p4.jpg",
+          "images/portfolio/App/p5.jpg",
+          "images/portfolio/App/p6.jpg",
+          "images/portfolio/App/p7.jpg",
+          "images/portfolio/App/p8.jpg",
+          "images/portfolio/App/p9.jpg",
+          "images/portfolio/App/p10.jpg",
+          "images/portfolio/App/p11.jpg",
+          "images/portfolio/App/p12.jpg"
+        ],
+        "url": ".",
+        "technologies": [
+          {
+            "class": "devicon-python-plain",
+            "name": "Python"
+          },
+          {
+            "class": "devicon-flutter-plain",
+            "name": "Flutter"
+          },
+          {
+            "class": "devicon-swift-plain",
+            "name": "Swift"
+          },
+          {
+            "class": "devicon-react-plain",
+            "name": "React"
+          },
+          {
+            "class": "devicon-html5-plain",
+            "name": "HTML 5"
+          },
+          {
+            "class": "devicon-linux-plain",
+            "name": "Linux"
+          },
+          {
+            "class": "devicon-css3-plain",
+            "name": "CSS3"
+          }
+        ]
       },
       {
-          "title": "Maschinelles Lernen und Erklärbarkeit",
-          "startDate": "2022 - 2023",
-          "description": "Ich habe an einer Studie zur Human-Computer Interaction (HCI) mit dem Schwerpunkt auf dem wachsenden Teilgebiet der Erklärbarkeit von maschinellem Lernen und künstlicher Intelligenz mitgearbeitet. Die Studie synthetisierte pädagogische Forschung zu aktiven Lernmethoden und Quizzen als Lehrmittel sowie Forschungsmethoden zur HCI/Erklärbarkeit.",
-          "images": [
-              "images/portfolio/comphci/p1.jpg"
-          ],
-          "url": ".",
-          "technologies": [
-              {
-                  "class": "devicon-python-plain",
-                  "name": "Python"
-              },
-              {
-                  "class": "devicon-django-plain",
-                  "name": "Django"
-              }
-          ]
+        "title": "Entwicklung von Bildungsspielen",
+        "startDate": "2023",
+        "description": "Im Sommer 2023 absolvierte ich ein Praktikum bei Backyard Brains und dem Zentrum für die Förderung der Wissenschaft in Serbien. Ich entwarf und entwickelte drei innovative Bildungsspiele unter Verwendung von Webcam-Augenverfolgung. Ich verbesserte meine Softwareentwicklungskompetenz durch Full-Stack-Entwicklung von Lernspielen, die die bestehende kognitionswissenschaftliche Forschung über das Aufmerksamkeitsschema zur Konzeptualisierung des menschlichen Bewusstseins nutzten. Wichtig ist, dass das von mir entwickelte Augenverfolgungsprogramm von Endnutzern ohne Informatikkenntnisse implementiert werden kann, was es einem breiteren Publikum zugänglich macht. Während der Design-, Entwicklungs- und Experimentierphasen eignete ich mir wertvolle Lektionen im benutzerzentrierten Design, fortgeschrittenen rechnergestützten Algorithmen, Echtzeit-Datenverarbeitung und der symbiotischen Beziehung zwischen Menschen und Technologie an.",
+        "images": [
+          "images/portfolio/backyard-brains/p1.jpg",
+          "images/portfolio/backyard-brains/p2.jpg"
+        ],
+        "url": "https://schema.backyardbrains.com/",
+        "technologies": [
+          {
+            "class": "devicon-python-plain",
+            "name": "Python"
+          },
+          {
+            "class": "devicon-nodejs-plain",
+            "name": "Node.js"
+          },
+          {
+            "class": "devicon-flutter-plain",
+            "name": "Flutter"
+          },
+          {
+            "class": "devicon-flask-plain",
+            "name": "Flask"
+          },
+          {
+            "class": "devicon-html5-plain",
+            "name": "HTML 5"
+          },
+          {
+            "class": "devicon-css3-plain",
+            "name": "CSS 3"
+          },
+          {
+            "class": "devicon-tensorflow-plain",
+            "name": "TensorFlow"
+          }
+        ]
       },
       {
-        "title": "Temporomandibular Joint Disorder with Evc2 mutant mice, XROMM analysis on abnormal jaw movement and pain",
+        "title": "Erklärbarkeit des maschinellen Lernens",
+        "startDate": "2022 - Heute",
+        "description": "Ich habe eine Studie zur Mensch-Computer-Interaktion (HCI) mitverfasst, die sich auf das wachsende Teilgebiet der Erklärbarkeit von Maschinellem Lernen und Künstlicher Intelligenz konzentriert. Die Studie synthetisierte pädagogische Forschung über aktives Lernen und Quiz als Lehrmittel sowie HCI/Erklärbarkeits-Forschungsmethoden.",
+        "images": [
+          "images/portfolio/comphci/p1.jpg"
+        ],
+        "url": ".",
+        "technologies": [
+          {
+            "class": "devicon-python-plain",
+            "name": "Python"
+          },
+          {
+            "class": "devicon-django-plain",
+            "name": "Django"
+          }
+        ]
+      },
+      {
+        "title": "Kiefergelenkserkrankungen bei Evc2-mutierten Mäusen, XROMM-Analyse über abnormale Kieferbewegungen und Schmerzen",
         "startDate": "2021 - 2022",
-        "description": "I analyzed  XROMM X-ray Reconstruction of Moving Morphology, data using XMA lab.",
+        "description": "Ich analysierte Daten zur Röntgenrekonstruktion beweglicher Morphologie (XROMM) mit XMA-Labor.",
         "images": [
           "images/portfolio/conference/pic3.jpg",
           "images/portfolio/conference/pic2.jpg",
@@ -130,9 +180,9 @@
         ]
       },
       {
-          "title": "Musik",
-          "startDate": "2019 - 2023",
-          "description": "Ich bin Sängerin und Songschreiberin mit zwei EPs, die auf Spotify, Apple Music und YouTube verfügbar sind.",
+        "title": "Musik",
+        "startDate": "2019 - 2023",
+        "description": "Ich bin Sängerin/Songschreiberin mit zwei EPs, die auf Spotify, Apple Music und YouTube verfügbar sind.",
           "images": [
               "images/portfolio/music/p2.jpg"
           ],
@@ -149,7 +199,7 @@
           ]
       },
       {
-          "title": "Modeln",
+          "title": "Modeln/Schauspielerin",
           "startDate": "2018 - 2023",
           "description": "Ich arbeite als Model in Kalifornien, Paris, Korea und New York.",
           "images": [
