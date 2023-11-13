@@ -191,7 +191,7 @@
         },
         {
           "name": "TensorFlow",
-          "class": "devicon-tensorflow-plain",
+          "class": "devicon-tensorflow-line",
           "level": "95"
         }
       ]
