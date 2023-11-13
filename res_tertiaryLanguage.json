@@ -82,6 +82,10 @@
               {
                   "class": "devicon-css3-plain",
                   "name": "CSS 3"
+              },
+              {
+                "class": "devicon-tensorflow-plain",
+                "name": "TensorFlow"
               }
           ]
       },
