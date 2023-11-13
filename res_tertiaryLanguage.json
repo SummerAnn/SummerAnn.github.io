@@ -54,6 +54,7 @@
         "startDate": "2023",
         "description": "Ich habe die Budgetverwaltungs- und Investitions-App mit KI-Finanzanalyse mit Barcode-Scanning und algorithmischem Handelsteil entwickelt, mit clientseitigen dynamischen Seiten unter Verwendung von REST API, Flask, REACT, HTML und CSS. Veröffentlichung im November 2023. Noch in der Entwicklung einer voll funktionsfähigen Instagram-Klon-App mit Funktionen wie Liken, Kommentieren, Posten usw.",
         "images": [
+        "images/portfolio/App/p0.jpg",
           "images/portfolio/App/p1.jpg",
           "images/portfolio/App/p2.jpg",
           "images/portfolio/App/p3.jpg",

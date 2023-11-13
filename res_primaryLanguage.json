@@ -54,6 +54,7 @@
         "startDate": "2023",
         "description": "I built the budget management and investment app with AI finance analysis with Barcode scanning and algorithmic trading portion with the client-side dynamic pages using REST API, Flask, REACT, HTML, and CSS. Will release in November of 2023. Still on process developing a clone of Instagram with full functionality like, comment, post, etc",
         "images": [
+          "images/portfolio/App/p0.jpg",
           "images/portfolio/App/p1.jpg",
           "images/portfolio/App/p2.jpg",
           "images/portfolio/App/p3.jpg",

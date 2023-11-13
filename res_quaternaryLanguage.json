@@ -54,6 +54,7 @@
         "startDate": "2023",
         "description": "J'ai construit l'application de gestion budgétaire et d'investissement avec analyse financière IA avec scan de codes-barres et partie de trading algorithmique avec des pages dynamiques côté client utilisant l'API REST, Flask, REACT, HTML et CSS. Sortie prévue en novembre 2023. Je suis encore en train de développer un clone d'Instagram avec toutes les fonctionnalités telles que like, commentaire, post, etc.",
         "images": [
+        "images/portfolio/App/p0.jpg",
           "images/portfolio/App/p1.jpg",
           "images/portfolio/App/p2.jpg",
           "images/portfolio/App/p3.jpg",

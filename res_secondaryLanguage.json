@@ -54,6 +54,7 @@
         "startDate": "2023",
         "description": "AI 재정 분석을 통한 예산 관리 및 투자 앱을 개발했습니다. REST API, Flask, REACT, HTML 및 CSS를 사용하여 클라이언트 측 동적 페이지를 구현했습니다.",
         "images": [
+          "images/portfolio/App/p0.jpg",
           "images/portfolio/App/p1.jpg",
           "images/portfolio/App/p2.jpg",
           "images/portfolio/App/p3.jpg",
