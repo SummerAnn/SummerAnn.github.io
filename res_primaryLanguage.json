@@ -11,8 +11,8 @@
     },
     "projects": [
       {
-        "title": "Genomic Analysis and Computational Medicine",
-        "startDate": "2022 - 2023",
+        "title": "Genomic Analysis and Computational Medicine(Machine Learning/ Deep Learning) Pipeline",
+        "startDate": "2022 - Present",
         "description": "Genomics is at the forefront of modern medicine, and leveraging machine learning techniques can significantly enhance our ability to understand and classify diseases based on genetic data. In my work in the Boyle Laboratory at the University of Michigan, Michigan Medicine, we employ the Sei framework to process genetic sequence information and ultimately build a robust disease classification model. Sei is a deep learning sequence model that predicts sequence regulatory activities that annotate flanking features. We introduce this method to investigate Short Tandem Repeats (STRs) to determine whether there are subclasses of Short Tandem Repeats defined by their genomic context. Furthermore, we use this method to annotate multiple positions in the flanking sequences.",
         "images": [
           "images/portfolio/boyle-lab/p1.jpg"
@@ -46,6 +46,57 @@
           {
             "class": "devicon-r-plain",
             "name": "R"
+          }
+        ]
+      },
+      {
+        "title": "Mobile App Development",
+        "startDate": "2023",
+        "description": "I built the budget management and investment app with AI finance analysis with Barcode scanning and algorithmic trading portion with the client-side dynamic pages using REST API, Flask, REACT, HTML, and CSS. Will release in November of 2023. Still on process developing a clone of Instagram with full functionality like, comment, post, etc",
+        "images": [
+          "images/portfolio/App/p1.jpg",
+          "images/portfolio/App/p2.jpg",
+          "images/portfolio/App/p3.jpg",
+          "images/portfolio/App/p4.jpg",
+          "images/portfolio/App/p5.jpg",
+          "images/portfolio/App/p6.jpg",
+          "images/portfolio/App/p7.jpg",
+          "images/portfolio/App/p8.jpg",
+          "images/portfolio/App/p9.jpg",
+          "images/portfolio/App/p10.jpg",
+          "images/portfolio/App/p11.jpg",
+          "images/portfolio/App/p12.jpg"
+
+        ],
+        "url": ".",
+        "technologies": [
+          {
+            "class": "devicon-python-plain",
+            "name": "Python"
+          },
+          {
+            "class": "devicon-flutter-plain",
+            "name": "Flutter"
+          },
+          {
+            "class": "devicon-swift-plain",
+            "name": "Swift"
+          },
+          {
+            "class": "devicon-react-plain",
+            "name": "React"
+          },
+          {
+            "class": "devicon-html5-plain",
+            "name": "HTML 5"
+          },
+          {
+            "class": "devicon-linux-plain",
+            "name": "Linux"
+          },
+          {
+            "class": "devicon-css3-plain",
+            "name": "CSS3"
           }
         ]
       },
@@ -92,7 +143,7 @@
       },
       {
         "title": "Machine Learning Explainability",
-        "startDate": "2022 - 2023",
+        "startDate": "2022 - Present",
         "description": "I co-authored a Human-Computer Interaction (HCI) study focused on the growing sub-field of Machine Learning and Artificial Intelligence Explainability. The study synthesized pedagogical research on active learning and quizzes as teaching tools and HCI/Explainability research methodologies.",
         "images": [
           "images/portfolio/comphci/p1.jpg"

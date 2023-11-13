@@ -1,7 +1,7 @@
 {
     "basic_info": {
       "description_header": "안녕하세요!",
-      "description": "저는 안은형입니다",
+      "description": "저는 Summer Ann입니다! 저는 영감을 받은 젊은 기업가이며, 소프트웨어 엔지니어이자 UX/UI 디자이너입니다. 또한, 컴퓨터 사이언스(머신러닝/딥러닝), 생물정보학, 의학 연구자입니다. 저는 배우이자 가수, 모델이기도 합니다. 제 페이지를 방문해주셔서 감사합니다! 페이지 상단의 비디오를 좋아하셨다면 여기에서 찾을 수 있습니다: Link",
       "section_name": {
         "about": "자기소개",
         "projects": "프로젝트",
@@ -11,9 +11,9 @@
     },
     "projects": [
       {
-        "title": "Genomic Analysis and Computational Medicine",
+        "title": "유전체 분석 및 컴퓨터 사이언스 (머신러닝/딥러닝 파이프라인)",
         "startDate": "2022 - 2023",
-        "description": "Genomics is at the forefront of modern medicine, and leveraging machine learning techniques can significantly enhance our ability to understand and classify diseases based on genetic data. In my work in the Boyle Laboratory at the University of Michigan, Michigan Medicine, we employ the Sei framework to process genetic sequence information and ultimately build a robust disease classification model. Sei is a deep learning sequence model that predicts sequence regulatory activities that annotate flanking features. We introduce this method to investigate Short Tandem Repeats (STRs) to determine whether there are subclasses of Short Tandem Repeats defined by their genomic context. Furthermore, we use this method to annotate multiple positions in the flanking sequences.",
+        "description": "전 데이터를 기반으로 질병을 이해하고 분류하는 데 기계 학습 기술을 활용합니다. 미시간 대학교, 미시간 의학부의 Boyle 연구실에서 일하며, 유전자 시퀀스 정보를 처리하고 강력한 질병 분류 모델을 구축합니다.",
         "images": [
           "images/portfolio/boyle-lab/p1.jpg"
         ],
@@ -50,9 +50,60 @@
         ]
       },
       {
-        "title": "Educational Game Development",
+        "title": "모바일 앱 개발",
         "startDate": "2023",
-        "description": "In the Summer of 2023, I interned with Backyard Brains and the Center for the Promotion of Science in Serbia. I designed and developed three innovative educational games using webcam eye-tracking. I improved my software engineering proficiency through full-stack development of learning games that leveraged the existing cognitive science research on the attention schema conceptualization of human consciousness. Importantly, the eye tracking program that I developed can be implemented by end users without computer science expertise, which makes it accessible to a broader audience. Throughout the design, development, and experimentation phases, I assimilated invaluable lessons in user-centric design, advanced computational algorithms, real-time data processing, and the symbiotic relationship between humans and technology.",
+        "description": "AI 재정 분석을 통한 예산 관리 및 투자 앱을 개발했습니다. REST API, Flask, REACT, HTML 및 CSS를 사용하여 클라이언트 측 동적 페이지를 구현했습니다.",
+        "images": [
+          "images/portfolio/App/p1.jpg",
+          "images/portfolio/App/p2.jpg",
+          "images/portfolio/App/p3.jpg",
+          "images/portfolio/App/p4.jpg",
+          "images/portfolio/App/p5.jpg",
+          "images/portfolio/App/p6.jpg",
+          "images/portfolio/App/p7.jpg",
+          "images/portfolio/App/p8.jpg",
+          "images/portfolio/App/p9.jpg",
+          "images/portfolio/App/p10.jpg",
+          "images/portfolio/App/p11.jpg",
+          "images/portfolio/App/p12.jpg"
+
+        ],
+        "url": ".",
+        "technologies": [
+          {
+            "class": "devicon-python-plain",
+            "name": "Python"
+          },
+          {
+            "class": "devicon-flutter-plain",
+            "name": "Flutter"
+          },
+          {
+            "class": "devicon-swift-plain",
+            "name": "Swift"
+          },
+          {
+            "class": "devicon-react-plain",
+            "name": "React"
+          },
+          {
+            "class": "devicon-html5-plain",
+            "name": "HTML 5"
+          },
+          {
+            "class": "devicon-linux-plain",
+            "name": "Linux"
+          },
+          {
+            "class": "devicon-css3-plain",
+            "name": "CSS3"
+          }
+        ]
+      },
+      {
+        "title": "교육용 게임 개발",
+        "startDate": "2023",
+        "description": "웹캠 동체시력 추적을 사용하는 혁신적인 교육용 게임을 설계하고 개발했습니다. 인간의 의식에 대한 주의 스키마 개념화에 대한 기존 인지 과학 연구를 활용했습니다.",
         "images": [
           "images/portfolio/backyard-brains/p1.jpg",
           "images/portfolio/backyard-brains/p2.jpg"
@@ -90,9 +141,9 @@
         ]
       },
       {
-        "title": "Machine Learning Explainability",
+        "title": "머신러닝 설명 가능성(XAI)",
         "startDate": "2022 - 2023",
-        "description": "I co-authored a Human-Computer Interaction (HCI) study focused on the growing sub-field of Machine Learning and Artificial Intelligence Explainability. The study synthesized pedagogical research on active learning and quizzes as teaching tools and HCI/Explainability research methodologies.",
+        "description": "머신러닝 및 인공 지능 설명 가능성의 성장하는 하위 분야에 초점을 맞춘 인간-컴퓨터 상호 작용(HCI) 연구를 공동 집필했습니다.",
         "images": [
           "images/portfolio/comphci/p1.jpg"
         ],
@@ -109,9 +160,9 @@
         ]
       },
       {
-        "title": "Temporomandibular Joint Disorder with Evc2 mutant mice, XROMM analysis on abnormal jaw movement and pain",
+        "title": "턱관절 장애 및 Evc2 변이 생쥐, 이상적인 턱 움직임 및 통증에 대한 XROMM 분석",
         "startDate": "2021 - 2022",
-        "description": "I analyzed  XROMM X-ray Reconstruction of Moving Morphology, data using XMA lab.",
+        "description": "XROMM X-레이 재구성을 통해 이동하는 형태학 데이터를 분석했습니다.",
         "images": [
           "images/portfolio/conference/pic3.jpg",
           "images/portfolio/conference/pic2.jpg",
@@ -130,9 +181,9 @@
         ]
       },
       {
-        "title": "Music",
+        "title": "가수",
         "startDate": "2019 - 2023",
-        "description": "I am a singer/songwriter with two EPs available on Spotify, Apple Music, and YouTube.",
+        "description": " Spotify, Apple Music 및 YouTube에서 사용할 수 있는 두 개의 EP를 가진 싱어송라이터입니다.",
         "images": [
           "images/portfolio/music/p2.jpg"
         ],
@@ -149,9 +200,9 @@
         ]
       },
       {
-        "title": "Modeling",
+        "title": "모델/배우",
         "startDate": "2018 - 2023",
-        "description": "I am a model working in California, Paris, Korea, and New York.",
+        "description": "캘리포니아, 파리, 한국, 뉴욕에서 활동하는 모델이자 배우입니다",
         "images": [
           "images/portfolio/modeling/p1.jpg",
           "images/portfolio/modeling/p2.jpg",
