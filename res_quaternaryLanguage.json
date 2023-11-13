@@ -1,0 +1,328 @@
+{
+    "basic_info": {
+      "description_header": "Bonjour",
+      "description": "Je suis Summer Ann ! Je suis une jeune entrepreneuse inspirée, ingénieure logiciel et designer UI/UX, chercheuse en apprentissage automatique, bioinformatique et médecine computationnelle. Je suis également actrice, chanteuse et mannequin. Merci de visiter ma page ! Si vous avez aimé ma vidéo en haut, vous pouvez la trouver ici : https://youtu.be/SlssfnVdLlA",
+      "section_name": {
+        "about": "À propos de moi",
+        "projects": "Projets",
+        "skills": "Compétences",
+        "experience": "Expérience"
+      }
+    },
+    "projects": [
+      {
+        "title": "Analyse Génomique et Médecine Computationnelle",
+        "startDate": "2022 - Présent",
+        "description": "La génomique est à la pointe de la médecine moderne, et l'utilisation de techniques d'apprentissage automatique peut considérablement améliorer notre capacité à comprendre et à classer les maladies basées sur des données génétiques. Dans mon travail au laboratoire Boyle de l'Université du Michigan, Michigan Medicine, nous utilisons le cadre Sei pour traiter les informations de séquences génétiques et finalement construire un modèle robuste de classification des maladies. Sei est un modèle de séquence d'apprentissage profond qui prédit les activités régulatrices des séquences annotant les caractéristiques adjacentes. Nous introduisons cette méthode pour étudier les répétitions en tandem courtes (STRs) afin de déterminer s'il existe des sous-classes de STR définies par leur contexte génomique. De plus, nous utilisons cette méthode pour annoter plusieurs positions dans les séquences flanquantes.",
+        "images": [
+          "images/portfolio/boyle-lab/p1.jpg"
+        ],
+        "url": "https://github.com/SummerAnn/STR_SEI_Genomics",
+        "technologies": [
+          {
+            "class": "devicon-python-plain",
+            "name": "Python"
+          },
+          {
+            "class": "devicon-jupyter-plain",
+            "name": "Jupyter"
+          },
+          {
+            "class": "devicon-numpy-plain",
+            "name": "NumPy"
+          },
+          {
+            "class": "devicon-pytorch-plain",
+            "name": "PyTorch"
+          },
+          {
+            "class": "devicon-pandas-plain",
+            "name": "Pandas"
+          },
+          {
+            "class": "devicon-linux-plain",
+            "name": "Linux"
+          },
+          {
+            "class": "devicon-r-plain",
+            "name": "R"
+          }
+        ]
+      },
+      {
+        "title": "Développement d'Applications Mobiles",
+        "startDate": "2023",
+        "description": "J'ai construit l'application de gestion budgétaire et d'investissement avec analyse financière IA avec scan de codes-barres et partie de trading algorithmique avec des pages dynamiques côté client utilisant l'API REST, Flask, REACT, HTML et CSS. Sortie prévue en novembre 2023. Je suis encore en train de développer un clone d'Instagram avec toutes les fonctionnalités telles que like, commentaire, post, etc.",
+        "images": [
+          "images/portfolio/App/p1.jpg",
+          "images/portfolio/App/p2.jpg",
+          "images/portfolio/App/p3.jpg",
+          "images/portfolio/App/p4.jpg",
+          "images/portfolio/App/p5.jpg",
+          "images/portfolio/App/p6.jpg",
+          "images/portfolio/App/p7.jpg",
+          "images/portfolio/App/p8.jpg",
+          "images/portfolio/App/p9.jpg",
+          "images/portfolio/App/p10.jpg",
+          "images/portfolio/App/p11.jpg",
+          "images/portfolio/App/p12.jpg"
+        ],
+        "url": ".",
+        "technologies": [
+          {
+            "class": "devicon-python-plain",
+            "name": "Python"
+          },
+          {
+            "class": "devicon-flutter-plain",
+            "name": "Flutter"
+          },
+          {
+            "class": "devicon-swift-plain",
+            "name": "Swift"
+          },
+          {
+            "class": "devicon-react-plain",
+            "name": "React"
+          },
+          {
+            "class": "devicon-html5-plain",
+            "name": "HTML 5"
+          },
+          {
+            "class": "devicon-linux-plain",
+            "name": "Linux"
+          },
+          {
+            "class": "devicon-css3-plain",
+            "name": "CSS3"
+          }
+        ]
+      },
+      {
+        "title": "Développement de Jeux Éducatifs",
+        "startDate": "2023",
+        "description": "À l'été 2023, j'ai fait un stage chez Backyard Brains et au Centre pour la Promotion de la Science en Serbie. J'ai conçu et développé trois jeux éducatifs innovants utilisant le suivi oculaire par webcam. J'ai amélioré ma compétence en ingénierie logicielle grâce au développement full-stack de jeux d'apprentissage exploitant les recherches existantes en sciences cognitives sur la conceptualisation de la conscience humaine selon le schéma d'attention. Notamment, le programme de suivi oculaire que j'ai développé peut être mis en œuvre par les utilisateurs finaux sans expertise en informatique, ce qui le rend accessible à un public plus large. Tout au long des phases de conception, de développement et d'expérimentation, j'ai assimilé des leçons inestimables en matière de conception centrée sur l'utilisateur, d'algorithmes computationnels avancés, de traitement de données en temps réel et de la relation symbiotique entre les humains et la technologie.",
+        "images": [
+          "images/portfolio/backyard-brains/p1.jpg",
+          "images/portfolio/backyard-brains/p2.jpg"
+        ],
+        "url": "https://schema.backyardbrains.com/",
+        "technologies": [
+          {
+            "class": "devicon-python-plain",
+            "name": "Python"
+          },
+          {
+            "class": "devicon-nodejs-plain",
+            "name": "Node.js"
+          },
+          {
+            "class": "devicon-flutter-plain",
+            "name": "Flutter"
+          },
+          {
+            "class": "devicon-flask-plain",
+            "name": "Flask"
+          },
+          {
+            "class": "devicon-html5-plain",
+            "name": "HTML 5"
+          },
+          {
+            "class": "devicon-css3-plain",
+            "name": "CSS 3"
+          },
+          {
+            "class": "devicon-tensorflow-plain",
+            "name": "TensorFlow"
+          }
+        ]
+      },
+      {
+        "title": "Explicabilité de l'Apprentissage Automatique",
+        "startDate": "2022 - Présent",
+        "description": "J'ai co-écrit une étude sur l'Interaction Homme-Machine (IHM) axée sur le sous-domaine en croissance de l'Explicabilité de l'Apprentissage Automatique et de l'Intelligence Artificielle. L'étude a synthétisé les recherches pédagogiques sur l'apprentissage actif et les quiz en tant qu'outils d'enseignement et les méthodologies de recherche en IHM/Explicabilité.",
+        "images": [
+          "images/portfolio/comphci/p1.jpg"
+        ],
+        "url": ".",
+        "technologies": [
+          {
+            "class": "devicon-python-plain",
+            "name": "Python"
+          },
+          {
+            "class": "devicon-django-plain",
+            "name": "Django"
+          }
+        ]
+      },
+      {
+        "title": "Trouble de l'Articulation Temporo-Mandibulaire avec des souris mutantes Evc2, analyse XROMM sur les mouvements anormaux de la mâchoire et la douleur",
+        "startDate": "2021 - 2022",
+        "description": "J'ai analysé des données de Morphologie en Mouvement Reconstruite par Rayons X (XROMM) en utilisant le laboratoire XMA.",
+        "images": [
+          "images/portfolio/conference/pic3.jpg",
+          "images/portfolio/conference/pic2.jpg",
+          "images/portfolio/conference/pic1.jpg"
+        ],
+        "url": ".",
+        "technologies": [
+          {
+            "class": "devicon-r-plain",
+            "name": "R"
+          },
+          {
+            "class": "devicon-python-plain",
+            "name": "Python"
+          }
+        ]
+      },
+      {
+        "title": "Musique",
+        "startDate": "2019 - 2023",
+        "description": "Je suis auteure-compositrice-interprète avec deux EP disponibles sur Spotify, Apple Music et YouTube.",
+        "images": [
+            "images/portfolio/music/p2.jpg"
+        ],
+        "url": "https://summerann.onuniverse.com/",
+        "technologies": [
+            {
+                "class": "devicon-python-plain",
+                "name": "Python"
+            },
+            {
+                "class": "devicon-django-plain",
+                "name": "Django"
+            }
+        ]
+    },
+    {
+        "title": "Modeln/Schauspielerin",
+        "startDate": "2018 - 2023",
+        "description": "Ich arbeite als Model in Kalifornien, Paris, Korea und New York.",
+        "images": [
+            "images/portfolio/modeling/p1.jpg",
+            "images/portfolio/modeling/p2.jpg",
+            "images/portfolio/modeling/p3.jpg",
+            "images/portfolio/modeling/p4.jpg",
+            "images/portfolio/modeling/p5.jpg",
+            "images/portfolio/modeling/p6.jpg",
+            "images/portfolio/modeling/p7.jpg",
+            "images/portfolio/modeling/p8.jpg",
+            "images/portfolio/modeling/p9.jpg",
+            "images/portfolio/modeling/p10.jpg",
+            "images/portfolio/modeling/p11.jpg"
+        ],
+        "url": "https://www.instagram.com/summereunann/",
+        "technologies": [
+            {
+                "class": "",
+                "name": ""
+            },
+            {
+                "class": "",
+                "name": ""
+            }
+        ]
+    }
+],
+"experience": [
+    {
+        "company": "University of Michigan Medicine, Computational Medicine",
+        "title": "Forschung im Bereich Deep Learning/Maschinelles Lernen",
+        "years": "8/2022 - Heute",
+        "mainTech": [
+            "Python",
+            "C++"
+        ],
+        "technologies": [
+            "Deep Learning",
+            "Maschinelles Lernen",
+            "Batch-Pipeline zur Clustererkennung",
+            "NumPy",
+            "Pandas",
+            "CRISPR (Cas3-YanLab)",
+            "K-Means-Analyse",
+            "Louvain-Analyse",
+            "Hauptkomponentenanalyse"
+        ]
+    },
+    {
+        "company": "University of Michigan, College of Engineering",
+        "title": "Forscher im Bereich Maschinelles Lernen",
+        "years": "7/2023 - heute",
+        "mainTech": [
+            "Python",
+            "Django"
+        ],
+        "technologies": [
+            "MySQL",
+            "Keras Sequential Models",
+            "Modelloptimierung",
+            "Stochastischer Gradientenabstieg",
+            "Apache"
+        ]
+    },
+    {
+        "company": "Backyard Brains",
+        "title": "Full-Stack-Softwareentwicklerin",
+        "years": "6/2023 - 8/2023",
+        "mainTech": [
+            "Node.js",
+            "Python",
+            "Flask"
+        ],
+        "technologies": [
+            "Flutter",
+            "Django",
+            "HTML",
+            "CSS"
+        ]
+    },
+    {
+        "company": "University of Michigan Medicine, Todd Laboratory",
+        "title": "Forschungsassistentin",
+        "years": "5/2022 - 9/2022",
+        "mainTech": [
+            "SQL",
+            "R"
+        ],
+        "technologies": [
+            "Massenspektrometrie",
+            "Western Blot",
+            "Zell-/Gewebekultur",
+            "PCR",
+            "Gentransfer",
+            "RNA-Erzeugung",
+            "Bildscannen",
+            "Plasmidvektor",
+            "DNA-Transfektion",
+            "Verhaltensanalyse"
+        ]
+    },
+    {
+      "company": "University of Michigan School of Dentistry, Dr. Mishina Lab",
+      "title": "Undergraduate Researcher",
+      "years": "9/2021 - 9/2022",
+      "mainTech": [
+        "SQL",
+        "R",
+        "CAD"
+      ],
+      "technologies": [
+        "Mass Spectrometry",
+        "XMA lab",
+        "Cell/Tissue Culture",
+        "PCR",
+        "Gene Transfer",
+        "RNA Generation",
+        "Image Scanning",
+        "Plasmid Vector",
+        "DNA Transfection",
+        "Behavioral Analysis"
+      ]
+    }
+]
+}
