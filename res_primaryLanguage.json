@@ -10,6 +10,48 @@
       }
     },
     "projects": [
+          {
+        "title": "AWS AI/ML Project",
+        "startDate": "May 2024 - September 2024",
+        "description": "Improved scheduling efficiency across time zones, minimize unnecessary communications, and personalize the user experience. 
+- Key deliverables included integrating predictive scheduling, resource management, and AI-driven decision-making through AWS services like Bedrock, Lambda, and LangGraph. ",
+        "images": [
+          "images/portfolio/boyle-lab/p1.jpg",
+          "images/portfolio/boyle-lab/p2.jpg",
+          "images/portfolio/boyle-lab/p3.jpg"
+        ],
+        "url": "https://github.com/SummerAnn/STR_SEI_Genomics",
+        "technologies": [
+          {
+            "class": "devicon-python-plain",
+            "name": "Python"
+          },
+          {
+            "class": "devicon-jupyter-plain",
+            "name": "Jupyter"
+          },
+          {
+            "class": "devicon-numpy-plain",
+            "name": "NumPy"
+          },
+          {
+            "class": "devicon-pytorch-plain",
+            "name": "PyTorch"
+          },
+          {
+            "class": "devicon-pandas-plain",
+            "name": "Pandas"
+          },
+          {
+            "class": "devicon-linux-plain",
+            "name": "Linux"
+          },
+          {
+            "class": "devicon-r-plain",
+            "name": "R"
+          }
+        ]
+      },
       {
         "title": "Genomic Analysis and Computational Medicine(Machine Learning/ Deep Learning) Pipeline",
         "startDate": "2022 - Present",
