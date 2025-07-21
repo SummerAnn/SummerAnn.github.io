@@ -6,366 +6,798 @@
         "about": "Über mich",
         "projects": "Projekte",
         "skills": "Fähigkeiten",
-        "experience": "Erfahrung"
+        "experience": "Erfahrung",
+        "education": "Ausbildung",
+        "art": "Kunst Portfolio",
+        "conferences": "Konferenzen"
       }
     },
-    "projects": [
+    "education": [
       {
-        "title": "Genomanalyse und Computermedizin",
-        "startDate": "2022 - Heute",
-        "description": "Die Genomik steht an der Spitze der modernen Medizin, und der Einsatz von Techniken des Maschinellen Lernens kann unsere Fähigkeit, Krankheiten auf der Grundlage genetischer Daten zu verstehen und zu klassifizieren, erheblich verbessern. In meiner Arbeit im Boyle Labor an der Universität von Michigan, Michigan Medicine, verwenden wir das Sei-Framework, um genetische Sequenzinformationen zu verarbeiten und letztendlich ein robustes Krankheitsklassifizierungsmodell zu erstellen. Sei ist ein Deep-Learning-Sequenzmodell, das die regulatorischen Aktivitäten von Sequenzen vorhersagt, die angrenzende Merkmale annotieren. Wir führen diese Methode ein, um Kurztandemwiederholungen (STRs) zu untersuchen und festzustellen, ob es Untergruppen von Kurztandemwiederholungen gibt, die durch ihren genomischen Kontext definiert sind. Darüber hinaus verwenden wir diese Methode, um mehrere Positionen in den flankierenden Sequenzen zu annotieren.",
-        "images": [
-            "images/portfolio/boyle-lab/p1.jpg",
-            "images/portfolio/boyle-lab/p2.jpg",
-            "images/portfolio/boyle-lab/p3.jpg"
+        "school": "University of Chicago",
+        "degree": "Doktor der Informatik",
+        "years": "September 2024 - August 2027",
+        "grade": "GPA: 3.98",
+        "description": "Vollstipendium LLM und ML",
+        "skills": "Problemlösung · Maschinelles Lernen · Deep Learning · Large Language Models (LLM) · LangChain · Künstliche Intelligenz (KI) · Betriebssysteme · Statistische Datenanalyse · Datenanalyse · Datenmodellierung"
+      },
+      {
+        "school": "University of Chicago",
+        "degree": "Master of Business Administration (MBA)",
+        "years": "September 2024 - August 2027",
+        "grade": "GPA: 3.98",
+        "description": "Vollstipendium LLM und ML",
+        "skills": "Problemlösung · Maschinelles Lernen · Deep Learning · Large Language Models (LLM) · LangChain · Künstliche Intelligenz (KI) · Betriebssysteme · Statistische Datenanalyse · Datenanalyse · Datenmodellierung"
+      },
+      {
+        "school": "University of Michigan",
+        "degree": "Bachelor in Neurowissenschaften, Informatik",
+        "years": "August 2021 - Mai 2024",
+        "grade": "GPA: 3.98",
+        "description": "Aktivitäten: NSA, Michigan Health Aid, Detroit Partnership Planning team, UMARV",
+        "skills": "Problemlösung"
+      }
+    ],
+    "experience": [
+      {
+        "title": "Software Engineering Fellow",
+        "company": "Backyard Brains",
+        "years": "Juni 2023 - August 2023",
+        "location": "Ann Arbor, Michigan",
+        "description": "Entwicklung von verteilten Systemen und Computer-Vision-Anwendungen für neurowissenschaftliche Forschung. • Implementierung von XROMM-Statistikanalyse-Tools für biomechanische Forschung. • Erstellung von Webanwendungen mit drei verschiedenen Spielen: Aufmerksamkeitsschema, Webcam-Augenverfolgung und Aufmerksamkeitsmessung. • Entwicklung von Backend und Frontend in einem Monat mit Flask, Python, HTML5 und CSS.",
+        "mainTech": [
+          "Node.js",
+          "Flutter"
         ],
-        "url": "https://github.com/SummerAnn/STR_SEI_Genomics",
         "technologies": [
-          {
-            "class": "devicon-python-plain",
-            "name": "Python"
-          },
-          {
-            "class": "devicon-jupyter-plain",
-            "name": "Jupyter"
-          },
-          {
-            "class": "devicon-numpy-plain",
-            "name": "NumPy"
-          },
-          {
-            "class": "devicon-pytorch-plain",
-            "name": "PyTorch"
-          },
-          {
-            "class": "devicon-pandas-plain",
-            "name": "Pandas"
-          },
-          {
-            "class": "devicon-linux-plain",
-            "name": "Linux"
-          },
-          {
-            "class": "devicon-r-plain",
-            "name": "R"
-          }
+          "Flask",
+          "Python",
+          "HTML",
+          "CSS",
+          "Django",
+          "Verteilte Systeme",
+          "Computer Vision",
+          "XROMM",
+          "Statistische Analyse"
         ]
       },
       {
-        "title": "Entwicklung von mobilen Apps",
-        "startDate": "2023",
-        "description": "Ich habe die Budgetverwaltungs- und Investitions-App mit KI-Finanzanalyse mit Barcode-Scanning und algorithmischem Handelsteil entwickelt, mit clientseitigen dynamischen Seiten unter Verwendung von REST API, Flask, REACT, HTML und CSS. Veröffentlichung im November 2023. Noch in der Entwicklung einer voll funktionsfähigen Instagram-Klon-App mit Funktionen wie Liken, Kommentieren, Posten usw.",
-        "images": [
-        "images/portfolio/App/p0.jpg",
-          "images/portfolio/App/p1.jpg",
-          "images/portfolio/App/p2.jpg",
-          "images/portfolio/App/p3.jpg",
-          "images/portfolio/App/p4.jpg",
-          "images/portfolio/App/p5.jpg",
-          "images/portfolio/App/p6.jpg",
-          "images/portfolio/App/p7.jpg",
-          "images/portfolio/App/p8.jpg",
-          "images/portfolio/App/p9.jpg",
-          "images/portfolio/App/p10.jpg",
-          "images/portfolio/App/p11.jpg",
-          "images/portfolio/App/p12.jpg"
+        "title": "Bachelor-Forscher",
+        "company": "University of Michigan School of Dentistry",
+        "years": "August 2021 - September 2022",
+        "location": "Ann Arbor, Michigan",
+        "description": "Erforschung von Evc2-Mutantenmäusen mit Fokus auf TMJ-Form, Kieferbewegung und Schmerzanalyse. • Untersuchung von Golgi-Defekten und mutierten 53ECMTME-Mechanismen. • Durchführung umfassender Datensammlung und Literaturrecherche für genetische Studien.",
+        "mainTech": [
+          "Datensammlung",
+          "Literaturrecherche"
         ],
-        "url": ".",
+        "technologies": [
+          "Evc2-Mutantenmäuse",
+          "TMJ-Form",
+          "Kieferbewegung",
+          "Schmerzanalyse",
+          "Golgi-Defekte",
+          "Mutierte 53ECMTME"
+        ]
+      },
+      {
+        "title": "Bachelor-Forschungsassistent",
+        "company": "University of Michigan",
+        "years": "Juli 2021 - September 2021",
+        "location": "Ann Arbor, Michigan",
+        "description": "Durchführung von Datensammlung und Literaturrecherche für verschiedene Forschungsprojekte. • Unterstützung von Forschungsteams bei Datenanalyse und Dokumentation.",
+        "mainTech": [
+          "Datensammlung",
+          "Literaturrecherche"
+        ],
+        "technologies": [
+          "Forschung",
+          "Datenanalyse",
+          "Dokumentation"
+        ]
+      },
+      {
+        "title": "Doktor der Informatik",
+        "company": "University of Chicago",
+        "years": "September 2024 - August 2027",
+        "location": "Chicago, Illinois",
+        "description": "Vollstipendium LLM und ML",
+        "mainTech": [
+          "Maschinelles Lernen",
+          "Deep Learning"
+        ],
+        "technologies": [
+          "Large Language Models (LLM)",
+          "LangChain",
+          "Künstliche Intelligenz (KI)",
+          "Betriebssysteme",
+          "Statistische Datenanalyse",
+          "Datenanalyse",
+          "Datenmodellierung"
+        ]
+      },
+      {
+        "title": "Master of Business Administration (MBA)",
+        "company": "University of Chicago",
+        "years": "September 2024 - August 2027",
+        "location": "Chicago, Illinois",
+        "description": "Vollstipendium LLM und ML",
+        "mainTech": [
+          "Betriebswirtschaft",
+          "Business"
+        ],
+        "technologies": [
+          "Strategisches Management",
+          "Finanzmanagement",
+          "Marketing",
+          "Operations Management",
+          "Wirtschaftswissenschaften"
+        ]
+      },
+      {
+        "title": "Bachelor in Neurowissenschaften, Informatik",
+        "company": "University of Michigan",
+        "years": "August 2021 - Mai 2024",
+        "location": "Ann Arbor, Michigan",
+        "description": "Aktivitäten: NSA, Michigan Health Aid, Detroit Partnership Planning team, UMARV",
+        "mainTech": [
+          "Neurowissenschaften",
+          "Informatik"
+        ],
+        "technologies": [
+          "Problemlösung",
+          "Forschung",
+          "Analyse"
+        ]
+      },
+      {
+        "title": "Doktor der Informatik",
+        "company": "University of Chicago",
+        "years": "September 2024 - August 2027",
+        "location": "Chicago, Illinois",
+        "description": "Vollstipendium LLM und ML",
+        "mainTech": [
+          "Maschinelles Lernen",
+          "Deep Learning"
+        ],
+        "technologies": [
+          "Large Language Models (LLM)",
+          "LangChain",
+          "Künstliche Intelligenz (KI)",
+          "Betriebssysteme",
+          "Statistische Datenanalyse",
+          "Datenanalyse",
+          "Datenmodellierung"
+        ]
+      },
+      {
+        "title": "Master of Business Administration (MBA)",
+        "company": "University of Chicago",
+        "years": "September 2024 - August 2027",
+        "location": "Chicago, Illinois",
+        "description": "Vollstipendium LLM und ML",
+        "mainTech": [
+          "Betriebswirtschaft",
+          "Business"
+        ],
+        "technologies": [
+          "Strategisches Management",
+          "Finanzmanagement",
+          "Marketing",
+          "Operations Management",
+          "Wirtschaftswissenschaften"
+        ]
+      },
+      {
+        "title": "Bachelor in Neurowissenschaften, Informatik",
+        "company": "University of Michigan",
+        "years": "August 2021 - Mai 2024",
+        "location": "Ann Arbor, Michigan",
+        "description": "Aktivitäten: NSA, Michigan Health Aid, Detroit Partnership Planning team, UMARV",
+        "mainTech": [
+          "Neurowissenschaften",
+          "Informatik"
+        ],
+        "technologies": [
+          "Problemlösung",
+          "Forschung",
+          "Analyse"
+        ]
+      }
+    ],
+    "projects": [
+      {
+        "title": "Interaktive webbasierte Fotobox-App",
+        "startDate": "Apr 2025 - Mai 2025",
+        "description": "Entwicklung einer React-basierten Fotobox-Webanwendung mit Echtzeit-Kamerafeed, Countdown-Animation und Live-Filter-Vorschau unter Verwendung von CSS-Filtern und Korn-Overlays. • Implementierung einer dynamischen Filmstreifen-UI, die die letzten 20 Aufnahmen mit zeitstempelgestützten Speicherungen und einer zentrierten Galerieansicht für benutzerfreundliche Auswahl anzeigt. • Integration anpassbarer Fotofilter (z.B. Sepia, Graustufen, Farbton-Rotation) und Korn-Texturen zur Reproduktion nostalgischer städtischer ästhetischer Stile. • Hinzufügung von Funktionen wie übergroße animierte Countdowns, Echtzeit-Speicherung und verbesserte Benutzerinteraktivität für ein fesselndes UX-Erlebnis. • Anwendung eines modularen Komponenten-Designs mit Tailwind CSS und Hooks-basiertem State Management für Skalierbarkeit und Reaktionsfähigkeit über Geräte hinweg.",
+        "images": [
+          "images/portfolio/photobooth/1.png",
+          "images/portfolio/photobooth/2.png"
+        ],
+        "url": "https://github.com",
         "technologies": [
           {
-            "class": "devicon-python-plain",
-            "name": "Python"
-          },
-          {
-            "class": "devicon-flutter-plain",
-            "name": "Flutter"
-          },
-          {
-            "class": "devicon-swift-plain",
-            "name": "Swift"
-          },
-          {
-            "class": "devicon-react-plain",
+            "class": "devicon-react",
             "name": "React"
           },
           {
-            "class": "devicon-html5-plain",
-            "name": "HTML 5"
+            "class": "devicon-javascript",
+            "name": "JavaScript"
           },
           {
-            "class": "devicon-linux-plain",
-            "name": "Linux"
-          },
-          {
-            "class": "devicon-css3-plain",
-            "name": "CSS3"
+            "class": "devicon-html5",
+            "name": "HTML5"
           }
         ]
       },
       {
-        "title": "Entwicklung von Bildungsspielen",
-        "startDate": "2023",
-        "description": "Im Sommer 2023 absolvierte ich ein Praktikum bei Backyard Brains und dem Zentrum für die Förderung der Wissenschaft in Serbien. Ich entwarf und entwickelte drei innovative Bildungsspiele unter Verwendung von Webcam-Augenverfolgung. Ich verbesserte meine Softwareentwicklungskompetenz durch Full-Stack-Entwicklung von Lernspielen, die die bestehende kognitionswissenschaftliche Forschung über das Aufmerksamkeitsschema zur Konzeptualisierung des menschlichen Bewusstseins nutzten. Wichtig ist, dass das von mir entwickelte Augenverfolgungsprogramm von Endnutzern ohne Informatikkenntnisse implementiert werden kann, was es einem breiteren Publikum zugänglich macht. Während der Design-, Entwicklungs- und Experimentierphasen eignete ich mir wertvolle Lektionen im benutzerzentrierten Design, fortgeschrittenen rechnergestützten Algorithmen, Echtzeit-Datenverarbeitung und der symbiotischen Beziehung zwischen Menschen und Technologie an.",
+        "title": "Interaktive Audioanalyse und Sonifikation mit Fourier-Transformationen",
+        "startDate": "Jan 2025 - März 2025",
+        "description": "Entwicklung eines interaktiven Jupyter-basierten Systems zur Analyse und Manipulation von Audiosignalen unter Verwendung der Kurzzeit-Fourier-Transformation (STFT) und Spektrogramm-Visualisierungen. • Implementierung von Echtzeit-Pitch-Shifting, Zeitskalierung und Rauschfilterung auf WAV-Audiodateien unter Verwendung von Python-Bibliotheken wie librosa, scipy und matplotlib. • Konstruktion einer STFT-basierten Signalrekonstruktions-Pipeline mit Überlappungs-Add-Synthese zur Ermöglichung wahrnehmungsmäßig flüssiger zeitdomänenbasierter Signalwiederherstellung. • Aufbau einer explorativen Benutzeroberfläche, die es Benutzern ermöglicht, Frequenzinhalt zu visualisieren und Transformationen anzuwenden, um musikalische oder gesprochene Komponenten zu extrahieren und zu manipulieren. • Demonstration des Verständnisses von Spektralfilterung und Phasenrekonstruktion in praktischen DSP-Anwendungen für Audioengineering und Multimedia-Forschung.",
         "images": [
-            "images/portfolio/backyard-brains/p1.jpg",
-            "images/portfolio/backyard-brains/p2.jpg",
-            "images/portfolio/backyard-brains/p3.jpg",
-            "images/portfolio/backyard-brains/p4.jpg"
+          "images/portfolio/audioanalysis/1.png",
+          "images/portfolio/music/p1.jpg"
         ],
-        "url": "https://schema.backyardbrains.com/",
+        "url": "https://github.com",
         "technologies": [
           {
-            "class": "devicon-python-plain",
+            "class": "devicon-python",
             "name": "Python"
           },
           {
-            "class": "devicon-nodejs-plain",
-            "name": "Node.js"
+            "class": "devicon-jupyter",
+            "name": "Jupyter"
           },
           {
-            "class": "devicon-flutter-plain",
-            "name": "Flutter"
+            "class": "devicon-numpy",
+            "name": "NumPy"
+          }
+        ]
+      },
+      {
+        "title": "LLM-Sondierung für Code-Semantik vs. Syntax-Trennung",
+        "startDate": "Jan 2025 - März 2025",
+        "description": "Untersuchung, ob große Sprachmodelle Code-Syntax und -Semantik in ihren versteckten Darstellungen durch kontrastive Sondierung und rangbasierte Ziele entwirren. • Aufbau von Datenpipelines unter Verwendung von Leetcode-Rosetta und AST-Transformationen zur Generierung semantisch ähnlicher, aber syntaktisch vielfältiger (und umgekehrt) Codepaare. • Entwicklung von Testfall-Verifizierern und Prompt-basierten Code-Generierungs-Utilities unter Verwendung der Anthropic Claude API zur Erstellung strukturierter Evaluierungs-Benchmarks. • Vorschlag eines hybriden Sondierungs-Frameworks, das versteckte Zustände in semantische und syntaktische Unterräume projiziert und Ähnlichkeit des Skalarprodukts über kuratierte Codepaare hinweg bewertet. • Erweiterung der Sondierung auf Token-Level-Analyse und semantische Rangierungsaufgaben unter Verwendung schwacher Überwachung (z.B. AST-Ähnlichkeit, Embedding-Distanz). • Zusammenarbeit mit Forschungsteammitgliedern an Sondierungsdesign, Modell-Introspektion und COLM-Paper-Vorbereitung (Ziel-Einreichung: 30. März 2025).",
+        "images": [
+          "images/portfolio/syntaxsemantics/1.jpg",
+          "images/portfolio/modeling/p3.jpg"
+        ],
+        "url": "https://github.com",
+        "technologies": [
+          {
+            "class": "devicon-python",
+            "name": "Python"
           },
           {
-            "class": "devicon-flask-plain",
+            "class": "devicon-tensorflow",
+            "name": "TensorFlow"
+          },
+          {
+            "class": "devicon-github",
+            "name": "GitHub"
+          }
+        ]
+      },
+      {
+        "title": "Korrelierte Kantenfilterung im verteilten Lernen für bandbreitenbeschränkte Netzwerke",
+        "startDate": "Okt 2024 - Jan 2025",
+        "description": "Entwicklung eines bandbreiteneffizienten verteilten Lernframeworks, das Edge-zu-Server-Datenübertragung um 94% durch autoencoder-basierte Merkmalsextraktion und Clustering reduziert. • Implementierung gRPC-basierter Kommunikation zwischen Edge-Geräten und einem zentralen Server zur Unterstützung von Echtzeit-Sensordaten-Streaming und -Aggregation. • Gestaltung einer semi-supervidierten Lernschleife, bei der der Server gradientenbasierte Rückmeldungen zur Verfeinerung des Edge-Clustering und der Merkmalsauswahl bereitstellt. • Evaluierung des Systems auf hochdimensionalen Videodatensätzen und Demonstration einer 900-fachen Reduzierung des Übertragungsvolumens ohne signifikanten Leistungsverlust. • Beitrag sowohl zur Entwicklung von Machine-Learning-Modellen als auch zur Visualisierung des räumlich-zeitlichen Edge-Verhaltens unter verschiedenen Netzwerkbeschränkungen.",
+        "images": [
+          "images/portfolio/distributed/1.jpg",
+          "images/portfolio/modeling/p5.jpg"
+        ],
+        "url": "https://github.com",
+        "technologies": [
+          {
+            "class": "devicon-python",
+            "name": "Python"
+          },
+          {
+            "class": "devicon-tensorflow",
+            "name": "TensorFlow"
+          },
+          {
+            "class": "devicon-grpc",
+            "name": "gRPC"
+          }
+        ]
+      },
+      {
+        "title": "ZON: KI-gestützter intelligenter Kalender-Assistent für globales Scheduling",
+        "startDate": "Jun 2024 - Aug 2024",
+        "description": "Entwicklung eines intelligenten Scheduling-Assistenten ('ZON') zur Optimierung der globalen Teamkoordination durch Integration von LLMs (über AWS Bedrock) mit LangGraph, Google Calendar API und EC2-basierter Bereitstellung. • Entwicklung konversationeller Workflows mit LangGraph für Echtzeit-Dialogzustandsverwaltung und Intent-Erkennung, ermöglichend personalisierte, zeitzonenbewusste Scheduling-Vorschläge. • Anwendung von Prompt-Engineering und JSON-Schema-Generierung zur dynamischen Schnittstelle mit externen Kalendertools, Vereinfachung der Ressourcenzuweisung und Reduzierung unnötiger Kommunikation. • Gestaltung einer skalierbaren Architektur mit EC2 für Bereitstellung und OAuth 2.0 für sichere Benutzerauthentifizierung und Datenintegration. • Benchmarking gegen Branchentools wie Calendly und FindTime, Hervorhebung verbesserter Personalisierung, globaler Zeitzonenbehandlung und automatisierter Multi-Ressourcen-Verwaltung.",
+        "images": [
+          "images/portfolio/zon/1.jpg",
+          "images/portfolio/web_design/p1.jpg"
+        ],
+        "url": "https://github.com",
+        "technologies": [
+          {
+            "class": "devicon-python",
+            "name": "Python"
+          },
+          {
+            "class": "devicon-aws",
+            "name": "AWS"
+          },
+          {
+            "class": "devicon-javascript",
+            "name": "JavaScript"
+          }
+        ]
+      },
+      {
+        "title": "Cash Cart",
+        "startDate": "Jan 2024 - Feb 2024",
+        "description": "Entwicklung der App CashCart, die Lebensmittelpreise vergleicht und Gutscheine bereitstellt, um die niedrigsten Preise für den Kunden zu finden. Führte das Team an. MVP1 bis MVP5. Im App Store veröffentlicht.",
+        "images": [
+          "images/portfolio/cashcart/1.jpg",
+          "images/portfolio/App/p2.jpg"
+        ],
+        "url": "https://github.com",
+        "technologies": [
+          {
+            "class": "devicon-python",
+            "name": "Python"
+          },
+          {
+            "class": "devicon-flask",
             "name": "Flask"
           },
           {
-            "class": "devicon-html5-plain",
-            "name": "HTML 5"
+            "class": "devicon-swift",
+            "name": "Swift"
+          }
+        ]
+      },
+      {
+        "title": "Hotel-Sentiment-Analyse",
+        "startDate": "Apr 2024 - Apr 2024",
+        "description": "Das Projekt konzentriert sich darauf zu verstehen, wie Kundenfeedback die Fähigkeit von Hotels, potenzielle Probleme zu adressieren und zu verhindern, erheblich verbessern kann, wodurch die Kundenzufriedenheit gesteigert wird. Wenn ein Hotel beispielsweise durchgängig schlechte Bewertungen in der Sauberkeit erhält, kann dieses Feedback direkt in betriebliche Änderungen wie die Verbesserung von Reinigungsservices oder die Neubewertung von Reinigungsmateriallieferanten umgeleitet werden. Durch die Vorhersage von Bewertungen basierend auf Textfeedback können Hotels ein prädiktives Verständnis entwickeln, wie bestimmte Services oder betriebliche Änderungen bei Gästen ankommen könnten. Dieser Ansatz ermöglicht proaktives Management der Kundenzufriedenheit, führt zu verbesserten Bewertungen und folglich zu einem besseren Online-Ruf.",
+        "images": [
+          "images/portfolio/hotel/1.png",
+          "images/portfolio/modeling/p7.jpg"
+        ],
+        "url": "https://github.com",
+        "technologies": [
+          {
+            "class": "devicon-python",
+            "name": "Python"
           },
           {
-            "class": "devicon-css3-plain",
-            "name": "CSS 3"
+            "class": "devicon-pytorch",
+            "name": "PyTorch"
           },
           {
-            "class": "devicon-tensorflow-plain",
+            "class": "devicon-pandas",
+            "name": "Pandas"
+          }
+        ]
+      },
+      {
+        "title": "Debugging-Automatisierung und Testautomatisierung",
+        "startDate": "Dez 2023 - Dez 2023",
+        "description": "Entwicklung von zwei Debugging-Unterstützungstools zur Reduzierung des mit Softwarewartung verbundenen Aufwands. 1. Der Delta-Debugging-Algorithmus zur Minimierung 'interessanter' Mengen. 2. Ein Coverage-basierter Fehlerlokalisierungsalgorithmus zur Identifizierung verdächtiger Zeilen, die an Testfehlern beteiligt sind.",
+        "images": [
+          "images/portfolio/syntax/1.jpg",
+          "images/portfolio/App/p4.jpg"
+        ],
+        "url": "https://github.com",
+        "technologies": [
+          {
+            "class": "devicon-python",
+            "name": "Python"
+          },
+          {
+            "class": "devicon-java",
+            "name": "Java"
+          },
+          {
+            "class": "devicon-cpp",
+            "name": "C++"
+          }
+        ]
+      },
+      {
+        "title": "Hummingbot (Hochfrequenzhandel)",
+        "startDate": "Dez 2023 - Dez 2023",
+        "description": "Beitrag zum Hummingbot-Projekt: Unterstützt Connectors zu zentralisierten Börsen wie Binance und KuCoin sowie dezentralisierten Börsen wie Uniswap und PancakeSwap auf verschiedenen Blockchains (Ethereum, BNB Chain, etc.). Modernste Strategie-Framework: Unser neues V2-Strategien-Framework ermöglicht es Ihnen, leistungsstarke, backtestbare, multi-venue, multi-timeframe Strategien jeglicher Art zu komponieren. Sicherer lokaler Client: Hummingbot ist eine lokale Client-Software, die Sie auf Ihren eigenen Geräten oder Cloud-Virtual-Machines installieren und ausführen. Sie verschlüsselt Ihre API-Schlüssel und privaten Schlüssel und gibt sie niemals an Dritte weiter. Community-fokussiert: Hummingbot wird von einer globalen Community von Quant-Tradern und Entwicklern angetrieben, die die Connectors warten und Strategien zur Codebasis beitragen.",
+        "images": [
+          "images/portfolio/HFT/1.jpg",
+          "images/portfolio/App/p6.jpg"
+        ],
+        "url": "https://github.com",
+        "technologies": [
+          {
+            "class": "devicon-python",
+            "name": "Python"
+          },
+          {
+            "class": "devicon-java",
+            "name": "Java"
+          },
+          {
+            "class": "devicon-docker",
+            "name": "Docker"
+          }
+        ]
+      },
+      {
+        "title": "Unit Testing",
+        "startDate": "Dez 2023 - Dez 2023",
+        "description": "Schrieb ein Tool zur Durchführung einfacher Mutations-Tests an Python-Programmen. Mein Programm generierte Mutanten dieses Programms, sodass die Mutations-Adäquanz-Bewertung eine beliebige Anzahl von zurückgehaltenen Test-Suites für dieses Programm in Bezug auf ihre Qualität korrekt rangordnet.",
+        "images": [
+          "images/portfolio/unittesting/1.jpg",
+          "images/portfolio/App/p8.jpg"
+        ],
+        "url": "https://github.com",
+        "technologies": [
+          {
+            "class": "devicon-python",
+            "name": "Python"
+          },
+          {
+            "class": "devicon-jest",
+            "name": "Jest"
+          },
+          {
+            "class": "devicon-mocha",
+            "name": "Mocha"
+          }
+        ]
+      },
+      {
+        "title": "Eye-Tracking-Projekt",
+        "startDate": "Aug 2023 - Aug 2023",
+        "description": "Verwendung eines Eye-Trackers zur Messung der Aufmerksamkeit des Benutzers bei Bildänderungen über 30 Sekunden. Verwendung von Kalibrierung und Webcam-Eye-Tracker (Computervision)",
+        "images": [
+          "images/portfolio/eyetracker/1.jpg",
+          "images/portfolio/App/p10.jpg"
+        ],
+        "url": "https://github.com",
+        "technologies": [
+          {
+            "class": "devicon-python",
+            "name": "Python"
+          },
+          {
+            "class": "devicon-opencv",
+            "name": "OpenCV"
+          },
+          {
+            "class": "devicon-tensorflow",
             "name": "TensorFlow"
           }
         ]
       },
       {
-        "title": "Erklärbarkeit des maschinellen Lernens",
-        "startDate": "2022 - Heute",
-        "description": "Ich habe eine Studie zur Mensch-Computer-Interaktion (HCI) mitverfasst, die sich auf das wachsende Teilgebiet der Erklärbarkeit von Maschinellem Lernen und Künstlicher Intelligenz konzentriert. Die Studie synthetisierte pädagogische Forschung über aktives Lernen und Quiz als Lehrmittel sowie HCI/Erklärbarkeits-Forschungsmethoden.",
+        "title": "Backyard Brains Webapp",
+        "startDate": "Jun 2023 - Jun 2023",
+        "description": "Erstellung einer Webapp mit drei verschiedenen Spielen. Entwicklung von Backend und Frontend in einem Monat. 1: Aufmerksamkeitsschema 2: Webcam-Eye-Tracker 3. Aufmerksamkeitsmesser",
         "images": [
-          "images/portfolio/comphci/p1.jpg"
+          "images/portfolio/backyard-brains/summer-ann-coding-resized.jpg",
+          "images/portfolio/backyard-brains/p3.jpg"
         ],
-        "url": ".",
+        "url": "https://github.com",
         "technologies": [
           {
-            "class": "devicon-python-plain",
-            "name": "Python"
-          },
-          {
-            "class": "devicon-django-plain",
-            "name": "Django"
-          }
-        ]
-      },
-      {
-        "title": "Kiefergelenkserkrankungen bei Evc2-mutierten Mäusen, XROMM-Analyse über abnormale Kieferbewegungen und Schmerzen",
-        "startDate": "2021 - 2022",
-        "description": "Ich analysierte Daten zur Röntgenrekonstruktion beweglicher Morphologie (XROMM) mit XMA-Labor.",
-        "images": [
-          "images/portfolio/conference/pic3.jpg",
-          "images/portfolio/conference/pic2.jpg",
-          "images/portfolio/conference/pic1.jpg"
-        ],
-        "url": ".",
-        "technologies": [
-          {
-            "class": "devicon-r-plain",
-            "name": "R"
-          },
-          {
-            "class": "devicon-python-plain",
-            "name": "Python"
-          }
-        ]
-      },
-      {
-        "title": "UX/UI Design for App and Webapp",
-        "startDate": "2021 - present",
-        "description": "User Interface/ User Experience Desigan for 30+ clients",
-        "images": [
-          "images/portfolio/web_design/p0.jpg",
-          "images/portfolio/web_design/p2.jpg",
-          "images/portfolio/web_design/p1.jpg"
-        ],
-        "url": ".",
-        "technologies": [
-          {
-            "class": "devicon-html5-plain",
-            "name": "HTML 5"
-          },
-          {
-            "class": "devicon-css3-plain",
-            "name": "CSS3"
-          },
-          {
-            "class": "devicon-flutter-plain",
-            "name": "Flutter"
-          },
-          {
-            "class": "devicon-flask-plain",
+            "class": "devicon-flask",
             "name": "Flask"
           },
           {
-            "class": "devicon-react-plain",
-            "name": "React"
+            "class": "devicon-python",
+            "name": "Python"
           },
           {
-            "class": "devicon-python-plain",
-            "name": "Python"
+            "class": "devicon-html5",
+            "name": "HTML5"
           }
         ]
       },
       {
-        "title": "Musik",
-        "startDate": "2019 - 2023",
-        "description": "Ich bin Sängerin/Songschreiberin mit zwei EPs, die auf Spotify, Apple Music und YouTube verfügbar sind.",
-          "images": [
-            "images/portfolio/music/p1.jpg",
-              "images/portfolio/music/p2.jpg"
-          ],
-          "url": "https://summerann.onuniverse.com/",
-          "technologies": [
-              {
-                  "class": "devicon-python-plain",
-                  "name": "Python"
-              },
-              {
-                  "class": "devicon-django-plain",
-                  "name": "Django"
-              }
-          ]
-      },
-      {
-          "title": "Modeln/Schauspielerin",
-          "startDate": "2018 - 2023",
-          "description": "Ich arbeite als Model in Kalifornien, Paris, Korea und New York.",
-          "images": [
-              "images/portfolio/modeling/p1.jpg",
-              "images/portfolio/modeling/p2.jpg",
-              "images/portfolio/modeling/p3.jpg",
-              "images/portfolio/modeling/p4.jpg",
-              "images/portfolio/modeling/p5.jpg",
-              "images/portfolio/modeling/p6.jpg",
-              "images/portfolio/modeling/p7.jpg",
-              "images/portfolio/modeling/p8.jpg",
-              "images/portfolio/modeling/p9.jpg",
-              "images/portfolio/modeling/p10.jpg",
-              "images/portfolio/modeling/p11.jpg"
-          ],
-          "url": "https://www.instagram.com/summereunann/",
-          "technologies": [
-              {
-                  "class": "",
-                  "name": ""
-              },
-              {
-                  "class": "",
-                  "name": ""
-              }
-          ]
-      }
-  ],
-  "experience": [
-      {
-          "company": "University of Michigan Medicine, Computational Medicine",
-          "title": "Forschung im Bereich Deep Learning/Maschinelles Lernen",
-          "years": "8/2022 - Heute",
-          "mainTech": [
-              "Python",
-              "C++"
-          ],
-          "technologies": [
-              "Deep Learning",
-              "Maschinelles Lernen",
-              "Batch-Pipeline zur Clustererkennung",
-              "NumPy",
-              "Pandas",
-              "CRISPR (Cas3-YanLab)",
-              "K-Means-Analyse",
-              "Louvain-Analyse",
-              "Hauptkomponentenanalyse"
-          ]
-      },
-      {
-          "company": "University of Michigan, College of Engineering",
-          "title": "Forscher im Bereich Maschinelles Lernen",
-          "years": "7/2023 - heute",
-          "mainTech": [
-              "Python",
-              "Django"
-          ],
-          "technologies": [
-              "MySQL",
-              "Keras Sequential Models",
-              "Modelloptimierung",
-              "Stochastischer Gradientenabstieg",
-              "Apache"
-          ]
-      },
-      {
-          "company": "Backyard Brains",
-          "title": "Full-Stack-Softwareentwicklerin",
-          "years": "6/2023 - 8/2023",
-          "mainTech": [
-              "Node.js",
-              "Python",
-              "Flask"
-          ],
-          "technologies": [
-              "Flutter",
-              "Django",
-              "HTML",
-              "CSS"
-          ]
-      },
-      {
-          "company": "University of Michigan Medicine, Todd Laboratory",
-          "title": "Forschungsassistentin",
-          "years": "5/2022 - 9/2022",
-          "mainTech": [
-              "SQL",
-              "R"
-          ],
-          "technologies": [
-              "Massenspektrometrie",
-              "Western Blot",
-              "Zell-/Gewebekultur",
-              "PCR",
-              "Gentransfer",
-              "RNA-Erzeugung",
-              "Bildscannen",
-              "Plasmidvektor",
-              "DNA-Transfektion",
-              "Verhaltensanalyse"
-          ]
-      },
-      {
-        "company": "University of Michigan School of Dentistry, Dr. Mishina Lab",
-        "title": "Undergraduate Researcher",
-        "years": "9/2021 - 9/2022",
-        "mainTech": [
-          "SQL",
-          "R",
-          "CAD"
+        "title": "Marktlogik und algorithmischer Handel/Aktien",
+        "startDate": "Mär 2023 - Mär 2023",
+        "description": "Konstruktion einer relationalen Datenbank in C++ unter Verwendung von Hashmap, Set, Union-Find, Priority Queue und quantitativer Analyse. Eine Emulation eines elektronischen Aktienbörsenmarktes für kleine (100 Trades) und große (100.000 Trades).",
+        "images": [
+          "images/portfolio/algorithmictrading/1.jpg",
+          "images/portfolio/App/p0.jpg"
         ],
+        "url": "https://github.com",
         "technologies": [
-          "Mass Spectrometry",
-          "XMA lab",
-          "Cell/Tissue Culture",
-          "PCR",
-          "Gene Transfer",
-          "RNA Generation",
-          "Image Scanning",
-          "Plasmid Vector",
-          "DNA Transfection",
-          "Behavioral Analysis"
+          {
+            "class": "devicon-cpp",
+            "name": "C++"
+          },
+          {
+            "class": "devicon-python",
+            "name": "Python"
+          },
+          {
+            "class": "devicon-sqlite",
+            "name": "SQLite"
+          }
+        ]
+      },
+      {
+        "title": "CV (Computervision)",
+        "startDate": "Jan 2023 - Jan 2023",
+        "description": "Seam Carving ist eine Technik für inhaltsbewusste Größenänderung von Bildern (manchmal als 'Retargeting' bekannt). Das Endergebnis ist, dass wir Bilder so vergrößern können, dass sich das Seitenverhältnis ändert, aber das Bild nicht verzerrt wird. Matrix.cpp Matrix_tests.cpp processing.cpp Image.cpp Image_tests.cpp resize.cpp",
+        "images": [
+          "images/portfolio/computervision/1.jpg",
+          "images/portfolio/App/p12.jpg"
+        ],
+        "url": "https://github.com",
+        "technologies": [
+          {
+            "class": "devicon-cpp",
+            "name": "C++"
+          },
+          {
+            "class": "devicon-opencv",
+            "name": "OpenCV"
+          },
+          {
+            "class": "devicon-cmake",
+            "name": "CMake"
+          }
+        ]
+      },
+      {
+        "title": "Euchre",
+        "startDate": "Mär 2021 - Mär 2021",
+        "description": "Ein Programm mit 4 cpp-Dateien zum Spielen des Euchre-Spiels. Card.cpp Pack.cpp Player.cpp Euchre.cpp Euchre (ausgesprochen 'YOO-kur') ist ein Stichspiel, das in Michigan beliebt ist. Es wird am häufigsten von vier Personen in zwei Partnerschaften mit einem Deck von 24 Karten gespielt. Partnerschaften sammeln Punkte für gewonnene Stiche, und das Spiel geht weiter, bis eine Seite die maximale Anzahl von Punkten erreicht. Schrieb einen Simulator für ein Euchre-Spiel mit abstrakten Datentypen, objektorientierter Programmierung und Polymorphismus. • Schreiben eines Simulators mit C++ objektorientierter Programmierung für ein Euchre-Spiel, das von AI-Spieler oder menschlichem Spieler oder beiden gespielt werden kann • Implementierung eines AI-computergesteuerten Euchre-Spielers, der dieses Spiel automatisch nach den von mir gesetzten Regeln spielen kann • Implementierung eines menschlich gesteuerten Spielers, der Eingaben vom menschlichen Benutzer liest",
+        "images": [
+          "images/portfolio/euchre/1.jpg",
+          "images/portfolio/App/p2.jpg"
+        ],
+        "url": "https://github.com",
+        "technologies": [
+          {
+            "class": "devicon-cpp",
+            "name": "C++"
+          },
+          {
+            "class": "devicon-gcc",
+            "name": "GCC"
+          },
+          {
+            "class": "devicon-make",
+            "name": "Make"
+          }
+        ]
+      },
+      {
+        "title": "Stats.cpp",
+        "startDate": "Jan 2023 - Jan 2023",
+        "description": "Schrieb zwei Codemodule in zwei Dateien sowie eine Reihe von Unit-Tests. Schrieb Funktionen, die grundlegende Statistiken wie Mittelwert und Standardabweichung berechnen. Testete Ihre Funktionen mit Unit-Tests, die Sie zu stats_tests.cpp hinzufügen werden. Schrieb ein Treiberprogramm, das eine Datendatei aus der Studie liest und Statistiken in main.cpp berechnet.",
+        "images": [
+          "images/portfolio/stat.cpp/1.jpg",
+          "images/portfolio/App/p4.jpg"
+        ],
+        "url": "https://github.com",
+        "technologies": [
+          {
+            "class": "devicon-cpp",
+            "name": "C++"
+          },
+          {
+            "class": "devicon-gcc",
+            "name": "GCC"
+          },
+          {
+            "class": "devicon-cmake",
+            "name": "CMake"
+          }
+        ]
+      },
+      {
+        "title": "RAN-Translation von ALS-assoziierten Wiederholungen",
+        "startDate": "Mai 2021 - Sep 2021",
+        "description": "Erforschung der mechanistischen Konvergenz über Initiationsstellen für RAN-Translation beim fragilen X-assoziierten Tremor-Ataxie-Syndrom",
+        "images": [
+          "images/portfolio/rantranslation/1.jpg",
+          "images/portfolio/boyle-lab/p2.jpg"
+        ],
+        "url": "https://github.com",
+        "technologies": [
+          {
+            "class": "devicon-python",
+            "name": "Python"
+          },
+          {
+            "class": "devicon-r",
+            "name": "R"
+          },
+          {
+            "class": "devicon-jupyter",
+            "name": "Jupyter"
+          }
+        ]
+      },
+      {
+        "title": "Genomik-Projekt mit maschinellem Lernen und SEI-Framework",
+        "startDate": "Jan 2021 - Mai 2021",
+        "description": "Entwicklung einer umfassenden Genomik-Analyse-Pipeline, die maschinelles Lernen mit dem SEI (Sequence-Extraction-Inference) Framework für Krankheitsklassifikation unter Verwendung von Gensequenzdaten und Short Tandem Repeat (STR) Analyse kombiniert. • Implementierung bioinformatischer Vorverarbeitung mit bedtools für genomische Intervallmanipulation, einschließlich Zusammenführung, Überschneidung und Annotation genomischer Regionen mit funktionalen Daten. • Aufbau von Machine-Learning-Modellen für STR-Mustererkennung und -klassifikation, ermöglichend automatisierte Identifikation repetitiver DNA-Sequenzen und Allellängen-Vorhersage. • Anwendung des SEI-Frameworks zur Vorhersage sequenzregulatorischer Aktivitäten über 21.907 Chromatin-Profile und 40 Sequenzklassen für umfassende Genomik-Analyse. • Entwicklung Python-basierter Datenverarbeitungspipelines für hochdimensionale genomische Daten, einschließlich Dimensionsreduktion (PCA, t-SNE, UMAP) und Clustering-Algorithmen (K-Means, Louvain). • Erstellung automatisierter Workflows für Varianteneffekt-Vorhersage und Sequenzklassen-Analyse, unterstützend sowohl hg19 als auch hg38 Genom-Assemblies mit CUDA-Beschleunigungsfunktionen.",
+        "images": [
+          "images/portfolio/boyle-lab/p1.jpg",
+          "images/portfolio/boyle-lab/p3.jpg"
+        ],
+        "url": "https://github.com",
+        "technologies": [
+          {
+            "class": "devicon-python",
+            "name": "Python"
+          },
+          {
+            "class": "devicon-pytorch",
+            "name": "PyTorch"
+          },
+          {
+            "class": "devicon-tensorflow",
+            "name": "TensorFlow"
+          }
+        ]
+      },
+      {
+        "title": "Akademische Konferenzen und Präsentationen",
+        "startDate": "Jan 2023 - Gegenwart",
+        "description": "Aktive Teilnahme an akademischen Konferenzen und Forschungspräsentationen, Präsentation von Arbeiten in maschinellem Lernen, Bioinformatik und Computermedizin. Präsentation von Forschungsergebnissen und Zusammenarbeit mit Experten auf dem Gebiet.",
+        "images": [
+          "images/portfolio/conference/pic1.jpg",
+          "images/portfolio/conference/pic2.jpg",
+          "images/portfolio/conference/pic3.jpg"
+        ],
+        "url": "https://github.com",
+        "technologies": [
+          {
+            "class": "fas fa-presentation",
+            "name": "Präsentationen"
+          },
+          {
+            "class": "fas fa-research",
+            "name": "Forschung"
+          },
+          {
+            "class": "fas fa-network",
+            "name": "Netzwerken"
+          }
         ]
       }
-  ]
+    ],
+    "skills": [
+      {
+        "name": "Python",
+        "icon": "devicon:python"
+      },
+      {
+        "name": "C++",
+        "icon": "devicon:cplusplus"
+      },
+      {
+        "name": "React",
+        "icon": "devicon:react"
+      },
+      {
+        "name": "JavaScript",
+        "icon": "devicon:javascript"
+      },
+      {
+        "name": "AWS",
+        "icon": "devicon:aws"
+      },
+      {
+        "name": "Maschinelles Lernen",
+        "icon": "devicon:tensorflow"
+      },
+      {
+        "name": "Deep Learning",
+        "icon": "devicon:pytorch"
+      },
+      {
+        "name": "Bioinformatik",
+        "icon": "devicon:python"
+      },
+      {
+        "name": "Django",
+        "icon": "devicon:django"
+      },
+      {
+        "name": "Flask",
+        "icon": "devicon:flask"
+      },
+      {
+        "name": "LangChain",
+        "icon": "devicon:python"
+      },
+      {
+        "name": "LLM",
+        "icon": "devicon:openai"
+      },
+      {
+        "name": "SQL",
+        "icon": "devicon:mysql"
+      },
+      {
+        "name": "Git",
+        "icon": "devicon:git"
+      },
+      {
+        "name": "Docker",
+        "icon": "devicon:docker"
+      }
+    ],
+    "art": [
+      {
+        "title": "Theater und Schauspiel",
+        "startDate": "2018 - Gegenwart",
+        "description": "Erfahrung in Theater und Schauspiel, Teilnahme an verschiedenen Theaterproduktionen und Bühnenauftritten. Entwicklung von Schauspiel-, emotionaler Ausdrucks- und Bühnenpräsenz-Fähigkeiten.",
+        "images": [
+          "images/portfolio/music/p1.jpg",
+          "images/portfolio/music/p2.jpg"
+        ],
+        "url": "https://github.com",
+        "technologies": [
+          {
+            "class": "fas fa-theater-masks",
+            "name": "Theater"
+          },
+          {
+            "class": "fas fa-drama",
+            "name": "Schauspiel"
+          },
+          {
+            "class": "fas fa-microphone",
+            "name": "Performance"
+          }
+        ]
+      },
+      {
+        "title": "Gesang und Musik",
+        "startDate": "2016 - Gegenwart",
+        "description": "Gesangsausbildung und Erfahrung im Singen, Teilnahme an Musikaufführungen und Aufnahmen. Entwicklung von Gesangstechniken und musikalischer Interpretation.",
+        "images": [
+          "images/portfolio/music/p1.jpg",
+          "images/portfolio/music/p2.jpg"
+        ],
+        "url": "https://github.com",
+        "technologies": [
+          {
+            "class": "fas fa-music",
+            "name": "Gesang"
+          },
+          {
+            "class": "fas fa-microphone-alt",
+            "name": "Vokal"
+          },
+          {
+            "class": "fas fa-headphones",
+            "name": "Aufnahme"
+          }
+        ]
+      },
+      {
+        "title": "Modelling und Mode",
+        "startDate": "2019 - Gegenwart",
+        "description": "Erfahrung im Modelling und in der Modebranche, Teilnahme an Modenschauen, Fotoshootings und Werbekampagnen. Entwicklung von Posing-, Gesichtsausdruck- und Präsentationsfähigkeiten.",
+        "images": [
+          "images/portfolio/music/p1.jpg",
+          "images/portfolio/music/p2.jpg"
+        ],
+        "url": "https://github.com",
+        "technologies": [
+          {
+            "class": "fas fa-camera",
+            "name": "Fotografie"
+          },
+          {
+            "class": "fas fa-tshirt",
+            "name": "Mode"
+          },
+          {
+            "class": "fas fa-star",
+            "name": "Modelling"
+          }
+        ]
+      }
+    ]
 }
