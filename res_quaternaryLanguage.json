@@ -274,6 +274,49 @@
     ],
     "projects": [
       {
+        "title": "Domain Adaptation of LLMs for Cancer Classification",
+        "startDate": "Feb 2025 - Feb 2025",
+        "description": "Comparaison des embeddings BERT et PubMedBERT pour les données TCGA sur le cancer. Visualisation des embeddings avec PCA, amélioration de la séparabilité. Analyse de l'impact de l'adaptation de domaine biomédical.",
+        "images": [
+          "images/portfolio/cancerbert/1.png"
+        ],
+        "url": "https://github.com",
+        "technologies": [
+          { "class": "devicon-python", "name": "Grands modèles de langage" },
+          { "class": "devicon-huggingface", "name": "Hugging Face" },
+          { "class": "devicon-python", "name": "Bioinformatique" }
+        ]
+      },
+      {
+        "title": "Transformer-Based Text Analysis",
+        "startDate": "Feb 2025 - Feb 2025",
+        "description": "Implémentation d'un transformer de type GPT-2 avec einops pour l'analyse de texte financier. Analyse des rapports de résultats pour la prédiction de sentiment avec PyTorch. Modèle optimisé avec normalisation de couche et accélération GPU.",
+        "images": [
+          "images/portfolio/gpt2/gpt2.png"
+        ],
+        "url": "https://github.com",
+        "technologies": [
+          { "class": "devicon-pytorch", "name": "PyTorch" },
+          { "class": "devicon-python", "name": "Grands modèles de langage" },
+          { "class": "devicon-python", "name": "Finance quantitative" }
+        ]
+      },
+      {
+        "title": "Multithreaded Stock Trading System",
+        "startDate": "Jan 2025 - Mar 2025",
+        "description": "Backend haute performance en C++20 simulant un environnement de trading d'actions. Modélisation des traders, carnets d'ordres et moteurs de correspondance avec multithreading pour la concurrence. Journalisation thread-safe pour l'analyse du trading en temps réel.",
+        "images": [
+          "images/portfolio/multithreadstock/1.png"
+        ],
+        "url": "https://github.com",
+        "technologies": [
+          { "class": "devicon-cplusplus", "name": "C++20" },
+          { "class": "devicon-python", "name": "Multithreading" },
+          { "class": "devicon-python", "name": "Modélisation financière" },
+          { "class": "devicon-python", "name": "Finance quantitative" }
+        ]
+      },
+      {
         "title": "Application de photobooth web interactive",
         "startDate": "Avril 2025 - Mai 2025",
         "description": "Construction d'une application web de photobooth basée sur React avec flux de caméra en temps réel, animations de compte à rebours et aperçu de filtres en direct utilisant des filtres CSS et des superpositions de grain. • Implémentation d'une UI de bande de film dynamique affichant les 20 derniers clichés avec stockage horodaté et vue de galerie centrale pour une sélection conviviale. • Intégration de filtres photo personnalisés comme sépia, niveaux de gris, rotation de teinte et textures de grain reproduisant des styles esthétiques urbains. • Ajout de fonctionnalités comme des comptes à rebours animés surdimensionnés, stockage en temps réel et interactions utilisateur améliorées pour une expérience UX captivante. • Application d'un design de composants modulaire avec Tailwind CSS et gestion d'état basée sur les hooks pour la scalabilité et la réactivité inter-appareils.",

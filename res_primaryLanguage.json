@@ -210,6 +210,46 @@
     ],
     "projects": [
       {
+        "title": "Domain Adaptation of LLMs for Cancer Classification",
+        "startDate": "Feb 2025 - Feb 2025",
+        "description": "Compared BERT and PubMedBERT embeddings for TCGA cancer data. Visualized embeddings using PCA, improving separability. Analyzed biomedical domain adaptation impact.",
+        "images": [
+          "images/portfolio/cancerbert/1.png"
+        ],
+        "technologies": [
+          { "class": "devicon-python", "name": "Large Language Models" },
+          { "class": "devicon-huggingface", "name": "Hugging Face" },
+          { "class": "devicon-python", "name": "Bioinformatics" }
+        ]
+      },
+      {
+        "title": "Transformer-Based Text Analysis",
+        "startDate": "Feb 2025 - Feb 2025",
+        "description": "Implemented GPT-2-like transformer with einops for financial text analysis. Analyzed earnings reports for sentiment prediction using PyTorch. Optimized model with layer normalization and GPU acceleration.",
+        "images": [
+          "images/portfolio/gpt2/gpt2.png"
+        ],
+        "technologies": [
+          { "class": "devicon-pytorch", "name": "PyTorch" },
+          { "class": "devicon-python", "name": "Large Language Models" },
+          { "class": "devicon-python", "name": "Quantitative Finance" }
+        ]
+      },
+      {
+        "title": "Multithreaded Stock Trading System",
+        "startDate": "Jan 2025 - Mar 2025",
+        "description": "Developed a high-performance C++20 backend simulating a stock trading environment. Modeled traders, order books, and matching engines with multithreading for concurrency. Implemented thread-safe logging for real-time trading analysis.",
+        "images": [
+          "images/portfolio/multithreadstock/1.png"
+        ],
+        "technologies": [
+          { "class": "devicon-cplusplus", "name": "C++20" },
+          { "class": "devicon-python", "name": "Multithreading" },
+          { "class": "devicon-python", "name": "Financial Modeling" },
+          { "class": "devicon-python", "name": "Quantitative Finance" }
+        ]
+      },
+      {
         "title": "Interactive Web-Based Photobooth App",
         "startDate": "Apr 2025 - May 2025",
         "description": "Built a React-based photobooth web application featuring real-time camera feed, countdown animation, and live filter previews using CSS filters and grain overlays. • Implemented a dynamic filmstrip UI that displays the last 20 shots with timestamped saves and a centered gallery view for user-friendly selection. • Integrated customizable photo filters (e.g., sepia, grayscale, hue-rotate) and grain textures to replicate nostalgic city-based aesthetic styles. • Added features such as extra-large animated countdowns, real-time saving, and enhanced user interactivity for an engaging UX. • Applied modular component design with Tailwind CSS and hooks-based state management to ensure scalability and responsiveness across devices.",

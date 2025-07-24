@@ -207,6 +207,49 @@
     ],
     "projects": [
       {
+        "title": "Domain Adaptation of LLMs for Cancer Classification",
+        "startDate": "Feb 2025 - Feb 2025",
+        "description": "BERT- und PubMedBERT-Embeddings für TCGA-Krebsdaten verglichen. Embeddings mit PCA visualisiert, Trennbarkeit verbessert. Einfluss der Domänenanpassung im biomedizinischen Bereich analysiert.",
+        "images": [
+          "images/portfolio/cancerbert/1.png"
+        ],
+        "url": "https://github.com",
+        "technologies": [
+          { "class": "devicon-python", "name": "Large Language Models" },
+          { "class": "devicon-huggingface", "name": "Hugging Face" },
+          { "class": "devicon-python", "name": "Bioinformatik" }
+        ]
+      },
+      {
+        "title": "Transformer-Based Text Analysis",
+        "startDate": "Feb 2025 - Feb 2025",
+        "description": "GPT-2-ähnlichen Transformer mit einops für Finanztextanalyse implementiert. Gewinnberichte mit PyTorch für Sentiment-Analyse ausgewertet. Modell mit Layer-Normalisierung und GPU-Beschleunigung optimiert.",
+        "images": [
+          "images/portfolio/gpt2/gpt2.png"
+        ],
+        "url": "https://github.com",
+        "technologies": [
+          { "class": "devicon-pytorch", "name": "PyTorch" },
+          { "class": "devicon-python", "name": "Large Language Models" },
+          { "class": "devicon-python", "name": "Quantitative Finance" }
+        ]
+      },
+      {
+        "title": "Multithreaded Stock Trading System",
+        "startDate": "Jan 2025 - Mar 2025",
+        "description": "Hochleistungs-Backend in C++20 zur Simulation einer Aktienhandelsumgebung entwickelt. Trader, Orderbücher und Matching-Engines mit Multithreading modelliert. Thread-sicheres Logging für Echtzeit-Handelsanalyse implementiert.",
+        "images": [
+          "images/portfolio/multithreadstock/1.png"
+        ],
+        "url": "https://github.com",
+        "technologies": [
+          { "class": "devicon-cplusplus", "name": "C++20" },
+          { "class": "devicon-python", "name": "Multithreading" },
+          { "class": "devicon-python", "name": "Finanzmodellierung" },
+          { "class": "devicon-python", "name": "Quantitative Finance" }
+        ]
+      },
+      {
         "title": "Interaktive webbasierte Fotobox-App",
         "startDate": "Apr 2025 - Mai 2025",
         "description": "Entwicklung einer React-basierten Fotobox-Webanwendung mit Echtzeit-Kamerafeed, Countdown-Animation und Live-Filter-Vorschau unter Verwendung von CSS-Filtern und Korn-Overlays. • Implementierung einer dynamischen Filmstreifen-UI, die die letzten 20 Aufnahmen mit zeitstempelgestützten Speicherungen und einer zentrierten Galerieansicht für benutzerfreundliche Auswahl anzeigt. • Integration anpassbarer Fotofilter (z.B. Sepia, Graustufen, Farbton-Rotation) und Korn-Texturen zur Reproduktion nostalgischer städtischer ästhetischer Stile. • Hinzufügung von Funktionen wie übergroße animierte Countdowns, Echtzeit-Speicherung und verbesserte Benutzerinteraktivität für ein fesselndes UX-Erlebnis. • Anwendung eines modularen Komponenten-Designs mit Tailwind CSS und Hooks-basiertem State Management für Skalierbarkeit und Reaktionsfähigkeit über Geräte hinweg.",

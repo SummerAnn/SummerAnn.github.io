@@ -47,6 +47,11 @@
           "name": "leanpub", 
           "url": "https://docs.google.com/presentation/d/e/2PACX-1vRNRVxEvAilFx9l2osqe5MqhbNbjLC3SUMWXcZckNRFR5x64xa1XkMjIgKf_G_nN_SgrMhu_cTEsMJu/pub?start=false&loop=false&delayms=3000",
           "class": "fab fa-leanpub"
+        },
+        {
+          "name": "resume",
+          "url": "https://drive.google.com/file/d/16easd52yyldhlzLF83bprckb_NM1NoLn/view?usp=sharing",
+          "class": "fas fa-file-pdf"
         }
       ],
       "image": "myProfile.jpg"
