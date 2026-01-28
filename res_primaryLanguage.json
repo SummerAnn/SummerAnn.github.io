@@ -14,6 +14,24 @@
   },
   "experience": [
     {
+      "title": "CEO",
+      "company": "SummitWanderlust LLC",
+      "years": "2026 - Present",
+      "location": "Remote / Global",
+      "url": "https://summitwanderlust.com/",
+      "description": "Founded and lead SummitWanderlust LLC, a venture focused on apps, a YouTube channel, Airbnb experiences, and community projects to make the world a better place to live. Slogan: Where every breath is an adventure.",
+      "mainTech": [
+        "Product",
+        "Media"
+      ],
+      "technologies": [
+        "Apps",
+        "YouTube",
+        "Airbnb",
+        "Community Projects"
+      ]
+    },
+    {
       "title": "CoCTO",
       "company": "Concord Systems Corp.",
       "years": "Jun 2025 - Present",

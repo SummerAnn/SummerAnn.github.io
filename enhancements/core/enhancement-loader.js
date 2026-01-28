@@ -28,7 +28,9 @@
           { id: 'resume', label: 'Experience', icon: 'fas fa-briefcase' },
           { id: 'skills', label: 'Skills', icon: 'fas fa-tools' }
         ],
+        webcamLink: { id: 'webcam-gaming', label: 'Webcam Lab', url: '/demos/webcam-gaming/', icon: 'fas fa-video' },
         demoLinks: [
+          { id: 'webcam-gaming', label: 'Webcam Lab', url: '/demos/webcam-gaming/', icon: 'fas fa-video' },
           { id: 'intro-cinematic', label: 'Intro Cinematic', url: '/demos/intro-cinematic/', icon: 'fas fa-film' },
           { id: 'yammoing', label: 'Yammoing', url: '/demos/yammoing/', icon: 'fas fa-heartbeat' },
           { id: 'wanderlust', label: 'Wanderlust', url: '/demos/wanderlust/', icon: 'fas fa-map-marked-alt' },

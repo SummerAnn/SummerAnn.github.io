@@ -18,7 +18,9 @@
           { id: 'skills', label: 'Skills', icon: 'fas fa-tools' },
           { id: 'art', label: 'Art', icon: 'fas fa-palette' }
         ],
+        webcamLink: { id: 'webcam-gaming', label: 'Webcam Lab', url: '/demos/webcam-gaming/index.html', icon: 'fas fa-video' },
         demoLinks: [
+          { id: 'webcam-gaming', label: 'Webcam Lab', url: '/demos/webcam-gaming/index.html', icon: 'fas fa-video' },
           { id: 'intro-cinematic', label: 'Intro Cinematic', url: '/demos/intro-cinematic/index.html', icon: 'fas fa-film' },
           { id: 'yammoing', label: 'Yammoing', url: '/demos/yammoing/index.html', icon: 'fas fa-heartbeat' },
           { id: 'wanderlust', label: 'Wanderlust', url: '/demos/wanderlust/index.html', icon: 'fas fa-map-marked-alt' },
@@ -59,6 +61,15 @@
       </li>`
     ).join('');
 
+    const webcamLinkHtml = config.webcamLink ? `
+      <li class="nav-webcam">
+        <a href="${config.webcamLink.url}" data-magnetic>
+          <i class="${config.webcamLink.icon}"></i>
+          <span>${config.webcamLink.label}</span>
+        </a>
+      </li>
+    ` : '';
+
     const demosHtml = config.demoLinks.length > 0 ? `
       <li class="nav-dropdown">
         <a href="#" class="dropdown-trigger" data-magnetic>
@@ -95,6 +106,7 @@
 
         <ul class="nav-links">
           ${sectionsHtml}
+          ${webcamLinkHtml}
           ${demosHtml}
           <li class="nav-games">
             <a href="#" id="nav-games-btn" data-magnetic>
@@ -164,6 +176,19 @@
       }
       .dropdown-menu a:hover {
         background: rgba(108, 99, 255, 0.1);
+      }
+      .nav-webcam a {
+        display: flex;
+        align-items: center;
+        gap: var(--space-xs);
+        padding: var(--space-xs) var(--space-sm);
+        border-radius: var(--radius-lg);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        background: linear-gradient(120deg, rgba(125, 92, 255, 0.12), rgba(34, 211, 238, 0.1));
+        transition: border-color var(--duration-normal) var(--ease-out-quart);
+      }
+      .nav-webcam a:hover {
+        border-color: rgba(125, 92, 255, 0.6);
       }
       .nav-games a {
         display: flex;
@@ -270,6 +295,11 @@
       navLinks.querySelectorAll('a[href^="#"]').forEach(link => {
         link.addEventListener('click', handleNavClick);
       });
+    }
+
+    const webcamLink = nav.querySelector('.nav-webcam a');
+    if (webcamLink) {
+      webcamLink.addEventListener('click', () => closeMobileMenu());
     }
 
     // Games button

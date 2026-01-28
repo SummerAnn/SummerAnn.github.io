@@ -40,6 +40,23 @@
   ],
   "experience": [
     {
+      "title": "CEO",
+      "company": "SummitWanderlust LLC",
+      "years": "2026 - Heute",
+      "location": "Remote / Global",
+      "description": "Founded and lead SummitWanderlust LLC, a venture focused on apps, a YouTube channel, Airbnb experiences, and community projects to make the world a better place to live. Slogan: Where every breath is an adventure.",
+      "mainTech": [
+        "Product",
+        "Media"
+      ],
+      "technologies": [
+        "Apps",
+        "YouTube",
+        "Airbnb",
+        "Community Projects"
+      ]
+    },
+    {
       "title": "Software Engineering Fellow",
       "company": "Backyard Brains",
       "years": "Juni 2023 - August 2023",
@@ -206,7 +223,7 @@
       "startDate": "Jan 2026 - Present",
       "description": "Built automated validity checks and indexing workflows to evaluate large batches of LLM-generated research runs in an execution-grounded environment. Aggregated and audited 1,728 experiment runs to surface failure modes and reproducibility gaps.",
       "images": [
-        "/images/portfolio/modeling/p5.jpg"
+        "/images/hypogenic.png"
       ],
       "technologies": [
         {
@@ -228,7 +245,7 @@
       "startDate": "Nov 2025 - Present",
       "description": "Built a Dockerized local LLM stack for generating hooks, scripts, shot lists, and music prompts with swappable open-source models. Implemented RAG pipelines over creator libraries and instrumented telemetry to cut median response time by 35%.",
       "images": [
-        "/images/portfolio/web_design/p1.jpg"
+        "/images/portfolio/App/creatorRAG.jpeg"
       ],
       "technologies": [
         {
@@ -250,7 +267,9 @@
       "startDate": "2025 - Present",
       "description": "Building an iOS platform for scanning and analyzing food, water, cosmetics, and home goods with structured parsing and category-specific safety insights. Designing domain schemas and local-first indexing for fast, reliable lookups.",
       "images": [
-        "/images/portfolio/App/p5.jpg"
+        "/images/portfolio/App/yammoing.png",
+        "/images/portfolio/App/yammoing2.png",
+        "/images/portfolio/App/yammoing3.png"
       ],
       "technologies": [
         {
@@ -339,7 +358,7 @@
       "startDate": "Aug 2024 - Present",
       "description": "Developed a SwiftUI-based iOS app for breathing exercises, focus sessions, and sleep soundscapes, reaching 150+ beta users in the first month. Integrated HealthKit analytics and improved usability scores from 72 to 86.",
       "images": [
-        "/images/portfolio/App/p2.jpg"
+        "/images/portfolio/breathewithme.png"
       ],
       "technologies": [
         {
@@ -589,7 +608,9 @@
       "description": "Entwicklung einer React-basierten Fotobox-Webanwendung mit Echtzeit-Kamerafeed, Countdown-Animation und Live-Filter-Vorschau unter Verwendung von CSS-Filtern und Korn-Overlays. • Implementierung einer dynamischen Filmstreifen-UI, die die letzten 20 Aufnahmen mit zeitstempelgestützten Speicherungen und einer zentrierten Galerieansicht für benutzerfreundliche Auswahl anzeigt. • Integration anpassbarer Fotofilter (z.B. Sepia, Graustufen, Farbton-Rotation) und Korn-Texturen zur Reproduktion nostalgischer städtischer ästhetischer Stile. • Hinzufügung von Funktionen wie übergroße animierte Countdowns, Echtzeit-Speicherung und verbesserte Benutzerinteraktivität für ein fesselndes UX-Erlebnis. • Anwendung eines modularen Komponenten-Designs mit Tailwind CSS und Hooks-basiertem State Management für Skalierbarkeit und Reaktionsfähigkeit über Geräte hinweg.",
       "images": [
         "/images/portfolio/photobooth/1.png",
-        "/images/portfolio/photobooth/2.png"
+        "/images/portfolio/photobooth/2.png",
+        "/images/portfolio/photobooth/3.png",
+        "/images/portfolio/photobooth/4.png"
       ],
       "url": "https://github.com",
       "technologies": [
