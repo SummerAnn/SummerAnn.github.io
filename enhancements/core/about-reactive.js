@@ -1297,7 +1297,7 @@
       const centerY = height / 2;
       const k = 0.08; // Spring constant (softer)
       const repulsion = 1200; // Stronger repulsion for better spacing
-      const damping = 0.88; // Damping factor
+      const damping = 0.92; // Stronger damping to settle faster
       const minDistance = 80; // Minimum distance between nodes
 
       // Reset forces
@@ -1468,6 +1468,13 @@
         draggedNode.y = y;
         draggedNode.vx = 0;
         draggedNode.vy = 0;
+        // Restart animation when dragging
+        if (settledFrames >= SETTLE_FRAMES) {
+          settledFrames = 0;
+          if (!animationId) {
+            animate();
+          }
+        }
       }
       lastX = x;
       lastY = y;
