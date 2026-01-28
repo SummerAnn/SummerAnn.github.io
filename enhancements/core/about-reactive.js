@@ -1,0 +1,637 @@
+/**
+ * About/Profile Enhancements
+ * Creates a clean, Medium-inspired layout with an interactive text sphere.
+ */
+
+(function() {
+  'use strict';
+
+  let initialized = false;
+
+  const SPHERE_WORDS = [
+    // Creative & Performance
+    'Singer', 'Model', 'Actress', 'Performance', 'Stage', 'Studio', 
+    'Voice', 'Melody', 'Chorus', 'Rhythm', 'Dance', 'Theater',
+    'Portfolio', 'Gallery', 'Art', 'Aesthetic', 'Expression',
+    
+    // Technical & Engineering
+    'Research', 'LLMs', 'Health AI', 'Systems', 'Product', 'Builder',
+    'Engineering', 'Code', 'Algorithm', 'Architecture', 'Full Stack',
+    'Machine Learning', 'Data', 'Pipeline', 'Automation', 'Optimization',
+    
+    // Innovation & Leadership
+    'Founder', 'Creator', 'Innovator', 'Vision', 'Strategy', 'Leadership',
+    'Startup', 'Product', 'Design', 'UX', 'UI', 'Prototype',
+    
+    // Personal Qualities
+    'Curiosity', 'Empathy', 'Trust', 'Clarity', 'Depth', 'Passion',
+    'Dedication', 'Precision', 'Excellence', 'Growth', 'Learning',
+    'Adaptability', 'Resilience', 'Integrity', 'Authenticity',
+    
+    // Work & Process
+    'Storytelling', 'Communication', 'Collaboration', 'Execution',
+    'Iteration', 'Refinement', 'Quality', 'Craft', 'Detail',
+    'Innovation', 'Exploration', 'Discovery', 'Experiment',
+    
+    // Values & Philosophy
+    'Ethics', 'Responsibility', 'Impact', 'Meaning', 'Purpose',
+    'Balance', 'Harmony', 'Flow', 'Energy', 'Vibrancy',
+    
+    // Skills & Domains
+    'Frontend', 'Backend', 'DevOps', 'Mobile', 'Web', 'Cloud',
+    'Analytics', 'Visualization', 'Interface', 'Experience',
+    'Genomics', 'Bioinformatics', 'Healthcare', 'Wellness'
+  ];
+
+  function injectStyles() {
+    if (document.getElementById('about-reactive-styles')) return;
+
+    const style = document.createElement('style');
+    style.id = 'about-reactive-styles';
+    style.textContent = `
+      #about.about-minimal {
+        position: relative;
+        overflow: hidden;
+        --glow-x: 50%;
+        --glow-y: 30%;
+      }
+
+      #about.about-minimal::before {
+        content: '';
+        position: absolute;
+        inset: 0;
+        background:
+          radial-gradient(520px 420px at var(--glow-x) var(--glow-y), rgba(99, 102, 241, 0.18), transparent 60%),
+          radial-gradient(420px 320px at 80% 80%, rgba(34, 211, 238, 0.12), transparent 65%);
+        pointer-events: none;
+        opacity: 0.9;
+      }
+
+      #about.about-minimal > :not(.about-hero-layout) {
+        display: none !important;
+      }
+
+      #about .about-hero-layout {
+        max-width: 1100px;
+        margin: 0 auto;
+        padding: 40px 24px 60px;
+        display: grid;
+        grid-template-columns: minmax(0, 1.2fr) minmax(0, 0.8fr);
+        gap: 32px;
+        align-items: start;
+        position: relative;
+        z-index: 1;
+      }
+
+      #about .about-hero-copy {
+        padding: 24px 26px;
+        border-radius: 22px;
+        background: linear-gradient(135deg, rgba(15, 18, 24, 0.92), rgba(10, 12, 18, 0.88));
+        border: 1px solid rgba(255, 255, 255, 0.14);
+        box-shadow: 0 24px 60px rgba(0, 0, 0, 0.45);
+        position: relative;
+        overflow: hidden;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+      }
+
+      #about .about-hero-copy::after {
+        content: '';
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(120deg, rgba(99, 102, 241, 0.12), transparent 60%);
+        opacity: 0.6;
+        pointer-events: none;
+      }
+
+      #about .about-hero-copy:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 30px 80px rgba(0, 0, 0, 0.55);
+      }
+
+      #about .about-hero-highlights {
+        display: grid;
+        gap: 12px;
+        margin-top: 18px;
+      }
+
+      #about .about-highlight {
+        padding: 12px 14px;
+        border-radius: 16px;
+        background: rgba(255, 255, 255, 0.05);
+        border: 1px solid rgba(255, 255, 255, 0.12);
+        display: grid;
+        gap: 6px;
+        position: relative;
+        overflow: hidden;
+      }
+
+      #about .about-highlight::after {
+        content: '';
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(120deg, rgba(99, 102, 241, 0.18), transparent 60%);
+        opacity: 0.5;
+        pointer-events: none;
+      }
+
+      #about .about-highlight span {
+        font-size: 11px;
+        letter-spacing: 0.18em;
+        text-transform: uppercase;
+        color: rgba(255, 255, 255, 0.6);
+      }
+
+      #about .about-highlight strong {
+        font-size: 14px;
+        font-weight: 600;
+        color: #f9fafb;
+      }
+
+      #about .about-quote {
+        margin-top: 20px;
+        padding: 14px 16px;
+        border-radius: 16px;
+        background: rgba(99, 102, 241, 0.12);
+        border: 1px solid rgba(99, 102, 241, 0.35);
+        font-size: 14px;
+        color: rgba(255, 255, 255, 0.8);
+      }
+
+      #about .about-hero-label {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 6px 14px;
+        border-radius: 999px;
+        font-size: 11px;
+        letter-spacing: 0.2em;
+        text-transform: uppercase;
+        background: rgba(255, 255, 255, 0.08);
+        border: 1px solid rgba(255, 255, 255, 0.15);
+        color: rgba(255, 255, 255, 0.7);
+        margin-bottom: 18px;
+      }
+
+      #about .about-hero-title {
+        font-family: var(--font-display, 'Playfair Display', serif);
+        font-weight: 600;
+        font-size: clamp(2.4rem, 4vw, 3.4rem);
+        color: #f8fafc;
+        margin-bottom: 18px;
+        line-height: 1.1;
+      }
+
+      #about .about-hero-quote {
+        font-family: 'Fraunces', 'Charter', 'Georgia', serif;
+        font-weight: 400;
+        font-size: clamp(2rem, 3.5vw, 2.8rem);
+        line-height: 1.2;
+        color: #f8fafc;
+        margin: 32px 0 24px;
+        text-align: center;
+        letter-spacing: -0.01em;
+        font-style: italic;
+        opacity: 0.95;
+        position: relative;
+      }
+
+      #about .about-hero-quote::before,
+      #about .about-hero-quote::after {
+        content: '';
+        position: absolute;
+        width: 60px;
+        height: 1px;
+        background: rgba(255, 255, 255, 0.3);
+        top: 50%;
+      }
+
+      #about .about-hero-quote::before {
+        left: -80px;
+      }
+
+      #about .about-hero-quote::after {
+        right: -80px;
+      }
+
+      @media (max-width: 768px) {
+        #about .about-hero-quote::before,
+        #about .about-hero-quote::after {
+          display: none;
+        }
+      }
+
+      #about .about-hero-text {
+        font-size: 1rem;
+        line-height: 1.8;
+        color: rgba(255, 255, 255, 0.75);
+        margin-bottom: 16px;
+      }
+
+      #about .about-hero-quote {
+        margin: 16px 0;
+        padding: 12px 16px;
+        border-radius: 16px;
+        background: rgba(99, 102, 241, 0.12);
+        border: 1px solid rgba(99, 102, 241, 0.35);
+        font-size: 14px;
+        color: rgba(255, 255, 255, 0.85);
+      }
+
+      #about .about-sphere-panel {
+        background: rgba(15, 18, 24, 0.78);
+        border: 1px solid rgba(255, 255, 255, 0.12);
+        border-radius: 22px;
+        padding: 18px;
+        display: grid;
+        gap: 12px;
+        align-items: center;
+        justify-items: center;
+        position: relative;
+        overflow: hidden;
+      }
+
+      #about .about-sphere-panel::before {
+        content: '';
+        position: absolute;
+        inset: 0;
+        background: radial-gradient(circle at 20% 20%, rgba(99, 102, 241, 0.22), transparent 55%);
+        opacity: 0.8;
+        pointer-events: none;
+      }
+
+      #about .about-sphere-title {
+        font-family: var(--font-heading, 'Space Grotesk', system-ui, sans-serif);
+        font-size: 0.95rem;
+        letter-spacing: 0.18em;
+        text-transform: uppercase;
+        color: rgba(255, 255, 255, 0.75);
+      }
+
+      #about .about-sphere-hint {
+        font-size: 12px;
+        color: rgba(255, 255, 255, 0.55);
+      }
+
+      #about .about-sphere-canvas {
+        width: 100%;
+        height: 260px;
+        border-radius: 16px;
+        background: radial-gradient(circle at 25% 20%, rgba(99, 102, 241, 0.18), transparent 60%),
+          radial-gradient(circle at 70% 80%, rgba(34, 211, 238, 0.14), transparent 60%),
+          rgba(6, 8, 12, 0.85);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        display: block;
+        cursor: grab;
+        box-shadow: inset 0 0 40px rgba(0, 0, 0, 0.4);
+      }
+
+      #about .about-sphere-canvas:active {
+        cursor: grabbing;
+      }
+
+      #about .about-hero-stats {
+        grid-column: 1 / -1;
+        background: rgba(15, 18, 24, 0.78);
+        border: 1px solid rgba(255, 255, 255, 0.12);
+        border-radius: 22px;
+        padding: 20px;
+        display: grid;
+        gap: 14px;
+        box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4);
+      }
+
+      #about .about-stat-title {
+        font-family: var(--font-heading, 'Space Grotesk', system-ui, sans-serif);
+        font-size: 0.85rem;
+        letter-spacing: 0.16em;
+        text-transform: uppercase;
+        color: rgba(255, 255, 255, 0.65);
+      }
+
+      #about .about-chip-row {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+      }
+
+      #about .about-chip {
+        padding: 6px 12px;
+        border-radius: 999px;
+        font-size: 12px;
+        font-weight: 600;
+        color: #e5e7eb;
+        background: rgba(99, 102, 241, 0.16);
+        border: 1px solid rgba(99, 102, 241, 0.35);
+      }
+
+      #about .about-stat-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+        gap: 12px;
+      }
+
+      #about .about-stat {
+        padding: 12px;
+        border-radius: 14px;
+        background: rgba(255, 255, 255, 0.04);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        transition: transform 0.25s ease, border-color 0.25s ease, background 0.25s ease;
+      }
+
+      #about .about-stat:hover {
+        transform: translateY(-3px);
+        border-color: rgba(99, 102, 241, 0.4);
+        background: rgba(99, 102, 241, 0.12);
+      }
+
+      #about .about-stat strong {
+        display: block;
+        font-size: 1.4rem;
+        font-weight: 700;
+        color: #f9fafb;
+      }
+
+      #about .about-stat span {
+        display: block;
+        font-size: 12px;
+        color: rgba(255, 255, 255, 0.65);
+      }
+
+      @media (max-width: 900px) {
+        #about .about-hero-layout {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        #about .about-sphere-canvas {
+          cursor: default;
+        }
+      }
+    `;
+    document.head.appendChild(style);
+  }
+
+  function extractAboutCopy(aboutSection) {
+    const headingEl = aboutSection.querySelector('.section-title, h1, h2');
+    const heading = headingEl ? headingEl.textContent.trim() : 'About';
+
+    let paragraphs = Array.from(aboutSection.querySelectorAll('p'))
+      .map((p) => p.textContent.trim())
+      .filter(Boolean);
+
+    if (paragraphs.length === 1) {
+      const sentences = paragraphs[0].split(/(?<=[.!?])\s+/).filter(Boolean);
+      const grouped = [];
+      for (let i = 0; i < sentences.length; i += 2) {
+        grouped.push(sentences.slice(i, i + 2).join(' '));
+      }
+      paragraphs = grouped;
+    }
+
+    if (!paragraphs.length) {
+      paragraphs = [
+        'I build across systems, research, and creative work—bridging rigorous engineering with storytelling and performance.',
+        'My focus spans machine learning, computational medicine, and human-centered product design.',
+        'Outside of tech, I perform, model, and write music, bringing taste and emotional intelligence into everything I ship.'
+      ];
+    }
+
+    return { heading, paragraphs: paragraphs.slice(0, 5) };
+  }
+
+  function buildLayout(aboutSection) {
+    if (aboutSection.querySelector('.about-hero-layout')) return;
+
+    const { heading, paragraphs } = extractAboutCopy(aboutSection);
+
+    const layout = document.createElement('div');
+    layout.className = 'about-hero-layout';
+
+    const copyHtml = paragraphs.map((text) => `<p class="about-hero-text">${text}</p>`).join('');
+
+    layout.innerHTML = `
+      <div class="about-hero-copy">
+        <span class="about-hero-label">About</span>
+        <h2 class="about-hero-title">${heading}</h2>
+        <div class="about-hero-quote">Every big idea needs an Enabler.</div>
+        ${copyHtml}
+      </div>
+      <div class="about-sphere-panel">
+        <div class="about-sphere-title">Creative Orbit</div>
+        <canvas class="about-sphere-canvas" aria-label="Interactive text sphere"></canvas>
+        <div class="about-sphere-hint">Drag to roll the sphere</div>
+      </div>
+      <div class="about-hero-stats">
+        <div class="about-stat-title">Now Building</div>
+        <div class="about-chip-row">
+          <span class="about-chip">LLM Systems</span>
+          <span class="about-chip">Health AI</span>
+          <span class="about-chip">Creative Tech</span>
+          <span class="about-chip">Product Design</span>
+        </div>
+        <div class="about-stat-grid">
+          <div class="about-stat">
+            <strong>6+</strong>
+            <span>Research Threads</span>
+          </div>
+          <div class="about-stat">
+            <strong>18</strong>
+            <span>Live Builds</span>
+          </div>
+          <div class="about-stat">
+            <strong>3</strong>
+            <span>Creative Disciplines</span>
+          </div>
+          <div class="about-stat">
+            <strong>∞</strong>
+            <span>Ideas in Motion</span>
+          </div>
+        </div>
+      </div>
+    `;
+
+    aboutSection.prepend(layout);
+
+    const canvas = layout.querySelector('.about-sphere-canvas');
+    initSphereCanvas(canvas);
+  }
+
+  function initSphereCanvas(canvas) {
+    if (!canvas) return;
+
+    const ctx = canvas.getContext('2d');
+    if (!ctx) return;
+
+    let width = 0;
+    let height = 0;
+    let centerX = 0;
+    let centerY = 0;
+    let radius = 0;
+    const baseFont = 12;
+
+    const points = SPHERE_WORDS.map((word, index) => {
+      const goldenAngle = Math.PI * (3 - Math.sqrt(5));
+      const y = 1 - (index / (SPHERE_WORDS.length - 1)) * 2;
+      const r = Math.sqrt(1 - y * y);
+      const theta = goldenAngle * index;
+      return {
+        word,
+        x: Math.cos(theta) * r,
+        y,
+        z: Math.sin(theta) * r
+      };
+    });
+
+    let rotationX = 0.4;
+    let rotationY = 0.6;
+    let velocityX = 0.002;
+    let velocityY = 0.0015;
+    let dragging = false;
+    let lastX = 0;
+    let lastY = 0;
+
+    function resize() {
+      const rect = canvas.getBoundingClientRect();
+      const dpr = window.devicePixelRatio || 1;
+      width = rect.width;
+      height = rect.height;
+      canvas.width = Math.max(1, Math.floor(width * dpr));
+      canvas.height = Math.max(1, Math.floor(height * dpr));
+      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+      centerX = width / 2;
+      centerY = height / 2;
+      radius = Math.min(width, height) * 0.36;
+    }
+
+    function rotate(point, ax, ay) {
+      let { x, y, z } = point;
+      const cosX = Math.cos(ax);
+      const sinX = Math.sin(ax);
+      const cosY = Math.cos(ay);
+      const sinY = Math.sin(ay);
+
+      let dy = y * cosX - z * sinX;
+      let dz = y * sinX + z * cosX;
+      let dx = x * cosY + dz * sinY;
+      dz = -x * sinY + dz * cosY;
+
+      return { x: dx, y: dy, z: dz, word: point.word };
+    }
+
+    function draw() {
+      ctx.clearRect(0, 0, width, height);
+
+      const fov = radius * 2.2;
+      const projected = points
+        .map((point) => rotate(point, rotationX, rotationY))
+        .map((rotated) => {
+          const scale = fov / (fov + rotated.z * radius);
+          return {
+            word: rotated.word,
+            x: rotated.x * radius * scale + centerX,
+            y: rotated.y * radius * scale + centerY,
+            scale,
+            z: rotated.z
+          };
+        })
+        .sort((a, b) => a.z - b.z);
+
+      projected.forEach((p) => {
+        if (p.scale < 0.4) return;
+        const alpha = Math.min(1, Math.max(0.35, p.scale));
+        const size = baseFont * (0.8 + p.scale * 1.2);
+        ctx.font = `600 ${size}px 'Space Grotesk', system-ui, sans-serif`;
+        ctx.fillStyle = `rgba(230, 235, 255, ${alpha})`;
+        ctx.textAlign = 'center';
+        ctx.textBaseline = 'middle';
+        ctx.fillText(p.word, p.x, p.y);
+      });
+    }
+
+    function tick() {
+      rotationX += velocityX;
+      rotationY += velocityY;
+      velocityX *= 0.98;
+      velocityY *= 0.98;
+
+      if (!dragging && Math.abs(velocityX) < 0.0008 && Math.abs(velocityY) < 0.0008) {
+        velocityX = 0.0014;
+        velocityY = 0.0011;
+      }
+
+      draw();
+      requestAnimationFrame(tick);
+    }
+
+    function onPointerDown(event) {
+      dragging = true;
+      lastX = event.clientX;
+      lastY = event.clientY;
+    }
+
+    function onPointerMove(event) {
+      if (!dragging) return;
+      const dx = event.clientX - lastX;
+      const dy = event.clientY - lastY;
+      lastX = event.clientX;
+      lastY = event.clientY;
+      rotationY += dx * 0.005;
+      rotationX += dy * 0.005;
+      velocityY = dx * 0.0006;
+      velocityX = dy * 0.0006;
+    }
+
+    function onPointerUp() {
+      dragging = false;
+    }
+
+    const ro = new ResizeObserver(resize);
+    ro.observe(canvas);
+    resize();
+    tick();
+
+    canvas.addEventListener('pointerdown', onPointerDown);
+    canvas.addEventListener('pointermove', onPointerMove);
+    canvas.addEventListener('pointerup', onPointerUp);
+    canvas.addEventListener('pointerleave', onPointerUp);
+  }
+
+  function init() {
+    if (initialized) return;
+    const about = document.getElementById('about');
+    if (!about) return;
+
+    initialized = true;
+    injectStyles();
+    about.classList.add('about-minimal');
+
+    buildLayout(about);
+
+    about.addEventListener('pointermove', (event) => {
+      const rect = about.getBoundingClientRect();
+      const x = ((event.clientX - rect.left) / rect.width) * 100;
+      const y = ((event.clientY - rect.top) / rect.height) * 100;
+      about.style.setProperty('--glow-x', `${x.toFixed(1)}%`);
+      about.style.setProperty('--glow-y', `${y.toFixed(1)}%`);
+    });
+  }
+
+  function tryInitWithRetries() {
+    const delays = [100, 400, 1000, 2000, 3500];
+    delays.forEach((delay) => {
+      setTimeout(init, delay);
+    });
+
+    const observer = new MutationObserver(() => init());
+    if (document.body) {
+      observer.observe(document.body, { childList: true, subtree: true });
+    }
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', tryInitWithRetries);
+  } else {
+    tryInitWithRetries();
+  }
+})();

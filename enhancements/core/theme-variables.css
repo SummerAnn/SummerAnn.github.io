@@ -94,8 +94,8 @@
   --z-max: 9999;
 
   /* Navigation */
-  --nav-height: 72px;
-  --nav-height-mobile: 64px;
+  --nav-height: 80px;
+  --nav-height-mobile: 72px;
 }
 
 /* Dark Theme Overrides */
@@ -294,7 +294,7 @@
 
 #enhanced-nav .nav-logo {
   font-family: var(--font-display);
-  font-size: 1.5rem;
+  font-size: 1.6rem;
   font-weight: var(--weight-bold);
   background: var(--neon-gradient);
   -webkit-background-clip: text;
@@ -315,8 +315,8 @@
   text-decoration: none;
   font-family: var(--font-body);
   font-weight: var(--weight-semibold);
-  font-size: 0.95rem;
-  padding: var(--space-sm) var(--space-md);
+  font-size: 1.05rem;
+  padding: var(--space-md) var(--space-lg);
   border-radius: var(--radius-md);
   transition: all var(--duration-normal) var(--ease-out-quart);
 }

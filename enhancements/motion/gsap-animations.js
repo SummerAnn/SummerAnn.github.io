@@ -131,10 +131,14 @@
   }
 
   function animateCards(cards) {
+    const duration = Math.min(config.scrollRevealDuration, 0.55);
+    const distance = Math.min(config.scrollRevealDistance, 32);
+    const staggerDelay = Math.min(config.staggerDelay, 0.04);
+
     gsap.fromTo(cards,
       {
         opacity: 0,
-        y: config.scrollRevealDistance,
+        y: distance,
         scale: 0.95,
         rotateX: 5
       },
@@ -143,15 +147,15 @@
         y: 0,
         scale: 1,
         rotateX: 0,
-        duration: config.scrollRevealDuration,
+        duration,
         stagger: {
-          each: config.staggerDelay,
+          each: staggerDelay,
           from: 'start'
         },
         ease: 'power3.out',
         scrollTrigger: {
           trigger: cards[0]?.parentElement || cards[0],
-          start: 'top 80%',
+          start: 'top 90%',
           toggleActions: 'play none none reverse'
         }
       }

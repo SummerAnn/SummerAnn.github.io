@@ -106,6 +106,7 @@
       '/enhancements/core/model-profile-carousel.js',
       '/enhancements/core/carousel-debug.js',
       '/enhancements/core/art-carousel.js',
+      '/enhancements/core/about-reactive.js',
       '/enhancements/core/demo-fix.js',
       '/enhancements/core/visibility-debugger.js',
       // Theme system (load after content)
