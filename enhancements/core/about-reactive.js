@@ -941,6 +941,300 @@
     canvas.addEventListener('pointerleave', onPointerUp);
   }
 
+  // Word category mapping for network graph
+  const WORD_CATEGORIES = {
+    creative: ['Singer', 'Model', 'Actress', 'Performance', 'Stage', 'Studio', 'Voice', 'Melody', 'Chorus', 'Rhythm', 'Dance', 'Theater', 'Portfolio', 'Gallery', 'Art', 'Aesthetic', 'Expression', 'Acting', 'Fashion', 'Photography', 'Cinematography', 'Directing', 'Music', 'Composition', 'Vocal', 'Rehearsal', 'Audition', 'Poetry', 'Lyrics', 'Songwriting', 'Recording', 'Studio Session', 'Photoshoot', 'Editorial', 'Runway', 'Commercial', 'Campaign', 'Brand Ambassador', 'Influencer', 'Content Creator', 'Producer', 'Director', 'Cinematographer', 'Editor', 'Colorist', 'Sound Engineer', 'Mix', 'Video', 'Editing', 'Post-Production', 'Color Grading', 'Sound Design', 'Animation', 'Motion Graphics', 'Visual Effects', 'Cinema', 'Documentary', 'Short Film', 'Music Video', 'Branding', 'Identity', 'Typography', 'Layout', 'Grid', 'Composition', 'Narrative'],
+    technical: ['Research', 'LLMs', 'Health AI', 'Systems', 'Product', 'Builder', 'Engineering', 'Code', 'Algorithm', 'Architecture', 'Full Stack', 'Machine Learning', 'Data', 'Pipeline', 'Automation', 'Optimization', 'Python', 'JavaScript', 'React', 'Node', 'TypeScript', 'SQL', 'API', 'Database', 'Server', 'Client', 'Framework', 'Library', 'Testing', 'Debugging', 'Deployment', 'Scaling', 'Frontend', 'Backend', 'DevOps', 'Mobile', 'Web', 'Cloud', 'Analytics', 'Visualization', 'Interface', 'Experience', 'NLP', 'Computer Vision', 'Deep Learning', 'Neural Networks', 'TensorFlow', 'PyTorch', 'Scikit-learn', 'Pandas', 'NumPy', 'Docker', 'Kubernetes', 'AWS', 'GCP', 'Azure', 'CI/CD', 'Microservices', 'Distributed Systems', 'Scalability', 'Performance', 'Security', 'Encryption', 'Authentication', 'Authorization', 'OAuth', 'JWT', 'GraphQL', 'WebSocket', 'Real-time', 'Streaming', 'Event-driven', 'Message Queue', 'Kafka', 'RabbitMQ', 'Redis Cache', 'CDN', 'Load Balancing', 'Monitoring', 'Logging', 'Metrics', 'Observability', 'APM', 'Git', 'GitHub', 'VS Code', 'Terminal', 'Command Line', 'Linux', 'Unix', 'Shell', 'Bash', 'Zsh', 'PostgreSQL', 'MongoDB', 'Redis', 'Elasticsearch', 'REST', 'HTTP', 'HTTPS', 'SSL'],
+    research: ['Research', 'LLMs', 'Health AI', 'Genomics', 'Bioinformatics', 'Healthcare', 'Wellness', 'Thesis', 'Publication', 'Conference', 'Journal', 'Paper', 'Methodology', 'Hypothesis', 'Experiment', 'Analysis', 'Results', 'Peer Review', 'Citation', 'Scholarship', 'Academic'],
+    leadership: ['Founder', 'Creator', 'Innovator', 'Vision', 'Strategy', 'Leadership', 'Startup', 'Design', 'UX', 'UI', 'Prototype', 'Wireframe', 'Entrepreneur', 'Pioneer', 'Trailblazer', 'Mentor', 'Guide', 'Influence', 'Impact', 'Change'],
+    personal: ['Curiosity', 'Empathy', 'Trust', 'Clarity', 'Depth', 'Passion', 'Dedication', 'Precision', 'Excellence', 'Growth', 'Learning', 'Adaptability', 'Resilience', 'Integrity', 'Authenticity', 'Confidence', 'Courage', 'Determination', 'Focus', 'Discipline', 'Wisdom', 'Intuition', 'Insight', 'Awareness', 'Mindfulness', 'Versatility', 'Multidisciplinary', 'Interdisciplinary', 'Cross-functional', 'Holistic', 'Systematic', 'Methodical', 'Analytical', 'Strategic', 'Tactical', 'Proactive', 'Initiative', 'Resourceful', 'Inventive', 'Original'],
+    process: ['Storytelling', 'Communication', 'Collaboration', 'Execution', 'Iteration', 'Refinement', 'Quality', 'Craft', 'Detail', 'Innovation', 'Exploration', 'Discovery', 'Experiment', 'Planning', 'Strategy', 'Analysis', 'Synthesis', 'Problem Solving', 'Critical Thinking', 'Creativity', 'Imagination', 'Inspiration', 'Motivation', 'Drive', 'Ambition'],
+    values: ['Ethics', 'Responsibility', 'Impact', 'Meaning', 'Purpose', 'Balance', 'Harmony', 'Flow', 'Energy', 'Vibrancy', 'Truth', 'Beauty', 'Elegance', 'Simplicity', 'Complexity'],
+    communication: ['English', 'Korean', 'German', 'French', 'Multilingual', 'Translation', 'Interpretation', 'Linguistics', 'Grammar', 'Syntax', 'Storytelling', 'Communication', 'Presentation', 'Public Speaking'],
+    skills: ['Teamwork', 'Networking', 'Presentation', 'Public Speaking', 'Negotiation', 'Conflict Resolution', 'Time Management', 'Organization', 'Prioritization', 'Delegation', 'Mentoring', 'Coaching', 'Feedback', 'Review', 'Evaluation']
+  };
+
+  function getWordCategory(word) {
+    for (const [cat, words] of Object.entries(WORD_CATEGORIES)) {
+      if (words.includes(word)) return cat;
+    }
+    return null;
+  }
+
+  function areWordsRelated(word1, word2) {
+    const cat1 = getWordCategory(word1);
+    const cat2 = getWordCategory(word2);
+    
+    if (!cat1 || !cat2) return false;
+    
+    // Same category = strong connection
+    if (cat1 === cat2) return true;
+    
+    // Cross-category connections
+    const relatedPairs = [
+      ['creative', 'process'],
+      ['technical', 'research'],
+      ['technical', 'leadership'],
+      ['leadership', 'personal'],
+      ['personal', 'values'],
+      ['process', 'skills'],
+      ['communication', 'creative'],
+      ['communication', 'skills']
+    ];
+    
+    return relatedPairs.some(([a, b]) => 
+      (cat1 === a && cat2 === b) || (cat1 === b && cat2 === a)
+    );
+  }
+
+  function initGraphCanvas(canvas) {
+    if (!canvas) return;
+
+    const ctx = canvas.getContext('2d');
+    if (!ctx) return;
+
+    let width = 0;
+    let height = 0;
+    let animationId = null;
+    const nodes = [];
+    const links = [];
+    const baseFont = 5;
+
+    function resize() {
+      const rect = canvas.getBoundingClientRect();
+      const dpr = window.devicePixelRatio || 1;
+      width = rect.width;
+      height = rect.height;
+      canvas.width = Math.max(1, Math.floor(width * dpr));
+      canvas.height = Math.max(1, Math.floor(height * dpr));
+      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+      initGraph();
+    }
+
+    function initGraph() {
+      nodes.length = 0;
+      links.length = 0;
+
+      // Create nodes from a subset of words (for performance)
+      const wordSubset = SPHERE_WORDS.filter((_, i) => i % 2 === 0 || Math.random() > 0.5).slice(0, 80);
+      
+      wordSubset.forEach((word, index) => {
+        const angle = (index / wordSubset.length) * Math.PI * 2;
+        const radius = Math.min(width, height) * 0.3;
+        const x = width / 2 + Math.cos(angle) * radius * (0.5 + Math.random() * 0.5);
+        const y = height / 2 + Math.sin(angle) * radius * (0.5 + Math.random() * 0.5);
+        const size = baseFont * (0.9 + Math.random() * 0.4);
+        const category = getWordCategory(word);
+        
+        nodes.push({
+          word,
+          x,
+          y,
+          vx: 0,
+          vy: 0,
+          size,
+          category,
+          fixed: false
+        });
+      });
+
+      // Create links between related words
+      for (let i = 0; i < nodes.length; i++) {
+        for (let j = i + 1; j < nodes.length; j++) {
+          if (areWordsRelated(nodes[i].word, nodes[j].word)) {
+            links.push({
+              source: nodes[i],
+              target: nodes[j],
+              strength: nodes[i].category === nodes[j].category ? 1.0 : 0.6
+            });
+          }
+        }
+      }
+    }
+
+    function update() {
+      const centerX = width / 2;
+      const centerY = height / 2;
+      const k = 0.1; // Spring constant
+      const repulsion = 800; // Repulsion force
+      const damping = 0.85; // Damping factor
+
+      // Reset forces
+      nodes.forEach(node => {
+        if (!node.fixed) {
+          node.vx *= damping;
+          node.vy *= damping;
+        }
+      });
+
+      // Apply spring forces from links
+      links.forEach(link => {
+        const dx = link.target.x - link.source.x;
+        const dy = link.target.y - link.source.y;
+        const dist = Math.sqrt(dx * dx + dy * dy) || 1;
+        const force = (dist - 60 * link.strength) * k * link.strength;
+        const fx = (dx / dist) * force;
+        const fy = (dy / dist) * force;
+
+        if (!link.source.fixed) {
+          link.source.vx += fx;
+          link.source.vy += fy;
+        }
+        if (!link.target.fixed) {
+          link.target.vx -= fx;
+          link.target.vy -= fy;
+        }
+      });
+
+      // Apply repulsion between all nodes
+      for (let i = 0; i < nodes.length; i++) {
+        for (let j = i + 1; j < nodes.length; j++) {
+          const dx = nodes[j].x - nodes[i].x;
+          const dy = nodes[j].y - nodes[i].y;
+          const dist = Math.sqrt(dx * dx + dy * dy) || 1;
+          const force = repulsion / (dist * dist);
+          const fx = (dx / dist) * force;
+          const fy = (dy / dist) * force;
+
+          if (!nodes[i].fixed) {
+            nodes[i].vx -= fx;
+            nodes[i].vy -= fy;
+          }
+          if (!nodes[j].fixed) {
+            nodes[j].vx += fx;
+            nodes[j].vy += fy;
+          }
+        }
+      }
+
+      // Apply center attraction
+      nodes.forEach(node => {
+        if (!node.fixed) {
+          const dx = centerX - node.x;
+          const dy = centerY - node.y;
+          node.vx += dx * 0.001;
+          node.vy += dy * 0.001;
+        }
+      });
+
+      // Update positions
+      nodes.forEach(node => {
+        if (!node.fixed) {
+          node.x += node.vx;
+          node.y += node.vy;
+          
+          // Keep within bounds
+          node.x = Math.max(20, Math.min(width - 20, node.x));
+          node.y = Math.max(20, Math.min(height - 20, node.y));
+        }
+      });
+    }
+
+    function draw() {
+      ctx.clearRect(0, 0, width, height);
+      
+      // Draw links
+      links.forEach(link => {
+        ctx.beginPath();
+        ctx.moveTo(link.source.x, link.source.y);
+        ctx.lineTo(link.target.x, link.target.y);
+        ctx.strokeStyle = `rgba(99, 102, 241, ${0.15 * link.strength})`;
+        ctx.lineWidth = 0.5;
+        ctx.stroke();
+      });
+
+      // Draw nodes
+      nodes.forEach(node => {
+        ctx.save();
+        ctx.font = `600 ${node.size}px 'Space Grotesk', system-ui, sans-serif`;
+        ctx.fillStyle = node.category === 'creative' 
+          ? 'rgba(236, 72, 153, 0.85)'
+          : node.category === 'technical'
+          ? 'rgba(99, 102, 241, 0.85)'
+          : node.category === 'research'
+          ? 'rgba(34, 211, 238, 0.85)'
+          : 'rgba(230, 235, 255, 0.75)';
+        ctx.textAlign = 'center';
+        ctx.textBaseline = 'middle';
+        ctx.fillText(node.word, node.x, node.y);
+        ctx.restore();
+      });
+    }
+
+    function animate() {
+      if (!canvas.classList.contains('active')) {
+        animationId = requestAnimationFrame(animate);
+        return;
+      }
+      update();
+      draw();
+      animationId = requestAnimationFrame(animate);
+    }
+
+    let dragging = false;
+    let draggedNode = null;
+    let lastX = 0;
+    let lastY = 0;
+
+    function getNodeAt(x, y) {
+      for (let i = nodes.length - 1; i >= 0; i--) {
+        const node = nodes[i];
+        const dx = x - node.x;
+        const dy = y - node.y;
+        if (Math.sqrt(dx * dx + dy * dy) < 30) {
+          return node;
+        }
+      }
+      return null;
+    }
+
+    function onPointerDown(event) {
+      const rect = canvas.getBoundingClientRect();
+      const x = event.clientX - rect.left;
+      const y = event.clientY - rect.top;
+      draggedNode = getNodeAt(x, y);
+      if (draggedNode) {
+        dragging = true;
+        draggedNode.fixed = true;
+        lastX = x;
+        lastY = y;
+      }
+    }
+
+    function onPointerMove(event) {
+      const rect = canvas.getBoundingClientRect();
+      const x = event.clientX - rect.left;
+      const y = event.clientY - rect.top;
+      
+      if (dragging && draggedNode) {
+        draggedNode.x = x;
+        draggedNode.y = y;
+        draggedNode.vx = 0;
+        draggedNode.vy = 0;
+      }
+      lastX = x;
+      lastY = y;
+    }
+
+    function onPointerUp() {
+      if (draggedNode) {
+        draggedNode.fixed = false;
+        draggedNode = null;
+      }
+      dragging = false;
+    }
+
+    const ro = new ResizeObserver(resize);
+    ro.observe(canvas);
+    resize();
+    animate();
+
+    canvas.addEventListener('pointerdown', onPointerDown);
+    canvas.addEventListener('pointermove', onPointerMove);
+    canvas.addEventListener('pointerup', onPointerUp);
+    canvas.addEventListener('pointerleave', onPointerUp);
+  }
+
   function init() {
     if (initialized) return;
     const about = document.getElementById('about');
