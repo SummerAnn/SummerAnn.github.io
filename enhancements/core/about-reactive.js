@@ -525,6 +525,140 @@
         color: rgba(255, 255, 255, 0.65);
       }
 
+      #about .about-guestbook {
+        grid-column: 1 / -1;
+        margin-top: 24px;
+        padding: 22px;
+        border-radius: 20px;
+        background: rgba(12, 14, 20, 0.78);
+        border: 1px solid rgba(255, 255, 255, 0.14);
+        box-shadow: 0 20px 50px rgba(0, 0, 0, 0.35);
+        display: grid;
+        gap: 16px;
+      }
+
+      #about .about-guestbook-header {
+        display: flex;
+        align-items: flex-start;
+        justify-content: space-between;
+        gap: 16px;
+        flex-wrap: wrap;
+      }
+
+      #about .about-guestbook-label {
+        font-size: 11px;
+        text-transform: uppercase;
+        letter-spacing: 0.22em;
+        color: rgba(255, 255, 255, 0.6);
+      }
+
+      #about .about-guestbook-title {
+        margin: 6px 0 4px;
+        font-size: 20px;
+      }
+
+      #about .about-guestbook-note {
+        margin: 0;
+        font-size: 13px;
+        color: rgba(255, 255, 255, 0.6);
+      }
+
+      #about .about-guestbook-count {
+        padding: 8px 12px;
+        border-radius: 999px;
+        background: rgba(99, 102, 241, 0.18);
+        border: 1px solid rgba(99, 102, 241, 0.4);
+        font-size: 12px;
+        text-transform: uppercase;
+        letter-spacing: 0.14em;
+      }
+
+      #about .about-guestbook-form {
+        display: grid;
+        gap: 12px;
+      }
+
+      #about .about-guestbook-form input,
+      #about .about-guestbook-form textarea {
+        width: 100%;
+        border-radius: 12px;
+        border: 1px solid rgba(255, 255, 255, 0.18);
+        background: rgba(5, 7, 12, 0.7);
+        color: #fff;
+        padding: 10px 12px;
+        font-family: inherit;
+        font-size: 14px;
+        outline: none;
+        transition: border-color 0.2s ease, box-shadow 0.2s ease;
+      }
+
+      #about .about-guestbook-form textarea {
+        min-height: 90px;
+        resize: vertical;
+      }
+
+      #about .about-guestbook-form input:focus,
+      #about .about-guestbook-form textarea:focus {
+        border-color: rgba(99, 102, 241, 0.7);
+        box-shadow: 0 0 0 2px rgba(99, 102, 241, 0.2);
+      }
+
+      #about .about-guestbook-submit {
+        justify-self: start;
+        border: none;
+        padding: 10px 16px;
+        border-radius: 999px;
+        background: linear-gradient(120deg, rgba(99, 102, 241, 0.9), rgba(56, 189, 248, 0.8));
+        color: #fff;
+        font-size: 13px;
+        font-weight: 600;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        cursor: pointer;
+        transition: transform 0.2s ease, box-shadow 0.2s ease;
+      }
+
+      #about .about-guestbook-submit:hover {
+        transform: translateY(-1px);
+        box-shadow: 0 10px 22px rgba(56, 189, 248, 0.25);
+      }
+
+      #about .about-guestbook-list {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        display: grid;
+        gap: 10px;
+        max-height: 260px;
+        overflow-y: auto;
+      }
+
+      #about .about-guestbook-entry {
+        padding: 12px 14px;
+        border-radius: 14px;
+        background: rgba(255, 255, 255, 0.04);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+      }
+
+      #about .about-guestbook-entry strong {
+        display: block;
+        font-size: 11px;
+        text-transform: uppercase;
+        letter-spacing: 0.18em;
+        color: rgba(255, 255, 255, 0.6);
+      }
+
+      #about .about-guestbook-entry p {
+        margin: 6px 0 4px;
+        font-size: 14px;
+        color: rgba(255, 255, 255, 0.85);
+      }
+
+      #about .about-guestbook-entry time {
+        font-size: 11px;
+        color: rgba(255, 255, 255, 0.5);
+      }
+
       @media (max-width: 900px) {
         #about .about-hero-layout {
           grid-template-columns: 1fr;
@@ -646,6 +780,22 @@
           </div>
         </div>
       </div>
+      <div class="about-guestbook" aria-label="Guestbook">
+        <div class="about-guestbook-header">
+          <div>
+            <div class="about-guestbook-label">Guestbook</div>
+            <h3 class="about-guestbook-title">Leave a short note</h3>
+            <p class="about-guestbook-note">Saved locally in your browser (not public).</p>
+          </div>
+          <div class="about-guestbook-count" aria-live="polite">0 notes</div>
+        </div>
+        <form class="about-guestbook-form">
+          <input type="text" name="guestbookName" maxlength="40" placeholder="Your name (optional)" aria-label="Your name">
+          <textarea name="guestbookMessage" maxlength="200" placeholder="Write a short message..." aria-label="Guestbook message" required></textarea>
+          <button type="submit" class="about-guestbook-submit">Add note</button>
+        </form>
+        <ul class="about-guestbook-list" role="list"></ul>
+      </div>
     `;
 
     aboutSection.prepend(layout);
@@ -670,6 +820,86 @@
         cloudCanvas.classList.toggle('active', vizType === 'cloud');
         graphCanvas.classList.toggle('active', vizType === 'graph');
       });
+    });
+
+    initGuestbook(layout);
+  }
+
+  function initGuestbook(layout) {
+    const form = layout.querySelector('.about-guestbook-form');
+    const list = layout.querySelector('.about-guestbook-list');
+    const count = layout.querySelector('.about-guestbook-count');
+    if (!form || !list || !count) return;
+
+    const STORAGE_KEY = 'guestbookEntries';
+    const MAX_ENTRIES = 24;
+    let memoryEntries = [];
+
+    function readEntries() {
+      try {
+        const raw = localStorage.getItem(STORAGE_KEY);
+        const parsed = raw ? JSON.parse(raw) : [];
+        return Array.isArray(parsed) ? parsed : [];
+      } catch (err) {
+        return memoryEntries;
+      }
+    }
+
+    function writeEntries(entries) {
+      try {
+        localStorage.setItem(STORAGE_KEY, JSON.stringify(entries));
+      } catch (err) {
+        memoryEntries = entries;
+      }
+    }
+
+    function render(entries) {
+      list.innerHTML = '';
+      entries.forEach((entry) => {
+        const item = document.createElement('li');
+        item.className = 'about-guestbook-entry';
+
+        const name = document.createElement('strong');
+        name.textContent = entry.name || 'Anonymous';
+
+        const message = document.createElement('p');
+        message.textContent = entry.message;
+
+        const time = document.createElement('time');
+        const date = new Date(entry.timestamp);
+        time.textContent = date.toLocaleDateString(undefined, { month: 'short', day: 'numeric', year: 'numeric' });
+
+        item.appendChild(name);
+        item.appendChild(message);
+        item.appendChild(time);
+        list.appendChild(item);
+      });
+      count.textContent = `${entries.length} ${entries.length === 1 ? 'note' : 'notes'}`;
+    }
+
+    const entries = readEntries();
+    render(entries);
+
+    form.addEventListener('submit', (event) => {
+      event.preventDefault();
+      const nameField = form.querySelector('input[name="guestbookName"]');
+      const messageField = form.querySelector('textarea[name="guestbookMessage"]');
+      if (!messageField) return;
+
+      const name = nameField ? nameField.value.trim().slice(0, 40) : '';
+      const message = messageField.value.trim().slice(0, 200);
+      if (!message) return;
+
+      const updated = [
+        { name, message, timestamp: Date.now() },
+        ...readEntries()
+      ].slice(0, MAX_ENTRIES);
+
+      writeEntries(updated);
+      render(updated);
+
+      if (nameField) nameField.value = '';
+      messageField.value = '';
     });
   }
 
@@ -998,7 +1228,6 @@
     let animationId = null;
     const nodes = [];
     const links = [];
-    const baseFont = 5;
 
     function resize() {
       const rect = canvas.getBoundingClientRect();
@@ -1015,15 +1244,26 @@
       nodes.length = 0;
       links.length = 0;
 
-      // Create nodes from a subset of words (for performance)
-      const wordSubset = SPHERE_WORDS.filter((_, i) => i % 2 === 0 || Math.random() > 0.5).slice(0, 80);
+      // Select key representative words from each category (fewer, more meaningful)
+      const keyWords = [
+        // Creative (8)
+        'Singer', 'Actress', 'Music', 'Photography', 'Director', 'Video', 'Art', 'Performance',
+        // Technical (10)
+        'Research', 'LLMs', 'Machine Learning', 'Python', 'React', 'Systems', 'Architecture', 'Full Stack', 'Engineering', 'Code',
+        // Leadership (6)
+        'Founder', 'Innovator', 'Leadership', 'Design', 'Strategy', 'Vision',
+        // Personal (6)
+        'Curiosity', 'Passion', 'Excellence', 'Growth', 'Creativity', 'Adaptability',
+        // Process (5)
+        'Storytelling', 'Collaboration', 'Innovation', 'Problem Solving', 'Execution'
+      ];
       
-      wordSubset.forEach((word, index) => {
-        const angle = (index / wordSubset.length) * Math.PI * 2;
-        const radius = Math.min(width, height) * 0.3;
-        const x = width / 2 + Math.cos(angle) * radius * (0.5 + Math.random() * 0.5);
-        const y = height / 2 + Math.sin(angle) * radius * (0.5 + Math.random() * 0.5);
-        const size = baseFont * (0.9 + Math.random() * 0.4);
+      keyWords.forEach((word, index) => {
+        const angle = (index / keyWords.length) * Math.PI * 2;
+        const radius = Math.min(width, height) * 0.25;
+        const x = width / 2 + Math.cos(angle) * radius * (0.7 + Math.random() * 0.3);
+        const y = height / 2 + Math.sin(angle) * radius * (0.7 + Math.random() * 0.3);
+        const size = 8 + (word.length < 10 ? 2 : 0); // Larger text, bigger for shorter words
         const category = getWordCategory(word);
         
         nodes.push({
@@ -1038,14 +1278,14 @@
         });
       });
 
-      // Create links between related words
+      // Only create links within same category (cleaner, more organized)
       for (let i = 0; i < nodes.length; i++) {
         for (let j = i + 1; j < nodes.length; j++) {
-          if (areWordsRelated(nodes[i].word, nodes[j].word)) {
+          if (nodes[i].category === nodes[j].category && nodes[i].category) {
             links.push({
               source: nodes[i],
               target: nodes[j],
-              strength: nodes[i].category === nodes[j].category ? 1.0 : 0.6
+              strength: 1.0
             });
           }
         }
@@ -1055,9 +1295,10 @@
     function update() {
       const centerX = width / 2;
       const centerY = height / 2;
-      const k = 0.1; // Spring constant
-      const repulsion = 800; // Repulsion force
-      const damping = 0.85; // Damping factor
+      const k = 0.08; // Spring constant (softer)
+      const repulsion = 1200; // Stronger repulsion for better spacing
+      const damping = 0.88; // Damping factor
+      const minDistance = 80; // Minimum distance between nodes
 
       // Reset forces
       nodes.forEach(node => {
@@ -1072,7 +1313,8 @@
         const dx = link.target.x - link.source.x;
         const dy = link.target.y - link.source.y;
         const dist = Math.sqrt(dx * dx + dy * dy) || 1;
-        const force = (dist - 60 * link.strength) * k * link.strength;
+        const targetDist = minDistance * link.strength;
+        const force = (dist - targetDist) * k;
         const fx = (dx / dist) * force;
         const fy = (dy / dist) * force;
 
@@ -1086,7 +1328,7 @@
         }
       });
 
-      // Apply repulsion between all nodes
+      // Apply repulsion between all nodes (stronger)
       for (let i = 0; i < nodes.length; i++) {
         for (let j = i + 1; j < nodes.length; j++) {
           const dx = nodes[j].x - nodes[i].x;
@@ -1107,13 +1349,13 @@
         }
       }
 
-      // Apply center attraction
+      // Apply center attraction (weaker)
       nodes.forEach(node => {
         if (!node.fixed) {
           const dx = centerX - node.x;
           const dy = centerY - node.y;
-          node.vx += dx * 0.001;
-          node.vy += dy * 0.001;
+          node.vx += dx * 0.0005;
+          node.vy += dy * 0.0005;
         }
       });
 
@@ -1123,9 +1365,10 @@
           node.x += node.vx;
           node.y += node.vy;
           
-          // Keep within bounds
-          node.x = Math.max(20, Math.min(width - 20, node.x));
-          node.y = Math.max(20, Math.min(height - 20, node.y));
+          // Keep within bounds with padding
+          const padding = 30;
+          node.x = Math.max(padding, Math.min(width - padding, node.x));
+          node.y = Math.max(padding, Math.min(height - padding, node.y));
         }
       });
     }
@@ -1133,27 +1376,40 @@
     function draw() {
       ctx.clearRect(0, 0, width, height);
       
-      // Draw links
+      // Draw links (more subtle)
       links.forEach(link => {
         ctx.beginPath();
         ctx.moveTo(link.source.x, link.source.y);
         ctx.lineTo(link.target.x, link.target.y);
-        ctx.strokeStyle = `rgba(99, 102, 241, ${0.15 * link.strength})`;
-        ctx.lineWidth = 0.5;
+        ctx.strokeStyle = `rgba(99, 102, 241, ${0.12})`;
+        ctx.lineWidth = 0.8;
         ctx.stroke();
       });
 
-      // Draw nodes
+      // Draw nodes with better visibility
       nodes.forEach(node => {
         ctx.save();
+        
+        // Add subtle glow/shadow for readability
+        ctx.shadowBlur = 8;
+        ctx.shadowColor = node.category === 'creative' 
+          ? 'rgba(236, 72, 153, 0.5)'
+          : node.category === 'technical'
+          ? 'rgba(99, 102, 241, 0.5)'
+          : node.category === 'research'
+          ? 'rgba(34, 211, 238, 0.5)'
+          : 'rgba(230, 235, 255, 0.4)';
+        
         ctx.font = `600 ${node.size}px 'Space Grotesk', system-ui, sans-serif`;
         ctx.fillStyle = node.category === 'creative' 
-          ? 'rgba(236, 72, 153, 0.85)'
+          ? 'rgba(236, 72, 153, 0.95)'
           : node.category === 'technical'
-          ? 'rgba(99, 102, 241, 0.85)'
+          ? 'rgba(99, 102, 241, 0.95)'
           : node.category === 'research'
-          ? 'rgba(34, 211, 238, 0.85)'
-          : 'rgba(230, 235, 255, 0.75)';
+          ? 'rgba(34, 211, 238, 0.95)'
+          : node.category === 'leadership'
+          ? 'rgba(168, 85, 247, 0.95)'
+          : 'rgba(230, 235, 255, 0.9)';
         ctx.textAlign = 'center';
         ctx.textBaseline = 'middle';
         ctx.fillText(node.word, node.x, node.y);
@@ -1181,7 +1437,8 @@
         const node = nodes[i];
         const dx = x - node.x;
         const dy = y - node.y;
-        if (Math.sqrt(dx * dx + dy * dy) < 30) {
+        // Larger hit area for easier interaction
+        if (Math.sqrt(dx * dx + dy * dy) < 50) {
           return node;
         }
       }
