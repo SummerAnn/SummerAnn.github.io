@@ -1,0 +1,884 @@
+/*
+ * Summer Ann Portfolio - Theme Variants
+ * Three distinct UI identities: Atelier Gallery, Studio OS, Arcade Atlas
+ */
+
+:root {
+  --accent: var(--neon-primary);
+  --accent-2: var(--neon-secondary);
+  --accent-gradient: var(--neon-gradient);
+  --surface: var(--bg-secondary);
+  --surface-2: var(--bg-tertiary);
+  --line: rgba(0, 0, 0, 0.08);
+  --hero-overlay: linear-gradient(180deg, rgba(0, 0, 0, 0.2), transparent 55%);
+  --heading-transform: none;
+  --heading-letter-spacing: 0.02em;
+  --particle-count: 40;
+  --particle-1: #6c63ff;
+  --particle-2: #00ffe7;
+  --particle-3: #a1c4fd;
+  --particle-4: #c2e9fb;
+  --motion-reveal-duration: 0.8;
+  --motion-reveal-distance: 40;
+  --motion-stagger-delay: 0.08;
+}
+
+body[data-theme] {
+  background: var(--bg-primary);
+  color: var(--text-primary);
+  font-family: var(--font-body);
+  transition: background-color var(--duration-slow) var(--ease-out-expo),
+    color var(--duration-normal) var(--ease-out-quart);
+}
+
+body[data-theme] h1,
+body[data-theme] h2,
+body[data-theme] h3,
+body[data-theme] .section-title,
+body[data-theme] .project-title-settings,
+body[data-theme] header h1,
+body[data-theme] .title-styles {
+  font-family: var(--font-display);
+  letter-spacing: var(--heading-letter-spacing);
+  text-transform: var(--heading-transform);
+}
+
+body[data-theme] .project-title-settings,
+body[data-theme] .title-styles {
+  color: var(--text-primary);
+}
+
+body[data-theme] a {
+  color: var(--accent);
+}
+
+body[data-theme] header {
+  background: var(--bg-primary);
+  color: var(--text-primary);
+  border-bottom: 1px solid var(--line);
+}
+
+body[data-theme] .video-container::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: var(--hero-overlay);
+  pointer-events: none;
+}
+
+body[data-theme] #about,
+body[data-theme] #portfolio,
+body[data-theme] #resume,
+body[data-theme] #skills,
+body[data-theme] footer {
+  background: var(--bg-secondary);
+  color: var(--text-primary);
+}
+
+body[data-theme] .section-title,
+body[data-theme] #portfolio .section-title,
+body[data-theme] #resume .section-title {
+  color: var(--text-primary) !important;
+}
+
+body[data-theme] .project-date {
+  background: var(--accent);
+  color: var(--text-on-neon);
+  border-top: 4px solid var(--accent-2);
+}
+
+body[data-theme] .experience-badge {
+  background: var(--surface-2) !important;
+  color: var(--text-primary) !important;
+}
+
+body[data-theme] .main-badge {
+  background: var(--accent) !important;
+  color: var(--text-on-neon) !important;
+}
+
+body[data-theme] .language {
+  background: var(--bg-secondary);
+  color: var(--text-primary);
+}
+
+body[data-theme] .skills-tile {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  color: var(--text-primary);
+}
+
+body[data-theme] .bars li {
+  background: var(--surface-2);
+}
+
+body[data-theme] .bars li em {
+  color: var(--text-primary);
+}
+
+body[data-theme] .bar-expand {
+  background: var(--accent);
+}
+
+body[data-theme] .modal-inside .modal-content {
+  background: var(--surface);
+  color: var(--text-primary);
+  border: 1px solid var(--line);
+}
+
+body[data-theme] .close-icon {
+  color: var(--text-primary);
+}
+
+body[data-theme] #preview {
+  background: var(--surface);
+  border: 1px solid var(--line);
+}
+
+body[data-theme] #enhanced-nav .nav-logo {
+  font-family: var(--font-display);
+}
+
+body[data-theme] #scroll-progress {
+  background: var(--accent-gradient);
+}
+
+body[data-theme] #section-dots .dot {
+  background: color-mix(in srgb, var(--accent) 30%, transparent);
+  border-color: var(--accent);
+}
+
+body[data-theme] #section-dots .dot.active,
+body[data-theme] #section-dots .dot:hover {
+  background: var(--accent-gradient);
+  box-shadow: var(--neon-glow-subtle);
+}
+
+body[data-theme] .awssld {
+  --loader-bar-color: color-mix(in srgb, var(--accent) 35%, transparent);
+  --organic-arrow-color: var(--accent);
+  --control-bullet-color: color-mix(in srgb, var(--accent) 35%, transparent);
+  --control-bullet-active-color: var(--accent);
+  --content-background-color: var(--surface);
+}
+
+body[data-theme] .slider-image {
+  border: 3px solid var(--line);
+}
+
+body[data-theme] .neon-btn {
+  background: var(--accent-gradient);
+  color: var(--text-on-neon);
+}
+
+/* =============================
+ * THEME G: GRAPHITE (TREND GREY)
+ * ============================= */
+body[data-theme='graphite'] {
+  --font-display: 'Space Grotesk', system-ui, sans-serif;
+  --font-heading: 'Space Grotesk', system-ui, sans-serif;
+  --font-body: 'Inter', system-ui, -apple-system, sans-serif;
+  --font-mono: 'JetBrains Mono', 'Fira Code', monospace;
+
+  --bg-primary: #0f1114;
+  --bg-secondary: #14171c;
+  --bg-tertiary: #1a1f26;
+  --surface: rgba(255, 255, 255, 0.06);
+  --surface-2: rgba(255, 255, 255, 0.1);
+
+  --text-primary: #e7e9ee;
+  --text-secondary: #c5c9d1;
+  --text-muted: #9aa1ad;
+  --text-on-neon: #0f1114;
+
+  --line: rgba(255, 255, 255, 0.12);
+  --accent: #e2e6ec;
+  --accent-2: #9fa7b4;
+  --accent-gradient: linear-gradient(120deg, #f4f6f9 0%, #b7bdc8 45%, #e7ebf0 100%);
+
+  --neon-primary: var(--accent);
+  --neon-secondary: var(--accent-2);
+  --neon-gradient: var(--accent-gradient);
+  --neon-gradient-reverse: linear-gradient(90deg, #aeb4bf 0%, #f0f2f5 100%);
+  --neon-glow: 0 0 18px rgba(226, 230, 236, 0.5);
+  --neon-glow-hover: 0 0 36px rgba(226, 230, 236, 0.75);
+  --neon-glow-subtle: 0 0 14px rgba(226, 230, 236, 0.4);
+  --neon-text-glow: 0 0 14px rgba(226, 230, 236, 0.6);
+
+  --glass-bg: rgba(18, 20, 26, 0.82);
+  --glass-bg-hover: rgba(18, 20, 26, 0.95);
+  --glass-border: 1px solid rgba(255, 255, 255, 0.14);
+  --glass-border-neon: 1px solid rgba(208, 212, 219, 0.35);
+  --glass-shadow: 0 28px 80px rgba(0, 0, 0, 0.45);
+  --glass-shadow-hover: 0 38px 110px rgba(0, 0, 0, 0.6);
+
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+  --duration-fast: 0.1s;
+  --duration-normal: 0.18s;
+  --duration-slow: 0.32s;
+  --duration-slower: 0.55s;
+
+  --heading-transform: none;
+  --heading-letter-spacing: 0.01em;
+  --hero-overlay: radial-gradient(circle at 35% 20%, rgba(255, 255, 255, 0.18), transparent 55%);
+
+  --particle-count: 64;
+  --particle-1: #f4f6f9;
+  --particle-2: #c9ced6;
+  --particle-3: #9fa7b4;
+  --particle-4: #6a7280;
+
+  --motion-reveal-duration: 0.85;
+  --motion-reveal-distance: 46;
+  --motion-stagger-delay: 0.06;
+}
+
+body[data-theme='graphite']::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background:
+    radial-gradient(circle at 16% 12%, rgba(255, 255, 255, 0.12), transparent 45%),
+    radial-gradient(circle at 75% 0%, rgba(255, 255, 255, 0.08), transparent 40%),
+    linear-gradient(120deg, rgba(255, 255, 255, 0.05), transparent 55%);
+  opacity: 0.95;
+  pointer-events: none;
+  z-index: 0;
+  animation: graphite-breath 10s ease-in-out infinite;
+}
+
+@keyframes graphite-breath {
+  0%, 100% { opacity: 0.75; }
+  50% { opacity: 0.95; }
+}
+
+body[data-theme='graphite']::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background-image:
+    repeating-linear-gradient(135deg, rgba(255, 255, 255, 0.03) 0 1px, transparent 1px 120px),
+    repeating-linear-gradient(45deg, rgba(255, 255, 255, 0.02) 0 1px, transparent 1px 140px);
+  opacity: 0.35;
+  mix-blend-mode: screen;
+  pointer-events: none;
+  z-index: 0;
+  animation: graphite-drift 18s linear infinite;
+}
+
+@keyframes graphite-drift {
+  from { transform: translateY(0); }
+  to { transform: translateY(-120px); }
+}
+
+body[data-theme='graphite'] #enhanced-nav {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+  box-shadow: 0 22px 60px rgba(0, 0, 0, 0.45);
+}
+
+body[data-theme='graphite'] #enhanced-nav .nav-logo {
+  text-shadow: 0 0 16px rgba(226, 230, 236, 0.55);
+}
+
+body[data-theme='graphite'] #enhanced-nav .nav-links a {
+  border: 1px solid transparent;
+  background: transparent;
+}
+
+body[data-theme='graphite'] #enhanced-nav .nav-links a:hover,
+body[data-theme='graphite'] #enhanced-nav .nav-links a.active {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(255, 255, 255, 0.12);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+}
+
+body[data-theme='graphite'] #scroll-progress {
+  height: 3px;
+  box-shadow: 0 0 18px rgba(226, 230, 236, 0.55);
+}
+
+body[data-theme='graphite'] .foto div,
+body[data-theme='graphite'] .polaroid span,
+body[data-theme='graphite'] .vertical-timeline-element-content,
+body[data-theme='graphite'] .card {
+  background: rgba(15, 18, 24, 0.88);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  box-shadow: 0 28px 80px rgba(0, 0, 0, 0.55);
+  border-radius: 18px;
+  overflow: hidden;
+  position: relative;
+}
+
+body[data-theme='graphite'] .foto div::after,
+body[data-theme='graphite'] .vertical-timeline-element-content::after,
+body[data-theme='graphite'] .card::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.14), transparent 45%);
+  opacity: 0;
+  transition: opacity var(--duration-normal) var(--ease-out-expo);
+  pointer-events: none;
+}
+
+body[data-theme='graphite'] .foto div:hover,
+body[data-theme='graphite'] .vertical-timeline-element-content:hover,
+body[data-theme='graphite'] .card:hover {
+  transform: translateY(-10px) scale(1.03);
+  box-shadow: 0 36px 110px rgba(0, 0, 0, 0.7), 0 0 28px rgba(226, 230, 236, 0.25);
+}
+
+body[data-theme='graphite'] .foto div:hover::after,
+body[data-theme='graphite'] .vertical-timeline-element-content:hover::after,
+body[data-theme='graphite'] .card:hover::after {
+  opacity: 1;
+}
+
+body[data-theme='graphite'] .skills-tile {
+  transition: transform var(--duration-normal) var(--ease-out-expo), box-shadow var(--duration-normal) var(--ease-out-expo);
+}
+
+body[data-theme='graphite'] .skills-tile:hover {
+  transform: translateY(-6px) scale(1.05);
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.45), 0 0 20px rgba(226, 230, 236, 0.25);
+}
+
+body[data-theme='graphite'] .neon-btn {
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.45), var(--neon-glow-subtle);
+}
+
+body[data-theme='graphite'] .neon-btn:hover {
+  transform: translateY(-2px) scale(1.02);
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.6), var(--neon-glow-hover);
+}
+
+body[data-theme='graphite'] #about,
+body[data-theme='graphite'] #portfolio,
+body[data-theme='graphite'] #resume,
+body[data-theme='graphite'] #skills,
+body[data-theme='graphite'] footer {
+  background:
+    radial-gradient(circle at 20% 0%, rgba(255, 255, 255, 0.06), transparent 45%),
+    radial-gradient(circle at 90% 10%, rgba(255, 255, 255, 0.04), transparent 35%),
+    var(--bg-secondary);
+}
+
+body[data-theme='graphite'] .section-title {
+  text-shadow: 0 8px 20px rgba(0, 0, 0, 0.6);
+}
+
+body[data-theme='graphite'] #section-dots .dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 6px;
+}
+
+body[data-theme='graphite'] .awssld__bullets button {
+  width: 18px;
+  height: 4px;
+  border-radius: 999px;
+}
+
+body[data-theme] footer a,
+body[data-theme] footer a:visited {
+  color: var(--text-primary);
+}
+
+body[data-theme] footer a:hover {
+  color: var(--accent);
+}
+
+body[data-theme] .link-href {
+  color: var(--accent);
+}
+
+/* Theme switcher in nav */
+#enhanced-nav .nav-theme-toggle {
+  display: flex;
+  align-items: center;
+}
+
+#enhanced-nav .theme-switch {
+  display: inline-flex;
+  gap: 4px;
+  padding: 4px;
+  border-radius: 999px;
+  background: rgba(0, 0, 0, 0.35);
+  border: 1px solid var(--line);
+}
+
+#enhanced-nav .theme-switch button {
+  width: 28px;
+  height: 28px;
+  border-radius: 999px;
+  border: none;
+  background: transparent;
+  color: var(--text-primary);
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  font-weight: 600;
+  cursor: pointer;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.35);
+  transition: all var(--duration-normal) var(--ease-out-quart);
+}
+
+#enhanced-nav .theme-switch button:hover {
+  color: var(--text-primary);
+  transform: translateY(-1px);
+}
+
+#enhanced-nav .theme-switch button.active {
+  background: var(--accent);
+  color: var(--text-on-neon);
+  text-shadow: none;
+  box-shadow: var(--neon-glow-subtle);
+}
+
+body[data-theme='atelier'] #enhanced-nav .theme-switch {
+  background: rgba(255, 255, 255, 0.85);
+}
+
+body[data-theme='atelier'] #enhanced-nav .theme-switch button {
+  color: var(--text-secondary);
+  text-shadow: none;
+}
+
+@media (max-width: 1024px) {
+  #enhanced-nav .theme-switch button {
+    width: 26px;
+    height: 26px;
+  }
+}
+
+@media (max-width: 768px) {
+  #enhanced-nav .nav-theme-toggle {
+    margin-top: var(--space-sm);
+  }
+}
+
+/* =============================
+ * THEME A: ATELIER GALLERY
+ * ============================= */
+body[data-theme='atelier'] {
+  --font-display: 'Fraunces', 'Times New Roman', serif;
+  --font-heading: 'Fraunces', 'Times New Roman', serif;
+  --font-body: 'Inter', system-ui, -apple-system, sans-serif;
+  --font-mono: 'JetBrains Mono', 'Fira Code', monospace;
+
+  --bg-primary: #f6f0e6;
+  --bg-secondary: #fffcf7;
+  --bg-tertiary: #f3ebdd;
+  --surface: #fffcf7;
+  --surface-2: #f1e7d8;
+
+  --text-primary: #161514;
+  --text-secondary: #2c2a27;
+  --text-muted: #6f6a63;
+  --text-on-neon: #ffffff;
+
+  --line: #e6ddd0;
+  --accent: #2e5bff;
+  --accent-2: #c36a2d;
+  --accent-gradient: linear-gradient(90deg, #2e5bff 0%, #6d8cff 100%);
+
+  --neon-primary: var(--accent);
+  --neon-secondary: #8eb1ff;
+  --neon-gradient: var(--accent-gradient);
+  --neon-gradient-reverse: linear-gradient(90deg, #6d8cff 0%, #2e5bff 100%);
+  --neon-glow: 0 0 10px rgba(46, 91, 255, 0.25);
+  --neon-glow-hover: 0 0 18px rgba(46, 91, 255, 0.35);
+  --neon-glow-subtle: 0 0 8px rgba(46, 91, 255, 0.15);
+  --neon-text-glow: 0 0 8px rgba(46, 91, 255, 0.2);
+
+  --glass-bg: rgba(255, 252, 247, 0.82);
+  --glass-bg-hover: rgba(255, 252, 247, 0.95);
+  --glass-border: 1px solid rgba(22, 21, 20, 0.08);
+  --glass-border-neon: 1px solid rgba(46, 91, 255, 0.18);
+  --glass-shadow: 0 16px 40px rgba(22, 21, 20, 0.08);
+  --glass-shadow-hover: 0 18px 50px rgba(22, 21, 20, 0.12);
+
+  --ease-out-expo: cubic-bezier(0.2, 0.8, 0.2, 1);
+  --duration-fast: 0.12s;
+  --duration-normal: 0.22s;
+  --duration-slow: 0.42s;
+  --duration-slower: 0.7s;
+
+  --heading-transform: none;
+  --heading-letter-spacing: 0.03em;
+  --hero-overlay: radial-gradient(circle at 20% 20%, rgba(255, 255, 255, 0.5), transparent 55%);
+
+  --particle-count: 24;
+  --particle-1: #2e5bff;
+  --particle-2: #c36a2d;
+  --particle-3: #a8b1c7;
+  --particle-4: #d9c8ae;
+
+  --motion-reveal-duration: 0.9;
+  --motion-reveal-distance: 18;
+  --motion-stagger-delay: 0.08;
+}
+
+body[data-theme='atelier']::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background:
+    radial-gradient(circle at 50% 10%, rgba(0, 0, 0, 0.08), transparent 45%),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.8), transparent 35%);
+  opacity: 0.45;
+  pointer-events: none;
+  z-index: 0;
+}
+
+body[data-theme='atelier'] #enhanced-nav {
+  border-bottom: 1px solid var(--line);
+  box-shadow: 0 10px 30px rgba(22, 21, 20, 0.06);
+}
+
+body[data-theme='atelier'] #enhanced-nav .nav-links a {
+  position: relative;
+  color: var(--text-secondary);
+}
+
+body[data-theme='atelier'] #enhanced-nav .nav-links a::after {
+  content: '';
+  position: absolute;
+  left: 12px;
+  right: 12px;
+  bottom: 6px;
+  height: 1px;
+  background: var(--accent);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform var(--duration-normal) var(--ease-out-expo);
+}
+
+body[data-theme='atelier'] #enhanced-nav .nav-links a:hover::after,
+body[data-theme='atelier'] #enhanced-nav .nav-links a.active::after {
+  transform: scaleX(1);
+}
+
+body[data-theme='atelier'] #scroll-progress {
+  height: 2px;
+  box-shadow: none;
+}
+
+body[data-theme='atelier'] .foto div,
+body[data-theme='atelier'] .polaroid span,
+body[data-theme='atelier'] .vertical-timeline-element-content {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  box-shadow: 0 12px 30px rgba(22, 21, 20, 0.08);
+  border-radius: 18px;
+}
+
+body[data-theme='atelier'] .foto div:hover {
+  transform: translateY(-4px) scale(1.01);
+  box-shadow: 0 18px 40px rgba(22, 21, 20, 0.12);
+}
+
+body[data-theme='atelier'] #skills {
+  background: var(--bg-tertiary);
+}
+
+body[data-theme='atelier'] #section-dots .dot {
+  width: 10px;
+  height: 10px;
+}
+
+body[data-theme='atelier'] .awssld__bullets button {
+  width: 24px;
+  height: 2px;
+  border-radius: 0;
+}
+
+/* =============================
+ * THEME B: STUDIO OS
+ * ============================= */
+body[data-theme='studio'] {
+  --font-display: 'Space Grotesk', 'Raleway', system-ui, sans-serif;
+  --font-heading: 'Space Grotesk', system-ui, sans-serif;
+  --font-body: 'Space Grotesk', system-ui, sans-serif;
+  --font-mono: 'JetBrains Mono', 'Fira Code', monospace;
+
+  --bg-primary: #0b0f14;
+  --bg-secondary: #10151c;
+  --bg-tertiary: #151b24;
+  --surface: rgba(255, 255, 255, 0.06);
+  --surface-2: rgba(255, 255, 255, 0.1);
+
+  --text-primary: rgba(255, 255, 255, 0.92);
+  --text-secondary: rgba(255, 255, 255, 0.74);
+  --text-muted: rgba(255, 255, 255, 0.6);
+  --text-on-neon: #08120a;
+
+  --line: rgba(255, 255, 255, 0.1);
+  --accent: #7cff6b;
+  --accent-2: #6ba6ff;
+  --accent-gradient: linear-gradient(90deg, #7cff6b 0%, #6ba6ff 100%);
+
+  --neon-primary: var(--accent);
+  --neon-secondary: var(--accent-2);
+  --neon-gradient: var(--accent-gradient);
+  --neon-gradient-reverse: linear-gradient(90deg, #6ba6ff 0%, #7cff6b 100%);
+  --neon-glow: 0 0 18px rgba(124, 255, 107, 0.45);
+  --neon-glow-hover: 0 0 28px rgba(124, 255, 107, 0.65);
+  --neon-glow-subtle: 0 0 12px rgba(107, 166, 255, 0.35);
+  --neon-text-glow: 0 0 10px rgba(124, 255, 107, 0.45);
+
+  --glass-bg: rgba(255, 255, 255, 0.06);
+  --glass-bg-hover: rgba(255, 255, 255, 0.12);
+  --glass-border: 1px solid rgba(255, 255, 255, 0.12);
+  --glass-border-neon: 1px solid rgba(124, 255, 107, 0.25);
+  --glass-shadow: 0 16px 40px rgba(0, 0, 0, 0.35);
+  --glass-shadow-hover: 0 24px 60px rgba(0, 0, 0, 0.45);
+
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+  --duration-fast: 0.09s;
+  --duration-normal: 0.16s;
+  --duration-slow: 0.28s;
+  --duration-slower: 0.45s;
+
+  --heading-transform: none;
+  --heading-letter-spacing: 0.01em;
+  --hero-overlay: radial-gradient(circle at 30% 20%, rgba(124, 255, 107, 0.15), transparent 55%);
+
+  --particle-count: 48;
+  --particle-1: #7cff6b;
+  --particle-2: #6ba6ff;
+  --particle-3: #ffffff;
+  --particle-4: #3a4658;
+
+  --motion-reveal-duration: 0.7;
+  --motion-reveal-distance: 30;
+  --motion-stagger-delay: 0.06;
+}
+
+body[data-theme='studio']::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background:
+    radial-gradient(circle at 20% 20%, rgba(255, 255, 255, 0.08), transparent 45%),
+    radial-gradient(circle at 80% 0%, rgba(124, 255, 107, 0.12), transparent 40%);
+  opacity: 0.8;
+  pointer-events: none;
+  z-index: 0;
+}
+
+body[data-theme='studio'] #enhanced-nav {
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.35);
+}
+
+body[data-theme='studio'] #scroll-progress {
+  height: 3px;
+  box-shadow: 0 0 16px rgba(124, 255, 107, 0.4);
+}
+
+body[data-theme='studio'] .foto div,
+body[data-theme='studio'] .polaroid span,
+body[data-theme='studio'] .vertical-timeline-element-content {
+  background: rgba(15, 19, 26, 0.85);
+  border: 1px solid var(--line);
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.35);
+  border-radius: 16px;
+  overflow: hidden;
+  position: relative;
+}
+
+body[data-theme='studio'] .foto div::before,
+body[data-theme='studio'] .polaroid span::before,
+body[data-theme='studio'] .vertical-timeline-element-content::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 28px;
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.02)),
+    radial-gradient(circle, #ff5f57 0 60%, transparent 65%),
+    radial-gradient(circle, #febc2e 0 60%, transparent 65%),
+    radial-gradient(circle, #28c840 0 60%, transparent 65%);
+  background-repeat: no-repeat;
+  background-position: center, 14px 14px, 28px 14px, 42px 14px;
+  background-size: auto, 8px 8px, 8px 8px, 8px 8px;
+  border-bottom: 1px solid var(--line);
+  pointer-events: none;
+  z-index: 1;
+}
+
+body[data-theme='studio'] .foto div img,
+body[data-theme='studio'] .polaroid span img {
+  margin-top: 28px;
+}
+
+body[data-theme='studio'] .foto div:hover {
+  transform: translateY(-6px) scale(1.02);
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.45);
+}
+
+body[data-theme='studio'] #section-dots .dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 4px;
+}
+
+body[data-theme='studio'] .awssld__bullets button {
+  width: 14px;
+  height: 6px;
+  border-radius: 999px;
+}
+
+/* =============================
+ * THEME C: ARCADE ATLAS
+ * ============================= */
+body[data-theme='arcade'] {
+  --font-display: 'Bebas Neue', 'Anton', sans-serif;
+  --font-heading: 'Bebas Neue', 'Anton', sans-serif;
+  --font-body: 'Manrope', system-ui, sans-serif;
+  --font-mono: 'Press Start 2P', 'JetBrains Mono', monospace;
+
+  --bg-primary: #070618;
+  --bg-secondary: #0d0b24;
+  --bg-tertiary: #141037;
+  --surface: rgba(255, 255, 255, 0.08);
+  --surface-2: rgba(255, 255, 255, 0.12);
+
+  --text-primary: rgba(255, 255, 255, 0.94);
+  --text-secondary: rgba(255, 255, 255, 0.74);
+  --text-muted: rgba(255, 255, 255, 0.6);
+  --text-on-neon: #070618;
+
+  --line: rgba(255, 255, 255, 0.12);
+  --accent: #ff2bd6;
+  --accent-2: #00e5ff;
+  --accent-gradient: linear-gradient(90deg, #ff2bd6 0%, #00e5ff 100%);
+
+  --neon-primary: var(--accent);
+  --neon-secondary: var(--accent-2);
+  --neon-gradient: var(--accent-gradient);
+  --neon-gradient-reverse: linear-gradient(90deg, #00e5ff 0%, #ff2bd6 100%);
+  --neon-glow: 0 0 20px rgba(255, 43, 214, 0.6);
+  --neon-glow-hover: 0 0 32px rgba(255, 43, 214, 0.75);
+  --neon-glow-subtle: 0 0 12px rgba(0, 229, 255, 0.45);
+  --neon-text-glow: 0 0 12px rgba(255, 43, 214, 0.6);
+
+  --glass-bg: rgba(13, 11, 36, 0.75);
+  --glass-bg-hover: rgba(13, 11, 36, 0.9);
+  --glass-border: 1px solid rgba(255, 255, 255, 0.16);
+  --glass-border-neon: 1px solid rgba(255, 43, 214, 0.4);
+  --glass-shadow: 0 18px 48px rgba(0, 0, 0, 0.45);
+  --glass-shadow-hover: 0 26px 70px rgba(0, 0, 0, 0.55);
+
+  --ease-out-expo: cubic-bezier(0.34, 1.56, 0.64, 1);
+  --duration-fast: 0.12s;
+  --duration-normal: 0.2s;
+  --duration-slow: 0.36s;
+  --duration-slower: 0.6s;
+
+  --heading-transform: uppercase;
+  --heading-letter-spacing: 0.08em;
+  --hero-overlay: radial-gradient(circle at 70% 10%, rgba(255, 43, 214, 0.25), transparent 50%);
+
+  --particle-count: 64;
+  --particle-1: #ff2bd6;
+  --particle-2: #00e5ff;
+  --particle-3: #ffe14d;
+  --particle-4: #6d5cff;
+
+  --motion-reveal-duration: 0.85;
+  --motion-reveal-distance: 36;
+  --motion-stagger-delay: 0.1;
+}
+
+body[data-theme='arcade']::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background:
+    repeating-linear-gradient(0deg, rgba(255, 255, 255, 0.04) 0, rgba(255, 255, 255, 0.04) 1px, transparent 1px, transparent 80px),
+    repeating-linear-gradient(90deg, rgba(255, 255, 255, 0.04) 0, rgba(255, 255, 255, 0.04) 1px, transparent 1px, transparent 80px);
+  opacity: 0.5;
+  pointer-events: none;
+  z-index: 0;
+  animation: arcade-grid 12s linear infinite;
+}
+
+@keyframes arcade-grid {
+  from { transform: translateY(0); }
+  to { transform: translateY(-80px); }
+}
+
+body[data-theme='arcade'] #enhanced-nav {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.18);
+  box-shadow: 0 18px 50px rgba(0, 0, 0, 0.45);
+}
+
+body[data-theme='arcade'] #enhanced-nav .nav-logo {
+  text-shadow: 0 0 12px rgba(255, 43, 214, 0.5);
+}
+
+body[data-theme='arcade'] #scroll-progress {
+  height: 4px;
+  box-shadow: 0 0 20px rgba(255, 43, 214, 0.5);
+}
+
+body[data-theme='arcade'] .foto div,
+body[data-theme='arcade'] .polaroid span,
+body[data-theme='arcade'] .vertical-timeline-element-content {
+  background: var(--surface);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  box-shadow: 0 0 0 1px rgba(255, 43, 214, 0.2), 0 18px 40px rgba(0, 0, 0, 0.45);
+  border-radius: 20px;
+  position: relative;
+}
+
+body[data-theme='arcade'] .foto div::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 20px;
+  padding: 1px;
+  background: linear-gradient(135deg, rgba(255, 43, 214, 0.7), rgba(0, 229, 255, 0.6));
+  -webkit-mask:
+    linear-gradient(#000 0 0) content-box,
+    linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+}
+
+body[data-theme='arcade'] .foto div:hover {
+  transform: translateY(-8px) scale(1.03);
+  box-shadow: 0 0 24px rgba(255, 43, 214, 0.4), 0 28px 60px rgba(0, 0, 0, 0.5);
+}
+
+body[data-theme='arcade'] #skills {
+  background: var(--bg-tertiary);
+}
+
+body[data-theme='arcade'] #section-dots .dot {
+  width: 12px;
+  height: 12px;
+  box-shadow: 0 0 10px rgba(255, 43, 214, 0.6);
+}
+
+body[data-theme='arcade'] .awssld__bullets button {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  box-shadow: 0 0 8px rgba(255, 43, 214, 0.5);
+}
+
+body[data-theme='arcade'] .project-date,
+body[data-theme='arcade'] .language {
+  font-family: var(--font-mono);
+  letter-spacing: 0.05em;
+  font-size: 0.75rem;
+}
+
+body[data-theme='arcade'] .neon-btn {
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+}

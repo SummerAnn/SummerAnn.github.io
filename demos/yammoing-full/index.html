@@ -1,0 +1,2593 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Yammoing - Your intelligent health scanner for food, cosmetics, and products. Make informed decisions backed by science.">
+    <title>Yammoing - Your Personal Health Detective</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-wrapper">
+                <div class="logo">
+                    <span class="logo-icon"><i data-lucide="search"></i></span>
+                    <span class="logo-text">Yammoing</span>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#features">Features</a></li>
+                    <li><a href="#try-demo">Try Demo</a></li>
+                    <li><a href="#science">Science</a></li>
+                    <li><a href="#download">Download</a></li>
+                </ul>
+                <button class="mobile-menu-toggle" aria-label="Toggle menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero cinema-hero" data-reveal>
+        <canvas id="bg-canvas"></canvas>
+        <div class="vignette"></div>
+        <div class="grain"></div>
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-left">
+                    <div class="kicker fx-reveal">Smart wellness, backed by evidence</div>
+                    <h1 class="hero-title fx-reveal">Your Personal<br/><span class="highlight">Health Detective</span></h1>
+                    <p class="sub fx-reveal">Scan products. Track calories with AI. Your personalized nutritionist in your hand.</p>
+                    <p class="hero-subtitle fx-reveal">Transform your iPhone into an intelligent health companion. AI-powered calorie calculation, personalized nutritionist guidance, water quality analysis, and comprehensive product scanning for food, cosmetics, supplements, and household products. Make informed decisions backed by science.</p>
+                    <div class="hero-cta">
+                        <a href="#download" class="btn btn-primary btn-large cta fx-reveal">Download for iOS</a>
+                        <a href="#try-demo" class="btn btn-ghost btn-large cta fx-reveal">Try Interactive Demo</a>
+                    </div>
+                    <div class="hero-credibility fx-reveal">
+                        <div class="credibility-chip">Science-Based</div>
+                        <div class="credibility-chip">2M+ Products</div>
+                        <div class="credibility-chip">Privacy First</div>
+                    </div>
+                    <div class="hero-stats fx-reveal">
+                        <div class="stat">
+                            <div class="stat-number">2M+</div>
+                            <div class="stat-label">Products</div>
+                        </div>
+                        <div class="stat">
+                            <div class="stat-number">1000+</div>
+                            <div class="stat-label">Ingredients Analyzed</div>
+                        </div>
+                        <div class="stat">
+                            <div class="stat-number">9</div>
+                            <div class="stat-label">Health Domains</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="device">
+                    <div class="phone-mockup">
+                        <div class="phone-screen">
+                            <div class="app-preview">
+                                <div class="score-display">
+                                    <div class="score-circle score-good">
+                                        <svg viewBox="0 0 180 180">
+                                            <circle class="bg-circle" cx="90" cy="90" r="65"></circle>
+                                            <circle class="progress-circle" cx="90" cy="90" r="65"></circle>
+                                        </svg>
+                                        <span class="score-number">87</span>
+                                    </div>
+                                    <p class="score-label">Excellent Choice</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="glass-card ingredients">
+                            <div style="font-size: 12px; font-weight: 600; margin-bottom: 6px; color: rgba(11,15,14,0.8);">Flagged</div>
+                            <div style="font-size: 11px; color: rgba(11,15,14,0.6);">No harmful ingredients detected</div>
+                        </div>
+                        <div class="glass-card sources">
+                            <div style="font-size: 12px; font-weight: 600; margin-bottom: 6px; color: rgba(11,15,14,0.8);">Sources</div>
+                            <div style="font-size: 11px; color: rgba(11,15,14,0.6);">Food Compass 2.0, Nutri-Score</div>
+                        </div>
+                        <div class="glass-card calories">
+                            <div style="font-size: 12px; font-weight: 600; margin-bottom: 6px; color: rgba(11,15,14,0.8);">AI Calories</div>
+                            <div style="font-size: 11px; color: rgba(11,15,14,0.6);">245 cal • 12g protein</div>
+                        </div>
+                        <div class="glass-card nutritionist">
+                            <div style="font-size: 12px; font-weight: 600; margin-bottom: 6px; color: rgba(11,15,14,0.8);">Your Nutritionist</div>
+                            <div style="font-size: 11px; color: rgba(11,15,14,0.6);">Great for your goals!</div>
+                        </div>
+                        <div class="glass-card water">
+                            <div style="font-size: 12px; font-weight: 600; margin-bottom: 6px; color: rgba(11,15,14,0.8);">Water Quality</div>
+                            <div style="font-size: 11px; color: rgba(11,15,14,0.6);">Safe • 0 contaminants</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pain Points / Solutions Section (Interactive) -->
+    <section class="pain-points-interactive" id="why-yammoing" data-reveal>
+        <div class="container">
+            <div class="section-head">
+                <p class="eyebrow fx-reveal">The problem we solve</p>
+                <h2 class="section-title fx-reveal">Making Healthy Choices Shouldn't Be This Hard</h2>
+                <p class="section-subtitle fx-reveal">Click each card to see how Yammoing transforms your shopping experience</p>
+            </div>
+
+            <div class="pain-grid">
+                <!-- Card 1: Confusing Labels -->
+                <div class="pain-card" data-pain="labels">
+                    <div class="pain-card-inner">
+                        <div class="pain-front">
+                            <div class="pain-icon"><i data-lucide="help-circle"></i></div>
+                            <h3>Confusing Labels</h3>
+                            <p>Serving sizes, % daily values, ingredient lists in tiny print...</p>
+                            <span class="flip-hint"><i data-lucide="rotate-ccw"></i> Click to flip</span>
+                        </div>
+                        <div class="pain-back">
+                            <div class="solution-icon"><i data-lucide="check-circle"></i></div>
+                            <h3>One Clear Score</h3>
+                            <p>Instantly understand if a product is healthy with our 1-100 science-backed scoring.</p>
+                            <div class="solution-demo">
+                                <div class="mini-score good">87</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 2: Hidden Ingredients -->
+                <div class="pain-card" data-pain="ingredients">
+                    <div class="pain-card-inner">
+                        <div class="pain-front">
+                            <div class="pain-icon"><i data-lucide="eye-off"></i></div>
+                            <h3>Hidden Ingredients</h3>
+                            <p>Additives, preservatives, artificial colors... names we can't pronounce.</p>
+                            <span class="flip-hint"><i data-lucide="rotate-ccw"></i> Click to flip</span>
+                        </div>
+                        <div class="pain-back">
+                            <div class="solution-icon"><i data-lucide="shield-check"></i></div>
+                            <h3>Safety Alerts</h3>
+                            <p>We flag every concerning ingredient with research-backed safety ratings.</p>
+                            <div class="solution-demo">
+                                <span class="alert-tag bad">BHA</span>
+                                <span class="alert-tag moderate">Soy Lecithin</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 3: No Time -->
+                <div class="pain-card" data-pain="time">
+                    <div class="pain-card-inner">
+                        <div class="pain-front">
+                            <div class="pain-icon"><i data-lucide="clock"></i></div>
+                            <h3>No Time to Research</h3>
+                            <p>Who can spend hours researching every product? Life is too busy.</p>
+                            <span class="flip-hint"><i data-lucide="rotate-ccw"></i> Click to flip</span>
+                        </div>
+                        <div class="pain-back">
+                            <div class="solution-icon"><i data-lucide="zap"></i></div>
+                            <h3>Scan in 2 Seconds</h3>
+                            <p>Point, scan, know. Comprehensive health analysis instantly.</p>
+                            <div class="solution-demo">
+                                <div class="scan-animation-mini">
+                                    <div class="scan-line-mini"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 4: Generic Advice -->
+                <div class="pain-card" data-pain="generic">
+                    <div class="pain-card-inner">
+                        <div class="pain-front">
+                            <div class="pain-icon"><i data-lucide="users"></i></div>
+                            <h3>Generic Health Advice</h3>
+                            <p>Everyone's body is different. What works for others might not work for you.</p>
+                            <span class="flip-hint"><i data-lucide="rotate-ccw"></i> Click to flip</span>
+                        </div>
+                        <div class="pain-back">
+                            <div class="solution-icon"><i data-lucide="user-check"></i></div>
+                            <h3>Personalized for You</h3>
+                            <p>Set your allergies, dietary goals, and health conditions for tailored recommendations.</p>
+                            <div class="solution-demo">
+                                <span class="pref-tag">Gluten-Free</span>
+                                <span class="pref-tag">Low Sugar</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 5: Scattered Tools -->
+                <div class="pain-card" data-pain="scattered">
+                    <div class="pain-card-inner">
+                        <div class="pain-front">
+                            <div class="pain-icon"><i data-lucide="puzzle"></i></div>
+                            <h3>Scattered Health Tools</h3>
+                            <p>Calorie counter here, ingredient checker there, water tracker somewhere else...</p>
+                            <span class="flip-hint"><i data-lucide="rotate-ccw"></i> Click to flip</span>
+                        </div>
+                        <div class="pain-back">
+                            <div class="solution-icon"><i data-lucide="layers"></i></div>
+                            <h3>Everything in One App</h3>
+                            <p>Yammoing has it all — your complete health companion.</p>
+                            <div class="solution-demo features-list">
+                                <div class="feature-row"><span>🔍</span> Product Scanner</div>
+                                <div class="feature-row"><span>🍽️</span> AI Calorie Tracker</div>
+                                <div class="feature-row"><span>💧</span> Water Quality Analysis</div>
+                                <div class="feature-row"><span>🌸</span> For Her Wellness</div>
+                                <div class="feature-row"><span>🌬️</span> Air Quality Checker</div>
+                                <div class="feature-row"><span>💧</span> Filter Recommendations</div>
+                                <div class="feature-row"><span>📚</span> Health Education</div>
+                                <div class="feature-row"><span>📊</span> Deep Health Analysis</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 6: Try Now CTA -->
+                <div class="pain-card cta-card" data-pain="cta">
+                    <div class="pain-card-inner">
+                        <div class="pain-front cta-front">
+                            <div class="cta-icon"><i data-lucide="arrow-down-circle"></i></div>
+                            <h3>Ready to Try?</h3>
+                            <p>Experience the difference yourself with our interactive demo below.</p>
+                            <a href="#try-demo" class="btn btn-primary">Try Demo Now</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Interactive Demo Section -->
+    <section class="interactive-demo" id="try-demo" data-reveal>
+        <div class="container">
+            <div class="section-head">
+                <p class="eyebrow fx-reveal">Try it yourself</p>
+                <h2 class="section-title fx-reveal">See Yammoing in Action</h2>
+                <p class="section-subtitle fx-reveal">Explore all the features that make Yammoing your complete health companion</p>
+            </div>
+
+            <!-- Feature Tabs -->
+            <div class="demo-tabs">
+                <button class="demo-tab active" data-tab="scanner">
+                    <i data-lucide="scan-line"></i>
+                    <span>Product Scanner</span>
+                </button>
+                <button class="demo-tab" data-tab="calories">
+                    <i data-lucide="camera"></i>
+                    <span>AI Calories</span>
+                </button>
+                <button class="demo-tab" data-tab="nutritionist">
+                    <i data-lucide="message-circle"></i>
+                    <span>AI Nutritionist</span>
+                </button>
+                <button class="demo-tab" data-tab="water">
+                    <i data-lucide="droplets"></i>
+                    <span>Water Quality</span>
+                </button>
+                <button class="demo-tab" data-tab="analytics">
+                    <i data-lucide="bar-chart-2"></i>
+                    <span>Health Analysis</span>
+                </button>
+            </div>
+
+            <!-- Scanner Tab Content -->
+            <div class="demo-tab-content active" id="tab-scanner">
+                <div class="demo-container">
+                    <div class="demo-products">
+                        <h4>Choose a product to scan:</h4>
+                        <div class="product-buttons">
+                            <button class="product-btn active" data-product="organic-granola">
+                                <span class="product-emoji">🥣</span>
+                                <span class="product-name">Organic Granola</span>
+                            </button>
+                            <button class="product-btn" data-product="soda">
+                                <span class="product-emoji">🥤</span>
+                                <span class="product-name">Cola Soda</span>
+                            </button>
+                            <button class="product-btn" data-product="protein-bar">
+                                <span class="product-emoji">🍫</span>
+                                <span class="product-name">Protein Bar</span>
+                            </button>
+                            <button class="product-btn" data-product="skincare">
+                                <span class="product-emoji">🧴</span>
+                                <span class="product-name">Face Cream</span>
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="demo-phone">
+                        <div class="demo-phone-frame">
+                            <div class="demo-phone-notch"></div>
+                            <div class="demo-phone-screen">
+                                <div class="demo-state demo-scanning" id="demo-scanning">
+                                    <div class="scan-animation">
+                                        <div class="scan-line"></div>
+                                        <div class="barcode-icon"><i data-lucide="scan-line"></i></div>
+                                    </div>
+                                    <p class="scan-text">Scanning product...</p>
+                                </div>
+
+                                <div class="demo-state demo-result" id="demo-result">
+                                    <div class="demo-product-header">
+                                        <span class="demo-product-emoji" id="result-emoji">🥣</span>
+                                        <div class="demo-product-info">
+                                            <h4 id="result-name">Organic Granola</h4>
+                                            <p id="result-brand">Nature's Best</p>
+                                        </div>
+                                    </div>
+
+                                    <div class="demo-score-circle">
+                                        <svg viewBox="0 0 120 120">
+                                            <circle class="demo-bg-circle" cx="60" cy="60" r="52"></circle>
+                                            <circle class="demo-progress-circle" id="demo-progress" cx="60" cy="60" r="52"></circle>
+                                        </svg>
+                                        <span class="demo-score-number" id="demo-score">82</span>
+                                    </div>
+                                    <p class="demo-score-label" id="demo-label">Good Choice</p>
+
+                                    <div class="demo-breakdown">
+                                        <div class="demo-domain">
+                                            <span class="domain-name">Nutrient Density</span>
+                                            <div class="domain-bar"><div class="domain-fill" id="domain-nutrient" style="width: 85%"></div></div>
+                                        </div>
+                                        <div class="demo-domain">
+                                            <span class="domain-name">Processing Level</span>
+                                            <div class="domain-bar"><div class="domain-fill" id="domain-processing" style="width: 70%"></div></div>
+                                        </div>
+                                        <div class="demo-domain">
+                                            <span class="domain-name">Additives Safety</span>
+                                            <div class="domain-bar"><div class="domain-fill" id="domain-additives" style="width: 90%"></div></div>
+                                        </div>
+                                    </div>
+
+                                    <div class="demo-ingredients">
+                                        <h5>Ingredient Highlights</h5>
+                                        <div class="ingredient-tags" id="ingredient-tags">
+                                            <span class="ing-tag good">Whole Oats</span>
+                                            <span class="ing-tag good">Honey</span>
+                                            <span class="ing-tag moderate">Cane Sugar</span>
+                                        </div>
+                                    </div>
+
+                                    <div class="demo-action">
+                                        <button class="demo-alt-btn" id="demo-alternatives">View Alternatives</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="demo-insights">
+                        <h4>Why this score?</h4>
+                        <div class="insight-cards" id="insight-cards">
+                            <div class="insight-card positive">
+                                <div class="insight-icon"><i data-lucide="check"></i></div>
+                                <p>High in fiber and whole grains</p>
+                            </div>
+                            <div class="insight-card positive">
+                                <div class="insight-icon"><i data-lucide="check"></i></div>
+                                <p>No artificial preservatives</p>
+                            </div>
+                            <div class="insight-card caution">
+                                <div class="insight-icon"><i data-lucide="alert-triangle"></i></div>
+                                <p>Contains added sugars (12g per serving)</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- AI Calories Tab Content -->
+            <div class="demo-tab-content" id="tab-calories">
+                <div class="demo-container">
+                    <div class="demo-products">
+                        <h4>Snap a photo of your meal:</h4>
+                        <div class="product-buttons">
+                            <button class="meal-btn active" data-meal="salad">
+                                <span class="product-emoji">🥗</span>
+                                <span class="product-name">Caesar Salad</span>
+                            </button>
+                            <button class="meal-btn" data-meal="burger">
+                                <span class="product-emoji">🍔</span>
+                                <span class="product-name">Burger & Fries</span>
+                            </button>
+                            <button class="meal-btn" data-meal="sushi">
+                                <span class="product-emoji">🍱</span>
+                                <span class="product-name">Sushi Platter</span>
+                            </button>
+                            <button class="meal-btn" data-meal="smoothie">
+                                <span class="product-emoji">🥤</span>
+                                <span class="product-name">Green Smoothie</span>
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="demo-phone">
+                        <div class="demo-phone-frame">
+                            <div class="demo-phone-notch"></div>
+                            <div class="demo-phone-screen">
+                                <div class="demo-state demo-ai-scanning" id="demo-ai-scanning">
+                                    <div class="ai-scan-animation">
+                                        <div class="ai-scan-circle"></div>
+                                        <i data-lucide="camera"></i>
+                                    </div>
+                                    <p class="scan-text">AI analyzing meal...</p>
+                                </div>
+
+                                <div class="demo-state demo-calories-result" id="demo-calories-result">
+                                    <div class="calories-meal-photo" id="meal-photo">
+                                        <span class="meal-emoji-large">🥗</span>
+                                    </div>
+                                    <h4 class="meal-name" id="meal-name">Caesar Salad</h4>
+
+                                    <div class="calories-hero">
+                                        <div class="calories-number" id="calories-number">385</div>
+                                        <div class="calories-unit">calories</div>
+                                    </div>
+
+                                    <div class="macros-grid">
+                                        <div class="macro-item protein">
+                                            <div class="macro-circle">
+                                                <svg viewBox="0 0 36 36">
+                                                    <circle class="macro-bg" cx="18" cy="18" r="16"></circle>
+                                                    <circle class="macro-fill" id="protein-fill" cx="18" cy="18" r="16"></circle>
+                                                </svg>
+                                                <span id="protein-value">24g</span>
+                                            </div>
+                                            <span class="macro-label">Protein</span>
+                                        </div>
+                                        <div class="macro-item carbs">
+                                            <div class="macro-circle">
+                                                <svg viewBox="0 0 36 36">
+                                                    <circle class="macro-bg" cx="18" cy="18" r="16"></circle>
+                                                    <circle class="macro-fill" id="carbs-fill" cx="18" cy="18" r="16"></circle>
+                                                </svg>
+                                                <span id="carbs-value">18g</span>
+                                            </div>
+                                            <span class="macro-label">Carbs</span>
+                                        </div>
+                                        <div class="macro-item fat">
+                                            <div class="macro-circle">
+                                                <svg viewBox="0 0 36 36">
+                                                    <circle class="macro-bg" cx="18" cy="18" r="16"></circle>
+                                                    <circle class="macro-fill" id="fat-fill" cx="18" cy="18" r="16"></circle>
+                                                </svg>
+                                                <span id="fat-value">26g</span>
+                                            </div>
+                                            <span class="macro-label">Fat</span>
+                                        </div>
+                                    </div>
+
+                                    <div class="ai-detected">
+                                        <h5>AI Detected Items</h5>
+                                        <div class="detected-items" id="detected-items">
+                                            <span class="detected-item">Romaine Lettuce</span>
+                                            <span class="detected-item">Grilled Chicken</span>
+                                            <span class="detected-item">Parmesan</span>
+                                            <span class="detected-item">Caesar Dressing</span>
+                                        </div>
+                                    </div>
+
+                                    <button class="demo-alt-btn">Log to Meal Diary</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="demo-insights">
+                        <h4>How AI Calories Works</h4>
+                        <div class="insight-cards" id="calories-insights">
+                            <div class="insight-card positive">
+                                <div class="insight-icon"><i data-lucide="camera"></i></div>
+                                <p>Snap a photo of any meal</p>
+                            </div>
+                            <div class="insight-card positive">
+                                <div class="insight-icon"><i data-lucide="cpu"></i></div>
+                                <p>AI identifies each food item</p>
+                            </div>
+                            <div class="insight-card positive">
+                                <div class="insight-icon"><i data-lucide="calculator"></i></div>
+                                <p>Get instant calorie & macro breakdown</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- AI Nutritionist Tab Content -->
+            <div class="demo-tab-content" id="tab-nutritionist">
+                <div class="demo-container">
+                    <div class="demo-products">
+                        <h4>Ask your AI nutritionist:</h4>
+                        <div class="product-buttons">
+                            <button class="question-btn active" data-question="snack">
+                                <span class="product-emoji">🍎</span>
+                                <span class="product-name">Healthy snack ideas?</span>
+                            </button>
+                            <button class="question-btn" data-question="protein">
+                                <span class="product-emoji">💪</span>
+                                <span class="product-name">More protein sources?</span>
+                            </button>
+                            <button class="question-btn" data-question="bloating">
+                                <span class="product-emoji">🤔</span>
+                                <span class="product-name">Why am I bloated?</span>
+                            </button>
+                            <button class="question-btn" data-question="meal-plan">
+                                <span class="product-emoji">📋</span>
+                                <span class="product-name">Plan my meals</span>
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="demo-phone">
+                        <div class="demo-phone-frame">
+                            <div class="demo-phone-notch"></div>
+                            <div class="demo-phone-screen demo-chat-screen">
+                                <div class="chat-header">
+                                    <div class="chat-avatar">
+                                        <i data-lucide="bot"></i>
+                                    </div>
+                                    <div class="chat-header-info">
+                                        <h4>Yammo AI</h4>
+                                        <span class="online-status">Online</span>
+                                    </div>
+                                </div>
+
+                                <div class="chat-messages" id="chat-messages">
+                                    <div class="chat-message bot">
+                                        <p>Hi! I'm your personal AI nutritionist. Based on your profile and goals, how can I help you today?</p>
+                                    </div>
+                                    <div class="chat-message user" id="user-message">
+                                        <p>What are some healthy snack ideas for afternoon cravings?</p>
+                                    </div>
+                                    <div class="chat-message bot typing" id="bot-typing">
+                                        <div class="typing-dots">
+                                            <span></span><span></span><span></span>
+                                        </div>
+                                    </div>
+                                    <div class="chat-message bot" id="bot-response">
+                                        <p id="bot-response-text">Based on your goal to increase protein intake, here are some great afternoon snacks:</p>
+                                        <div class="chat-suggestions" id="chat-suggestions">
+                                            <div class="suggestion-item">
+                                                <span>🥜</span> Greek yogurt with almonds
+                                            </div>
+                                            <div class="suggestion-item">
+                                                <span>🥚</span> Hard-boiled eggs
+                                            </div>
+                                            <div class="suggestion-item">
+                                                <span>🧀</span> Cheese with apple slices
+                                            </div>
+                                        </div>
+                                        <p class="bot-tip" id="bot-tip">Tip: Pairing protein with fiber helps you stay fuller longer!</p>
+                                    </div>
+                                </div>
+
+                                <div class="chat-input">
+                                    <input type="text" placeholder="Ask anything about nutrition...">
+                                    <button><i data-lucide="send"></i></button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="demo-insights">
+                        <h4>Your Personal Nutritionist</h4>
+                        <div class="insight-cards">
+                            <div class="insight-card positive">
+                                <div class="insight-icon"><i data-lucide="user"></i></div>
+                                <p>Knows your dietary preferences & allergies</p>
+                            </div>
+                            <div class="insight-card positive">
+                                <div class="insight-icon"><i data-lucide="target"></i></div>
+                                <p>Tailored to your health goals</p>
+                            </div>
+                            <div class="insight-card positive">
+                                <div class="insight-icon"><i data-lucide="clock"></i></div>
+                                <p>Available 24/7 for instant advice</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Water Quality Tab Content -->
+            <div class="demo-tab-content" id="tab-water">
+                <div class="demo-container">
+                    <div class="demo-products">
+                        <h4>Check water quality:</h4>
+                        <div class="product-buttons">
+                            <button class="water-btn active" data-water="tap-good">
+                                <span class="product-emoji">🚰</span>
+                                <span class="product-name">My Tap Water</span>
+                            </button>
+                            <button class="water-btn" data-water="evian">
+                                <span class="product-emoji">💧</span>
+                                <span class="product-name">Evian</span>
+                            </button>
+                            <button class="water-btn" data-water="dasani">
+                                <span class="product-emoji">💧</span>
+                                <span class="product-name">Dasani</span>
+                            </button>
+                            <button class="water-btn" data-water="tap-bad">
+                                <span class="product-emoji">🚰</span>
+                                <span class="product-name">Newark, NJ Tap</span>
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="demo-phone">
+                        <div class="demo-phone-frame">
+                            <div class="demo-phone-notch"></div>
+                            <div class="demo-phone-screen">
+                                <div class="demo-state demo-water-scanning" id="demo-water-scanning">
+                                    <div class="water-scan-animation">
+                                        <i data-lucide="droplets"></i>
+                                    </div>
+                                    <p class="scan-text">Analyzing water quality...</p>
+                                </div>
+
+                                <div class="demo-state demo-water-result" id="demo-water-result">
+                                    <div class="water-header">
+                                        <div class="water-icon-large">🚰</div>
+                                        <h4 id="water-name">Your Tap Water</h4>
+                                        <p id="water-location">San Francisco, CA</p>
+                                    </div>
+
+                                    <div class="water-score-badge" id="water-badge">
+                                        <span class="water-grade" id="water-grade">A</span>
+                                        <span class="water-status" id="water-status">Excellent Quality</span>
+                                    </div>
+
+                                    <div class="contaminants-section">
+                                        <h5>Contaminant Analysis</h5>
+                                        <div class="contaminant-list" id="contaminant-list">
+                                            <div class="contaminant-item safe">
+                                                <span class="contaminant-name">Lead</span>
+                                                <span class="contaminant-level">0.2 ppb</span>
+                                                <span class="contaminant-status"><i data-lucide="check-circle"></i></span>
+                                            </div>
+                                            <div class="contaminant-item safe">
+                                                <span class="contaminant-name">Chlorine</span>
+                                                <span class="contaminant-level">0.8 ppm</span>
+                                                <span class="contaminant-status"><i data-lucide="check-circle"></i></span>
+                                            </div>
+                                            <div class="contaminant-item safe">
+                                                <span class="contaminant-name">Fluoride</span>
+                                                <span class="contaminant-level">0.7 ppm</span>
+                                                <span class="contaminant-status"><i data-lucide="check-circle"></i></span>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="water-recommendation" id="water-recommendation">
+                                        <i data-lucide="check-circle"></i>
+                                        <p>Safe to drink! No filter needed.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="demo-insights">
+                        <h4>Know What You Drink</h4>
+                        <div class="insight-cards">
+                            <div class="insight-card positive">
+                                <div class="insight-icon"><i data-lucide="map-pin"></i></div>
+                                <p>Tap water quality by zip code</p>
+                            </div>
+                            <div class="insight-card positive">
+                                <div class="insight-icon"><i data-lucide="flask-conical"></i></div>
+                                <p>50+ contaminants tracked</p>
+                            </div>
+                            <div class="insight-card positive">
+                                <div class="insight-icon"><i data-lucide="droplet"></i></div>
+                                <p>100+ bottled water brands rated</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Health Analysis Tab Content -->
+            <div class="demo-tab-content" id="tab-analytics">
+                <div class="demo-container">
+                    <div class="demo-products">
+                        <h4>View your health insights:</h4>
+                        <div class="product-buttons">
+                            <button class="analytics-btn active" data-analytics="weekly">
+                                <span class="product-emoji">📊</span>
+                                <span class="product-name">Weekly Overview</span>
+                            </button>
+                            <button class="analytics-btn" data-analytics="nutrition">
+                                <span class="product-emoji">🥗</span>
+                                <span class="product-name">Nutrition Trends</span>
+                            </button>
+                            <button class="analytics-btn" data-analytics="goals">
+                                <span class="product-emoji">🎯</span>
+                                <span class="product-name">Goal Progress</span>
+                            </button>
+                            <button class="analytics-btn" data-analytics="patterns">
+                                <span class="product-emoji">📈</span>
+                                <span class="product-name">Eating Patterns</span>
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="demo-phone">
+                        <div class="demo-phone-frame">
+                            <div class="demo-phone-notch"></div>
+                            <div class="demo-phone-screen">
+                                <div class="demo-state demo-analytics-loading" id="demo-analytics-loading">
+                                    <div class="analytics-load-animation">
+                                        <i data-lucide="loader-2"></i>
+                                    </div>
+                                    <p class="scan-text">Loading insights...</p>
+                                </div>
+
+                                <div class="demo-state demo-analytics-result" id="demo-analytics-result">
+                                    <div class="analytics-header" id="analytics-header">
+                                        <h4 id="analytics-title">Weekly Overview</h4>
+                                        <span class="analytics-date" id="analytics-date">Jan 15 - Jan 21</span>
+                                    </div>
+
+                                    <div class="analytics-score-card" id="analytics-score-card">
+                                        <div class="analytics-big-number" id="analytics-big-number">78</div>
+                                        <div class="analytics-big-label" id="analytics-big-label">Health Score</div>
+                                        <div class="analytics-trend positive" id="analytics-trend">
+                                            <i data-lucide="trending-up"></i>
+                                            <span>+5 from last week</span>
+                                        </div>
+                                    </div>
+
+                                    <div class="analytics-chart" id="analytics-chart">
+                                        <div class="mini-chart">
+                                            <div class="chart-bar" style="height: 60%"><span>M</span></div>
+                                            <div class="chart-bar" style="height: 75%"><span>T</span></div>
+                                            <div class="chart-bar" style="height: 55%"><span>W</span></div>
+                                            <div class="chart-bar" style="height: 85%"><span>T</span></div>
+                                            <div class="chart-bar" style="height: 70%"><span>F</span></div>
+                                            <div class="chart-bar" style="height: 90%"><span>S</span></div>
+                                            <div class="chart-bar active" style="height: 78%"><span>S</span></div>
+                                        </div>
+                                    </div>
+
+                                    <div class="analytics-stats" id="analytics-stats">
+                                        <div class="analytics-stat-item">
+                                            <span class="stat-value" id="stat-1-value">1,847</span>
+                                            <span class="stat-name" id="stat-1-name">Avg. Calories</span>
+                                        </div>
+                                        <div class="analytics-stat-item">
+                                            <span class="stat-value" id="stat-2-value">94g</span>
+                                            <span class="stat-name" id="stat-2-name">Avg. Protein</span>
+                                        </div>
+                                        <div class="analytics-stat-item">
+                                            <span class="stat-value" id="stat-3-value">23</span>
+                                            <span class="stat-name" id="stat-3-name">Products Scanned</span>
+                                        </div>
+                                    </div>
+
+                                    <div class="analytics-highlights" id="analytics-highlights">
+                                        <div class="highlight-item good">
+                                            <i data-lucide="check-circle"></i>
+                                            <span id="highlight-1">Protein goal met 6/7 days</span>
+                                        </div>
+                                        <div class="highlight-item caution">
+                                            <i data-lucide="alert-circle"></i>
+                                            <span id="highlight-2">Sugar intake trending up</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="demo-insights">
+                        <h4>Track Your Progress</h4>
+                        <div class="insight-cards">
+                            <div class="insight-card positive">
+                                <div class="insight-icon"><i data-lucide="line-chart"></i></div>
+                                <p>See trends over time</p>
+                            </div>
+                            <div class="insight-card positive">
+                                <div class="insight-icon"><i data-lucide="target"></i></div>
+                                <p>Track progress toward goals</p>
+                            </div>
+                            <div class="insight-card positive">
+                                <div class="insight-icon"><i data-lucide="lightbulb"></i></div>
+                                <p>Get personalized insights</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Interactive Comparison Tool -->
+    <section class="product-compare" id="compare" data-reveal>
+        <div class="container">
+            <div class="section-head">
+                <p class="eyebrow fx-reveal">Compare products</p>
+                <h2 class="section-title fx-reveal">Side-by-Side Comparison</h2>
+                <p class="section-subtitle fx-reveal">Select two products to see how they stack up against each other</p>
+            </div>
+
+            <div class="compare-container">
+                <!-- Product A Selection -->
+                <div class="compare-column compare-a fx-reveal">
+                    <div class="compare-selector">
+                        <h4>Product A</h4>
+                        <div class="compare-products">
+                            <button class="compare-btn active" data-compare-a="cereal-healthy">
+                                <span class="product-emoji">🥣</span>
+                                <span>Whole Grain Oats</span>
+                            </button>
+                            <button class="compare-btn" data-compare-a="cereal-sugary">
+                                <span class="product-emoji">🥣</span>
+                                <span>Frosted Flakes</span>
+                            </button>
+                            <button class="compare-btn" data-compare-a="yogurt-greek">
+                                <span class="product-emoji">🥛</span>
+                                <span>Greek Yogurt</span>
+                            </button>
+                            <button class="compare-btn" data-compare-a="drink-soda">
+                                <span class="product-emoji">🥤</span>
+                                <span>Cola Soda</span>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="compare-result" id="compare-result-a">
+                        <div class="compare-product-header">
+                            <span class="compare-emoji">🥣</span>
+                            <div class="compare-product-info">
+                                <h5 id="compare-name-a">Whole Grain Oats</h5>
+                                <span id="compare-brand-a">Nature's Best</span>
+                            </div>
+                        </div>
+                        <div class="compare-score-ring">
+                            <svg viewBox="0 0 100 100">
+                                <circle class="compare-bg-ring" cx="50" cy="50" r="42"></circle>
+                                <circle class="compare-progress-ring" id="compare-progress-a" cx="50" cy="50" r="42"></circle>
+                            </svg>
+                            <span class="compare-score-num" id="compare-score-a">82</span>
+                        </div>
+                        <p class="compare-label" id="compare-label-a">Good Choice</p>
+                        <div class="compare-domains">
+                            <div class="compare-domain">
+                                <span>Nutrient Density</span>
+                                <div class="compare-bar"><div class="compare-fill" id="nutrient-a" style="width: 85%"></div></div>
+                            </div>
+                            <div class="compare-domain">
+                                <span>Processing Level</span>
+                                <div class="compare-bar"><div class="compare-fill" id="processing-a" style="width: 75%"></div></div>
+                            </div>
+                            <div class="compare-domain">
+                                <span>Additives Safety</span>
+                                <div class="compare-bar"><div class="compare-fill" id="additives-a" style="width: 90%"></div></div>
+                            </div>
+                            <div class="compare-domain">
+                                <span>Sugar Content</span>
+                                <div class="compare-bar"><div class="compare-fill" id="sugar-a" style="width: 70%"></div></div>
+                            </div>
+                        </div>
+                        <div class="compare-highlights" id="highlights-a">
+                            <span class="highlight-tag good">High Fiber</span>
+                            <span class="highlight-tag good">Whole Grains</span>
+                            <span class="highlight-tag moderate">Added Sugar</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- VS Divider -->
+                <div class="compare-vs fx-reveal">
+                    <div class="vs-circle">VS</div>
+                    <div class="vs-line"></div>
+                </div>
+
+                <!-- Product B Selection -->
+                <div class="compare-column compare-b fx-reveal">
+                    <div class="compare-selector">
+                        <h4>Product B</h4>
+                        <div class="compare-products">
+                            <button class="compare-btn" data-compare-b="cereal-healthy">
+                                <span class="product-emoji">🥣</span>
+                                <span>Whole Grain Oats</span>
+                            </button>
+                            <button class="compare-btn active" data-compare-b="cereal-sugary">
+                                <span class="product-emoji">🥣</span>
+                                <span>Frosted Flakes</span>
+                            </button>
+                            <button class="compare-btn" data-compare-b="yogurt-greek">
+                                <span class="product-emoji">🥛</span>
+                                <span>Greek Yogurt</span>
+                            </button>
+                            <button class="compare-btn" data-compare-b="drink-soda">
+                                <span class="product-emoji">🥤</span>
+                                <span>Cola Soda</span>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="compare-result" id="compare-result-b">
+                        <div class="compare-product-header">
+                            <span class="compare-emoji">🥣</span>
+                            <div class="compare-product-info">
+                                <h5 id="compare-name-b">Frosted Flakes</h5>
+                                <span id="compare-brand-b">Kellogg's</span>
+                            </div>
+                        </div>
+                        <div class="compare-score-ring">
+                            <svg viewBox="0 0 100 100">
+                                <circle class="compare-bg-ring" cx="50" cy="50" r="42"></circle>
+                                <circle class="compare-progress-ring" id="compare-progress-b" cx="50" cy="50" r="42"></circle>
+                            </svg>
+                            <span class="compare-score-num" id="compare-score-b">34</span>
+                        </div>
+                        <p class="compare-label poor" id="compare-label-b">Poor Choice</p>
+                        <div class="compare-domains">
+                            <div class="compare-domain">
+                                <span>Nutrient Density</span>
+                                <div class="compare-bar"><div class="compare-fill poor" id="nutrient-b" style="width: 25%"></div></div>
+                            </div>
+                            <div class="compare-domain">
+                                <span>Processing Level</span>
+                                <div class="compare-bar"><div class="compare-fill poor" id="processing-b" style="width: 30%"></div></div>
+                            </div>
+                            <div class="compare-domain">
+                                <span>Additives Safety</span>
+                                <div class="compare-bar"><div class="compare-fill moderate" id="additives-b" style="width: 55%"></div></div>
+                            </div>
+                            <div class="compare-domain">
+                                <span>Sugar Content</span>
+                                <div class="compare-bar"><div class="compare-fill poor" id="sugar-b" style="width: 20%"></div></div>
+                            </div>
+                        </div>
+                        <div class="compare-highlights" id="highlights-b">
+                            <span class="highlight-tag bad">High Sugar</span>
+                            <span class="highlight-tag bad">Ultra-Processed</span>
+                            <span class="highlight-tag moderate">Fortified</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Comparison Summary -->
+            <div class="compare-summary fx-reveal">
+                <div class="summary-winner" id="compare-winner">
+                    <div class="winner-badge">
+                        <i data-lucide="trophy"></i>
+                        <span>Better Choice</span>
+                    </div>
+                    <h4 id="winner-name">Whole Grain Oats</h4>
+                    <p id="winner-reason">Scores 48 points higher with better nutrient density, less processing, and lower sugar content.</p>
+                </div>
+                <div class="summary-tips">
+                    <h5>Quick Tips</h5>
+                    <ul id="compare-tips">
+                        <li><i data-lucide="check"></i> Choose whole grains over refined</li>
+                        <li><i data-lucide="check"></i> Look for products with less than 8g sugar per serving</li>
+                        <li><i data-lucide="check"></i> Fewer ingredients usually means less processing</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- What It Scans Section -->
+    <section class="what-it-scans" data-reveal>
+        <div class="container">
+            <h2 class="section-title fx-reveal">What Can You Scan?</h2>
+            <p class="section-subtitle fx-reveal">Comprehensive analysis for everything you consume and use daily</p>
+            <div class="scan-categories">
+                <div class="scan-category fx-hover fx-reveal">
+                    <div class="category-icon"><i data-lucide="apple"></i></div>
+                    <h3>Food & Beverages</h3>
+                    <p>Packaged foods, drinks, snacks, whole foods, and meals</p>
+                </div>
+                <div class="scan-category fx-hover fx-reveal">
+                    <div class="category-icon"><i data-lucide="pill"></i></div>
+                    <h3>Supplements</h3>
+                    <p>Vitamins, protein powders, and nutritional supplements</p>
+                </div>
+                <div class="scan-category fx-hover fx-reveal">
+                    <div class="category-icon"><i data-lucide="sparkles"></i></div>
+                    <h3>Personal Care</h3>
+                    <p>Cosmetics, skincare, and hygiene products</p>
+                </div>
+                <div class="scan-category fx-hover fx-reveal">
+                    <div class="category-icon"><i data-lucide="droplet"></i></div>
+                    <h3>Home Goods</h3>
+                    <p>Cleaning products and household items</p>
+                </div>
+                <div class="scan-category fx-hover fx-reveal">
+                    <div class="category-icon"><i data-lucide="droplets"></i></div>
+                    <h3>Water Quality</h3>
+                    <p>Tap water by zip code and bottled water brands</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Carousel Section -->
+    <section class="yam-stack" id="features" data-reveal>
+        <div class="yam-stack__head">
+            <p class="yam-stack__eyebrow fx-reveal">More than just a barcode scanner</p>
+            <h2 class="yam-stack__title fx-reveal">Powerful Features</h2>
+        </div>
+
+        <div class="yam-stack__wrap" data-yam-stack>
+            <button class="yam-stack__btn yam-stack__btn--prev" type="button" aria-label="Previous">‹</button>
+
+            <div class="yam-stack__stage">
+                <!-- Slide 1 -->
+                <div class="yam-stack__item">
+                    <article class="feature-card">
+                        <div class="feature-icon"><i data-lucide="camera"></i></div>
+                        <h3>Multi-Modal Scanning</h3>
+                        <ul class="feature-list">
+                            <li>Barcode scanning with VisionKit</li>
+                            <li>Photo recognition for whole foods</li>
+                            <li>Live camera detection (15-30 FPS)</li>
+                            <li>Manual entry for any product</li>
+                        </ul>
+                    </article>
+                </div>
+
+                <!-- Slide 2 -->
+                <div class="yam-stack__item">
+                    <article class="feature-card">
+                        <div class="feature-icon"><i data-lucide="trending-up"></i></div>
+                        <h3>Science-Based Scoring</h3>
+                        <ul class="feature-list">
+                            <li>1-100 health score for every product</li>
+                            <li>Based on Food Compass 2.0 & Nutri-Score</li>
+                            <li>Color-coded recommendations</li>
+                            <li>9 health domain analysis</li>
+                        </ul>
+                    </article>
+                </div>
+
+                <!-- Slide 3 -->
+                <div class="yam-stack__item">
+                    <article class="feature-card">
+                        <div class="feature-icon"><i data-lucide="microscope"></i></div>
+                        <h3>Deep Analysis</h3>
+                        <ul class="feature-list">
+                            <li>Nutrient density evaluation</li>
+                            <li>Processing level (NOVA classification)</li>
+                            <li>1000+ additives safety database</li>
+                            <li>Microbiome impact assessment</li>
+                        </ul>
+                    </article>
+                </div>
+
+                <!-- Slide 4 -->
+                <div class="yam-stack__item">
+                    <article class="feature-card">
+                        <div class="feature-icon"><i data-lucide="user"></i></div>
+                        <h3>Personalized Nutritionist in Your Hand</h3>
+                        <ul class="feature-list">
+                            <li>AI-powered personalized nutrition guidance</li>
+                            <li>Custom meal plans based on your goals</li>
+                            <li>Dietary preferences & allergen tracking</li>
+                            <li>Real-time recommendations & insights</li>
+                        </ul>
+                    </article>
+                </div>
+
+                <!-- Slide 5 -->
+                <div class="yam-stack__item">
+                    <article class="feature-card">
+                        <div class="feature-icon"><i data-lucide="refresh-ccw"></i></div>
+                        <h3>Smart Alternatives</h3>
+                        <ul class="feature-list">
+                            <li>Healthier product suggestions</li>
+                            <li>Side-by-side comparisons</li>
+                            <li>Category-specific recommendations</li>
+                            <li>Price-comparable options</li>
+                        </ul>
+                    </article>
+                </div>
+
+                <!-- Slide 6 -->
+                <div class="yam-stack__item">
+                    <article class="feature-card">
+                        <div class="feature-icon"><i data-lucide="calculator"></i></div>
+                        <h3>AI-Powered Calorie Calculator</h3>
+                        <ul class="feature-list">
+                            <li>Intelligent calorie calculation with AI</li>
+                            <li>Photo-based food recognition & logging</li>
+                            <li>Automatic macro tracking (protein, carbs, fats)</li>
+                            <li>Smart meal logging with progress insights</li>
+                        </ul>
+                    </article>
+                </div>
+
+                <!-- Slide 7 -->
+                <div class="yam-stack__item">
+                    <article class="feature-card">
+                        <div class="feature-icon"><i data-lucide="droplets"></i></div>
+                        <h3>Water Quality Analysis</h3>
+                        <ul class="feature-list">
+                            <li>Tap water quality analysis by zip code</li>
+                            <li>50+ contaminant tracking & safety ratings</li>
+                            <li>100+ bottled water brands comprehensively rated</li>
+                            <li>Personalized filter recommendations</li>
+                        </ul>
+                    </article>
+                </div>
+
+                <!-- Slide 8 -->
+                <div class="yam-stack__item">
+                    <article class="feature-card">
+                        <div class="feature-icon"><i data-lucide="book-open"></i></div>
+                        <h3>Educational Content</h3>
+                        <ul class="feature-list">
+                            <li>Learn about ingredients</li>
+                            <li>Understand health scores</li>
+                            <li>Safety database with regulatory info</li>
+                            <li>E-number encyclopedia</li>
+                        </ul>
+                    </article>
+                </div>
+            </div>
+
+            <button class="yam-stack__btn yam-stack__btn--next" type="button" aria-label="Next">›</button>
+        </div>
+
+        <div class="yam-stack__dots" data-yam-dots></div>
+    </section>
+
+    <!-- How It Works Section -->
+    <section id="how-it-works" class="how-it-works">
+        <div class="container">
+            <h2 class="section-title">How It Works</h2>
+            <p class="section-subtitle">Simple, fast, and intelligent</p>
+
+            <div class="steps">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <div class="step-content">
+                        <h3>Scan</h3>
+                        <p>Point your camera at any barcode, take a photo of food, or use live detection. Multiple ways to capture product information instantly.</p>
+                    </div>
+                </div>
+
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <div class="step-content">
+                        <h3>Analyze</h3>
+                        <p>Yammoing analyzes the product across 9 health domains using Food Compass 2.0, Nutri-Score, and comprehensive ingredient databases.</p>
+                    </div>
+                </div>
+
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <div class="step-content">
+                        <h3>Understand</h3>
+                        <p>Get a clear 1-100 health score with color-coded guidance. See detailed breakdowns, allergen warnings, and why the score matters.</p>
+                    </div>
+                </div>
+
+                <div class="step">
+                    <div class="step-number">4</div>
+                    <div class="step-content">
+                        <h3>Choose Better</h3>
+                        <p>Discover healthier alternatives, track your meals, and make informed decisions backed by science. Your health, your choice.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+    <!-- Health Score System -->
+    <section class="score-system">
+        <div class="container">
+            <h2 class="section-title">Understanding Health Scores</h2>
+            <p class="section-subtitle">Every product gets a 1-100 score based on comprehensive analysis</p>
+
+            <div class="score-ranges">
+                <div class="score-range score-range-excellent">
+                    <div class="range-header">
+                        <div class="range-circle">70-100</div>
+                        <h3>Excellent/Good</h3>
+                    </div>
+                    <p class="range-badge encourage">Encourage</p>
+                    <p>These products support your health. Rich in nutrients, minimal processing, safe ingredients.</p>
+                </div>
+
+                <div class="score-range score-range-moderate">
+                    <div class="range-header">
+                        <div class="range-circle">31-69</div>
+                        <h3>Fair</h3>
+                    </div>
+                    <p class="range-badge moderate">Moderate</p>
+                    <p>Consume mindfully. Some nutritional value but may have concerns like added sugars or processing.</p>
+                </div>
+
+                <div class="score-range score-range-poor">
+                    <div class="range-header">
+                        <div class="range-circle">1-30</div>
+                        <h3>Poor/Bad</h3>
+                    </div>
+                    <p class="range-badge minimize">Minimize</p>
+                    <p>Limit consumption. High in unhealthy ingredients, heavily processed, or contains harmful additives.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 9 Health Domains -->
+    <section id="science" class="health-domains" data-reveal>
+        <div class="container">
+            <h2 class="section-title fx-reveal">9 Health Domains</h2>
+            <p class="section-subtitle fx-reveal">Comprehensive analysis across multiple dimensions</p>
+
+            <div class="domains-carousel-wrapper">
+                <div class="domains-carousel" data-domains-carousel>
+                    <button class="domain-nav domain-nav--prev" type="button" aria-label="Previous">‹</button>
+                    <div class="domains-stage">
+                        <div class="domain-card domain-card--nutrient">
+                            <div class="domain-icon"><i data-lucide="gem"></i></div>
+                            <h3>Nutrient Density</h3>
+                            <p>Vitamins, minerals, and beneficial nutrients. Analysis of 30+ micronutrients with RDA comparisons.</p>
+                        </div>
+
+                        <div class="domain-card domain-card--metabolic">
+                            <div class="domain-icon"><i data-lucide="zap"></i></div>
+                            <h3>Metabolic Load</h3>
+                            <p>Sugar, fat, fiber, and protein balance. Glycemic load calculation and macronutrient quality assessment.</p>
+                        </div>
+
+                        <div class="domain-card domain-card--processing">
+                            <div class="domain-icon"><i data-lucide="factory"></i></div>
+                            <h3>Processing Level</h3>
+                            <p>NOVA classification (1-4 scale). Identifies ultra-processed foods and industrial ingredients.</p>
+                        </div>
+
+                        <div class="domain-card domain-card--additives">
+                            <div class="domain-icon"><i data-lucide="alert-triangle"></i></div>
+                            <h3>Additives Safety</h3>
+                            <p>E-numbers and 600+ food additives analyzed. Risk ratings from safe to dangerous.</p>
+                        </div>
+
+                        <div class="domain-card domain-card--microbiome">
+                            <div class="domain-icon"><i data-lucide="bacteria"></i></div>
+                            <h3>Microbiome Impact</h3>
+                            <p>Gut health effects from probiotics, prebiotics, and potentially harmful ingredients.</p>
+                        </div>
+
+                        <div class="domain-card domain-card--personal">
+                            <div class="domain-icon"><i data-lucide="heart-pulse"></i></div>
+                            <h3>Personal Risk</h3>
+                            <p>Allergens, dietary restrictions, and health conditions. Instant warnings for your specific needs.</p>
+                        </div>
+
+                        <div class="domain-card domain-card--environmental">
+                            <div class="domain-icon"><i data-lucide="globe"></i></div>
+                            <h3>Environmental Impact</h3>
+                            <p>Sustainability and packaging assessment. Eco-Score integration.</p>
+                        </div>
+
+                        <div class="domain-card domain-card--category">
+                            <div class="domain-icon"><i data-lucide="bar-chart-3"></i></div>
+                            <h3>Category Normalization</h3>
+                            <p>Fair comparison within food categories. Chocolate vs chocolate, not chocolate vs broccoli.</p>
+                        </div>
+
+                        <div class="domain-card domain-card--cosmetic">
+                            <div class="domain-icon"><i data-lucide="flask-conical"></i></div>
+                            <h3>Cosmetic/Cleaning Safety</h3>
+                            <p>For non-food products. Toxicity, hormone disruptors, and carcinogen detection.</p>
+                        </div>
+                    </div>
+                    <button class="domain-nav domain-nav--next" type="button" aria-label="Next">›</button>
+                </div>
+                <div class="domains-dots" data-domains-dots></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Research & Data Sources -->
+    <section class="data-sources" data-reveal>
+        <div class="container">
+            <div class="section-head">
+                <p class="eyebrow fx-reveal">Science-backed foundation</p>
+                <h2 class="section-title fx-reveal">Trusted Research & Data Sources</h2>
+                <p class="section-subtitle fx-reveal">Built on peer-reviewed research, regulatory standards, and comprehensive scientific databases</p>
+            </div>
+
+            <div class="sources-categories">
+                <!-- Health Scoring Systems -->
+                <div class="source-category fx-reveal">
+                    <h3 class="category-title">Health Scoring Systems</h3>
+                    <div class="sources-grid">
+                        <div class="source-card fx-hover">
+                            <h4>Food Compass 2.0</h4>
+                            <p>Tufts University, October 2024 — 9-domain scoring algorithm</p>
+                        </div>
+                        <div class="source-card fx-hover">
+                            <h4>Nutri-Score</h4>
+                            <p>2023 European standard — 5-color scale (A–E) nutritional quality</p>
+                        </div>
+                        <div class="source-card fx-hover">
+                            <h4>NOVA Classification</h4>
+                            <p>Food processing levels — Ultra-processed food identification</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Regulatory & Safety Organizations -->
+                <div class="source-category fx-reveal">
+                    <h3 class="category-title">Regulatory & Safety Standards</h3>
+                    <div class="sources-grid">
+                        <div class="source-card fx-hover">
+                            <h4>WHO IARC</h4>
+                            <p>International Agency for Research on Cancer — Carcinogen classifications</p>
+                        </div>
+                        <div class="source-card fx-hover">
+                            <h4>FDA/EPA Guidelines</h4>
+                            <p>Food additive status & fish mercury advisories (2022)</p>
+                        </div>
+                        <div class="source-card fx-hover">
+                            <h4>EFSA Database</h4>
+                            <p>European Food Safety Authority — Additive safety assessments</p>
+                        </div>
+                        <div class="source-card fx-hover">
+                            <h4>FSA Guidelines</h4>
+                            <p>UK Food Standards Agency — Food additive regulations</p>
+                        </div>
+                        <div class="source-card fx-hover">
+                            <h4>Codex Alimentarius</h4>
+                            <p>International food standards — Global safety protocols</p>
+                        </div>
+                        <div class="source-card fx-hover">
+                            <h4>CIR Database</h4>
+                            <p>Cosmetic Ingredient Review — Personal care safety assessments</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Research Studies -->
+                <div class="source-category fx-reveal">
+                    <h3 class="category-title">Peer-Reviewed Research</h3>
+                    <div class="sources-grid">
+                        <div class="source-card fx-hover">
+                            <h4>BMJ Ultra-Processed Foods</h4>
+                            <p>2019 study — Links to cardiovascular disease</p>
+                        </div>
+                        <div class="source-card fx-hover">
+                            <h4>Southampton Study</h4>
+                            <p>2007 research — Artificial colorings and hyperactivity</p>
+                        </div>
+                        <div class="source-card fx-hover">
+                            <h4>EU Titanium Dioxide Ban</h4>
+                            <p>2022 EFSA assessment — E171 safety concerns</p>
+                        </div>
+                        <div class="source-card fx-hover">
+                            <h4>EAT-Lancet Commission</h4>
+                            <p>2019 — Planetary health diet recommendations</p>
+                        </div>
+                        <div class="source-card fx-hover">
+                            <h4>Harvard T.H. Chan School</h4>
+                            <p>Public health nutrition research & guidelines</p>
+                        </div>
+                        <div class="source-card fx-hover">
+                            <h4>Mediterranean Diet Meta-Analysis</h4>
+                            <p>2023 — Cardiovascular health benefits</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Dietary Guidelines -->
+                <div class="source-category fx-reveal">
+                    <h3 class="category-title">Dietary Guidelines & Databases</h3>
+                    <div class="sources-grid">
+                        <div class="source-card fx-hover">
+                            <h4>USDA Dietary Guidelines</h4>
+                            <p>2020–2025 — Official nutrition recommendations</p>
+                        </div>
+                        <div class="source-card fx-hover">
+                            <h4>USDA FoodData Central</h4>
+                            <p>300,000+ whole foods and ingredients database</p>
+                        </div>
+                        <div class="source-card fx-hover">
+                            <h4>DASH Diet Research</h4>
+                            <p>Blood pressure and cardiovascular health evidence</p>
+                        </div>
+                        <div class="source-card fx-hover">
+                            <h4>American Heart Association</h4>
+                            <p>2021 nutrition guidelines — Heart health standards</p>
+                        </div>
+                        <div class="source-card fx-hover">
+                            <h4>Diabetes Care Recommendations</h4>
+                            <p>2023 — Nutrition guidance for diabetes management</p>
+                        </div>
+                        <div class="source-card fx-hover">
+                            <h4>OpenFoodFacts</h4>
+                            <p>2M+ products worldwide — Open-source database</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- AI & Machine Learning Technology -->
+                <div class="source-category fx-reveal">
+                    <h3 class="category-title">AI & Machine Learning Technology</h3>
+                    <div class="sources-grid">
+                        <div class="source-card fx-hover">
+                            <h4>Computer Vision & Image Recognition</h4>
+                            <p>Apple Vision Framework (on-device), CoreML models, Google Vision API, Google Gemini Pro Vision — Real-time food detection, OCR for nutrition labels</p>
+                        </div>
+                        <div class="source-card fx-hover">
+                            <h4>Machine Learning Models</h4>
+                            <p>AnomalyDetector, DietPatternClassifier, HealthOutcomePredictor, RecommendationRanker — Rule-based systems ready for ML training with CreateML</p>
+                        </div>
+                        <div class="source-card fx-hover">
+                            <h4>Multi-Strategy Recognition Pipeline</h4>
+                            <p>Intelligent fallback system: Gemini AI → Google Vision → On-device Vision + CoreML → Manual entry. Real-time processing at 15-30 FPS</p>
+                        </div>
+                        <div class="source-card fx-hover">
+                            <h4>ML Research & Datasets</h4>
+                            <p>Food-101 (101 categories, 101K images), ImageNet pre-trained models (ResNet, MobileNet, EfficientNet), Vision Transformer (ViT) architectures</p>
+                        </div>
+                        <div class="source-card fx-hover">
+                            <h4>On-Device Processing</h4>
+                            <p>CoreML model management, Vision queue optimization, local inference for privacy — No cloud dependency for basic recognition</p>
+                        </div>
+                        <div class="source-card fx-hover">
+                            <h4>Transfer Learning & Mobile Architectures</h4>
+                            <p>MobileNet lightweight models, Mobile-optimized neural networks — Designed for real-time performance on iOS devices</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Environmental & Water -->
+                <div class="source-category fx-reveal">
+                    <h3 class="category-title">Environmental & Water Quality</h3>
+                    <div class="sources-grid">
+                        <div class="source-card fx-hover">
+                            <h4>EPA Water Data</h4>
+                            <p>Tap water quality tracking — Contaminant violations database</p>
+                        </div>
+                        <div class="source-card fx-hover">
+                            <h4>EWG Skin Deep</h4>
+                            <p>Cosmetic ingredient hazard scores — Personal care safety</p>
+                        </div>
+                        <div class="source-card fx-hover">
+                            <h4>EWG Dirty Dozen</h4>
+                            <p>Pesticide residue tracking — Produce safety rankings</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Privacy Section -->
+    <section class="privacy" data-reveal>
+        <div class="container">
+            <h2 class="section-title fx-reveal">Your Privacy Matters</h2>
+            <div class="privacy-features">
+                <div class="privacy-item fx-hover fx-reveal">
+                    <div class="privacy-icon"><i data-lucide="lock"></i></div>
+                    <h3>On-Device Analysis</h3>
+                    <p>Most processing happens locally on your iPhone</p>
+                </div>
+                <div class="privacy-item fx-hover fx-reveal">
+                    <div class="privacy-icon"><i data-lucide="x-circle"></i></div>
+                    <h3>No Account Required</h3>
+                    <p>Use basic features without signing up</p>
+                </div>
+                <div class="privacy-item fx-hover fx-reveal">
+                    <div class="privacy-icon"><i data-lucide="map-pin"></i></div>
+                    <h3>Optional Location</h3>
+                    <p>Location data is only used when you choose</p>
+                </div>
+                <div class="privacy-item fx-hover fx-reveal">
+                    <div class="privacy-icon"><i data-lucide="shield-check"></i></div>
+                    <h3>Private Health Data</h3>
+                    <p>Your health information stays with you</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Download Section -->
+    <section id="download" class="download">
+        <div class="container">
+            <div class="download-content">
+                <h2>Ready to Make Healthier Choices?</h2>
+                <p>Download Yammoing today and start your journey to better health</p>
+                <div class="download-buttons">
+                    <a href="#" class="btn btn-download">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/>
+                        </svg>
+                        Download on the App Store
+                    </a>
+                </div>
+                <p class="download-note">Requires iOS 15.0 or later</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3 class="footer-logo">
+                        <span class="logo-icon"><i data-lucide="search"></i></span>
+                        Yammoing
+                    </h3>
+                    <p>Your personal health detective</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Product</h4>
+                    <ul>
+                        <li><a href="#features">Features</a></li>
+                        <li><a href="#how-it-works">How It Works</a></li>
+                        <li><a href="#science">Science</a></li>
+                        <li><a href="#download">Download</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Company</h4>
+                    <ul>
+                        <li><a href="#">About Us</a></li>
+                        <li><a href="#">Contact</a></li>
+                        <li><a href="#">Support</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Legal</h4>
+                    <ul>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms of Service</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Yammoing. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- GSAP + Motion Libraries -->
+    <script src="https://unpkg.com/gsap@3/dist/gsap.min.js"></script>
+    <script src="https://unpkg.com/gsap@3/dist/ScrollTrigger.min.js"></script>
+    <script src="https://unpkg.com/@studio-freight/lenis@1/bundled/lenis.min.js"></script>
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <!-- Initialize Lucide Icons -->
+    <script>lucide.createIcons();</script>
+    <!-- Canvas Particle Background - Beautiful Flowing Animation -->
+    <script>
+    (() => {
+        const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+        if (reduce) return;
+
+        const canvas = document.getElementById("bg-canvas");
+        if (!canvas) return;
+        const ctx = canvas.getContext("2d");
+
+        let w = 0, h = 0, dpr = 1, time = 0;
+
+        function resize() {
+            dpr = Math.min(window.devicePixelRatio || 1, 2);
+            w = canvas.clientWidth;
+            h = canvas.clientHeight;
+            canvas.width = Math.floor(w * dpr);
+            canvas.height = Math.floor(h * dpr);
+            ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+        }
+
+        window.addEventListener("resize", resize, { passive: true });
+        resize();
+
+        // Beautiful flowing orbs with organic movement
+        const COUNT = Math.max(15, Math.floor((w * h) / 40000));
+        const orbs = [];
+        const mouse = { x: w * 0.5, y: h * 0.4, targetX: w * 0.5, targetY: h * 0.4 };
+
+        function rand(min, max) { return min + Math.random() * (max - min); }
+
+        // Simplex-like noise for organic movement
+        function noise(x, y, t) {
+            return Math.sin(x * 0.01 + t) * Math.cos(y * 0.01 + t * 0.7) * 0.5 +
+                   Math.sin(x * 0.02 - t * 0.5) * Math.sin(y * 0.015 + t * 0.3) * 0.3 +
+                   Math.cos(x * 0.008 + y * 0.008 + t * 0.2) * 0.2;
+        }
+
+        for (let i = 0; i < COUNT; i++) {
+            const baseR = rand(50, 140);
+            orbs.push({
+                x: rand(0, w),
+                y: rand(0, h),
+                baseX: rand(0, w),
+                baseY: rand(0, h),
+                vx: 0,
+                vy: 0,
+                baseR: baseR,
+                r: baseR,
+                opacity: rand(0.12, 0.28),
+                hue: rand(145, 175),
+                saturation: rand(35, 50),
+                phase: rand(0, Math.PI * 2),
+                speed: rand(0.3, 0.8),
+                wobbleX: rand(80, 200),
+                wobbleY: rand(60, 150),
+                pulseSpeed: rand(0.5, 1.5),
+                pulseAmount: rand(0.05, 0.15)
+            });
+        }
+
+        // Small floating particles
+        const particles = [];
+        const PARTICLE_COUNT = 40;
+        for (let i = 0; i < PARTICLE_COUNT; i++) {
+            particles.push({
+                x: rand(0, w),
+                y: rand(0, h),
+                r: rand(1, 3),
+                opacity: rand(0.2, 0.5),
+                speed: rand(0.2, 0.6),
+                angle: rand(0, Math.PI * 2)
+            });
+        }
+
+        window.addEventListener("pointermove", (e) => {
+            mouse.targetX = e.clientX;
+            mouse.targetY = e.clientY;
+        }, { passive: true });
+
+        function step() {
+            time += 0.008;
+            ctx.clearRect(0, 0, w, h);
+
+            // Smooth mouse following
+            mouse.x += (mouse.targetX - mouse.x) * 0.05;
+            mouse.y += (mouse.targetY - mouse.y) * 0.05;
+
+            // Beautiful gradient background wash
+            const bgGrad = ctx.createRadialGradient(
+                w * 0.3 + Math.sin(time * 0.5) * 100,
+                h * 0.4 + Math.cos(time * 0.3) * 80,
+                0,
+                w * 0.5, h * 0.5, Math.max(w, h) * 0.9
+            );
+            bgGrad.addColorStop(0, "rgba(15, 61, 46, 0.06)");
+            bgGrad.addColorStop(0.5, "rgba(20, 80, 60, 0.03)");
+            bgGrad.addColorStop(1, "rgba(0, 0, 0, 0)");
+            ctx.fillStyle = bgGrad;
+            ctx.fillRect(0, 0, w, h);
+
+            // Draw connecting lines between close orbs
+            ctx.strokeStyle = "rgba(123, 175, 154, 0.04)";
+            ctx.lineWidth = 1;
+            for (let i = 0; i < orbs.length; i++) {
+                for (let j = i + 1; j < orbs.length; j++) {
+                    const dx = orbs[i].x - orbs[j].x;
+                    const dy = orbs[i].y - orbs[j].y;
+                    const dist = Math.sqrt(dx * dx + dy * dy);
+                    if (dist < 250) {
+                        const alpha = (1 - dist / 250) * 0.06;
+                        ctx.strokeStyle = `rgba(123, 175, 154, ${alpha})`;
+                        ctx.beginPath();
+                        ctx.moveTo(orbs[i].x, orbs[i].y);
+                        ctx.lineTo(orbs[j].x, orbs[j].y);
+                        ctx.stroke();
+                    }
+                }
+            }
+
+            // Update and draw orbs with organic flowing motion
+            for (const orb of orbs) {
+                // Organic flowing movement using noise
+                const noiseVal = noise(orb.baseX, orb.baseY, time * orb.speed);
+                const targetX = orb.baseX + Math.sin(time * orb.speed + orb.phase) * orb.wobbleX + noiseVal * 50;
+                const targetY = orb.baseY + Math.cos(time * orb.speed * 0.7 + orb.phase) * orb.wobbleY + noiseVal * 40;
+
+                // Smooth interpolation to target
+                orb.x += (targetX - orb.x) * 0.015;
+                orb.y += (targetY - orb.y) * 0.015;
+
+                // Mouse influence - gentle repulsion
+                const mdx = orb.x - mouse.x;
+                const mdy = orb.y - mouse.y;
+                const mDist = Math.sqrt(mdx * mdx + mdy * mdy);
+                if (mDist < 300) {
+                    const force = (1 - mDist / 300) * 2;
+                    orb.x += (mdx / mDist) * force;
+                    orb.y += (mdy / mDist) * force;
+                }
+
+                // Breathing/pulsing effect
+                orb.r = orb.baseR * (1 + Math.sin(time * orb.pulseSpeed + orb.phase) * orb.pulseAmount);
+
+                // Keep orbs in bounds with soft wrapping
+                if (orb.baseX < -100) orb.baseX = w + 100;
+                if (orb.baseX > w + 100) orb.baseX = -100;
+                if (orb.baseY < -100) orb.baseY = h + 100;
+                if (orb.baseY > h + 100) orb.baseY = -100;
+
+                // Draw orb with beautiful gradient
+                const gradient = ctx.createRadialGradient(
+                    orb.x - orb.r * 0.25, orb.y - orb.r * 0.25, 0,
+                    orb.x, orb.y, orb.r
+                );
+
+                const hueShift = Math.sin(time + orb.phase) * 8;
+                const hue = orb.hue + hueShift;
+
+                gradient.addColorStop(0, `hsla(${hue}, ${orb.saturation + 10}%, 65%, ${orb.opacity * 1.3})`);
+                gradient.addColorStop(0.4, `hsla(${hue}, ${orb.saturation}%, 55%, ${orb.opacity * 0.9})`);
+                gradient.addColorStop(0.7, `hsla(${hue - 5}, ${orb.saturation - 5}%, 50%, ${orb.opacity * 0.5})`);
+                gradient.addColorStop(1, `hsla(${hue - 10}, ${orb.saturation - 10}%, 45%, 0)`);
+
+                ctx.fillStyle = gradient;
+                ctx.beginPath();
+                ctx.arc(orb.x, orb.y, orb.r, 0, Math.PI * 2);
+                ctx.fill();
+
+                // Soft outer glow
+                const glowGrad = ctx.createRadialGradient(orb.x, orb.y, orb.r * 0.7, orb.x, orb.y, orb.r * 1.6);
+                glowGrad.addColorStop(0, `hsla(${hue}, ${orb.saturation - 10}%, 55%, ${orb.opacity * 0.15})`);
+                glowGrad.addColorStop(1, `hsla(${hue}, ${orb.saturation - 15}%, 50%, 0)`);
+                ctx.fillStyle = glowGrad;
+                ctx.beginPath();
+                ctx.arc(orb.x, orb.y, orb.r * 1.6, 0, Math.PI * 2);
+                ctx.fill();
+            }
+
+            // Draw small floating particles
+            for (const p of particles) {
+                p.angle += 0.002;
+                p.x += Math.cos(p.angle) * p.speed;
+                p.y += Math.sin(p.angle * 0.7) * p.speed * 0.5 - 0.1;
+
+                if (p.y < -10) { p.y = h + 10; p.x = rand(0, w); }
+                if (p.x < -10) p.x = w + 10;
+                if (p.x > w + 10) p.x = -10;
+
+                const twinkle = 0.5 + Math.sin(time * 3 + p.angle * 10) * 0.5;
+                ctx.fillStyle = `rgba(200, 220, 210, ${p.opacity * twinkle})`;
+                ctx.beginPath();
+                ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+                ctx.fill();
+            }
+
+            requestAnimationFrame(step);
+        }
+
+        step();
+    })();
+    </script>
+    <!-- Motion System -->
+    <script src="motion.js"></script>
+    <!-- Stacked Carousel Init (inline to ensure it runs) -->
+    <script>
+    (function() {
+        function initYamStackCarousel() {
+            const root = document.querySelector("[data-yam-stack]");
+            if (!root) {
+                console.warn("Stack carousel root not found");
+                return;
+            }
+            
+            const stage = root.querySelector(".yam-stack__stage");
+            const items = Array.from(root.querySelectorAll(".yam-stack__item"));
+            const prev = root.querySelector(".yam-stack__btn--prev");
+            const next = root.querySelector(".yam-stack__btn--next");
+            const dotsWrap = document.querySelector("[data-yam-dots]");
+            
+            if (!stage || items.length === 0 || !prev || !next || !dotsWrap) {
+                console.error("Stack carousel missing elements", {stage, items: items.length, prev, next, dotsWrap});
+                return;
+            }
+            
+            let index = 0;
+            const N = items.length;
+            
+            dotsWrap.innerHTML = "";
+            items.forEach((_, i) => {
+                const b = document.createElement("button");
+                b.type = "button";
+                b.className = "yam-dot";
+                b.setAttribute("aria-label", `Go to slide ${i+1}`);
+                b.addEventListener("click", () => { index = i; render(); });
+                dotsWrap.appendChild(b);
+            });
+            
+            function mod(n, m) { return ((n % m) + m) % m; }
+            
+            function render() {
+                items.forEach((el, i) => {
+                    el.classList.remove("is-active");
+                    
+                    let d = i - index;
+                    const half = Math.floor(N / 2);
+                    if (d > half) d -= N;
+                    if (d < -half) d += N;
+                    
+                    const ad = Math.abs(d);
+                    
+                    if (ad > 2) {
+                        el.style.opacity = "0";
+                        el.style.filter = "blur(10px)";
+                        el.style.transform = "translate(-50%, -50%) scale(0.92)";
+                        el.style.zIndex = "0";
+                        return;
+                    }
+                    
+                    const x = d * 170;
+                    const scale = 1 - ad * 0.08;
+                    const rotY = d * -10;
+                    const blur = ad * 1.6;
+                    const opacity = ad === 0 ? 1.0 : Math.max(0.1, 1 - ad * 0.5);
+                    const z = 10 - ad;
+                    
+                    el.style.opacity = String(opacity);
+                    el.style.filter = `blur(${blur}px)`;
+                    el.style.zIndex = String(z);
+                    el.style.transform = `translate(-50%, -50%) translateX(${x}px) scale(${scale}) rotateY(${rotY}deg)`;
+                    
+                    if (ad === 0) el.classList.add("is-active");
+                });
+                
+                Array.from(dotsWrap.children).forEach((d, i) => {
+                    d.classList.toggle("is-active", i === index);
+                });
+            }
+            
+            function goNext() { index = mod(index + 1, N); render(); }
+            function goPrev() { index = mod(index - 1, N); render(); }
+            
+            next.addEventListener("click", goNext);
+            prev.addEventListener("click", goPrev);
+            
+            let startX = null;
+            stage.addEventListener("pointerdown", (e) => {
+                startX = e.clientX;
+                stage.setPointerCapture(e.pointerId);
+            });
+            
+            stage.addEventListener("pointerup", (e) => {
+                if (startX == null) return;
+                const dx = e.clientX - startX;
+                startX = null;
+                if (Math.abs(dx) < 40) return;
+                dx < 0 ? goNext() : goPrev();
+            });
+            
+            render();
+        }
+        
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', initYamStackCarousel);
+        } else {
+            initYamStackCarousel();
+        }
+    })();
+    </script>
+
+    <!-- Health Domains Carousel -->
+    <script>
+    (() => {
+        'use strict';
+        
+        function initDomainsCarousel() {
+            const root = document.querySelector("[data-domains-carousel]");
+            if (!root) return;
+            
+            const stage = root.querySelector(".domains-stage");
+            const cards = Array.from(stage.querySelectorAll(".domain-card"));
+            const prev = root.querySelector(".domain-nav--prev");
+            const next = root.querySelector(".domain-nav--next");
+            const dotsWrap = document.querySelector("[data-domains-dots]");
+            
+            if (!stage || cards.length === 0) return;
+            
+            let index = 0;
+            const N = cards.length;
+            
+            // Build dots
+            cards.forEach((_, i) => {
+                const dot = document.createElement("button");
+                dot.className = "domain-dot";
+                dot.type = "button";
+                dot.ariaLabel = `Go to domain ${i + 1}`;
+                dot.addEventListener("click", () => {
+                    index = i;
+                    render();
+                });
+                dotsWrap.appendChild(dot);
+            });
+            
+            function mod(n, m) {
+                return ((n % m) + m) % m;
+            }
+            
+            function render() {
+                cards.forEach((card, i) => {
+                    card.classList.remove("is-active");
+                    
+                    let d = i - index;
+                    const half = Math.floor(N / 2);
+                    if (d > half) d -= N;
+                    if (d < -half) d += N;
+                    
+                    const ad = Math.abs(d);
+                    
+                    // Hide far cards
+                    if (ad > 2) {
+                        card.style.opacity = "0";
+                        card.style.filter = "blur(12px)";
+                        card.style.transform = "translate(-50%, -50%) scale(0.85)";
+                        card.style.zIndex = "0";
+                        return;
+                    }
+                    
+                    // Carousel transforms - reduced movement for calmer feel
+                    const x = d * 160; // Reduced horizontal spacing (was 200)
+                    const scale = 1 - ad * 0.08; // Less scale reduction (was 0.12)
+                    const rotY = d * -8; // Less rotation (was -15)
+                    const blur = ad * 1.5; // Less blur (was 2)
+                    const opacity = ad === 0 ? 1.0 : (ad === 1 ? 0.5 : 0.15);
+                    const z = 10 - ad;
+                    
+                    card.style.opacity = String(opacity);
+                    card.style.filter = `blur(${blur}px)`;
+                    card.style.zIndex = String(z);
+                    card.style.transform = 
+                        `translate(-50%, -50%) translateX(${x}px) scale(${scale}) rotateY(${rotY}deg)`;
+                    
+                    if (ad === 0) card.classList.add("is-active");
+                });
+                
+                // Update dots
+                Array.from(dotsWrap.children).forEach((dot, i) => {
+                    dot.classList.toggle("is-active", i === index);
+                });
+            }
+            
+            function goNext() {
+                index = mod(index + 1, N);
+                render();
+            }
+            
+            function goPrev() {
+                index = mod(index - 1, N);
+                render();
+            }
+            
+            if (prev) prev.addEventListener("click", goPrev);
+            if (next) next.addEventListener("click", goNext);
+            
+            // Keyboard navigation
+            window.addEventListener("keydown", (e) => {
+                if (e.key === "ArrowRight") goNext();
+                if (e.key === "ArrowLeft") goPrev();
+            });
+            
+            // Swipe support
+            let startX = null;
+            stage.addEventListener("pointerdown", (e) => {
+                startX = e.clientX;
+                stage.setPointerCapture(e.pointerId);
+            });
+            
+            stage.addEventListener("pointerup", (e) => {
+                if (startX == null) return;
+                const dx = e.clientX - startX;
+                startX = null;
+                if (Math.abs(dx) < 40) return;
+                dx < 0 ? goNext() : goPrev();
+            });
+            
+            // Auto-play - disabled or much slower
+            const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+            // Removed auto-play - user controls only for calmer experience
+            
+            render();
+        }
+        
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', initDomainsCarousel);
+        } else {
+            initDomainsCarousel();
+        }
+    })();
+    </script>
+    <!-- Interactive Demo Script -->
+    <script>
+    (() => {
+        'use strict';
+
+        // =============== SCANNER TAB DATA ===============
+        const products = {
+            'organic-granola': {
+                emoji: '🥣', name: 'Organic Granola', brand: "Nature's Best",
+                score: 82, label: 'Good Choice', labelColor: 'var(--forest)',
+                domains: { nutrient: 85, processing: 70, additives: 90 },
+                ingredients: [
+                    { name: 'Whole Oats', type: 'good' },
+                    { name: 'Honey', type: 'good' },
+                    { name: 'Cane Sugar', type: 'moderate' }
+                ],
+                insights: [
+                    { type: 'positive', text: 'High in fiber and whole grains' },
+                    { type: 'positive', text: 'No artificial preservatives' },
+                    { type: 'caution', text: 'Contains added sugars (12g per serving)' }
+                ]
+            },
+            'soda': {
+                emoji: '🥤', name: 'Cola Soda', brand: 'Popular Brand',
+                score: 18, label: 'Poor Choice', labelColor: 'var(--score-poor)',
+                domains: { nutrient: 5, processing: 15, additives: 25 },
+                ingredients: [
+                    { name: 'High Fructose Corn Syrup', type: 'bad' },
+                    { name: 'Phosphoric Acid', type: 'moderate' },
+                    { name: 'Caramel Color', type: 'bad' }
+                ],
+                insights: [
+                    { type: 'negative', text: 'Very high in added sugars (39g)' },
+                    { type: 'negative', text: 'Contains artificial colorings' },
+                    { type: 'caution', text: 'Phosphoric acid may affect bone health' }
+                ]
+            },
+            'protein-bar': {
+                emoji: '🍫', name: 'Protein Bar', brand: 'FitFuel',
+                score: 58, label: 'Fair Choice', labelColor: 'var(--score-moderate)',
+                domains: { nutrient: 65, processing: 45, additives: 60 },
+                ingredients: [
+                    { name: 'Whey Protein', type: 'good' },
+                    { name: 'Sugar Alcohols', type: 'moderate' },
+                    { name: 'Soy Lecithin', type: 'moderate' }
+                ],
+                insights: [
+                    { type: 'positive', text: 'Good protein content (20g)' },
+                    { type: 'caution', text: 'Highly processed food product' },
+                    { type: 'caution', text: 'Sugar alcohols may cause digestive issues' }
+                ]
+            },
+            'skincare': {
+                emoji: '🧴', name: 'Hydrating Face Cream', brand: 'GlowSkin',
+                score: 74, label: 'Good Choice', labelColor: 'var(--forest)',
+                domains: { nutrient: 80, processing: 68, additives: 75 },
+                ingredients: [
+                    { name: 'Hyaluronic Acid', type: 'good' },
+                    { name: 'Vitamin E', type: 'good' },
+                    { name: 'Fragrance', type: 'moderate' }
+                ],
+                insights: [
+                    { type: 'positive', text: 'Contains beneficial moisturizers' },
+                    { type: 'positive', text: 'No parabens or sulfates detected' },
+                    { type: 'caution', text: 'Contains fragrance (potential irritant)' }
+                ]
+            }
+        };
+
+        // =============== AI CALORIES TAB DATA ===============
+        const meals = {
+            'salad': {
+                emoji: '🥗', name: 'Caesar Salad', calories: 385,
+                protein: '24g', carbs: '18g', fat: '26g',
+                items: ['Romaine Lettuce', 'Grilled Chicken', 'Parmesan', 'Caesar Dressing']
+            },
+            'burger': {
+                emoji: '🍔', name: 'Burger & Fries', calories: 1150,
+                protein: '42g', carbs: '98g', fat: '65g',
+                items: ['Beef Patty', 'Brioche Bun', 'Cheese', 'French Fries', 'Ketchup']
+            },
+            'sushi': {
+                emoji: '🍱', name: 'Sushi Platter', calories: 520,
+                protein: '28g', carbs: '68g', fat: '12g',
+                items: ['Salmon Nigiri', 'Tuna Roll', 'Avocado', 'Soy Sauce', 'Rice']
+            },
+            'smoothie': {
+                emoji: '🥤', name: 'Green Smoothie', calories: 180,
+                protein: '8g', carbs: '32g', fat: '4g',
+                items: ['Spinach', 'Banana', 'Almond Milk', 'Chia Seeds']
+            }
+        };
+
+        // =============== AI NUTRITIONIST TAB DATA ===============
+        const questions = {
+            'snack': {
+                userText: 'What are some healthy snack ideas for afternoon cravings?',
+                botText: 'Based on your goal to increase protein intake, here are some great afternoon snacks:',
+                suggestions: [
+                    { emoji: '🥜', text: 'Greek yogurt with almonds' },
+                    { emoji: '🥚', text: 'Hard-boiled eggs' },
+                    { emoji: '🧀', text: 'Cheese with apple slices' }
+                ],
+                tip: 'Tip: Pairing protein with fiber helps you stay fuller longer!'
+            },
+            'protein': {
+                userText: 'What are good sources of plant-based protein?',
+                botText: 'Great question! Here are excellent plant protein sources that fit your dietary preferences:',
+                suggestions: [
+                    { emoji: '🫘', text: 'Lentils (18g per cup)' },
+                    { emoji: '🥜', text: 'Chickpeas & hummus' },
+                    { emoji: '🌱', text: 'Tofu & tempeh' }
+                ],
+                tip: 'Tip: Combine legumes with grains for complete proteins!'
+            },
+            'bloating': {
+                userText: 'Why do I feel bloated after meals?',
+                botText: 'Based on your recent meal logs, I notice a few potential triggers:',
+                suggestions: [
+                    { emoji: '🍞', text: 'High gluten intake at lunch' },
+                    { emoji: '🥤', text: 'Carbonated drinks' },
+                    { emoji: '⏰', text: 'Eating too quickly' }
+                ],
+                tip: 'Tip: Try eliminating one trigger at a time to identify the cause.'
+            },
+            'meal-plan': {
+                userText: 'Can you help me plan my meals for tomorrow?',
+                botText: "Based on your 2,000 cal goal and preference for high protein, here's your plan:",
+                suggestions: [
+                    { emoji: '🍳', text: 'Breakfast: Eggs & avocado toast (450 cal)' },
+                    { emoji: '🥗', text: 'Lunch: Grilled chicken salad (520 cal)' },
+                    { emoji: '🍝', text: 'Dinner: Salmon with veggies (650 cal)' }
+                ],
+                tip: 'This leaves 380 cal for snacks. Want me to suggest some?'
+            }
+        };
+
+        // =============== WATER QUALITY TAB DATA ===============
+        const waterSources = {
+            'tap-good': {
+                icon: '🚰', name: 'Your Tap Water', location: 'San Francisco, CA',
+                grade: 'A', status: 'Excellent Quality', isPoor: false,
+                contaminants: [
+                    { name: 'Lead', level: '0.2 ppb', safe: true },
+                    { name: 'Chlorine', level: '0.8 ppm', safe: true },
+                    { name: 'Fluoride', level: '0.7 ppm', safe: true }
+                ],
+                recommendation: 'Safe to drink! No filter needed.',
+                showWarning: false
+            },
+            'evian': {
+                icon: '💧', name: 'Evian', location: 'French Alps Source',
+                grade: 'A+', status: 'Premium Quality', isPoor: false,
+                contaminants: [
+                    { name: 'Minerals', level: 'Balanced', safe: true },
+                    { name: 'pH Level', level: '7.2', safe: true },
+                    { name: 'Nitrates', level: '< 1 ppm', safe: true }
+                ],
+                recommendation: 'Excellent mineral content. Great choice!',
+                showWarning: false
+            },
+            'dasani': {
+                icon: '💧', name: 'Dasani', location: 'Purified Municipal Water',
+                grade: 'B', status: 'Acceptable', isPoor: false,
+                contaminants: [
+                    { name: 'Added Minerals', level: 'Present', safe: true },
+                    { name: 'pH Level', level: '5.6', safe: false },
+                    { name: 'Sodium', level: '5 mg/L', safe: true }
+                ],
+                recommendation: 'Slightly acidic pH. Consider alternatives.',
+                showWarning: true
+            },
+            'tap-bad': {
+                icon: '🚰', name: 'Newark, NJ Tap', location: 'Newark, New Jersey',
+                grade: 'D', status: 'Concerns Detected', isPoor: true,
+                contaminants: [
+                    { name: 'Lead', level: '15 ppb', safe: false },
+                    { name: 'Copper', level: '1.3 ppm', safe: false },
+                    { name: 'Haloacetic Acids', level: '42 ppb', safe: false }
+                ],
+                recommendation: 'Use a certified lead filter or bottled water.',
+                showWarning: true
+            }
+        };
+
+        function initInteractiveDemo() {
+            // =============== TAB SWITCHING WITH ANIMATIONS ===============
+            const tabs = document.querySelectorAll('.demo-tab');
+            const tabContents = document.querySelectorAll('.demo-tab-content');
+            let isTabSwitching = false;
+
+            tabs.forEach(tab => {
+                tab.addEventListener('click', () => {
+                    if (isTabSwitching) return;
+                    const tabId = tab.getAttribute('data-tab');
+                    const currentActive = document.querySelector('.demo-tab-content.active');
+                    const newContent = document.getElementById('tab-' + tabId);
+
+                    if (currentActive === newContent) return;
+
+                    isTabSwitching = true;
+
+                    // Add click feedback animation
+                    tab.style.transform = 'scale(0.95)';
+                    setTimeout(() => { tab.style.transform = ''; }, 150);
+
+                    // Animate out current content
+                    if (currentActive) {
+                        currentActive.style.opacity = '0';
+                        currentActive.style.transform = 'translateY(10px)';
+                    }
+
+                    setTimeout(() => {
+                        tabs.forEach(t => t.classList.remove('active'));
+                        tabContents.forEach(c => {
+                            c.classList.remove('active');
+                            c.style.opacity = '';
+                            c.style.transform = '';
+                        });
+
+                        tab.classList.add('active');
+                        newContent.classList.add('active');
+
+                        // Animate in new content
+                        newContent.style.opacity = '0';
+                        newContent.style.transform = 'translateY(10px)';
+
+                        requestAnimationFrame(() => {
+                            newContent.style.transition = 'opacity 0.4s ease, transform 0.4s ease';
+                            newContent.style.opacity = '1';
+                            newContent.style.transform = 'translateY(0)';
+                        });
+
+                        if (typeof lucide !== 'undefined') lucide.createIcons();
+
+                        setTimeout(() => {
+                            isTabSwitching = false;
+                            newContent.style.transition = '';
+                        }, 400);
+                    }, 200);
+                });
+            });
+
+            // =============== SCANNER TAB ===============
+            const productBtns = document.querySelectorAll('.product-btn');
+            const scanningEl = document.getElementById('demo-scanning');
+            const resultEl = document.getElementById('demo-result');
+            let isAnimating = false;
+
+            function updateScanner(productId) {
+                if (isAnimating) return;
+                isAnimating = true;
+
+                const product = products[productId];
+                if (!product) return;
+
+                productBtns.forEach(btn => btn.classList.remove('active'));
+                document.querySelector(`[data-product="${productId}"]`).classList.add('active');
+
+                resultEl.classList.add('hidden');
+                scanningEl.classList.add('active');
+
+                setTimeout(() => {
+                    document.getElementById('result-emoji').textContent = product.emoji;
+                    document.getElementById('result-name').textContent = product.name;
+                    document.getElementById('result-brand').textContent = product.brand;
+                    document.getElementById('demo-score').textContent = product.score;
+                    document.getElementById('demo-label').textContent = product.label;
+                    document.getElementById('demo-label').style.color = product.labelColor;
+
+                    const progress = document.getElementById('demo-progress');
+                    const circumference = 2 * Math.PI * 52;
+                    progress.style.strokeDashoffset = circumference * (1 - product.score / 100);
+                    progress.style.stroke = product.score >= 70 ? 'var(--forest)' : product.score >= 31 ? 'var(--score-moderate)' : 'var(--score-poor)';
+
+                    document.getElementById('domain-nutrient').style.width = product.domains.nutrient + '%';
+                    document.getElementById('domain-processing').style.width = product.domains.processing + '%';
+                    document.getElementById('domain-additives').style.width = product.domains.additives + '%';
+
+                    document.getElementById('ingredient-tags').innerHTML = product.ingredients.map(ing =>
+                        `<span class="ing-tag ${ing.type}">${ing.name}</span>`
+                    ).join('');
+
+                    document.getElementById('insight-cards').innerHTML = product.insights.map(insight => `
+                        <div class="insight-card ${insight.type}">
+                            <div class="insight-icon"><i data-lucide="${insight.type === 'positive' ? 'check' : insight.type === 'negative' ? 'x' : 'alert-triangle'}"></i></div>
+                            <p>${insight.text}</p>
+                        </div>
+                    `).join('');
+
+                    if (typeof lucide !== 'undefined') lucide.createIcons();
+
+                    scanningEl.classList.remove('active');
+                    resultEl.classList.remove('hidden');
+                    isAnimating = false;
+                }, 1200);
+            }
+
+            productBtns.forEach(btn => {
+                btn.addEventListener('click', () => updateScanner(btn.getAttribute('data-product')));
+            });
+
+            // =============== AI CALORIES TAB ===============
+            const mealBtns = document.querySelectorAll('.meal-btn');
+            const aiScanningEl = document.getElementById('demo-ai-scanning');
+            const caloriesResultEl = document.getElementById('demo-calories-result');
+
+            function updateCalories(mealId) {
+                if (isAnimating) return;
+                isAnimating = true;
+
+                const meal = meals[mealId];
+                if (!meal) return;
+
+                mealBtns.forEach(btn => btn.classList.remove('active'));
+                document.querySelector(`[data-meal="${mealId}"]`).classList.add('active');
+
+                caloriesResultEl.classList.add('hidden');
+                aiScanningEl.classList.add('active');
+
+                setTimeout(() => {
+                    document.getElementById('meal-photo').innerHTML = `<span class="meal-emoji-large">${meal.emoji}</span>`;
+                    document.getElementById('meal-name').textContent = meal.name;
+                    document.getElementById('calories-number').textContent = meal.calories;
+                    document.getElementById('protein-value').textContent = meal.protein;
+                    document.getElementById('carbs-value').textContent = meal.carbs;
+                    document.getElementById('fat-value').textContent = meal.fat;
+
+                    document.getElementById('detected-items').innerHTML = meal.items.map(item =>
+                        `<span class="detected-item">${item}</span>`
+                    ).join('');
+
+                    aiScanningEl.classList.remove('active');
+                    caloriesResultEl.classList.remove('hidden');
+                    isAnimating = false;
+                }, 1200);
+            }
+
+            mealBtns.forEach(btn => {
+                btn.addEventListener('click', () => updateCalories(btn.getAttribute('data-meal')));
+            });
+
+            // =============== AI NUTRITIONIST TAB ===============
+            const questionBtns = document.querySelectorAll('.question-btn');
+            const userMessageEl = document.getElementById('user-message');
+            const botTypingEl = document.getElementById('bot-typing');
+            const botResponseEl = document.getElementById('bot-response');
+
+            function updateChat(questionId) {
+                if (isAnimating) return;
+                isAnimating = true;
+
+                const q = questions[questionId];
+                if (!q) return;
+
+                questionBtns.forEach(btn => btn.classList.remove('active'));
+                document.querySelector(`[data-question="${questionId}"]`).classList.add('active');
+
+                userMessageEl.querySelector('p').textContent = q.userText;
+                botResponseEl.style.display = 'none';
+                botTypingEl.style.display = 'block';
+
+                setTimeout(() => {
+                    document.getElementById('bot-response-text').textContent = q.botText;
+                    document.getElementById('chat-suggestions').innerHTML = q.suggestions.map(s =>
+                        `<div class="suggestion-item"><span>${s.emoji}</span> ${s.text}</div>`
+                    ).join('');
+                    document.getElementById('bot-tip').textContent = q.tip;
+
+                    botTypingEl.style.display = 'none';
+                    botResponseEl.style.display = 'block';
+                    isAnimating = false;
+                }, 1500);
+            }
+
+            questionBtns.forEach(btn => {
+                btn.addEventListener('click', () => updateChat(btn.getAttribute('data-question')));
+            });
+
+            // =============== WATER QUALITY TAB ===============
+            const waterBtns = document.querySelectorAll('.water-btn');
+            const waterScanningEl = document.getElementById('demo-water-scanning');
+            const waterResultEl = document.getElementById('demo-water-result');
+
+            function updateWater(waterId) {
+                if (isAnimating) return;
+                isAnimating = true;
+
+                const water = waterSources[waterId];
+                if (!water) return;
+
+                waterBtns.forEach(btn => btn.classList.remove('active'));
+                document.querySelector(`[data-water="${waterId}"]`).classList.add('active');
+
+                waterResultEl.classList.add('hidden');
+                waterScanningEl.classList.add('active');
+
+                setTimeout(() => {
+                    document.querySelector('.water-icon-large').textContent = water.icon;
+                    document.getElementById('water-name').textContent = water.name;
+                    document.getElementById('water-location').textContent = water.location;
+                    document.getElementById('water-grade').textContent = water.grade;
+                    document.getElementById('water-status').textContent = water.status;
+
+                    const badge = document.getElementById('water-badge');
+                    badge.className = 'water-score-badge' + (water.isPoor ? ' poor' : '');
+
+                    document.getElementById('contaminant-list').innerHTML = water.contaminants.map(c => `
+                        <div class="contaminant-item ${c.safe ? 'safe' : 'danger'}">
+                            <span class="contaminant-name">${c.name}</span>
+                            <span class="contaminant-level">${c.level}</span>
+                            <span class="contaminant-status"><i data-lucide="${c.safe ? 'check-circle' : 'alert-circle'}"></i></span>
+                        </div>
+                    `).join('');
+
+                    const recEl = document.getElementById('water-recommendation');
+                    recEl.className = 'water-recommendation' + (water.showWarning ? ' warning' : '');
+                    recEl.innerHTML = `<i data-lucide="${water.showWarning ? 'alert-triangle' : 'check-circle'}"></i><p>${water.recommendation}</p>`;
+
+                    if (typeof lucide !== 'undefined') lucide.createIcons();
+
+                    waterScanningEl.classList.remove('active');
+                    waterResultEl.classList.remove('hidden');
+                    isAnimating = false;
+                }, 1000);
+            }
+
+            waterBtns.forEach(btn => {
+                btn.addEventListener('click', () => updateWater(btn.getAttribute('data-water')));
+            });
+
+            // =============== HEALTH ANALYTICS TAB ===============
+            const analyticsData = {
+                'weekly': {
+                    title: 'Weekly Overview', date: 'Jan 15 - Jan 21',
+                    bigNumber: 78, bigLabel: 'Health Score',
+                    trend: { positive: true, text: '+5 from last week' },
+                    chart: [60, 75, 55, 85, 70, 90, 78],
+                    stats: [
+                        { value: '1,847', name: 'Avg. Calories' },
+                        { value: '94g', name: 'Avg. Protein' },
+                        { value: '23', name: 'Products Scanned' }
+                    ],
+                    highlights: [
+                        { type: 'good', text: 'Protein goal met 6/7 days' },
+                        { type: 'caution', text: 'Sugar intake trending up' }
+                    ]
+                },
+                'nutrition': {
+                    title: 'Nutrition Trends', date: 'Last 30 Days',
+                    bigNumber: 2142, bigLabel: 'Avg Daily Calories',
+                    trend: { positive: false, text: '-120 from target' },
+                    chart: [70, 65, 80, 75, 85, 72, 68],
+                    stats: [
+                        { value: '112g', name: 'Avg. Protein' },
+                        { value: '245g', name: 'Avg. Carbs' },
+                        { value: '68g', name: 'Avg. Fat' }
+                    ],
+                    highlights: [
+                        { type: 'good', text: 'Balanced macro distribution' },
+                        { type: 'good', text: 'Fiber intake improved 15%' }
+                    ]
+                },
+                'goals': {
+                    title: 'Goal Progress', date: 'This Month',
+                    bigNumber: 72, bigLabel: '% Goals Met',
+                    trend: { positive: true, text: '+8% from last month' },
+                    chart: [50, 55, 60, 65, 68, 70, 72],
+                    stats: [
+                        { value: '18', name: 'Days On Track' },
+                        { value: '5', name: 'Goals Active' },
+                        { value: '3', name: 'Completed' }
+                    ],
+                    highlights: [
+                        { type: 'good', text: 'Weight loss: On track!' },
+                        { type: 'caution', text: 'Water intake needs attention' }
+                    ]
+                },
+                'patterns': {
+                    title: 'Eating Patterns', date: 'Behavioral Analysis',
+                    bigNumber: 3.2, bigLabel: 'Meals per Day',
+                    trend: { positive: true, text: 'Consistent eating' },
+                    chart: [45, 80, 30, 75, 85, 60, 70],
+                    stats: [
+                        { value: '8:12am', name: 'Avg. Breakfast' },
+                        { value: '1:30pm', name: 'Avg. Lunch' },
+                        { value: '7:15pm', name: 'Avg. Dinner' }
+                    ],
+                    highlights: [
+                        { type: 'good', text: 'Regular meal timing' },
+                        { type: 'caution', text: 'Late night snacking detected' }
+                    ]
+                }
+            };
+
+            const analyticsBtns = document.querySelectorAll('.analytics-btn');
+            const analyticsLoadingEl = document.getElementById('demo-analytics-loading');
+            const analyticsResultEl = document.getElementById('demo-analytics-result');
+
+            function updateAnalytics(analyticsId) {
+                if (isAnimating) return;
+                isAnimating = true;
+
+                const data = analyticsData[analyticsId];
+                if (!data) return;
+
+                analyticsBtns.forEach(btn => btn.classList.remove('active'));
+                document.querySelector(`[data-analytics="${analyticsId}"]`).classList.add('active');
+
+                analyticsResultEl.classList.add('hidden');
+                analyticsLoadingEl.classList.add('active');
+
+                setTimeout(() => {
+                    document.getElementById('analytics-title').textContent = data.title;
+                    document.getElementById('analytics-date').textContent = data.date;
+                    document.getElementById('analytics-big-number').textContent = data.bigNumber;
+                    document.getElementById('analytics-big-label').textContent = data.bigLabel;
+
+                    const trendEl = document.getElementById('analytics-trend');
+                    trendEl.className = 'analytics-trend ' + (data.trend.positive ? 'positive' : 'negative');
+                    trendEl.innerHTML = `<i data-lucide="${data.trend.positive ? 'trending-up' : 'trending-down'}"></i><span>${data.trend.text}</span>`;
+
+                    const chartEl = document.querySelector('.mini-chart');
+                    chartEl.innerHTML = data.chart.map((val, i) => {
+                        const days = ['M', 'T', 'W', 'T', 'F', 'S', 'S'];
+                        const isActive = i === data.chart.length - 1;
+                        return `<div class="chart-bar${isActive ? ' active' : ''}" style="height: ${val}%"><span>${days[i]}</span></div>`;
+                    }).join('');
+
+                    document.getElementById('stat-1-value').textContent = data.stats[0].value;
+                    document.getElementById('stat-1-name').textContent = data.stats[0].name;
+                    document.getElementById('stat-2-value').textContent = data.stats[1].value;
+                    document.getElementById('stat-2-name').textContent = data.stats[1].name;
+                    document.getElementById('stat-3-value').textContent = data.stats[2].value;
+                    document.getElementById('stat-3-name').textContent = data.stats[2].name;
+
+                    const highlightsEl = document.getElementById('analytics-highlights');
+                    highlightsEl.innerHTML = data.highlights.map(h => `
+                        <div class="highlight-item ${h.type}">
+                            <i data-lucide="${h.type === 'good' ? 'check-circle' : 'alert-circle'}"></i>
+                            <span>${h.text}</span>
+                        </div>
+                    `).join('');
+
+                    if (typeof lucide !== 'undefined') lucide.createIcons();
+
+                    analyticsLoadingEl.classList.remove('active');
+                    analyticsResultEl.classList.remove('hidden');
+                    isAnimating = false;
+                }, 800);
+            }
+
+            analyticsBtns.forEach(btn => {
+                btn.addEventListener('click', () => updateAnalytics(btn.getAttribute('data-analytics')));
+            });
+
+            // =============== INITIAL STATES ===============
+            setTimeout(() => {
+                const progress = document.getElementById('demo-progress');
+                if (progress) {
+                    const circumference = 2 * Math.PI * 52;
+                    progress.style.strokeDashoffset = circumference * (1 - 82 / 100);
+                }
+            }, 500);
+        }
+
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', initInteractiveDemo);
+        } else {
+            initInteractiveDemo();
+        }
+    })();
+    </script>
+
+    <!-- Site Scripts -->
+    <script src="script.js"></script>
+</body>
+</html>

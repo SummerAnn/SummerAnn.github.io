@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Kitchen - Smart Pantry + Meal Planner | Summer Ann Portfolio</title>
+  <meta name="description" content="My Kitchen: A smart pantry, recipe planner, and grocery system for modern home cooking.">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@400;600;700&family=Work+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="my-kitchen-styles.css">
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+</head>
+<body>
+  <header class="demo-header">
+    <a href="/" class="demo-logo">Summer Ann</a>
+    <a href="/" class="back-btn">
+      <i class="fas fa-arrow-left"></i>
+      Back to Portfolio
+    </a>
+  </header>
+
+  <section class="hero">
+    <div class="hero-content">
+      <span class="hero-badge">
+        <i class="fas fa-utensils"></i> Smart Pantry + Meal Planner
+      </span>
+      <h1 class="hero-title">My Kitchen helps you
+        <span class="accent">cook smarter</span>,
+        not harder.
+      </h1>
+      <p class="hero-subtitle">
+        A home cooking OS that tracks pantry inventory, surfaces recipes,
+        and auto-builds grocery lists based on your goals and schedule.
+      </p>
+      <div class="hero-cta">
+        <a class="btn-primary" href="#demo">Try the Planner</a>
+        <a class="btn-secondary" href="#features">View Features</a>
+      </div>
+    </div>
+
+    <div class="hero-card">
+      <div class="card-header">
+        <span>Tonight's Menu</span>
+        <div class="pill">4 ingredients left</div>
+      </div>
+      <div class="card-body">
+        <h3>Honey Citrus Salmon</h3>
+        <p>Pantry-first recipe with a 25 minute cook time.</p>
+        <div class="card-stats">
+          <div>
+            <span>Prep</span>
+            <strong>8 min</strong>
+          </div>
+          <div>
+            <span>Cook</span>
+            <strong>17 min</strong>
+          </div>
+          <div>
+            <span>Serves</span>
+            <strong>2</strong>
+          </div>
+        </div>
+      </div>
+      <div class="card-footer">
+        <button class="btn-ghost">Swap Recipe</button>
+        <button class="btn-primary">Cook Now</button>
+      </div>
+    </div>
+  </section>
+
+  <section id="features" class="features">
+    <div class="section-header">
+      <h2>Everything you need to plan, prep, and plate.</h2>
+      <p>Designed to feel like a calm kitchen assistant, not another chore.</p>
+    </div>
+
+    <div class="feature-grid">
+      <article>
+        <div class="icon">
+          <i class="fas fa-boxes-stacked"></i>
+        </div>
+        <h3>Pantry Intelligence</h3>
+        <p>Auto-detects expiring items, suggests recipes, and tracks staples.</p>
+      </article>
+      <article>
+        <div class="icon">
+          <i class="fas fa-clipboard-list"></i>
+        </div>
+        <h3>Auto Grocery Lists</h3>
+        <p>One tap to build a list optimized for budget, store, and diet.</p>
+      </article>
+      <article>
+        <div class="icon">
+          <i class="fas fa-heartbeat"></i>
+        </div>
+        <h3>Nutrition Goals</h3>
+        <p>Balance macros, protein, and calories with simple goal sliders.</p>
+      </article>
+    </div>
+  </section>
+
+  <section id="demo" class="demo">
+    <div class="section-header">
+      <h2>Plan a week in minutes.</h2>
+      <p>Pick a mode and see how My Kitchen builds a full plan.</p>
+    </div>
+
+    <div class="planner">
+      <div class="planner-controls">
+        <h3>Meal Plan Modes</h3>
+        <div class="mode-buttons">
+          <button class="mode-btn active" data-plan="quick">Quick Weeknights</button>
+          <button class="mode-btn" data-plan="balanced">Balanced Prep</button>
+          <button class="mode-btn" data-plan="adventure">Weekend Adventure</button>
+        </div>
+        <div class="planner-insight">
+          <span class="tag">Estimated Cook Time</span>
+          <strong id="plan-time">22 min avg</strong>
+        </div>
+      </div>
+
+      <div class="planner-output">
+        <div class="output-card">
+          <h4 id="plan-title">Quick Weeknight Rotation</h4>
+          <p id="plan-subtitle">Fast recipes that reuse pantry staples and fresh produce.</p>
+          <ul id="plan-menu">
+            <li>Teriyaki Tofu Bowls</li>
+            <li>Garlic Shrimp Pasta</li>
+            <li>Sheet Pan Veggie Tacos</li>
+          </ul>
+        </div>
+        <div class="output-card">
+          <h4>Auto-Built Grocery List</h4>
+          <ul id="plan-list">
+            <li>Baby spinach</li>
+            <li>Rice noodles</li>
+            <li>Lime + ginger</li>
+          </ul>
+          <div class="list-footer">
+            <span class="tag">Budget</span>
+            <strong id="plan-budget">$58 total</strong>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="screens">
+    <div class="section-header">
+      <h2>Product Moments</h2>
+      <p>Snapshots of the system across pantry, recipe, and grocery flows.</p>
+    </div>
+    <div class="screens-grid">
+      <div class="screen">
+        <span>Pantry Scan</span>
+        <div class="screen-card">
+          <i class="fas fa-barcode"></i>
+        </div>
+      </div>
+      <div class="screen">
+        <span>Weekly Plan</span>
+        <div class="screen-card">
+          <i class="fas fa-calendar-check"></i>
+        </div>
+      </div>
+      <div class="screen">
+        <span>Recipe Coach</span>
+        <div class="screen-card">
+          <i class="fas fa-blender"></i>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta">
+    <div class="cta-card">
+      <h2>Want this built for your product?</h2>
+      <p>My Kitchen showcases how I design calm, useful, and beautiful consumer apps.</p>
+      <div class="cta-actions">
+        <a class="btn-primary" href="mailto:anneun@umich.edu">Start a Project</a>
+        <a class="btn-ghost" href="/">Back to Portfolio</a>
+      </div>
+    </div>
+  </section>
+
+  <footer class="demo-footer">
+    <p>
+      Created by <a href="/">Summer Ann</a> | <a href="mailto:anneun@umich.edu">Contact</a>
+    </p>
+    <p class="footer-note">This is a portfolio demo for the My Kitchen product concept.</p>
+  </footer>
+
+  <script src="my-kitchen-demo.js"></script>
+</body>
+</html>

@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CreatorRAG - Retrieval for Creators | Summer Ann Portfolio</title>
+  <meta name="description" content="CreatorRAG: A retrieval-augmented system for creators to build trustworthy content at speed.">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="creatorrag-styles.css">
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+</head>
+<body>
+  <header class="demo-header">
+    <a href="/" class="demo-logo">Summer Ann</a>
+    <a href="/" class="back-btn">
+      <i class="fas fa-arrow-left"></i>
+      Back to Portfolio
+    </a>
+  </header>
+
+  <section class="hero">
+    <div class="hero-content">
+      <span class="hero-badge">
+        <i class="fas fa-brain"></i> RAG for Creators
+      </span>
+      <h1 class="hero-title">CreatorRAG turns
+        <span class="accent">research</span>
+        into ready-to-publish content.
+      </h1>
+      <p class="hero-subtitle">
+        A retrieval pipeline built for writers, founders, and educators.
+        Summon verified sources, draft outlines, and keep every claim traceable.
+      </p>
+      <div class="hero-cta">
+        <a class="btn-primary" href="#pipeline">View Pipeline</a>
+        <a class="btn-secondary" href="#demo">Try the Demo</a>
+      </div>
+    </div>
+
+    <div class="hero-terminal">
+      <div class="terminal-header">
+        <span>creatorrag.pipeline</span>
+        <span class="status">live</span>
+      </div>
+      <div class="terminal-body">
+        <p><span class="mono">Query:</span> How does on-device AI reduce latency?</p>
+        <p><span class="mono">Sources:</span> 18 verified passages</p>
+        <p><span class="mono">Draft:</span> 6 paragraphs, 12 citations</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="pipeline" class="pipeline">
+    <div class="section-header">
+      <h2>Pipeline Overview</h2>
+      <p>Every step is transparent so creators trust the output.</p>
+    </div>
+    <div class="pipeline-flow">
+      <div class="flow-step">
+        <i class="fas fa-magnifying-glass"></i>
+        <h3>Source Retrieval</h3>
+        <p>Pulls trusted research, datasets, and internal knowledge.</p>
+      </div>
+      <div class="flow-step">
+        <i class="fas fa-layer-group"></i>
+        <h3>Evidence Map</h3>
+        <p>Clusters sources, highlights contradictions, and flags gaps.</p>
+      </div>
+      <div class="flow-step">
+        <i class="fas fa-feather"></i>
+        <h3>Draft Studio</h3>
+        <p>Generates outlines and drafts with citations baked in.</p>
+      </div>
+      <div class="flow-step">
+        <i class="fas fa-check-circle"></i>
+        <h3>Verification</h3>
+        <p>Checks every claim and exports a source report.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="demo" class="demo">
+    <div class="section-header">
+      <h2>Interactive Demo</h2>
+      <p>Pick a content goal and watch the output adapt.</p>
+    </div>
+    <div class="demo-panel">
+      <div class="demo-controls">
+        <button class="demo-btn active" data-mode="tutorial">Tutorial</button>
+        <button class="demo-btn" data-mode="product">Product Launch</button>
+        <button class="demo-btn" data-mode="story">Founder Story</button>
+      </div>
+      <div class="demo-output">
+        <div class="output-card">
+          <span class="tag">Generated Outline</span>
+          <h3 id="demo-title">How to Build an On-Device AI Workflow</h3>
+          <p id="demo-text">CreatorRAG surfaces sources on model quantization, privacy tradeoffs, and edge deployment to craft a step-by-step tutorial with inline citations.</p>
+          <div class="output-meta">
+            <span><i class="fas fa-book"></i> 14 sources</span>
+            <span><i class="fas fa-stopwatch"></i> 48 sec</span>
+          </div>
+        </div>
+        <div class="output-card dark">
+          <span class="tag">Evidence Report</span>
+          <ul id="demo-list">
+            <li>On-device AI reduces latency by 42% (Apple Dev Notes)</li>
+            <li>Quantization keeps accuracy within 2% (Meta AI blog)</li>
+            <li>Edge inference lowers cloud costs by 31% (AWS study)</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta">
+    <div class="cta-card">
+      <h2>Need a research-first AI workflow?</h2>
+      <p>CreatorRAG showcases product strategy, UX, and ML system design.</p>
+      <div class="cta-actions">
+        <a class="btn-primary" href="mailto:anneun@umich.edu">Start a Project</a>
+        <a class="btn-secondary" href="/">Back to Portfolio</a>
+      </div>
+    </div>
+  </section>
+
+  <footer class="demo-footer">
+    <p>
+      Created by <a href="/">Summer Ann</a> | <a href="mailto:anneun@umich.edu">Contact</a>
+    </p>
+    <p class="footer-note">This is a portfolio demo for the CreatorRAG concept.</p>
+  </footer>
+
+  <script src="creatorrag-demo.js"></script>
+</body>
+</html>

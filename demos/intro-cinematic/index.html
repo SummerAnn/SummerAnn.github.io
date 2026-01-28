@@ -1,0 +1,456 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Video + Scroll Animation | Summer Ann</title>
+  <meta name="description" content="Framer/Webflow-style video hero with sticky scroll stage using Intro.mp4">
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Manrope:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --maxw: 1100px;
+      --pad: 24px;
+      --text: #f6f6f6;
+      --muted: rgba(255,255,255,.75);
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: "Manrope", ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
+      color: var(--text);
+      background: #050505;
+      overflow-x: hidden;
+    }
+
+    a { color: inherit; text-decoration: none; }
+
+    .demo-header {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 16px clamp(16px, 3vw, 32px);
+      backdrop-filter: blur(14px);
+      background: rgba(5, 5, 5, 0.72);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .demo-logo {
+      font-family: "Space Grotesk", system-ui, sans-serif;
+      letter-spacing: 0.08em;
+      font-weight: 600;
+      font-size: 14px;
+    }
+
+    .back-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      padding: 8px 14px;
+      border-radius: 999px;
+      font-size: 14px;
+      transition: border-color 0.2s ease, transform 0.2s ease, background 0.2s ease;
+      background: rgba(255, 255, 255, 0.06);
+    }
+
+    .back-btn:hover {
+      border-color: rgba(255, 255, 255, 0.36);
+      background: rgba(255, 255, 255, 0.1);
+      transform: translateY(-1px);
+    }
+
+    /* === HERO BACKGROUND VIDEO === */
+    .hero {
+      position: relative;
+      min-height: 100vh;
+      display: grid;
+      place-items: center;
+      padding: calc(var(--pad) * 2) var(--pad);
+      isolation: isolate;
+    }
+    .bgvideo {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      z-index: -2;
+      transform: scale(1.02);
+      filter: saturate(1.05) contrast(1.05);
+      opacity: 0;
+      transition: opacity 0.6s ease-in-out;
+    }
+    .overlay {
+      position: absolute;
+      inset: 0;
+      z-index: -1;
+      background:
+        radial-gradient(1200px 600px at 50% 40%, rgba(0,0,0,.2), rgba(0,0,0,.75)),
+        linear-gradient(to bottom, rgba(0,0,0,.15), rgba(0,0,0,.85));
+    }
+    .hero-inner {
+      width: min(var(--maxw), 100%);
+      display: grid;
+      gap: 18px;
+    }
+    .kicker {
+      letter-spacing: .18em;
+      text-transform: uppercase;
+      font-size: 12px;
+      color: var(--muted);
+    }
+    h1 {
+      margin: 0;
+      font-family: "Space Grotesk", system-ui, sans-serif;
+      font-size: clamp(40px, 6vw, 76px);
+      line-height: 1.02;
+    }
+    p {
+      margin: 0;
+      max-width: 62ch;
+      color: var(--muted);
+      font-size: 18px;
+      line-height: 1.55;
+    }
+    .cta-row { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 10px; }
+    .btn {
+      border: 1px solid rgba(255,255,255,.18);
+      background: rgba(255,255,255,.08);
+      color: white;
+      padding: 12px 16px;
+      border-radius: 999px;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      backdrop-filter: blur(10px);
+      cursor: pointer;
+      transition: transform .2s ease, background .2s ease, border-color .2s ease;
+      font-family: inherit;
+      font-size: 15px;
+    }
+    .btn:hover { transform: translateY(-1px); background: rgba(255,255,255,.12); border-color: rgba(255,255,255,.28); }
+
+    /* === Spacer content === */
+    .section {
+      padding: 90px var(--pad);
+      display: grid;
+      place-items: center;
+      background: #060606;
+      border-top: 1px solid rgba(255,255,255,.06);
+    }
+    .section-inner { width: min(var(--maxw), 100%); }
+    .section h2 { 
+      margin: 0 0 10px; 
+      font-family: "Space Grotesk", system-ui, sans-serif;
+      font-size: 28px; 
+    }
+    .section p { margin: 0; }
+
+    /* === STICKY SCROLL STAGE === */
+    .scroll-stage {
+      position: relative;
+      height: 320vh;              /* gives you scroll runway */
+      border-top: 1px solid rgba(255,255,255,.06);
+      border-bottom: 1px solid rgba(255,255,255,.06);
+      background: #040404;
+    }
+    .sticky {
+      position: sticky;
+      top: 0;
+      height: 100vh;
+      overflow: hidden;
+      display: grid;
+      place-items: center;
+      isolation: isolate;
+    }
+    .stage-video {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      z-index: -2;
+      transform-origin: center;
+      will-change: transform, opacity, filter;
+      opacity: 0;
+      transition: opacity 0.6s ease-in-out;
+    }
+    .stage-overlay {
+      position: absolute;
+      inset: 0;
+      z-index: -1;
+      background:
+        linear-gradient(to bottom, rgba(0,0,0,.15), rgba(0,0,0,.9));
+    }
+
+    .cards {
+      width: min(var(--maxw), 100%);
+      padding: 0 var(--pad);
+      display: grid;
+      gap: 12px;
+    }
+    .card {
+      max-width: 680px;
+      padding: 18px 18px;
+      border-radius: 18px;
+      border: 1px solid rgba(255,255,255,.12);
+      background: rgba(0,0,0,.35);
+      backdrop-filter: blur(12px);
+      transform: translateY(12px);
+      opacity: 0;
+      transition: opacity .35s ease, transform .35s ease;
+    }
+    .card.active {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .card h3 { 
+      margin: 0 0 6px; 
+      font-family: "Space Grotesk", system-ui, sans-serif;
+      font-size: 18px; 
+    }
+    .card p { margin: 0; font-size: 15px; color: rgba(255,255,255,.78); }
+
+    /* Accessibility: reduce motion */
+    @media (prefers-reduced-motion: reduce) {
+      .btn, .card { transition: none; }
+      .stage-video { will-change: auto; }
+    }
+
+    @media (max-width: 720px) {
+      .hero { padding: calc(var(--pad) * 2) 18px; }
+      .cards { padding: 0 18px; }
+      .section { padding: 70px 18px; }
+      .demo-header { padding: 14px 18px; }
+    }
+  </style>
+</head>
+
+<body>
+  <header class="demo-header">
+    <a href="/" class="demo-logo">Summer Ann</a>
+    <a href="/" class="back-btn">
+      ← Back to Portfolio
+    </a>
+  </header>
+
+  <!-- HERO -->
+  <header class="hero">
+    <video class="bgvideo" id="heroVideo"
+      autoplay loop muted playsinline preload="auto"
+      poster="/images/myProfile.jpg"
+      style="will-change: transform;"
+      onloadeddata="this.style.opacity = '1';"
+      onloadstart="this.style.opacity = '0.3';">
+      <source src="/static/images/Intro.mp4" type="video/mp4" />
+    </video>
+    <div class="overlay"></div>
+
+    <div class="hero-inner">
+      <div class="kicker">University of Chicago CS PhD</div>
+      <h1>Summer Ann</h1>
+      <p>
+        I'm a builder with range: a CS PhD who can take an idea from first principles to a deployed system, 
+        whether that's an LLM product, a medical AI pipeline, or a high throughput infrastructure stack. 
+        I'm deeply motivated by medicine and human health, using machine learning to make diagnostics more 
+        interpretable, patient outcomes better, and healthcare tools more reliable and accessible.
+      </p>
+      <div class="cta-row">
+        <a class="btn" href="#stage">Explore My Journey →</a>
+        <a class="btn" href="/#portfolio">View Projects</a>
+        <button class="btn" id="toggleSound">Unmute (click) 🔇</button>
+      </div>
+    </div>
+  </header>
+
+  <section class="section">
+    <div class="section-inner">
+      <h2>My Approach</h2>
+      <p>
+        I'm not interested in choosing one lane. I'm interested in combining rigor, imagination, 
+        and execution to build things that last. Whether it's an LLM product, a medical AI pipeline, 
+        or a high throughput infrastructure stack, I take ideas from first principles to deployed systems.
+      </p>
+      <p style="margin-top: 16px; color: rgba(255,255,255,0.7);">
+        Scroll down to explore my work through this cinematic experience, or visit my portfolio 
+        to see detailed case studies of my projects.
+      </p>
+    </div>
+  </section>
+
+  <!-- STICKY SCROLL STAGE -->
+  <section class="scroll-stage" id="stage" aria-label="Scroll stage">
+    <div class="sticky">
+      <video class="stage-video" id="stageVideo"
+        loop muted playsinline preload="none"
+        poster="/images/myProfile.jpg"
+        style="will-change: transform, opacity;"
+        onloadeddata="this.style.opacity = '1';"
+        onloadstart="this.style.opacity = '0.3';">
+        <source src="/static/images/Intro.mp4" type="video/mp4" />
+      </video>
+      <div class="stage-overlay"></div>
+
+      <div class="cards" id="cards">
+        <div class="card" data-start="0.00" data-end="0.33">
+          <h3>Research & Engineering</h3>
+          <p>I do research with agentic AI, engineering discipline, reproducible experiments, careful evaluation, and interpretability because I care about what's true, safe, and actually useful in the real world.</p>
+        </div>
+        <div class="card" data-start="0.33" data-end="0.66">
+          <h3>Entrepreneurship & Product</h3>
+          <p>I'm a serial entrepreneur who ships, iterates, and turns ambiguity into products people genuinely use, not just prototypes. I'm equally comfortable in deep technical work and in the product layer where design, usability, and trust determine whether something matters.</p>
+        </div>
+        <div class="card" data-start="0.66" data-end="1.00">
+          <h3>Creative & Multidisciplinary</h3>
+          <p>Outside of tech, I'm a multidisciplinary creative model, singer, actress, and artist. I bring taste, storytelling, and emotional intelligence into how I build and communicate. I'm trying to make the world better with technology that is scientifically grounded, ethically responsible, and meaningfully improves people's lives.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="section-inner">
+      <h2>Featured Work</h2>
+      <p>
+        Explore projects like <strong>Yammoing</strong> (AI-powered health scanning app), 
+        <strong>CreatorFlow AI</strong> (RAG-powered content creation platform), 
+        <strong>College Connect</strong> (campus social platform), and <strong>HypoGen</strong> 
+        (medical AI diagnostics). Each project combines technical excellence with real-world impact.
+      </p>
+      <p style="margin-top: 16px; color: rgba(255,255,255,0.7);">
+        If you liked the video at the top, you can find it on 
+        <a href="https://youtu.be/SlssfnVdLlA" target="_blank" style="color: rgba(255,255,255,0.9); text-decoration: underline;">YouTube</a>.
+      </p>
+      <div class="cta-row" style="margin-top: 24px;">
+        <a class="btn" href="/#portfolio">View All Projects →</a>
+        <a class="btn" href="/#about">Read My Story</a>
+        <a class="btn" href="https://drive.google.com/file/d/16easd52yyldhlzLF83bprckb_NM1NoLn/view?usp=sharing" target="_blank">Download Resume</a>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    // ===== Helpers =====
+    const clamp01 = (x) => Math.min(1, Math.max(0, x));
+
+    // ===== HERO: optional sound toggle (user gesture required) =====
+    const heroVideo = document.getElementById('heroVideo');
+    const toggleSound = document.getElementById('toggleSound');
+    
+    if (heroVideo && toggleSound) {
+      toggleSound.addEventListener('click', async () => {
+        heroVideo.muted = !heroVideo.muted;
+        toggleSound.textContent = heroVideo.muted ? 'Unmute (click) 🔇' : 'Mute (click) 🔊';
+        try { await heroVideo.play(); } catch (e) {}
+      });
+    }
+
+    // ===== HERO VIDEO: Optimize loading =====
+    const heroVideo = document.getElementById('heroVideo');
+    if (heroVideo) {
+      // Preload video more aggressively when page loads
+      heroVideo.load();
+      
+      // Ensure video plays smoothly
+      heroVideo.addEventListener('canplaythrough', () => {
+        heroVideo.style.opacity = '1';
+        heroVideo.play().catch(() => {});
+      }, { once: true });
+      
+      // Fallback: show video even if canplaythrough doesn't fire
+      heroVideo.addEventListener('loadeddata', () => {
+        heroVideo.style.opacity = '1';
+      }, { once: true });
+      
+      // Start loading immediately
+      if (heroVideo.readyState >= 2) {
+        heroVideo.style.opacity = '1';
+      }
+    }
+
+    // ===== STICKY STAGE: scroll progress + scene cards + video effects =====
+    const stage = document.getElementById('stage');
+    const stageVideo = document.getElementById('stageVideo');
+    const cards = Array.from(document.querySelectorAll('.card'));
+
+    if (!stage || !stageVideo) {
+      console.error('Stage elements not found');
+    } else {
+      // Preload stage video when hero video is ready
+      if (heroVideo) {
+        heroVideo.addEventListener('canplaythrough', () => {
+          stageVideo.load();
+        }, { once: true });
+      } else {
+        // Load immediately if hero video doesn't exist
+        stageVideo.load();
+      }
+      
+      // Only play stage video when it is in view (saves CPU/battery)
+      const io = new IntersectionObserver((entries) => {
+        for (const entry of entries) {
+          if (entry.target !== stage) continue;
+          if (entry.isIntersecting) {
+            // Autoplay works because it's muted
+            stageVideo.play().catch(() => {});
+            stageVideo.style.opacity = '1';
+          } else {
+            stageVideo.pause();
+          }
+        }
+      }, { threshold: 0.15 });
+      io.observe(stage);
+
+      const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+
+      function update() {
+        const rect = stage.getBoundingClientRect();
+        const vh = window.innerHeight;
+
+        // stage scroll progress from 0..1 while moving through the 320vh section
+        const total = rect.height - vh;
+        const scrolled = clamp01((-rect.top) / total);
+
+        // Cinematic video effects:
+        // - zoom slightly as you scroll
+        // - fade out near the end
+        const zoom = 1.02 + scrolled * 0.10;              // 1.02 -> 1.12
+        const fadeOut = scrolled < 0.85 ? 1 : 1 - (scrolled - 0.85) / 0.15; // 1 -> 0
+        stageVideo.style.transform = `scale(${zoom})`;
+        stageVideo.style.opacity = String(clamp01(fadeOut));
+
+        // Optional: tiny contrast bump mid-scroll
+        const contrast = 1.02 + Math.sin(scrolled * Math.PI) * 0.08;
+        stageVideo.style.filter = `contrast(${contrast}) saturate(1.05)`;
+
+        // Scene cards: activate based on each card's data-start/data-end
+        for (const card of cards) {
+          const start = parseFloat(card.dataset.start);
+          const end = parseFloat(card.dataset.end);
+          const active = scrolled >= start && scrolled < end;
+          card.classList.toggle('active', active);
+        }
+
+        if (!prefersReducedMotion.matches) {
+          requestAnimationFrame(update);
+        }
+      }
+      
+      if (!prefersReducedMotion.matches) {
+        requestAnimationFrame(update);
+      } else {
+        // Show all cards immediately if reduced motion
+        cards.forEach((card) => card.classList.add('active'));
+      }
+    }
+  </script>
+</body>
+</html>

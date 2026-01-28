@@ -1,0 +1,43 @@
+/* Language toggle layout fixes */
+.language {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 18px;
+  flex-wrap: wrap;
+}
+
+.language > div {
+  display: flex;
+  align-items: center;
+}
+
+.language-icon {
+  margin: 0 !important;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  line-height: 1;
+  filter: none !important;
+  opacity: 1 !important;
+}
+
+.language-icon svg {
+  width: 100%;
+  height: 100%;
+  display: block;
+  filter: none !important;
+}
+
+@media (max-width: 480px) {
+  .language {
+    gap: 12px;
+  }
+
+  .language-icon {
+    width: 40px;
+    height: 40px;
+  }
+}

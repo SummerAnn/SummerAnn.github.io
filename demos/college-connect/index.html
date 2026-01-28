@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>College Connect - Campus Community Platform | Summer Ann Portfolio</title>
+  <meta name="description" content="College Connect: A campus social platform for events, study squads, and student life.">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+
+  <style>
+    :root {
+      --primary: #6366f1;
+      --primary-light: #818cf8;
+      --accent: #f59e0b;
+      --bg-dark: #0f0f1a;
+      --bg-card: rgba(255, 255, 255, 0.05);
+      --text: #ffffff;
+      --text-muted: rgba(255, 255, 255, 0.7);
+      --gradient: linear-gradient(135deg, #6366f1, #8b5cf6, #a855f7);
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: 'DM Sans', system-ui, sans-serif; background: var(--bg-dark); color: var(--text); overflow-x: hidden; }
+    h1, h2, h3, h4 { font-family: 'Space Grotesk', sans-serif; }
+
+    .demo-header {
+      position: fixed; top: 0; left: 0; right: 0; padding: 20px 40px;
+      display: flex; justify-content: space-between; align-items: center;
+      z-index: 1000; background: rgba(15, 15, 26, 0.8); backdrop-filter: blur(20px);
+    }
+    .demo-logo { font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 1.2rem; color: var(--text); text-decoration: none; }
+    .back-btn {
+      display: flex; align-items: center; gap: 8px; padding: 10px 20px;
+      background: var(--bg-card); border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 50px; color: var(--text); text-decoration: none; font-size: 14px; transition: all 0.3s ease;
+    }
+    .back-btn:hover { background: rgba(255, 255, 255, 0.1); transform: translateX(-5px); }
+
+    .hero {
+      min-height: 100vh; display: flex; align-items: center; padding: 120px 60px 80px;
+      position: relative; overflow: hidden;
+    }
+    .hero::before {
+      content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0;
+      background: radial-gradient(ellipse at 30% 20%, rgba(99, 102, 241, 0.15) 0%, transparent 50%),
+                  radial-gradient(ellipse at 70% 80%, rgba(168, 85, 247, 0.1) 0%, transparent 50%);
+      pointer-events: none;
+    }
+    .hero-content { flex: 1; max-width: 600px; z-index: 1; }
+    .hero-badge {
+      display: inline-flex; align-items: center; gap: 8px; padding: 8px 16px;
+      background: var(--gradient); border-radius: 50px; font-size: 14px; font-weight: 500; margin-bottom: 24px;
+    }
+    .hero-title { font-size: clamp(2.5rem, 5vw, 4rem); line-height: 1.1; margin-bottom: 24px; }
+    .accent { background: var(--gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+    .hero-subtitle { font-size: 1.2rem; color: var(--text-muted); line-height: 1.7; margin-bottom: 32px; }
+    .hero-cta { display: flex; gap: 16px; flex-wrap: wrap; }
+    .btn-primary {
+      padding: 14px 28px; background: var(--gradient); border: none; border-radius: 12px;
+      color: white; font-weight: 600; text-decoration: none; transition: all 0.3s ease; cursor: pointer;
+    }
+    .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 10px 30px rgba(99, 102, 241, 0.4); }
+    .btn-secondary {
+      padding: 14px 28px; background: transparent; border: 1px solid rgba(255, 255, 255, 0.2);
+      border-radius: 12px; color: var(--text); text-decoration: none; transition: all 0.3s ease;
+    }
+    .btn-secondary:hover { background: rgba(255, 255, 255, 0.1); }
+
+    .hero-phone { position: relative; margin-left: 60px; }
+    .phone-frame {
+      width: 280px; height: 580px; background: #1a1a2e; border-radius: 40px; padding: 12px;
+      box-shadow: 0 30px 60px rgba(0, 0, 0, 0.5), inset 0 0 0 2px rgba(255, 255, 255, 0.1); position: relative;
+    }
+    .phone-notch {
+      position: absolute; top: 20px; left: 50%; transform: translateX(-50%);
+      width: 100px; height: 28px; background: #0f0f1a; border-radius: 20px; z-index: 10;
+    }
+    .phone-screen { width: 100%; height: 100%; background: #0f0f1a; border-radius: 32px; overflow: hidden; position: relative; }
+    .carousel-container { position: absolute; inset: 0; display: flex; transition: transform 0.5s ease; }
+    .carousel-slide { min-width: 100%; height: 100%; }
+    .carousel-slide img { width: 100%; height: 100%; object-fit: cover; }
+    .carousel-dots { position: absolute; bottom: -40px; left: 50%; transform: translateX(-50%); display: flex; gap: 8px; }
+    .carousel-dot {
+      width: 8px; height: 8px; border-radius: 50%; background: rgba(255, 255, 255, 0.3);
+      border: none; cursor: pointer; transition: all 0.3s ease;
+    }
+    .carousel-dot.active { background: var(--primary); width: 24px; border-radius: 4px; }
+
+    .features { padding: 100px 60px; background: linear-gradient(180deg, transparent 0%, rgba(99, 102, 241, 0.05) 100%); }
+    .section-header { text-align: center; max-width: 600px; margin: 0 auto 60px; }
+    .section-header h2 { font-size: 2.5rem; margin-bottom: 16px; }
+    .section-header p { color: var(--text-muted); font-size: 1.1rem; }
+    .feature-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; max-width: 1200px; margin: 0 auto; }
+    .feature-grid article {
+      background: var(--bg-card); border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 20px; padding: 32px; transition: all 0.3s ease;
+    }
+    .feature-grid article:hover { transform: translateY(-5px); border-color: var(--primary); box-shadow: 0 20px 40px rgba(99, 102, 241, 0.2); }
+    .feature-grid article i { font-size: 2rem; background: var(--gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent; margin-bottom: 20px; display: block; }
+    .feature-grid article h3 { font-size: 1.3rem; margin-bottom: 12px; }
+    .feature-grid article p { color: var(--text-muted); line-height: 1.6; }
+
+    .gallery { padding: 100px 60px; }
+    .gallery-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; max-width: 1000px; margin: 0 auto; }
+    .gallery-item {
+      aspect-ratio: 9/16; border-radius: 24px; overflow: hidden;
+      background: var(--bg-card); border: 1px solid rgba(255, 255, 255, 0.1); transition: all 0.3s ease; cursor: pointer;
+    }
+    .gallery-item:hover { transform: scale(1.02); box-shadow: 0 20px 40px rgba(99, 102, 241, 0.3); }
+    .gallery-item img { width: 100%; height: 100%; object-fit: cover; }
+
+    .live { padding: 100px 60px; background: rgba(99, 102, 241, 0.05); }
+    .live-panel { max-width: 900px; margin: 0 auto; background: var(--bg-card); border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 24px; overflow: hidden; }
+    .tabs { display: flex; border-bottom: 1px solid rgba(255, 255, 255, 0.1); }
+    .tab-btn { flex: 1; padding: 20px; background: transparent; border: none; color: var(--text-muted); font-size: 1rem; font-weight: 500; cursor: pointer; transition: all 0.3s ease; position: relative; }
+    .tab-btn.active { color: var(--text); background: rgba(99, 102, 241, 0.1); }
+    .tab-btn.active::after { content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 3px; background: var(--gradient); }
+    .live-content { padding: 40px; display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+    .live-card { background: rgba(0, 0, 0, 0.3); border-radius: 16px; padding: 24px; }
+    .live-card h3 { margin-bottom: 8px; }
+    .live-card p { color: var(--text-muted); margin-bottom: 16px; }
+    .live-card ul { list-style: none; }
+    .live-card ul li { padding: 12px 0; border-bottom: 1px solid rgba(255, 255, 255, 0.1); display: flex; align-items: center; gap: 12px; }
+    .live-card ul li::before { content: '•'; color: var(--primary); font-size: 1.5rem; }
+    .live-card.highlight { background: var(--gradient); }
+    .tag { display: inline-block; padding: 4px 12px; background: rgba(255, 255, 255, 0.2); border-radius: 20px; font-size: 12px; margin-bottom: 12px; }
+
+    .cta { padding: 100px 60px; }
+    .cta-card { max-width: 800px; margin: 0 auto; text-align: center; background: var(--bg-card); border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 24px; padding: 60px; }
+    .cta-card h2 { font-size: 2rem; margin-bottom: 16px; }
+    .cta-card p { color: var(--text-muted); margin-bottom: 32px; }
+    .cta-actions { display: flex; justify-content: center; gap: 16px; }
+
+    .demo-footer { text-align: center; padding: 40px 60px; border-top: 1px solid rgba(255, 255, 255, 0.1); color: var(--text-muted); }
+    .demo-footer a { color: var(--primary-light); text-decoration: none; }
+
+    @media (max-width: 1024px) {
+      .hero { flex-direction: column; text-align: center; padding: 120px 30px 60px; }
+      .hero-phone { margin: 40px 0 0; }
+      .gallery-grid { grid-template-columns: repeat(2, 1fr); }
+      .live-content { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 768px) {
+      .demo-header { padding: 15px 20px; }
+      .hero { padding: 100px 20px 40px; }
+      .features, .gallery, .live, .cta { padding: 60px 20px; }
+      .gallery-grid { grid-template-columns: 1fr; max-width: 300px; }
+      .phone-frame { width: 240px; height: 500px; }
+    }
+  </style>
+</head>
+<body>
+  <header class="demo-header">
+    <a href="/" class="demo-logo">Summer Ann</a>
+    <a href="/" class="back-btn"><i class="fas fa-arrow-left"></i> Back to Portfolio</a>
+  </header>
+
+  <section class="hero">
+    <div class="hero-content">
+      <span class="hero-badge"><i class="fas fa-university"></i> Campus Community Platform</span>
+      <h1 class="hero-title">College Connect turns <span class="accent">campus chaos</span> into community.</h1>
+      <p class="hero-subtitle">A unified hub for events, study squads, and student orgs. Built to help students find their people and stay in sync with campus life.</p>
+      <div class="hero-cta">
+        <a class="btn-primary" href="#gallery">View Screenshots</a>
+        <a class="btn-secondary" href="#features">Explore Features</a>
+      </div>
+    </div>
+    <div class="hero-phone">
+      <div class="phone-frame">
+        <div class="phone-notch"></div>
+        <div class="phone-screen">
+          <div class="carousel-container" id="phoneCarousel">
+            <div class="carousel-slide"><img src="/images/portfolio/web_design/collegeconnect1.png" alt="Home"></div>
+            <div class="carousel-slide"><img src="/images/portfolio/web_design/collegeconnect2.png" alt="Events"></div>
+            <div class="carousel-slide"><img src="/images/portfolio/web_design/collegeconnect3.png" alt="Study"></div>
+          </div>
+        </div>
+      </div>
+      <div class="carousel-dots">
+        <button class="carousel-dot active" data-slide="0"></button>
+        <button class="carousel-dot" data-slide="1"></button>
+        <button class="carousel-dot" data-slide="2"></button>
+      </div>
+    </div>
+  </section>
+
+  <section id="features" class="features">
+    <div class="section-header">
+      <h2>Designed for Student Life</h2>
+      <p>Everything that makes campus feel smaller and more connected.</p>
+    </div>
+    <div class="feature-grid">
+      <article><i class="fas fa-users"></i><h3>Study Squads</h3><p>Auto-match students by course, learning style, and availability.</p></article>
+      <article><i class="fas fa-calendar-alt"></i><h3>Events Radar</h3><p>Curated event feed based on your interests and location.</p></article>
+      <article><i class="fas fa-comments"></i><h3>Group Chat</h3><p>Instant channels for dorms, classes, and orgs.</p></article>
+      <article><i class="fas fa-map-marker-alt"></i><h3>Campus Map</h3><p>Interactive 3D map with real-time building info.</p></article>
+      <article><i class="fas fa-bell"></i><h3>Smart Alerts</h3><p>Personalized notifications for deadlines and events.</p></article>
+      <article><i class="fas fa-chart-line"></i><h3>GPA Tracker</h3><p>Track academic progress with goal setting.</p></article>
+    </div>
+  </section>
+
+  <section id="gallery" class="gallery">
+    <div class="section-header"><h2>App Screenshots</h2><p>A glimpse into the College Connect experience</p></div>
+    <div class="gallery-grid">
+      <div class="gallery-item"><img src="/images/portfolio/web_design/collegeconnect1.png" alt="Home"></div>
+      <div class="gallery-item"><img src="/images/portfolio/web_design/collegeconnect2.png" alt="Events"></div>
+      <div class="gallery-item"><img src="/images/portfolio/web_design/collegeconnect3.png" alt="Study"></div>
+      <div class="gallery-item"><img src="/images/portfolio/web_design/collegeconnect4.png" alt="Messages"></div>
+      <div class="gallery-item"><img src="/images/portfolio/web_design/collegeconnect5.png" alt="Profile"></div>
+      <div class="gallery-item"><img src="/images/portfolio/web_design/collegeconnect6.png" alt="Settings"></div>
+    </div>
+  </section>
+
+  <section id="live" class="live">
+    <div class="section-header"><h2>Live Campus Views</h2><p>Switch modes to see how College Connect adapts your feed.</p></div>
+    <div class="live-panel">
+      <div class="tabs">
+        <button class="tab-btn active" data-view="events">Events</button>
+        <button class="tab-btn" data-view="study">Study Squads</button>
+        <button class="tab-btn" data-view="clubs">Student Orgs</button>
+      </div>
+      <div class="live-content">
+        <div class="live-card">
+          <h3 id="live-title">Tonight on Campus</h3>
+          <p id="live-subtitle">Join events that are already buzzing nearby.</p>
+          <ul id="live-list"><li>Design + Donuts at Innovation Lab</li><li>Midnight coding marathon</li><li>Basketball watch party</li></ul>
+        </div>
+        <div class="live-card highlight">
+          <span class="tag">Next Up</span>
+          <h4 id="live-highlight">Design Sprint: 6:30 PM</h4>
+          <p>Bring a friend. Snacks included.</p>
+          <button class="btn-primary">RSVP</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta">
+    <div class="cta-card">
+      <h2>Want a campus platform that feels human?</h2>
+      <p>College Connect showcases community-focused product design and full-stack development.</p>
+      <div class="cta-actions">
+        <a class="btn-primary" href="mailto:summereunann@uchicago.edu">Start a Project</a>
+        <a class="btn-secondary" href="/">Back to Portfolio</a>
+      </div>
+    </div>
+  </section>
+
+  <footer class="demo-footer">
+    <p>Created by <a href="/">Summer Ann</a> | <a href="mailto:summereunann@uchicago.edu">Contact</a></p>
+    <p style="margin-top: 12px; font-size: 0.85rem;">Portfolio demo for the College Connect product concept.</p>
+  </footer>
+
+  <script>
+    const carousel = document.getElementById('phoneCarousel');
+    const dots = document.querySelectorAll('.carousel-dot');
+    let currentSlide = 0;
+    function goToSlide(i) { currentSlide = i; carousel.style.transform = `translateX(-${i * 100}%)`; dots.forEach((d, j) => d.classList.toggle('active', j === i)); }
+    dots.forEach((d, i) => d.addEventListener('click', () => goToSlide(i)));
+    setInterval(() => goToSlide((currentSlide + 1) % 3), 4000);
+
+    const tabBtns = document.querySelectorAll('.tab-btn');
+    const data = {
+      events: { title: 'Tonight on Campus', subtitle: 'Join events nearby.', list: ['Design + Donuts', 'Coding marathon', 'Watch party'], hl: 'Design Sprint: 6:30 PM' },
+      study: { title: 'Your Study Matches', subtitle: 'Students in your courses.', list: ['CS 161 Group', 'Econ Prep', 'Chem Partners'], hl: 'Join CS 161: 3 spots' },
+      clubs: { title: 'Recommended Orgs', subtitle: 'Based on your interests.', list: ['Tech Club', 'Debate Society', 'Photo Club'], hl: 'Tech Club: Tomorrow 5 PM' }
+    };
+    tabBtns.forEach(btn => btn.addEventListener('click', () => {
+      tabBtns.forEach(b => b.classList.remove('active')); btn.classList.add('active');
+      const d = data[btn.dataset.view];
+      document.getElementById('live-title').textContent = d.title;
+      document.getElementById('live-subtitle').textContent = d.subtitle;
+      document.getElementById('live-list').innerHTML = d.list.map(x => `<li>${x}</li>`).join('');
+      document.getElementById('live-highlight').textContent = d.hl;
+    }));
+
+    gsap.registerPlugin(ScrollTrigger);
+    gsap.from('.hero-content', { opacity: 0, y: 50, duration: 1, ease: 'power3.out' });
+    gsap.from('.hero-phone', { opacity: 0, y: 50, duration: 1, delay: 0.3, ease: 'power3.out' });
+    gsap.utils.toArray('.feature-grid article').forEach((el, i) => gsap.from(el, { scrollTrigger: { trigger: el, start: 'top 80%' }, opacity: 0, y: 30, duration: 0.6, delay: i * 0.1 }));
+    gsap.utils.toArray('.gallery-item').forEach((el, i) => gsap.from(el, { scrollTrigger: { trigger: el, start: 'top 85%' }, opacity: 0, scale: 0.9, duration: 0.5, delay: i * 0.1 }));
+  </script>
+</body>
+</html>

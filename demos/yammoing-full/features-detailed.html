@@ -1,0 +1,574 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Explore every feature of Yammoing in detail - from multi-modal scanning to personalized health analysis.">
+    <title>Features in Detail - Yammoing</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="features-detailed.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-wrapper">
+                <a href="index.html" class="logo">
+                    <span class="logo-icon">🔍</span>
+                    <span class="logo-text">Yammoing</span>
+                </a>
+                <ul class="nav-links">
+                    <li><a href="index.html#home">Home</a></li>
+                    <li><a href="features-detailed.html" class="active">Detailed Features</a></li>
+                    <li><a href="science.html">Science</a></li>
+                    <li><a href="water-analysis.html">Water Analysis</a></li>
+                    <li><a href="index.html#download">Download</a></li>
+                </ul>
+                <button class="mobile-menu-toggle" aria-label="Toggle menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <section class="page-hero">
+        <div class="container">
+            <h1>Every Feature, In Detail</h1>
+            <p>Discover the comprehensive capabilities that make Yammoing your ultimate health companion</p>
+        </div>
+    </section>
+
+    <!-- Multi-Modal Scanning -->
+    <section class="feature-detail">
+        <div class="container">
+            <div class="detail-header">
+                <div class="detail-icon">📸</div>
+                <h2>Multi-Modal Product Scanning</h2>
+                <p class="detail-subtitle">Four powerful ways to identify any product</p>
+            </div>
+
+            <div class="detail-grid">
+                <div class="detail-item">
+                    <h3>Barcode Scanner</h3>
+                    <div class="tech-badge">VisionKit Technology</div>
+                    <ul class="detail-list">
+                        <li><strong>Supported Formats:</strong> UPC-A, UPC-E, EAN-8, EAN-13, Code 39, Code 93, Code 128, ITF-14, QR codes</li>
+                        <li><strong>Real-time Recognition:</strong> Instant barcode detection with live camera feed</li>
+                        <li><strong>Auto-Focus:</strong> Automatic focus and exposure adjustment for perfect scans</li>
+                        <li><strong>Multi-Barcode:</strong> Detect multiple barcodes in a single frame</li>
+                        <li><strong>Low-Light Mode:</strong> Torch/flashlight toggle for dark environments</li>
+                        <li><strong>Feedback:</strong> Haptic and audio feedback on successful scan</li>
+                        <li><strong>Smart Caching:</strong> Prevents duplicate lookups for recently scanned items</li>
+                        <li><strong>Continuous Mode:</strong> Scan multiple products without closing the scanner</li>
+                        <li><strong>Region of Interest:</strong> Focus scanning area for faster detection</li>
+                        <li><strong>Fallback Scanner:</strong> AVFoundation scanner for iOS 15 devices</li>
+                    </ul>
+                </div>
+
+                <div class="detail-item">
+                    <h3>Photo Recognition</h3>
+                    <div class="tech-badge">AI-Powered</div>
+                    <ul class="detail-list">
+                        <li><strong>Image Capture:</strong> Camera photo with manual focus/exposure controls</li>
+                        <li><strong>Photo Library:</strong> Import and analyze existing photos</li>
+                        <li><strong>Editing Tools:</strong> Crop, rotate, and optimize images</li>
+                        <li><strong>Multi-Image:</strong> Upload up to 5 images per food item</li>
+                        <li><strong>OCR Text Extraction:</strong> Read nutrition labels and ingredient lists from photos (Google Vision API)</li>
+                        <li><strong>Brand Detection:</strong> Identify brands from logos in images</li>
+                        <li><strong>Multi-Language:</strong> Support for 20+ languages on labels</li>
+                        <li><strong>Handwriting Recognition:</strong> Read handwritten labels</li>
+                        <li><strong>Format Support:</strong> HEIC, JPEG, PNG with automatic conversion</li>
+                    </ul>
+                </div>
+
+                <div class="detail-item">
+                    <h3>Live Food Detection</h3>
+                    <div class="tech-badge">Real-Time AI</div>
+                    <ul class="detail-list">
+                        <li><strong>Continuous Detection:</strong> 15-30 FPS real-time food recognition</li>
+                        <li><strong>1000+ Categories:</strong> Comprehensive food classification model</li>
+                        <li><strong>Visual Feedback:</strong> Live bounding boxes around detected foods</li>
+                        <li><strong>Confidence Scoring:</strong> Reliability percentage for each detection</li>
+                        <li><strong>Multi-Food:</strong> Detect multiple items simultaneously</li>
+                        <li><strong>Object Tracking:</strong> Track foods as camera moves</li>
+                        <li><strong>Stability Filter:</strong> Requires 3+ consistent frames for accuracy</li>
+                        <li><strong>Interactive Selection:</strong> Tap to select specific items</li>
+                        <li><strong>Portion Adjustment:</strong> Real-time portion size sliders</li>
+                        <li><strong>Quick-Add:</strong> Instantly add detected foods to meal tracker</li>
+                        <li><strong>Detection History:</strong> Carousel of last 10 detected items</li>
+                    </ul>
+                </div>
+
+                <div class="detail-item">
+                    <h3>Manual Entry</h3>
+                    <div class="tech-badge">Complete Control</div>
+                    <ul class="detail-list">
+                        <li><strong>Smart Autocomplete:</strong> Product name suggestions as you type</li>
+                        <li><strong>Brand Matching:</strong> Link to existing brands in database</li>
+                        <li><strong>100+ Categories:</strong> Detailed product categorization</li>
+                        <li><strong>Flexible Serving Sizes:</strong> Input in grams, ml, oz, cups, pieces</li>
+                        <li><strong>Complete Nutrition:</strong> 30+ nutritional fields including micronutrients</li>
+                        <li><strong>Ingredient Parser:</strong> Intelligent comma-separated splitting</li>
+                        <li><strong>Allergen Highlighting:</strong> Real-time allergen detection while typing</li>
+                        <li><strong>Product Images:</strong> Upload front, back, nutrition, and ingredient photos</li>
+                        <li><strong>Certifications:</strong> Track USDA Organic, Non-GMO, Fair Trade, Kosher, Halal</li>
+                        <li><strong>Metadata:</strong> Location, price, expiration date tracking</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Health Scoring Engine -->
+    <section class="feature-detail alt-bg">
+        <div class="container">
+            <div class="detail-header">
+                <div class="detail-icon">📊</div>
+                <h2>Science-Based Health Scoring</h2>
+                <p class="detail-subtitle">1-100 score backed by cutting-edge research</p>
+            </div>
+
+            <div class="scoring-methodology">
+                <div class="methodology-item">
+                    <h3>Food Compass 2.0 Algorithm</h3>
+                    <p class="source">Tufts University, 2024</p>
+                    <p>The most comprehensive nutrient profiling system ever developed, evaluating foods across 54 attributes in 9 health-relevant domains.</p>
+                </div>
+
+                <div class="methodology-item">
+                    <h3>Nutri-Score Integration</h3>
+                    <p class="source">European Standard, 2023</p>
+                    <p>Evidence-based nutrition labeling system used across Europe, correlating with reduced disease risk.</p>
+                </div>
+
+                <div class="methodology-item">
+                    <h3>NOVA Classification</h3>
+                    <p class="source">University of São Paulo</p>
+                    <p>Processing level assessment (Groups 1-4) identifying ultra-processed foods linked to health risks.</p>
+                </div>
+            </div>
+
+            <div class="score-breakdown-visual">
+                <h3>Score Calculation Process</h3>
+                <div class="process-flow">
+                    <div class="flow-step">
+                        <div class="step-num">1</div>
+                        <h4>Product Type Identification</h4>
+                        <p>Determine appropriate scoring domain (food, cosmetic, cleaning, water)</p>
+                    </div>
+                    <div class="flow-arrow">→</div>
+                    <div class="flow-step">
+                        <div class="step-num">2</div>
+                        <h4>Domain Analysis</h4>
+                        <p>Calculate subscores across 9 health domains</p>
+                    </div>
+                    <div class="flow-arrow">→</div>
+                    <div class="flow-step">
+                        <div class="step-num">3</div>
+                        <h4>Personal Risk Assessment</h4>
+                        <p>Check allergens, restrictions, health conditions</p>
+                    </div>
+                    <div class="flow-arrow">→</div>
+                    <div class="flow-step">
+                        <div class="step-num">4</div>
+                        <h4>Final Score</h4>
+                        <p>Weighted aggregation with category normalization</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 9 Health Domains Detail -->
+    <section class="feature-detail">
+        <div class="container">
+            <div class="detail-header">
+                <div class="detail-icon">🔬</div>
+                <h2>9 Health Domains - Deep Dive</h2>
+                <p class="detail-subtitle">Comprehensive analysis from every angle</p>
+            </div>
+
+            <div class="domains-accordion">
+                <div class="accordion-item">
+                    <div class="accordion-header">
+                        <h3>💎 Nutrient Density Scorer</h3>
+                        <span class="accordion-toggle">+</span>
+                    </div>
+                    <div class="accordion-content">
+                        <div class="domain-detail">
+                            <h4>Micronutrient Analysis (30+ nutrients):</h4>
+                            <ul class="two-column-list">
+                                <li><strong>Vitamins:</strong> A, C, D, E, K, B1-B12 (all B vitamins)</li>
+                                <li><strong>Minerals:</strong> Calcium, Iron, Magnesium, Zinc, Selenium, Potassium, and 7 more</li>
+                                <li><strong>% Daily Value:</strong> Calculation per serving based on RDA</li>
+                                <li><strong>RDA Comparison:</strong> Age and gender-specific recommendations</li>
+                                <li><strong>Bioavailability:</strong> Vitamin C enhancing iron absorption, etc.</li>
+                            </ul>
+
+                            <h4>Nutrient Ratios:</h4>
+                            <ul>
+                                <li><strong>Omega-6:Omega-3:</strong> Ideal ratio <4:1</li>
+                                <li><strong>Calcium:Magnesium:</strong> Ideal ratio 2:1</li>
+                                <li><strong>Sodium:Potassium:</strong> Ideal ratio <1:1</li>
+                                <li><strong>Complete Proteins:</strong> All 9 essential amino acids check</li>
+                            </ul>
+
+                            <h4>Beneficial Compounds:</h4>
+                            <ul>
+                                <li>Antioxidants (polyphenols, flavonoids, carotenoids)</li>
+                                <li>Phytonutrients (lycopene, resveratrol, curcumin)</li>
+                                <li>Probiotics (CFU count, strain diversity)</li>
+                                <li>Essential fatty acids (EPA, DHA, ALA)</li>
+                            </ul>
+
+                            <div class="scoring-formula">
+                                <h4>Scoring Formula:</h4>
+                                <p>Base (0-30 pts) + Ratio bonuses (0-15 pts) + Beneficial compounds (0-10 pts) × Bioavailability (0.8x-1.2x)</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="accordion-item">
+                    <div class="accordion-header">
+                        <h3>⚡ Metabolic Load Scorer</h3>
+                        <span class="accordion-toggle">+</span>
+                    </div>
+                    <div class="accordion-content">
+                        <div class="domain-detail">
+                            <h4>Sugar Analysis:</h4>
+                            <ul>
+                                <li><strong>Total vs Added Sugars:</strong> Distinguish natural from added</li>
+                                <li><strong>Sugar Types:</strong> Sucrose, fructose, glucose, HFCS, maltodextrin identification</li>
+                                <li><strong>Glycemic Index:</strong> Estimated GI (1-100 scale)</li>
+                                <li><strong>Glycemic Load:</strong> GL = (GI × carbs) / 100</li>
+                                <li><strong>Sugar Alcohols:</strong> Erythritol, xylitol, sorbitol tracking</li>
+                                <li><strong>Artificial Sweeteners:</strong> Aspartame, sucralose, stevia detection</li>
+                            </ul>
+
+                            <h4>Fat Quality Assessment:</h4>
+                            <ul>
+                                <li><strong>Trans Fats:</strong> Any amount = -10 to -20 points penalty</li>
+                                <li><strong>Saturated Fat:</strong> <5% DV ideal, >20% DV poor</li>
+                                <li><strong>Healthy Fats:</strong> Omega-3, MUFA bonuses</li>
+                                <li><strong>Fat Quality Ratio:</strong> Unsaturated/Saturated (ideal: >2:1)</li>
+                                <li><strong>MCT Oils:</strong> Medium-chain triglycerides bonus</li>
+                            </ul>
+
+                            <h4>Protein Quality:</h4>
+                            <ul>
+                                <li><strong>PDCAAS:</strong> Protein digestibility-corrected amino acid score</li>
+                                <li><strong>Biological Value (BV):</strong> For animal proteins</li>
+                                <li><strong>Complementarity:</strong> Plant protein combinations (rice + beans)</li>
+                                <li><strong>Protein Density:</strong> Protein per calorie ratio</li>
+                            </ul>
+
+                            <h4>Fiber & Calorie Density:</h4>
+                            <ul>
+                                <li><strong>Total Fiber:</strong> Soluble vs insoluble ratio</li>
+                                <li><strong>Resistant Starch:</strong> Prebiotic fiber content</li>
+                                <li><strong>Energy Density:</strong> Calories per 100g (<150 ideal for weight management)</li>
+                            </ul>
+
+                            <div class="scoring-formula">
+                                <h4>Scoring Formula:</h4>
+                                <p>Base 50 pts - Sugar penalty (-25) - Trans fat (-20) - Sat fat (-15) + Protein (+15) + Fiber (+15) + Healthy fats (+10)</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="accordion-item">
+                    <div class="accordion-header">
+                        <h3>🏭 Processing Level Scorer</h3>
+                        <span class="accordion-toggle">+</span>
+                    </div>
+                    <div class="accordion-content">
+                        <div class="domain-detail">
+                            <h4>NOVA Classification System:</h4>
+
+                            <div class="nova-group">
+                                <h5>Group 1: Unprocessed/Minimally Processed (Score: 90-100)</h5>
+                                <p><strong>Examples:</strong> Fresh fruits, vegetables, grains, legumes, nuts, meat, milk</p>
+                                <p><strong>Processing:</strong> Cleaning, removal of inedible parts, drying, crushing, grinding, freezing, pasteurization</p>
+                                <p><strong>Key:</strong> No added substances</p>
+                            </div>
+
+                            <div class="nova-group">
+                                <h5>Group 2: Processed Culinary Ingredients (Score: 70-89)</h5>
+                                <p><strong>Examples:</strong> Oils, butter, sugar, salt</p>
+                                <p><strong>Processing:</strong> Pressing, refining, grinding, milling</p>
+                                <p><strong>Key:</strong> Extracted from Group 1, used in cooking</p>
+                            </div>
+
+                            <div class="nova-group">
+                                <h5>Group 3: Processed Foods (Score: 40-69)</h5>
+                                <p><strong>Examples:</strong> Canned vegetables, canned fish, cheeses, freshly made bread</p>
+                                <p><strong>Processing:</strong> Canning, bottling, fermentation</p>
+                                <p><strong>Key:</strong> Group 1 + Group 2 (2-3 ingredients), still recognizable</p>
+                            </div>
+
+                            <div class="nova-group">
+                                <h5>Group 4: Ultra-Processed Foods (Score: 1-39)</h5>
+                                <p><strong>Examples:</strong> Soft drinks, packaged snacks, reconstituted meats, frozen meals</p>
+                                <p><strong>Processing:</strong> Industrial formulations (5+ ingredients)</p>
+                                <p><strong>Key:</strong> Contains hydrogenated oils, HFCS, protein isolates, emulsifiers, colors, flavors</p>
+                                <p><strong>Penalty:</strong> -20 to -40 points</p>
+                            </div>
+
+                            <h4>Processing Indicators:</h4>
+                            <ul>
+                                <li>Ingredient count (more = higher processing)</li>
+                                <li>Industrial ingredients (emulsifiers, stabilizers)</li>
+                                <li>Reconstituted ingredients</li>
+                                <li>Home-cooking replicability test</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="accordion-item">
+                    <div class="accordion-header">
+                        <h3>⚠️ Additives Scorer</h3>
+                        <span class="accordion-toggle">+</span>
+                    </div>
+                    <div class="accordion-content">
+                        <div class="domain-detail">
+                            <h4>Database Coverage:</h4>
+                            <ul>
+                                <li><strong>E-numbers:</strong> E100-E1520 (European classification)</li>
+                                <li><strong>FDA Approved:</strong> 600+ substances</li>
+                                <li><strong>GRAS List:</strong> Generally Recognized As Safe compounds</li>
+                            </ul>
+
+                            <h4>Risk Categories:</h4>
+                            <div class="risk-categories">
+                                <div class="risk-item risk-safe">
+                                    <h5>✓ Safe (Green) - 0 points penalty</h5>
+                                    <p>No known adverse effects at typical consumption levels</p>
+                                </div>
+                                <div class="risk-item risk-caution">
+                                    <h5>⚠ Caution (Yellow) - 3-5 points</h5>
+                                    <p>Possible sensitivity in some individuals, acceptable in moderation</p>
+                                </div>
+                                <div class="risk-item risk-avoid">
+                                    <h5>⚠ Avoid (Orange) - 8-12 points</h5>
+                                    <p>Evidence of adverse effects, regulatory concerns in some countries</p>
+                                </div>
+                                <div class="risk-item risk-dangerous">
+                                    <h5>✕ Dangerous (Red) - 15-25 points</h5>
+                                    <p>Strong evidence of harm, banned in many countries</p>
+                                </div>
+                            </div>
+
+                            <h4>Notable Additives Tracked:</h4>
+                            <ul class="additives-list">
+                                <li><strong>Preservatives:</strong> Benzoates (E210-E219), Nitrites/Nitrates (E249-E252), Sulfites (E220-E228)</li>
+                                <li><strong>Colors:</strong> Azo dyes (E102, E110 - hyperactivity links), Caramel colors (E150c/d - carcinogen concerns)</li>
+                                <li><strong>Sweeteners:</strong> Aspartame (E951), Sucralose (E955), Acesulfame K (E950)</li>
+                                <li><strong>Emulsifiers:</strong> Carrageenan (E407 - GI inflammation), Polysorbates (E432-E436)</li>
+                                <li><strong>Flavor Enhancers:</strong> MSG (E621), Disodium inosinate (E631)</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="accordion-item">
+                    <div class="accordion-header">
+                        <h3>🦠 Microbiome Scorer</h3>
+                        <span class="accordion-toggle">+</span>
+                    </div>
+                    <div class="accordion-content">
+                        <div class="domain-detail">
+                            <h4>Beneficial Components:</h4>
+                            <ul>
+                                <li><strong>Probiotics:</strong> CFU count (10^6-10^9), Lactobacillus, Bifidobacterium strains</li>
+                                <li><strong>Prebiotics:</strong> Inulin, FOS, GOS, resistant starch (+5 to +20 points)</li>
+                                <li><strong>Fiber:</strong> Soluble fiber feeds beneficial bacteria (+5 to +20 points)</li>
+                                <li><strong>Polyphenols:</strong> From berries, tea, dark chocolate (+5 to +15 points)</li>
+                                <li><strong>Fermented Foods:</strong> Kimchi, sauerkraut, kefir (+10 points)</li>
+                            </ul>
+
+                            <h4>Harmful Components:</h4>
+                            <ul>
+                                <li><strong>Artificial Sweeteners:</strong> Sucralose, saccharin (-10 to -20 points)</li>
+                                <li><strong>Emulsifiers:</strong> Polysorbate 80, CMC - mucus layer disruption (-5 to -15 points)</li>
+                                <li><strong>Preservatives:</strong> Bacterial growth inhibition (-5 to -10 points)</li>
+                                <li><strong>High Sugar:</strong> Feeds pathogenic bacteria (-10 to -20 points)</li>
+                            </ul>
+
+                            <h4>Disease Links Analyzed:</h4>
+                            <ul>
+                                <li>IBD (Inflammatory Bowel Disease) risk factors</li>
+                                <li>IBS (Irritable Bowel Syndrome) triggers</li>
+                                <li>Obesity-associated microbiome disruption</li>
+                                <li>Gut-brain axis impacts (mental health)</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="accordion-item">
+                    <div class="accordion-header">
+                        <h3>👨‍⚕️ Personal Risk Scorer</h3>
+                        <span class="accordion-toggle">+</span>
+                    </div>
+                    <div class="accordion-content">
+                        <div class="domain-detail">
+                            <h4>Allergen Detection (Instant Fail - Score = 1):</h4>
+                            <ul>
+                                <li><strong>Major 9:</strong> Milk, Eggs, Fish, Shellfish, Tree nuts, Peanuts, Wheat, Soybeans, Sesame</li>
+                                <li><strong>Hidden Allergens:</strong> Casein (milk), Albumin (egg), Lecithin (soy/egg)</li>
+                                <li><strong>Cross-Contamination:</strong> "May contain" warnings tracked</li>
+                                <li><strong>Severity Levels:</strong> Anaphylaxis risk vs intolerance distinction</li>
+                            </ul>
+
+                            <h4>Dietary Restrictions:</h4>
+                            <ul class="restrictions-list">
+                                <li><strong>Vegan:</strong> No animal products (meat, dairy, eggs, honey, gelatin)</li>
+                                <li><strong>Vegetarian:</strong> No meat/fish</li>
+                                <li><strong>Kosher:</strong> Certified symbol, no meat/dairy mixing</li>
+                                <li><strong>Halal:</strong> Halal certification, no pork, no alcohol</li>
+                                <li><strong>Paleo:</strong> No grains, legumes, dairy, refined sugar</li>
+                                <li><strong>Keto:</strong> <20g net carbs/day, high-fat</li>
+                                <li><strong>Low-FODMAP:</strong> No high-FODMAP foods (IBS)</li>
+                            </ul>
+
+                            <h4>Health Conditions Tracking:</h4>
+                            <ul>
+                                <li><strong>Diabetes:</strong> Low GL, sugar warnings</li>
+                                <li><strong>Hypertension:</strong> Sodium <140mg/serving ideal</li>
+                                <li><strong>Heart Disease:</strong> Sat fat, trans fat, cholesterol limits</li>
+                                <li><strong>Kidney Disease:</strong> Potassium, phosphorus restrictions</li>
+                                <li><strong>Celiac:</strong> Strict gluten-free <20ppm</li>
+                                <li><strong>GERD:</strong> Acidic, spicy, fatty food warnings</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Meal Tracking Detail -->
+    <section class="feature-detail alt-bg">
+        <div class="container">
+            <div class="detail-header">
+                <div class="detail-icon">📝</div>
+                <h2>Comprehensive Meal Tracking</h2>
+                <p class="detail-subtitle">Track everything you eat with precision</p>
+            </div>
+
+            <div class="meal-tracking-features">
+                <div class="tracking-category">
+                    <h3>Meal Logging Options</h3>
+                    <ul class="feature-bullets">
+                        <li>Scan barcode to add products instantly</li>
+                        <li>Search 2M+ product database</li>
+                        <li>Photo recognition (identify multiple foods at once)</li>
+                        <li>Manual product entry with full nutrition</li>
+                        <li>Quick add from recent scans or favorites</li>
+                        <li>Voice entry for hands-free logging</li>
+                        <li>Meal templates for recurring meals</li>
+                        <li>Copy previous meals with one tap</li>
+                    </ul>
+                </div>
+
+                <div class="tracking-category">
+                    <h3>Nutrition Tracking</h3>
+                    <ul class="feature-bullets">
+                        <li><strong>Macros:</strong> Protein, carbs (total/net/fiber/sugar), fats (total/sat/trans/MUFA/PUFA)</li>
+                        <li><strong>Micronutrients:</strong> 30+ vitamins and minerals with %DV</li>
+                        <li><strong>Calorie Budget:</strong> TDEE calculation from Mifflin-St Jeor equation</li>
+                        <li><strong>Activity Multiplier:</strong> Sedentary to extremely active levels</li>
+                        <li><strong>Goal Adjustment:</strong> Weight loss (-500 kcal), maintenance, or gain (+300-500 kcal)</li>
+                        <li><strong>Macro Goals:</strong> Protein (1.6-2.2 g/kg), Fat (20-35%), Carbs (remainder)</li>
+                        <li><strong>Daily Score:</strong> Weighted average of all products consumed</li>
+                        <li><strong>Water Tracking:</strong> Manual logging in glasses or ml</li>
+                    </ul>
+                </div>
+
+                <div class="tracking-category">
+                    <h3>Progress & Analytics</h3>
+                    <ul class="feature-bullets">
+                        <li><strong>Circular Progress Rings:</strong> Apple Health-style for calories, protein, carbs, fat</li>
+                        <li><strong>Bar Charts:</strong> Micronutrient %DV visualization</li>
+                        <li><strong>Line Graphs:</strong> Weight, calorie, score trends (7/30/90 day views)</li>
+                        <li><strong>Streak Tracking:</strong> Consecutive days meeting goals</li>
+                        <li><strong>Weekly Summary:</strong> Total calories, average score, adherence %</li>
+                        <li><strong>Monthly Report:</strong> Detailed breakdown, top products, trends</li>
+                        <li><strong>Frequently Eaten:</strong> Top 10/20/50 products by scan count</li>
+                        <li><strong>Micronutrient Gaps:</strong> Which vitamins you consistently under-consume</li>
+                        <li><strong>Data Export:</strong> CSV export for all meals</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <h2>Experience Every Feature</h2>
+            <p>Download Yammoing and discover the most comprehensive health analysis available</p>
+            <a href="index.html#download" class="btn btn-download">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/>
+                </svg>
+                Download on the App Store
+            </a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3 class="footer-logo">
+                        <span class="logo-icon">🔍</span>
+                        Yammoing
+                    </h3>
+                    <p>Your personal health detective</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Product</h4>
+                    <ul>
+                        <li><a href="index.html#features">Features</a></li>
+                        <li><a href="features-detailed.html">Detailed Features</a></li>
+                        <li><a href="science.html">Science</a></li>
+                        <li><a href="index.html#download">Download</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Company</h4>
+                    <ul>
+                        <li><a href="#">About Us</a></li>
+                        <li><a href="#">Contact</a></li>
+                        <li><a href="#">Support</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Legal</h4>
+                    <ul>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms of Service</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Yammoing. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script src="features-detailed.js"></script>
+</body>
+</html>

@@ -1,31 +1,22 @@
 // Chatbox widget for Summer Ann's website
 (function() {
-  // Add Google Fonts for Nunito
-  if (!document.getElementById('nunito-font')) {
-    const link = document.createElement('link');
-    link.id = 'nunito-font';
-    link.rel = 'stylesheet';
-    link.href = 'https://fonts.googleapis.com/css2?family=Nunito:wght@400;700&display=swap';
-    document.head.appendChild(link);
-  }
-
-  // Create chatbox HTML with glassmorphism and neon
+  // Create chatbox HTML with glassmorphism
   const chatboxHTML = `
-    <div id="sa-chatbox" style="position:fixed;bottom:24px;right:24px;width:360px;max-width:95vw;z-index:9999;font-family:'Nunito',system-ui,sans-serif;backdrop-filter:blur(16px) saturate(180%);background:rgba(255,255,255,0.55);box-shadow:0 8px 32px 0 rgba(31,38,135,0.37);border-radius:24px 24px 0 0;border:1.5px solid rgba(255,255,255,0.18);transition:box-shadow 0.3s,background 0.3s;overflow:hidden;">
-      <div class="sa-chatbox-header" style="display:flex;align-items:center;justify-content:space-between;background:linear-gradient(90deg,#a1c4fd 0%,#c2e9fb 100%);padding:18px 22px 16px 18px;border-radius:24px 24px 0 0;box-shadow:0 0 12px 2px #6c63ff44;position:relative;border-bottom:2.5px solid #6c63ff;">
-        <span style="font-size:2em;filter:drop-shadow(0 0 4px #fff7);margin-right:10px;">🤓</span>
-        <span style="font-size:1.18em;font-weight:700;letter-spacing:1px;color:#2d2d4d;flex:1;">Ask Summer Ann's Nerdy AI</span>
-        <span id="sa-chatbox-close" style="font-size:1.2em;cursor:pointer;color:#6c63ff;transition:color 0.2s;">✖</span>
+    <div id="sa-chatbox" style="position:fixed;bottom:24px;right:24px;width:360px;max-width:95vw;z-index:9998;font-family:var(--font-body,system-ui,sans-serif);backdrop-filter:blur(18px) saturate(180%);background:var(--glass-bg);box-shadow:var(--glass-shadow);border-radius:24px 24px 0 0;border:1px solid var(--line);transition:box-shadow 0.3s,background 0.3s;overflow:hidden;">
+      <div class="sa-chatbox-header" style="display:flex;align-items:center;justify-content:space-between;background:var(--accent-gradient);padding:18px 22px 16px 18px;border-radius:24px 24px 0 0;box-shadow:var(--neon-glow-subtle);position:relative;border-bottom:1px solid var(--line);">
+        <span style="font-size:2em;filter:drop-shadow(0 0 4px rgba(255,255,255,0.35));margin-right:10px;">🤓</span>
+        <span style="font-size:1.05em;font-weight:700;letter-spacing:0.5px;color:var(--text-on-neon);flex:1;">Ask Summer Ann's Nerdy AI</span>
+        <span id="sa-chatbox-close" style="font-size:1.2em;cursor:pointer;color:var(--text-on-neon);transition:color 0.2s;">✖</span>
       </div>
-      <div id="sa-chat-messages" style="background:rgba(255,255,255,0.65);min-height:220px;max-height:340px;overflow-y:auto;padding:18px 14px 12px 14px;border:none;"></div>
-      <form id="sa-chat-form" style="display:flex;border-top:1.5px solid #eee;background:rgba(245,245,255,0.85);border-radius:0 0 24px 24px;backdrop-filter:blur(8px);">
-        <input id="sa-chat-input" type="text" placeholder="Ask me anything about Summer Ann!" style="flex:1;padding:14px 12px;border:none;border-radius:0 0 0 24px;font-size:1em;outline:none;background:rgba(255,255,255,0.7);font-family:'Nunito',system-ui,sans-serif;" required />
-        <button type="submit" style="background:linear-gradient(90deg,#6c63ff 0%,#00ffe7 100%);color:#fff;border:none;padding:0 22px;font-size:1.1em;border-radius:0 0 24px 0;cursor:pointer;box-shadow:0 0 8px #00ffe7aa,0 0 2px #6c63ff;transition:box-shadow 0.2s;">Send</button>
+      <div id="sa-chat-messages" style="background:var(--surface);min-height:220px;max-height:340px;overflow-y:auto;padding:18px 14px 12px 14px;border:none;"></div>
+      <form id="sa-chat-form" style="display:flex;border-top:1px solid var(--line);background:var(--surface-2);border-radius:0 0 24px 24px;backdrop-filter:blur(8px);">
+        <input id="sa-chat-input" type="text" placeholder="Ask me anything about Summer Ann!" style="flex:1;padding:14px 12px;border:none;border-radius:0 0 0 24px;font-size:1em;outline:none;background:rgba(255,255,255,0.04);color:var(--text-primary);font-family:var(--font-body,system-ui,sans-serif);" required />
+        <button type="submit" style="background:var(--accent-gradient);color:var(--text-on-neon);border:none;padding:0 22px;font-size:1.05em;border-radius:0 0 24px 0;cursor:pointer;box-shadow:var(--neon-glow-subtle);transition:box-shadow 0.2s;">Send</button>
       </form>
-      <div id="sa-chat-email" style="display:none;padding:14px 10px 10px 10px;background:rgba(245,245,255,0.85);border-radius:0 0 24px 24px;border-top:1.5px solid #eee;">
+      <div id="sa-chat-email" style="display:none;padding:14px 10px 10px 10px;background:var(--surface-2);border-radius:0 0 24px 24px;border-top:1px solid var(--line);color:var(--text-primary);">
         <div style="margin-bottom:8px;">Couldn't answer? Send your question to Summer Ann!</div>
-        <input id="sa-email-input" type="email" placeholder="Your email" style="width:100%;padding:8px;margin-bottom:8px;border:1px solid #ccc;border-radius:8px;font-family:'Nunito',system-ui,sans-serif;" required />
-        <button id="sa-email-send" style="background:linear-gradient(90deg,#6c63ff 0%,#00ffe7 100%);color:#fff;border:none;padding:8px 16px;border-radius:8px;cursor:pointer;width:100%;box-shadow:0 0 8px #00ffe7aa,0 0 2px #6c63ff;transition:box-shadow 0.2s;">Send Email</button>
+        <input id="sa-email-input" type="email" placeholder="Your email" style="width:100%;padding:8px;margin-bottom:8px;border:1px solid var(--line);border-radius:8px;background:rgba(255,255,255,0.04);color:var(--text-primary);font-family:var(--font-body,system-ui,sans-serif);" required />
+        <button id="sa-email-send" style="background:var(--accent-gradient);color:var(--text-on-neon);border:none;padding:8px 16px;border-radius:8px;cursor:pointer;width:100%;box-shadow:var(--neon-glow-subtle);transition:box-shadow 0.2s;">Send Email</button>
       </div>
     </div>
   `;
@@ -48,8 +39,8 @@
   toggleBtn.style.right = '24px';
   toggleBtn.style.width = '60px';
   toggleBtn.style.height = '60px';
-  toggleBtn.style.background = '#6c63ff';
-  toggleBtn.style.color = '#fff';
+  toggleBtn.style.background = 'var(--accent-gradient)';
+  toggleBtn.style.color = 'var(--text-on-neon)';
   toggleBtn.style.borderRadius = '50%';
   toggleBtn.style.display = 'none';
   toggleBtn.style.justifyContent = 'center';
@@ -57,7 +48,7 @@
   toggleBtn.style.fontSize = '2em';
   toggleBtn.style.zIndex = '10000';
   toggleBtn.style.cursor = 'pointer';
-  toggleBtn.style.boxShadow = '0 2px 8px rgba(0,0,0,0.12)';
+  toggleBtn.style.boxShadow = 'var(--neon-glow-subtle)';
   toggleBtn.innerText = '💬';
   document.body.appendChild(toggleBtn);
 
@@ -106,23 +97,23 @@
     isOpen = true;
   };
 
-  // Update toggle button for neon look
-  toggleBtn.style.background = 'linear-gradient(90deg,#6c63ff 0%,#00ffe7 100%)';
-  toggleBtn.style.boxShadow = '0 0 16px #00ffe7cc,0 2px 8px #6c63ff55';
-  toggleBtn.style.border = '2.5px solid #fff';
+  // Update toggle button for glass look
+  toggleBtn.style.background = 'var(--accent-gradient)';
+  toggleBtn.style.boxShadow = 'var(--neon-glow)';
+  toggleBtn.style.border = '1px solid var(--line)';
   toggleBtn.style.transition = 'box-shadow 0.2s,background 0.2s;';
   toggleBtn.onmouseenter = () => {
-    toggleBtn.style.boxShadow = '0 0 32px #00ffe7,0 2px 8px #6c63ff99';
+    toggleBtn.style.boxShadow = 'var(--neon-glow-hover)';
   };
   toggleBtn.onmouseleave = () => {
-    toggleBtn.style.boxShadow = '0 0 16px #00ffe7cc,0 2px 8px #6c63ff55';
+    toggleBtn.style.boxShadow = 'var(--neon-glow)';
   };
 
   // Update close icon for neon hover
   const header = chatbox.querySelector('.sa-chatbox-header');
   const closeIcon = document.getElementById('sa-chatbox-close');
-  closeIcon.onmouseenter = () => { closeIcon.style.color = '#00ffe7'; };
-  closeIcon.onmouseleave = () => { closeIcon.style.color = '#6c63ff'; };
+  closeIcon.onmouseenter = () => { closeIcon.style.color = 'var(--text-primary)'; };
+  closeIcon.onmouseleave = () => { closeIcon.style.color = 'var(--text-on-neon)'; };
   closeIcon.onclick = function(e) {
     e.stopPropagation();
     chatbox.style.opacity = '0';
@@ -158,16 +149,17 @@
     msg.style.padding = '12px 18px';
     msg.style.borderRadius = '18px';
     msg.style.maxWidth = '85%';
-    msg.style.fontFamily = "'Nunito',system-ui,sans-serif";
+    msg.style.fontFamily = "var(--font-body,system-ui,sans-serif)";
     msg.style.fontSize = '1.05em';
     msg.style.wordBreak = 'break-word';
     msg.style.boxShadow = fromBot
-      ? '0 0 12px 2px #00ffe799,0 2px 8px #a1c4fd55'
-      : '0 2px 8px #6c63ff33';
+      ? 'var(--neon-glow-subtle)'
+      : '0 10px 22px rgba(0,0,0,0.25)';
     msg.style.background = fromBot
-      ? 'linear-gradient(90deg,rgba(193,255,255,0.7) 0%,rgba(162,196,253,0.7) 100%)'
-      : 'linear-gradient(90deg,rgba(108,99,255,0.13) 0%,rgba(0,255,231,0.13) 100%)';
-    msg.style.color = fromBot ? '#2d2d4d' : '#6c63ff';
+      ? 'var(--accent-gradient)'
+      : 'rgba(255,255,255,0.06)';
+    msg.style.border = '1px solid var(--line)';
+    msg.style.color = fromBot ? 'var(--text-on-neon)' : 'var(--text-primary)';
     msg.style.alignSelf = fromBot ? 'flex-start' : 'flex-end';
     if (fromBot) {
       msg.innerHTML = `<span style='font-size:1.2em;margin-right:6px;'>🤓</span>` + text;

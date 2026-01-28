@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Summit Wanderlust - AR Adventure Game | Summer Ann Portfolio</title>
+  <meta name="description" content="Summit Wanderlust: Location-based AR adventure game for iOS">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Nunito:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css">
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="wanderlust-styles.css">
+
+  <!-- GSAP -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+</head>
+<body>
+  <!-- Header -->
+  <header class="demo-header">
+    <a href="/" class="demo-logo">Summer Ann</a>
+    <a href="/" class="back-btn">
+      <i class="fas fa-arrow-left"></i>
+      Back to Portfolio
+    </a>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero-section">
+    <div class="hero-bg"></div>
+
+    <div class="hero-content">
+      <span class="hero-badge">
+        <i class="fas fa-map-marked-alt"></i> Location-Based AR Game
+      </span>
+
+      <h1 class="hero-title">
+        Adventure Awaits in<br>
+        <span class="gradient-text">Summit Wanderlust</span>
+      </h1>
+
+      <p class="hero-subtitle">
+        Discover the world around you with augmented reality quests, real-world exploration,
+        and adventure rewards. Your next expedition starts wherever you are.
+      </p>
+
+      <div class="hero-cta">
+        <a href="#features" class="btn-primary">
+          <i class="fas fa-compass"></i> Explore Features
+        </a>
+        <a href="#tech" class="btn-secondary">
+          View Tech Stack
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Features Section -->
+  <section id="features" class="features-section">
+    <div class="section-header">
+      <h2 class="section-title">Game Features</h2>
+      <p class="section-subtitle">
+        Blend the real world with digital adventure through cutting-edge AR technology
+      </p>
+    </div>
+
+    <div class="features-grid">
+      <!-- Feature 1: Map Exploration -->
+      <div class="feature-card">
+        <div class="feature-icon">
+          <i class="fas fa-map"></i>
+        </div>
+        <h3 class="feature-title">Interactive Map</h3>
+        <p class="feature-desc">
+          Explore a dynamic map filled with quests, challenges, and hidden treasures
+          scattered throughout real-world locations around you.
+        </p>
+      </div>
+
+      <!-- Feature 2: AR Scanning -->
+      <div class="feature-card">
+        <div class="feature-icon">
+          <i class="fas fa-camera"></i>
+        </div>
+        <h3 class="feature-title">AR Scanning</h3>
+        <p class="feature-desc">
+          Use your camera to scan real-world objects and unlock virtual rewards,
+          discover hidden creatures, and complete AR challenges.
+        </p>
+      </div>
+
+      <!-- Feature 3: Quest System -->
+      <div class="feature-card">
+        <div class="feature-icon">
+          <i class="fas fa-scroll"></i>
+        </div>
+        <h3 class="feature-title">Epic Quests</h3>
+        <p class="feature-desc">
+          Embark on location-based quests with engaging storylines, challenging
+          objectives, and exclusive rewards for adventurous explorers.
+        </p>
+      </div>
+
+      <!-- Feature 4: Rewards -->
+      <div class="feature-card">
+        <div class="feature-icon">
+          <i class="fas fa-gem"></i>
+        </div>
+        <h3 class="feature-title">Collect & Earn</h3>
+        <p class="feature-desc">
+          Build your collection of rare items, achievements, and exclusive
+          badges as you explore and complete adventures.
+        </p>
+      </div>
+
+      <!-- Feature 5: Social -->
+      <div class="feature-card">
+        <div class="feature-icon">
+          <i class="fas fa-users"></i>
+        </div>
+        <h3 class="feature-title">Social Adventures</h3>
+        <p class="feature-desc">
+          Team up with friends for cooperative quests, compete on leaderboards,
+          and share your discoveries with the community.
+        </p>
+      </div>
+
+      <!-- Feature 6: Real-time Weather -->
+      <div class="feature-card">
+        <div class="feature-icon">
+          <i class="fas fa-cloud-sun"></i>
+        </div>
+        <h3 class="feature-title">Dynamic World</h3>
+        <p class="feature-desc">
+          Experience a game world that responds to real-world conditions including
+          time of day, weather, and seasonal events.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Tech Stack Section -->
+  <section id="tech" class="tech-section">
+    <div class="section-header">
+      <h2 class="section-title">Built With</h2>
+      <p class="section-subtitle">
+        Powered by Apple's latest technologies for a seamless native experience
+      </p>
+    </div>
+
+    <div class="tech-grid">
+      <div class="tech-badge">
+        <i class="devicon-swift-plain"></i>
+        <span>Swift</span>
+      </div>
+      <div class="tech-badge">
+        <i class="fas fa-mobile-alt"></i>
+        <span>SwiftUI</span>
+      </div>
+      <div class="tech-badge">
+        <i class="fas fa-map-marker-alt"></i>
+        <span>MapKit</span>
+      </div>
+      <div class="tech-badge">
+        <i class="fas fa-cube"></i>
+        <span>ARKit</span>
+      </div>
+      <div class="tech-badge">
+        <i class="fas fa-location-arrow"></i>
+        <span>CoreLocation</span>
+      </div>
+      <div class="tech-badge">
+        <i class="fas fa-database"></i>
+        <span>Supabase</span>
+      </div>
+      <div class="tech-badge">
+        <i class="fas fa-paint-brush"></i>
+        <span>Core Animation</span>
+      </div>
+      <div class="tech-badge">
+        <i class="fas fa-bell"></i>
+        <span>Push Notifications</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Screenshots Gallery -->
+  <section class="gallery-section">
+    <div class="section-header">
+      <h2 class="section-title">App Preview</h2>
+      <p class="section-subtitle">
+        A glimpse into the world of Summit Wanderlust
+      </p>
+    </div>
+
+    <div class="gallery-grid">
+      <div class="gallery-item">
+        <div class="gallery-placeholder">
+          <i class="fas fa-map"></i>
+          <span>Map View</span>
+        </div>
+      </div>
+      <div class="gallery-item">
+        <div class="gallery-placeholder">
+          <i class="fas fa-camera"></i>
+          <span>AR Scanner</span>
+        </div>
+      </div>
+      <div class="gallery-item">
+        <div class="gallery-placeholder">
+          <i class="fas fa-scroll"></i>
+          <span>Quest Log</span>
+        </div>
+      </div>
+      <div class="gallery-item">
+        <div class="gallery-placeholder">
+          <i class="fas fa-user"></i>
+          <span>Profile</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="cta-section">
+    <div class="cta-content">
+      <h2 class="cta-title">Your Adventure Begins Soon</h2>
+      <p class="cta-subtitle">
+        Summit Wanderlust is currently in development. Stay tuned for the App Store release
+        and be among the first explorers to embark on AR adventures.
+      </p>
+
+      <div class="coming-soon-badge">
+        <i class="fab fa-apple"></i>
+        Coming Soon to App Store
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="demo-footer">
+    <p>
+      Created by <a href="/">Summer Ann</a> |
+      <a href="mailto:anneun@umich.edu">Contact</a> |
+      <a href="https://github.com/SummerAnn" target="_blank">GitHub</a>
+    </p>
+    <p style="margin-top: 12px; font-size: 0.85rem;">
+      Built with SwiftUI, MapKit, and ARKit. This is a portfolio showcase of the Summit Wanderlust iOS app.
+    </p>
+  </footer>
+
+  <!-- Demo JavaScript -->
+  <script src="wanderlust-showcase.js"></script>
+</body>
+</html>

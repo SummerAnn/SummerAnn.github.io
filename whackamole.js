@@ -4,9 +4,9 @@
   // Add styles for modal and button
   const style = document.createElement('style');
   style.innerHTML = `
-    #wam-btn { position:fixed;bottom:24px;left:24px;z-index:9999;background:linear-gradient(90deg,#a1c4fd 0%,#00ffe7 100%);color:#fff;font-family:'Nunito',system-ui,sans-serif;font-size:1.1em;font-weight:700;padding:16px 28px;border:none;border-radius:18px;box-shadow:0 0 16px #00ffe7cc,0 2px 8px #6c63ff55;cursor:pointer;transition:box-shadow 0.2s,background 0.2s;}
+    #wam-btn { position:fixed;bottom:24px;left:24px;z-index:9995;background:linear-gradient(90deg,#a1c4fd 0%,#00ffe7 100%);color:#fff;font-family:'Nunito',system-ui,sans-serif;font-size:1.1em;font-weight:700;padding:16px 28px;border:none;border-radius:18px;box-shadow:0 0 16px #00ffe7cc,0 2px 8px #6c63ff55;cursor:pointer;transition:box-shadow 0.2s,background 0.2s;}
     #wam-btn:hover { box-shadow:0 0 32px #00ffe7,0 2px 8px #6c63ff99; }
-    #wam-modal-bg { position:fixed;top:0;left:0;width:100vw;height:100vh;background:rgba(30,40,80,0.25);backdrop-filter:blur(4px);z-index:10000;display:flex;align-items:center;justify-content:center; }
+    #wam-modal-bg { position:fixed;top:0;left:0;width:100vw;height:100vh;background:rgba(30,40,80,0.25);backdrop-filter:blur(4px);z-index:9994;display:flex;align-items:center;justify-content:center; }
     #wam-modal { background:rgba(255,255,255,0.85);backdrop-filter:blur(16px) saturate(180%);border-radius:24px;box-shadow:0 8px 32px 0 rgba(31,38,135,0.37);padding:32px 28px 24px 28px;min-width:340px;max-width:95vw;position:relative; }
     #wam-close { position:absolute;top:18px;right:22px;font-size:1.5em;cursor:pointer;color:#6c63ff;transition:color 0.2s; }
     #wam-close:hover { color:#00ffe7; }
