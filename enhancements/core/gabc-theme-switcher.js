@@ -1,10 +1,7 @@
 /**
  * GABC Theme Switcher v2.0
- * Creates visually distinct theme buttons that completely change the UI
- * G = Graphite (sleek grey/silver) - YouTube
- * A = Atelier (elegant light) - YouTube
- * B = Studio (dark green neon) - MP4
- * C = Arcade (cyberpunk pink) - MP4
+ * G = Graphite - 섬머님.mp4 | A = Atelier - YouTube
+ * B = Studio - Intro.mp4 | C = Arcade - Summer Arcade H.MP4 | D = Chinatown - summer chinatown h.MP4
  */
 
 (function() {
@@ -53,7 +50,7 @@
     'C': {
       themeId: 'saved-2',
       name: 'Arcade',
-      description: 'Cyberpunk Neon',
+      description: 'Summer Arcade',
       colors: {
         primary: '#ff2bd6',
         secondary: '#00e5ff',
@@ -62,6 +59,19 @@
         text: '#ffffff'
       },
       icon: '✦'
+    },
+    'D': {
+      themeId: 'saved-3',
+      name: 'Chinatown',
+      description: 'Summer Chinatown',
+      colors: {
+        primary: '#ff6b35',
+        secondary: '#f7c94b',
+        gradient: 'linear-gradient(135deg, #1a0a0a 0%, #ff6b35 40%, #f7c94b 100%)',
+        glow: 'rgba(255, 107, 53, 0.6)',
+        text: '#ffffff'
+      },
+      icon: '◈'
     }
   };
 
@@ -79,7 +89,10 @@
         right: 20px;
         display: flex;
         gap: 12px;
-        z-index: 10000;
+        z-index: 99999;
+        visibility: visible;
+        opacity: 1;
+        pointer-events: auto;
         padding: 8px 12px;
         background: rgba(0, 0, 0, 0.4);
         backdrop-filter: blur(20px);
@@ -214,6 +227,21 @@
         background: radial-gradient(circle, rgba(255, 43, 214, 0.5) 0%, rgba(0, 229, 255, 0.3) 50%, transparent 70%);
       }
 
+      /* D - Chinatown */
+      .gabc-d {
+        background: linear-gradient(135deg, #1a0a0a 0%, #ff6b35 50%, #f7c94b 100%);
+        color: #ffffff;
+        border-color: rgba(255, 107, 53, 0.4);
+        text-shadow: 0 0 10px rgba(255, 107, 53, 0.6);
+      }
+      .gabc-d:hover, .gabc-d.active {
+        box-shadow: 0 0 30px rgba(255, 107, 53, 0.6), 0 8px 25px rgba(0, 0, 0, 0.3);
+        border-color: #ff6b35;
+      }
+      .gabc-d::before {
+        background: radial-gradient(circle, rgba(255, 107, 53, 0.4) 0%, rgba(247, 201, 75, 0.3) 50%, transparent 70%);
+      }
+
       @keyframes pulse-ring {
         0% { transform: scale(1); opacity: 1; }
         50% { transform: scale(1.2); opacity: 0.5; }
@@ -335,21 +363,6 @@
       }
     });
     
-    // Restore saved position
-    try {
-      const saved = localStorage.getItem('gabc-position');
-      if (saved) {
-        const pos = JSON.parse(saved);
-        if (pos.left && pos.top) {
-          container.style.left = pos.left;
-          container.style.top = pos.top;
-          container.style.right = 'auto';
-        }
-      }
-    } catch (e) {
-      console.warn('Could not restore GABC position:', e);
-    }
-
     Object.entries(THEME_CONFIG).forEach(([letter, config]) => {
       const button = document.createElement('button');
       button.className = `gabc-btn gabc-${letter.toLowerCase()}`;
@@ -397,6 +410,29 @@
     });
 
     document.body.appendChild(container);
+
+    // Restore saved position only if it keeps the switcher in view
+    try {
+      const saved = localStorage.getItem('gabc-position');
+      if (saved) {
+        const pos = JSON.parse(saved);
+        const left = parseFloat(pos.left);
+        const top = parseFloat(pos.top);
+        const padding = 20;
+        const w = container.offsetWidth || 260;
+        const h = container.offsetHeight || 64;
+        const maxLeft = window.innerWidth - w - padding;
+        const maxTop = window.innerHeight - h - padding;
+        if (!isNaN(left) && !isNaN(top) && left >= -padding && left <= maxLeft + padding && top >= -padding && top <= maxTop + padding) {
+          container.style.left = left + 'px';
+          container.style.top = top + 'px';
+          container.style.right = 'auto';
+        }
+      }
+    } catch (e) {
+      console.warn('Could not restore GABC position:', e);
+    }
+
     console.log('GABC Theme Switcher created');
 
     // Set initial active state

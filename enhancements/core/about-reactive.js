@@ -6,8 +6,6 @@
 (function() {
   'use strict';
 
-  let initialized = false;
-
   const SPHERE_WORDS = [
     // Creative & Performance (25 words)
     'Singer', 'Model', 'Actress', 'Performance', 'Stage', 'Studio', 
@@ -337,6 +335,33 @@
         margin-bottom: 14px;
       }
 
+      #about .about-hero-copy-expanded {
+        display: none;
+        margin-top: 0;
+      }
+      #about .about-hero-copy-expanded.is-expanded {
+        display: block;
+      }
+      #about .about-read-more-btn {
+        display: inline-block;
+        margin-top: 8px;
+        margin-bottom: 16px;
+        padding: 8px 16px;
+        background: rgba(99, 102, 241, 0.25);
+        border: 1px solid rgba(99, 102, 241, 0.4);
+        border-radius: 10px;
+        color: rgba(255, 255, 255, 0.9);
+        font-size: 0.9rem;
+        font-weight: 600;
+        cursor: pointer;
+        transition: background 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
+      }
+      #about .about-read-more-btn:hover {
+        background: rgba(99, 102, 241, 0.35);
+        border-color: rgba(99, 102, 241, 0.6);
+        transform: translateY(-1px);
+      }
+
       #about .about-sphere-panel {
         background: rgba(15, 18, 24, 0.78);
         border: 1px solid rgba(255, 255, 255, 0.12);
@@ -525,138 +550,37 @@
         color: rgba(255, 255, 255, 0.65);
       }
 
-      #about .about-guestbook {
+      #about .about-visitor-count {
         grid-column: 1 / -1;
         margin-top: 24px;
-        padding: 22px;
+        padding: 20px 24px;
         border-radius: 20px;
         background: rgba(12, 14, 20, 0.78);
         border: 1px solid rgba(255, 255, 255, 0.14);
         box-shadow: 0 20px 50px rgba(0, 0, 0, 0.35);
-        display: grid;
-        gap: 16px;
-      }
-
-      #about .about-guestbook-header {
         display: flex;
-        align-items: flex-start;
+        align-items: center;
         justify-content: space-between;
         gap: 16px;
         flex-wrap: wrap;
       }
 
-      #about .about-guestbook-label {
+      #about .about-visitor-count-label {
         font-size: 11px;
         text-transform: uppercase;
         letter-spacing: 0.22em;
         color: rgba(255, 255, 255, 0.6);
       }
 
-      #about .about-guestbook-title {
-        margin: 6px 0 4px;
-        font-size: 20px;
+      #about .about-visitor-count-value {
+        font-size: 1.75rem;
+        font-weight: 700;
+        color: #f9fafb;
+        letter-spacing: 0.02em;
       }
 
-      #about .about-guestbook-note {
-        margin: 0;
-        font-size: 13px;
-        color: rgba(255, 255, 255, 0.6);
-      }
-
-      #about .about-guestbook-count {
-        padding: 8px 12px;
-        border-radius: 999px;
-        background: rgba(99, 102, 241, 0.18);
-        border: 1px solid rgba(99, 102, 241, 0.4);
-        font-size: 12px;
-        text-transform: uppercase;
-        letter-spacing: 0.14em;
-      }
-
-      #about .about-guestbook-form {
-        display: grid;
-        gap: 12px;
-      }
-
-      #about .about-guestbook-form input,
-      #about .about-guestbook-form textarea {
-        width: 100%;
-        border-radius: 12px;
-        border: 1px solid rgba(255, 255, 255, 0.18);
-        background: rgba(5, 7, 12, 0.7);
-        color: #fff;
-        padding: 10px 12px;
-        font-family: inherit;
-        font-size: 14px;
-        outline: none;
-        transition: border-color 0.2s ease, box-shadow 0.2s ease;
-      }
-
-      #about .about-guestbook-form textarea {
-        min-height: 90px;
-        resize: vertical;
-      }
-
-      #about .about-guestbook-form input:focus,
-      #about .about-guestbook-form textarea:focus {
-        border-color: rgba(99, 102, 241, 0.7);
-        box-shadow: 0 0 0 2px rgba(99, 102, 241, 0.2);
-      }
-
-      #about .about-guestbook-submit {
-        justify-self: start;
-        border: none;
-        padding: 10px 16px;
-        border-radius: 999px;
-        background: linear-gradient(120deg, rgba(99, 102, 241, 0.9), rgba(56, 189, 248, 0.8));
-        color: #fff;
-        font-size: 13px;
-        font-weight: 600;
-        letter-spacing: 0.08em;
-        text-transform: uppercase;
-        cursor: pointer;
-        transition: transform 0.2s ease, box-shadow 0.2s ease;
-      }
-
-      #about .about-guestbook-submit:hover {
-        transform: translateY(-1px);
-        box-shadow: 0 10px 22px rgba(56, 189, 248, 0.25);
-      }
-
-      #about .about-guestbook-list {
-        list-style: none;
-        margin: 0;
-        padding: 0;
-        display: grid;
-        gap: 10px;
-        max-height: 260px;
-        overflow-y: auto;
-      }
-
-      #about .about-guestbook-entry {
-        padding: 12px 14px;
-        border-radius: 14px;
-        background: rgba(255, 255, 255, 0.04);
-        border: 1px solid rgba(255, 255, 255, 0.1);
-      }
-
-      #about .about-guestbook-entry strong {
-        display: block;
-        font-size: 11px;
-        text-transform: uppercase;
-        letter-spacing: 0.18em;
-        color: rgba(255, 255, 255, 0.6);
-      }
-
-      #about .about-guestbook-entry p {
-        margin: 6px 0 4px;
-        font-size: 14px;
-        color: rgba(255, 255, 255, 0.85);
-      }
-
-      #about .about-guestbook-entry time {
-        font-size: 11px;
-        color: rgba(255, 255, 255, 0.5);
+      #about .about-visitor-count-value.loading {
+        opacity: 0.6;
       }
 
       @media (max-width: 900px) {
@@ -699,25 +623,33 @@
       ];
     }
 
-    return { heading, paragraphs: paragraphs.slice(0, 6) };
+    return { heading, paragraphs };
   }
 
   function buildLayout(aboutSection) {
     if (aboutSection.querySelector('.about-hero-layout')) return;
 
     const { heading, paragraphs } = extractAboutCopy(aboutSection);
+    const shortCount = Math.min(3, Math.max(1, paragraphs.length));
+    const shortParagraphs = paragraphs.slice(0, shortCount);
+    const longParagraphs = paragraphs.slice(shortCount);
+    const hasExpandable = longParagraphs.length > 0;
 
     const layout = document.createElement('div');
     layout.className = 'about-hero-layout';
 
-    const copyHtml = paragraphs.map((text) => `<p class="about-hero-text">${text}</p>`).join('');
+    const shortHtml = shortParagraphs.map((text) => `<p class="about-hero-text">${text}</p>`).join('');
+    const longHtml = hasExpandable
+      ? longParagraphs.map((text) => `<p class="about-hero-text">${text}</p>`).join('')
+      : '';
 
     layout.innerHTML = `
       <div class="about-hero-copy">
         <span class="about-hero-label">About</span>
         <h2 class="about-hero-title">${heading}</h2>
         <div class="about-hero-quote">Every big idea needs an enabler.</div>
-        ${copyHtml}
+        <div class="about-hero-copy-short">${shortHtml}</div>
+        ${hasExpandable ? `<div class="about-hero-copy-expanded" id="about-expanded" aria-hidden="true">${longHtml}</div><button type="button" class="about-read-more-btn" id="about-read-more" aria-expanded="false">Read more</button>` : ''}
         <div class="about-hero-highlights">
           <div class="about-highlight">
             <span>Research</span>
@@ -780,21 +712,9 @@
           </div>
         </div>
       </div>
-      <div class="about-guestbook" aria-label="Guestbook">
-        <div class="about-guestbook-header">
-          <div>
-            <div class="about-guestbook-label">Guestbook</div>
-            <h3 class="about-guestbook-title">Leave a short note</h3>
-            <p class="about-guestbook-note">Saved locally in your browser (not public).</p>
-          </div>
-          <div class="about-guestbook-count" aria-live="polite">0 notes</div>
-        </div>
-        <form class="about-guestbook-form">
-          <input type="text" name="guestbookName" maxlength="40" placeholder="Your name (optional)" aria-label="Your name">
-          <textarea name="guestbookMessage" maxlength="200" placeholder="Write a short message..." aria-label="Guestbook message" required></textarea>
-          <button type="submit" class="about-guestbook-submit">Add note</button>
-        </form>
-        <ul class="about-guestbook-list" role="list"></ul>
+      <div class="about-visitor-count" aria-label="Visitor count">
+        <span class="about-visitor-count-label">Visitors</span>
+        <span class="about-visitor-count-value loading" id="about-visitor-count" aria-live="polite">—</span>
       </div>
     `;
 
@@ -822,85 +742,60 @@
       });
     });
 
-    initGuestbook(layout);
+    initVisitorCount(layout);
+
+    const readMoreBtn = layout.querySelector('#about-read-more');
+    const expandedBlock = layout.querySelector('#about-expanded');
+    if (readMoreBtn && expandedBlock) {
+      readMoreBtn.addEventListener('click', function() {
+        const expanded = expandedBlock.classList.toggle('is-expanded');
+        readMoreBtn.setAttribute('aria-expanded', expanded);
+        readMoreBtn.textContent = expanded ? 'Read less' : 'Read more';
+      });
+    }
   }
 
-  function initGuestbook(layout) {
-    const form = layout.querySelector('.about-guestbook-form');
-    const list = layout.querySelector('.about-guestbook-list');
-    const count = layout.querySelector('.about-guestbook-count');
-    if (!form || !list || !count) return;
+  function initVisitorCount(layout) {
+    const el = layout.querySelector('#about-visitor-count');
+    if (!el) return;
 
-    const STORAGE_KEY = 'guestbookEntries';
-    const MAX_ENTRIES = 24;
-    let memoryEntries = [];
-
-    function readEntries() {
-      try {
-        const raw = localStorage.getItem(STORAGE_KEY);
-        const parsed = raw ? JSON.parse(raw) : [];
-        return Array.isArray(parsed) ? parsed : [];
-      } catch (err) {
-        return memoryEntries;
-      }
+    function setCount(value, isLoading) {
+      el.textContent = typeof value === 'number' ? value.toLocaleString() : value;
+      el.classList.toggle('loading', !!isLoading);
     }
 
-    function writeEntries(entries) {
+    setCount('—', true);
+
+    const VISITS_KEY = 'portfolioVisitCount';
+    function getLocalVisits() {
       try {
-        localStorage.setItem(STORAGE_KEY, JSON.stringify(entries));
-      } catch (err) {
-        memoryEntries = entries;
+        const n = parseInt(localStorage.getItem(VISITS_KEY), 10);
+        return isNaN(n) ? 0 : n;
+      } catch (e) {
+        return 0;
       }
     }
+    function setLocalVisits(n) {
+      try {
+        localStorage.setItem(VISITS_KEY, String(n));
+      } catch (e) {}
+    }
 
-    function render(entries) {
-      list.innerHTML = '';
-      entries.forEach((entry) => {
-        const item = document.createElement('li');
-        item.className = 'about-guestbook-entry';
+    const localVisits = getLocalVisits() + 1;
+    setLocalVisits(localVisits);
 
-        const name = document.createElement('strong');
-        name.textContent = entry.name || 'Anonymous';
-
-        const message = document.createElement('p');
-        message.textContent = entry.message;
-
-        const time = document.createElement('time');
-        const date = new Date(entry.timestamp);
-        time.textContent = date.toLocaleDateString(undefined, { month: 'short', day: 'numeric', year: 'numeric' });
-
-        item.appendChild(name);
-        item.appendChild(message);
-        item.appendChild(time);
-        list.appendChild(item);
+    fetch('https://api.countapi.xyz/hit/summerann.github.io/visits')
+      .then((res) => res.json())
+      .then((data) => {
+        if (data && typeof data.value === 'number') {
+          setCount(data.value, false);
+          return;
+        }
+        setCount(localVisits, false);
+      })
+      .catch(() => {
+        setCount(localVisits, false);
       });
-      count.textContent = `${entries.length} ${entries.length === 1 ? 'note' : 'notes'}`;
-    }
-
-    const entries = readEntries();
-    render(entries);
-
-    form.addEventListener('submit', (event) => {
-      event.preventDefault();
-      const nameField = form.querySelector('input[name="guestbookName"]');
-      const messageField = form.querySelector('textarea[name="guestbookMessage"]');
-      if (!messageField) return;
-
-      const name = nameField ? nameField.value.trim().slice(0, 40) : '';
-      const message = messageField.value.trim().slice(0, 200);
-      if (!message) return;
-
-      const updated = [
-        { name, message, timestamp: Date.now() },
-        ...readEntries()
-      ].slice(0, MAX_ENTRIES);
-
-      writeEntries(updated);
-      render(updated);
-
-      if (nameField) nameField.value = '';
-      messageField.value = '';
-    });
   }
 
   function initSphereCanvas(canvas) {
@@ -1589,11 +1484,10 @@
   }
 
   function init() {
-    if (initialized) return;
     const about = document.getElementById('about');
     if (!about) return;
+    if (about.querySelector('.about-hero-layout')) return;
 
-    initialized = true;
     injectStyles();
     about.classList.add('about-minimal');
 

@@ -247,6 +247,14 @@ All enhancements are loaded via `/enhancements/core/enhancement-loader.js` which
 
 ---
 
+## WebCam Lab Enhancements
+
+- Tightened the Blink Morse Code detector (smoothed eyelid ratio, clearer dot/dash thresholds) and hooked both it and the Truth Scanner to dedicated webcam preview canvases so the UI mirrors the live feed.
+- Removed the Mystic Tarot spread per request, keeping the focus on the camera-driven games, while the inline script now only manages Morse and Truth state alongside the existing gesture/eye/racing features.
+- Added a manual scroll-trigger fallback for `/demos/intro-cinematic/index.html` so the video scrub experience still moves even when GSAP/ScrollTrigger are blocked, restoring the interactive chapter behavior.
+
+---
+
 ## Notes
 
 - Service worker is caching old JavaScript - may need to clear cache

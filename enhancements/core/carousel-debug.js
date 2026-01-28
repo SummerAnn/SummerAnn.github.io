@@ -158,9 +158,15 @@
           return src.includes('summer') || src.includes('actingprofile');
         });
         if (modelingImgs.length > 0) {
-          console.log('🎠 Found', modelingImgs.length, 'modeling images but card not found:', modelingImgs[0].src.substring(0, 60));
+          if (!window._carouselDebugModelingLogged) {
+            window._carouselDebugModelingLogged = true;
+            console.log('🎠 Found', modelingImgs.length, 'modeling images but carousel card not found (Art section may be absent)');
+          }
         } else {
-          console.log('⚠️ Modeling card not found yet (searching...). Images on page:', allImgs.length);
+          if (!window._carouselDebugSearchingLogged) {
+            window._carouselDebugSearchingLogged = true;
+            console.log('⚠️ Modeling carousel: no modeling images on page yet');
+          }
         }
       }
     }

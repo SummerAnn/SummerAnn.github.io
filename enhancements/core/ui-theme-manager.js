@@ -1,10 +1,11 @@
 /**
  * UI Theme Manager v2.0
- * Manages 4 completely different UI themes with video backgrounds
- * G = graphite (YouTube) - Sleek grey/silver aesthetic
- * A = atelier (YouTube) - Elegant light gallery style
- * B = studio (MP4) - Dark with green neon, OS-inspired
- * C = arcade (MP4) - Cyberpunk pink/cyan neon
+ * Manages 5 UI themes with video backgrounds
+ * G = graphite (섬머님.mp4) - Sleek grey/silver
+ * A = atelier (YouTube) - Elegant light gallery
+ * B = studio (Intro.mp4) - Dark green neon
+ * C = arcade (Summer Arcade H.MP4) - Cyberpunk pink/cyan
+ * D = Chinatown (summer chinatown h.MP4) - Warm neon
  */
 
 (function() {
@@ -14,8 +15,8 @@
     'youtube-1': {
       name: 'Graphite',
       cssTheme: 'graphite',
-      videoType: 'youtube',
-      videoUrl: 'https://www.youtube.com/embed/SlssfnVdLlA?autoplay=1&mute=1&loop=1&playlist=SlssfnVdLlA&controls=0&showinfo=0&autohide=1&modestbranding=1&vq=hd720&rel=0&iv_load_policy=3&playsinline=1'
+      videoType: 'local',
+      videoUrl: '/static/섬머님.mp4'
     },
     'youtube-2': {
       name: 'Atelier',
@@ -33,7 +34,13 @@
       name: 'Arcade',
       cssTheme: 'arcade',
       videoType: 'local',
-      videoUrl: '/static/images/Intro.mp4'
+      videoUrl: '/static/Summer%20Arcade%20H.MP4'
+    },
+    'saved-3': {
+      name: 'Chinatown',
+      cssTheme: 'arcade',
+      videoType: 'local',
+      videoUrl: '/static/summer%20chinatown%20h.MP4'
     }
   };
 
@@ -174,13 +181,12 @@
     video.loop = true;
     video.muted = true;
     video.playsInline = true;
-    video.preload = 'auto';
+    // Optimize loading: use 'metadata' for large files to start faster
+    video.preload = 'metadata';
     video.setAttribute('playsinline', '');
     video.setAttribute('webkit-playsinline', '');
     // Optimize for performance
     video.style.willChange = 'transform';
-    video.setAttribute('playsinline', '');
-    video.setAttribute('webkit-playsinline', '');
     video.style.cssText = `
       position: absolute;
       top: 50%;
@@ -199,10 +205,18 @@
 
     const source = document.createElement('source');
     source.src = url;
-    source.type = 'video/mp4';
+    // Set MIME type based on file extension
+    const ext = url.split('.').pop()?.toLowerCase();
+    if (ext === 'mov') {
+      source.type = 'video/quicktime';
+    } else if (ext === 'webm') {
+      source.type = 'video/webm';
+    } else {
+      source.type = 'video/mp4';
+    }
     video.appendChild(source);
 
-    // Error handling with fallback paths
+    // Error handling with fallback paths (fall back to Intro if theme video fails)
     const altPaths = [
       '/static/images/Intro.mp4',
       '/images/Intro.mp4',
@@ -210,14 +224,28 @@
     ];
     let pathIndex = 0;
 
-    // Optimize video loading
+    // Optimize video loading - show video as soon as enough data is loaded
+    video.addEventListener('loadedmetadata', function() {
+      // Video metadata loaded, start playing when ready
+      if (video.readyState >= 1) {
+        video.play().catch(() => {});
+      }
+    }, { once: true });
+    
+    video.addEventListener('canplay', function() {
+      // Enough data loaded to start playing
+      video.style.opacity = '1';
+      video.play().catch(() => {});
+    }, { once: true });
+    
     video.addEventListener('canplaythrough', function() {
+      // Entire video can play without buffering
       video.style.opacity = '1';
       video.play().catch(() => {});
     }, { once: true });
     
     video.addEventListener('loadeddata', function() {
-      if (video.readyState >= 3) {
+      if (video.readyState >= 2) {
         video.style.opacity = '1';
       }
     }, { once: true });
@@ -226,11 +254,21 @@
     video.load();
     
     video.addEventListener('error', function(e) {
-      console.warn('Video load failed:', source.src);
-      pathIndex++;
+      const errorMsg = video.error ? `Code ${video.error.code}: ${video.error.message}` : 'Unknown error';
+      console.warn('Video load failed:', source.src, errorMsg);
+      
+      // If .mov file fails, it's likely a browser compatibility issue
+      if (ext === 'mov') {
+        console.warn('⚠️ .mov files have limited browser support. Consider converting to MP4 for better compatibility.');
+      }
+      
       if (pathIndex < altPaths.length) {
         source.src = altPaths[pathIndex];
+        source.type = 'video/mp4'; // Fallback videos are MP4
+        pathIndex++;
         video.load();
+      } else {
+        console.error('All video fallbacks failed. Video may not play in this browser.');
       }
     });
 

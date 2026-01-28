@@ -703,10 +703,23 @@
       });
   }
 
+  function findArtSection() {
+    return document.getElementById('art')
+      || document.querySelector('#Art')
+      || document.querySelector('section[id*="art" i]')
+      || Array.from(document.querySelectorAll('section')).find(s => {
+        const h = s.querySelector('h1, h2, .section-title');
+        return h && /art|portfolio\s*artistique|kunst|arte/i.test(h.textContent || '');
+      });
+  }
+
   function createGallery() {
-    const artSection = document.getElementById('art');
+    const artSection = findArtSection();
     if (!artSection) {
-      console.log('Art section not found');
+      if (!window._artSectionNotFoundLogged) {
+        window._artSectionNotFoundLogged = true;
+        console.log('Art section not found (looked for #art, #Art, section[id*="art"], or section with Art heading)');
+      }
       return;
     }
 

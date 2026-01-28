@@ -23,6 +23,7 @@
       --accent-cyan: #22d3ee;
       --accent-warm: #f59e0b;
       --accent-rose: #f43f5e;
+      --header-h: 72px;
     }
 
     * {
@@ -285,6 +286,165 @@
     @keyframes bounce {
       0%, 100% { transform: translateX(-50%) translateY(0); }
       50% { transform: translateX(-50%) translateY(10px); }
+    }
+
+    /* Scroll-Scrub Video Section – height set by JS from video duration */
+    .video-scrub-container {
+      position: relative;
+      min-height: 200vh; /* fallback until JS sets height from video.duration * PX_PER_SECOND */
+    }
+
+    .video-scrub-pinned {
+      position: sticky;
+      top: var(--header-h);
+      height: calc(100vh - var(--header-h));
+      width: 100%;
+      overflow: hidden;
+      z-index: 0;
+    }
+
+    .scrub-video {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+
+      /* critical: do NOT go negative */
+      z-index: 0;
+
+      filter: saturate(1.1) contrast(1.05);
+    }
+
+    .scrub-overlay {
+      position: absolute;
+      inset: 0;
+      z-index: 1;
+      background: linear-gradient(to bottom, rgba(0,0,0,0.3), rgba(0,0,0,0.8));
+      pointer-events: none;
+    }
+
+    .scrub-content {
+      position: relative;
+      z-index: 2;
+      width: 100%;
+      height: 100%;
+      display: grid;
+      place-items: center;
+      padding: 0 32px;
+      pointer-events: none;
+    }
+
+    .scrub-chapter {
+      position: absolute;
+      inset: 0;
+      display: grid;
+      place-items: center;
+      padding: 28px 32px 28px;
+      opacity: 0;
+      transform: translateY(18px);
+      transition: opacity 0.5s ease, transform 0.5s ease;
+      pointer-events: none;
+      text-align: center;
+    }
+
+    .scrub-chapter.active {
+      opacity: 1;
+      transform: translateY(0);
+      pointer-events: auto;
+    }
+
+    .scrub-card {
+      width: min(820px, 92vw);
+      padding: 22px 22px;
+      border-radius: 22px;
+      background: rgba(0,0,0,0.35);
+      border: 1px solid rgba(255,255,255,0.14);
+      backdrop-filter: blur(12px);
+      box-shadow: 0 18px 60px rgba(0,0,0,0.35);
+    }
+
+    .scrub-chapter-label {
+      display: inline-block;
+      padding: 6px 16px;
+      background: rgba(99, 102, 241, 0.25);
+      border: 1px solid rgba(99, 102, 241, 0.5);
+      border-radius: 50px;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--accent-cyan);
+      margin-bottom: 20px;
+    }
+
+    .scrub-chapter-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2.2rem, 6vw, 4rem);
+      font-weight: 600;
+      line-height: 1.05;
+      margin-bottom: 14px;
+      background: linear-gradient(135deg, #fff 0%, rgba(255,255,255,0.8) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .scrub-chapter-text {
+      font-size: clamp(1rem, 2vw, 1.25rem);
+      color: var(--muted);
+      max-width: 600px;
+      margin: 0 auto;
+      line-height: 1.7;
+    }
+
+    .scrub-progress {
+      position: fixed;
+      left: 32px;
+      top: 50%;
+      transform: translateY(-50%);
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      z-index: 100;
+      opacity: 0;
+      transition: opacity 0.4s ease;
+    }
+
+    .scrub-progress.visible {
+      opacity: 1;
+    }
+
+    .scrub-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.3);
+      border: 1px solid rgba(255, 255, 255, 0.5);
+      transition: all 0.3s ease;
+      cursor: pointer;
+    }
+
+    .scrub-dot.active {
+      background: var(--accent-cyan);
+      border-color: var(--accent-cyan);
+      box-shadow: 0 0 12px rgba(34, 211, 238, 0.6);
+      transform: scale(1.3);
+    }
+
+    .scrub-dot:hover {
+      transform: scale(1.2);
+      background: rgba(255, 255, 255, 0.5);
+    }
+
+    @media (max-width: 768px) {
+      .scrub-progress {
+        left: 16px;
+      }
+      .scrub-dot {
+        width: 8px;
+        height: 8px;
+      }
     }
 
     /* Journey Sections */
@@ -789,6 +949,81 @@
     </div>
   </section>
 
+  <!-- Scroll-Scrub Video Experience: scroll position drives video.currentTime (pinned sticky section) -->
+  <section class="video-scrub-container" id="videoScrubSection">
+    <div class="video-scrub-pinned">
+      <video class="scrub-video" id="scrubVideo" preload="auto" muted playsinline webkit-playsinline
+        poster="/images/myProfile.jpg">
+        <!-- Use Intro_scrub.mp4 (faststart + keyframes) if duration is Infinity with Intro.mp4 -->
+        <source src="/static/images/Intro.mp4" type="video/mp4">
+        <source src="/Intro.mp4" type="video/mp4">
+      </video>
+      <div class="scrub-overlay"></div>
+
+      <div class="scrub-content">
+        <!-- Chapter 1: The Dreamer -->
+        <div class="scrub-chapter" id="chapter1" data-chapter="1">
+          <div class="scrub-card">
+            <span class="scrub-chapter-label">Chapter 1</span>
+            <h2 class="scrub-chapter-title">The Dreamer</h2>
+            <p class="scrub-chapter-text">
+              Every great journey begins with a spark of curiosity.
+              For me, it was the intersection of biology and code —
+              a fascination with how algorithms could decode the mysteries of life itself.
+            </p>
+          </div>
+        </div>
+
+        <!-- Chapter 2: The Builder -->
+        <div class="scrub-chapter" id="chapter2" data-chapter="2">
+          <div class="scrub-card">
+            <span class="scrub-chapter-label">Chapter 2</span>
+            <h2 class="scrub-chapter-title">The Builder</h2>
+            <p class="scrub-chapter-text">
+              Ideas mean nothing without execution.
+              From AWS to startups, from research labs to product launches —
+              I learned to ship, iterate, and make things real.
+            </p>
+          </div>
+        </div>
+
+        <!-- Chapter 3: The Creator -->
+        <div class="scrub-chapter" id="chapter3" data-chapter="3">
+          <div class="scrub-card">
+            <span class="scrub-chapter-label">Chapter 3</span>
+            <h2 class="scrub-chapter-title">The Creator</h2>
+            <p class="scrub-chapter-text">
+              Technology is art. Art is technology.
+              Modeling, music, acting — these aren't separate from engineering.
+              They're different expressions of the same creative drive.
+            </p>
+          </div>
+        </div>
+
+        <!-- Chapter 4: The Future -->
+        <div class="scrub-chapter" id="chapter4" data-chapter="4">
+          <div class="scrub-card">
+            <span class="scrub-chapter-label">Chapter 4</span>
+            <h2 class="scrub-chapter-title">The Future</h2>
+            <p class="scrub-chapter-text">
+              Building AI that heals. Creating tools that empower.
+              The next chapter is being written right now —
+              and you're part of the story.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Progress dots -->
+    <div class="scrub-progress" id="scrubProgress">
+      <div class="scrub-dot" data-chapter="1" title="The Dreamer"></div>
+      <div class="scrub-dot" data-chapter="2" title="The Builder"></div>
+      <div class="scrub-dot" data-chapter="3" title="The Creator"></div>
+      <div class="scrub-dot" data-chapter="4" title="The Future"></div>
+    </div>
+  </section>
+
   <!-- Journey: Origin -->
   <section id="journey" class="journey-section" style="--glow-color: rgba(34, 211, 238, 0.1)">
     <div class="section-container">
@@ -1165,6 +1400,94 @@
         });
       });
 
+      const scrubVideo = document.getElementById('scrubVideo');
+      const scrubSection = document.getElementById('videoScrubSection');
+      const scrubProgress = document.getElementById('scrubProgress');
+      const chapters = document.querySelectorAll('.scrub-chapter');
+      const scrubDots = document.querySelectorAll('.scrub-dot');
+
+      if (scrubVideo && scrubSection) {
+        const PX_PER_SECOND = 420;
+
+        let targetTime = 0;
+        let rafId = null;
+        let initialized = false;
+
+        const clamp01 = (x) => Math.min(1, Math.max(0, x));
+
+        function computeProgress() {
+          const start = scrubSection.offsetTop;
+          const end = start + scrubSection.offsetHeight - window.innerHeight;
+          if (end <= start) return 0;
+          return clamp01((window.scrollY - start) / (end - start));
+        }
+
+        function tick() {
+          if (isFinite(scrubVideo.duration) && scrubVideo.duration > 0) {
+            const current = scrubVideo.currentTime || 0;
+            const next = current + (targetTime - current) * 0.15;
+            scrubVideo.currentTime = next;
+          }
+          rafId = requestAnimationFrame(tick);
+        }
+
+        function onScroll() {
+          if (!isFinite(scrubVideo.duration) || scrubVideo.duration <= 0) return;
+
+          const p = computeProgress();
+          targetTime = p * scrubVideo.duration;
+
+          const numChapters = chapters.length || 1;
+          const chapterIndex = Math.min(Math.floor(p * numChapters), numChapters - 1);
+
+          chapters.forEach((ch, i) => ch.classList.toggle('active', i === chapterIndex));
+          scrubDots.forEach((dot, i) => dot.classList.toggle('active', i === chapterIndex));
+
+          if (scrubProgress) {
+            if (p > 0 && p < 1) scrubProgress.classList.add('visible');
+            else scrubProgress.classList.remove('visible');
+          }
+        }
+
+        function initIfReady() {
+          if (!isFinite(scrubVideo.duration) || scrubVideo.duration <= 0) return;
+          if (initialized) return;
+          initialized = true;
+
+          const h = Math.max(
+            window.innerHeight * 2,
+            Math.ceil(scrubVideo.duration * PX_PER_SECOND)
+          );
+          scrubSection.style.height = h + 'px';
+
+          scrubVideo.pause();
+          scrubVideo.currentTime = 0;
+
+          scrubVideo.play().then(() => scrubVideo.pause()).catch(() => {});
+
+          window.addEventListener('scroll', onScroll, { passive: true });
+          window.addEventListener('resize', onScroll);
+          onScroll();
+
+          if (!rafId) rafId = requestAnimationFrame(tick);
+        }
+
+        scrubVideo.addEventListener('loadedmetadata', initIfReady);
+        scrubVideo.addEventListener('durationchange', initIfReady);
+        scrubVideo.addEventListener('loadeddata', initIfReady);
+
+        initIfReady();
+
+        scrubDots.forEach((dot, i) => {
+          dot.addEventListener('click', () => {
+            const targetProgress = chapters.length ? i / chapters.length : 0;
+            const totalScroll = Math.max(1, scrubSection.offsetHeight - window.innerHeight);
+            const scrollTarget = scrubSection.offsetTop + totalScroll * targetProgress;
+            window.scrollTo({ top: scrollTarget, behavior: 'smooth' });
+          });
+        });
+      }
+
       // GSAP Animations
       if (typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
         gsap.registerPlugin(ScrollTrigger);
@@ -1175,6 +1498,8 @@
         gsap.from('.hero-tagline', { opacity: 0, y: 30, duration: 1, delay: 1 });
         gsap.from('.hero-cta', { opacity: 0, y: 30, duration: 1, delay: 1.3 });
         gsap.from('.scroll-indicator', { opacity: 0, duration: 1, delay: 2 });
+
+        // ===== SCROLL-DRIVEN VIDEO SCRUBBING =====
 
         // Timeline cards
         document.querySelectorAll('.timeline-card').forEach((card, i) => {
@@ -1263,5 +1588,9 @@
       }
     })();
   </script>
+
+  <!-- Theme System -->
+  <script src="/enhancements/core/ui-theme-manager.js"></script>
+  <script src="/enhancements/core/gabc-theme-switcher.js"></script>
 </body>
 </html>

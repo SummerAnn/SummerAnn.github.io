@@ -566,6 +566,221 @@
         height: 100px;
       }
     }
+
+    /* Morse Code Styles */
+    .morse-display {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .morse-current {
+      display: flex;
+      gap: 8px;
+      align-items: center;
+      flex-wrap: wrap;
+      min-height: 48px;
+      padding: 16px;
+      background: rgba(125, 92, 255, 0.1);
+      border-radius: 16px;
+      border: 1px solid rgba(125, 92, 255, 0.3);
+    }
+
+    .morse-symbol {
+      font-size: 32px;
+      font-weight: 700;
+      color: var(--accent);
+      animation: morse-pop 0.2s ease;
+    }
+
+    @keyframes morse-pop {
+      0% { transform: scale(0); }
+      50% { transform: scale(1.3); }
+      100% { transform: scale(1); }
+    }
+
+    .morse-decoded {
+      font-size: 28px;
+      font-weight: 600;
+      color: var(--accent-alt);
+      min-height: 40px;
+      padding: 12px 20px;
+      background: rgba(34, 211, 238, 0.1);
+      border-radius: 12px;
+      border: 1px solid rgba(34, 211, 238, 0.3);
+    }
+
+    .morse-blink-indicator {
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.1);
+      border: 3px solid rgba(255, 255, 255, 0.3);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 36px;
+      transition: all 0.15s ease;
+    }
+
+    .morse-blink-indicator.closed {
+      background: var(--accent);
+      border-color: var(--accent);
+      box-shadow: 0 0 30px rgba(125, 92, 255, 0.6);
+    }
+
+    .morse-legend {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(60px, 1fr));
+      gap: 8px;
+      margin-top: 12px;
+      font-size: 11px;
+      color: var(--text-soft);
+    }
+
+    .morse-legend span {
+      padding: 6px;
+      background: rgba(255, 255, 255, 0.04);
+      border-radius: 8px;
+      text-align: center;
+    }
+
+    .camera-view {
+      margin-top: 16px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .camera-view canvas {
+      width: min(320px, 100%);
+      height: 180px;
+      border-radius: 18px;
+      border: 1px solid rgba(255, 255, 255, 0.16);
+      background: #020107;
+      box-shadow: inset 0 2px 10px rgba(0, 0, 0, 0.5);
+    }
+
+    .camera-label {
+      font-size: 12px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--text-soft);
+    }
+
+    /* Truth Scanner Styles */
+    .truth-display {
+      display: flex;
+      gap: 24px;
+      flex-wrap: wrap;
+      align-items: stretch;
+    }
+
+    .truth-meter {
+      flex: 1;
+      min-width: 200px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .truth-gauge {
+      position: relative;
+      height: 200px;
+      background: rgba(255, 255, 255, 0.03);
+      border-radius: 16px;
+      border: 1px solid var(--border);
+      overflow: hidden;
+      display: flex;
+      align-items: flex-end;
+    }
+
+    .truth-gauge-fill {
+      width: 100%;
+      background: linear-gradient(to top, #22c55e, #84cc16, #eab308, #f97316, #ef4444);
+      transition: height 0.3s ease;
+      position: relative;
+    }
+
+    .truth-gauge-label {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      font-size: 24px;
+      font-weight: 700;
+      color: white;
+      text-shadow: 0 2px 8px rgba(0,0,0,0.5);
+    }
+
+    .truth-verdict {
+      font-size: 28px;
+      font-weight: 700;
+      text-align: center;
+      padding: 16px;
+      border-radius: 12px;
+      transition: all 0.3s ease;
+    }
+
+    .truth-verdict.truth {
+      background: rgba(34, 197, 94, 0.2);
+      color: #22c55e;
+      border: 1px solid rgba(34, 197, 94, 0.4);
+    }
+
+    .truth-verdict.uncertain {
+      background: rgba(234, 179, 8, 0.2);
+      color: #eab308;
+      border: 1px solid rgba(234, 179, 8, 0.4);
+    }
+
+    .truth-verdict.lie {
+      background: rgba(239, 68, 68, 0.2);
+      color: #ef4444;
+      border: 1px solid rgba(239, 68, 68, 0.4);
+    }
+
+    .truth-factors {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .truth-factor {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 12px;
+      color: var(--text-soft);
+    }
+
+    .truth-factor-bar {
+      flex: 1;
+      height: 6px;
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 999px;
+      overflow: hidden;
+    }
+
+    .truth-factor-fill {
+      height: 100%;
+      border-radius: 999px;
+      transition: width 0.2s ease;
+    }
+
+    .truth-factor-fill.good { background: #22c55e; }
+    .truth-factor-fill.neutral { background: #eab308; }
+    .truth-factor-fill.bad { background: #ef4444; }
+
+    .truth-instructions {
+      font-size: 12px;
+      color: var(--text-soft);
+      padding: 12px;
+      background: rgba(255, 255, 255, 0.03);
+      border-radius: 12px;
+      text-align: center;
+    }
   </style>
 </head>
 <body>
@@ -771,6 +986,80 @@
       </div>
       <p class="section-meta">Tilt your head left or right to steer. The car speeds up over time — see how far you can go before crashing!</p>
     </section>
+
+    <section id="morse-play" class="game-section">
+      <div class="section-header">
+        <div>
+          <p class="status-tag">Blink signals</p>
+          <h2>Blink Morse Code</h2>
+        </div>
+        <div class="score-pill">Hold pause &amp; decode</div>
+      </div>
+      <div class="morse-display">
+        <div class="morse-current">
+          <div class="morse-blink-indicator" id="morseBlinkIndicator">👁️</div>
+          <div>
+            <p style="margin:0;">Current symbol: <strong id="morseCurrentSymbol">—</strong></p>
+            <p style="margin:4px 0 0;">Decoded buffer: <span id="morseBufferDisplay">waiting for blinks</span></p>
+            <div class="morse-decoded" id="morseDecodedWord">waiting for a letter</div>
+          </div>
+        </div>
+        <div class="morse-legend">
+          <span>Short blink = dot (·)</span>
+          <span>Long blink = dash (–)</span>
+          <span>Pause >1.2s finalizes a letter</span>
+        </div>
+      </div>
+      <div class="camera-view">
+        <canvas id="morseCamera" class="mini-cam-canvas"></canvas>
+        <p class="camera-label">Live webcam view for blink decoding</p>
+      </div>
+    </section>
+
+    <section id="truth-play" class="game-section">
+      <div class="section-header">
+        <div>
+          <p class="status-tag">Truth Scanner</p>
+          <h2>Novelty lie detector</h2>
+        </div>
+        <div class="score-pill">Blink rate + micro-expressions</div>
+      </div>
+      <div class="truth-display">
+        <div class="truth-meter">
+          <div class="truth-gauge">
+            <div class="truth-gauge-fill" id="truthGaugeFill">
+              <span class="truth-gauge-label" id="truthGaugeLabel">Calibrating</span>
+            </div>
+          </div>
+          <div class="truth-verdict" id="truthVerdict">Waiting for blinks</div>
+        </div>
+        <div class="truth-factors">
+          <div class="truth-factor">
+            <span>Blink tempo</span>
+            <div class="truth-factor-bar">
+              <div class="truth-factor-fill neutral" id="truthBlinkBar" style="width:0%"></div>
+            </div>
+          </div>
+          <div class="truth-factor">
+            <span>Gaze jitter</span>
+            <div class="truth-factor-bar">
+              <div class="truth-factor-fill neutral" id="truthGazeBar" style="width:0%"></div>
+            </div>
+          </div>
+          <div class="truth-factor">
+            <span>Expression strain</span>
+            <div class="truth-factor-bar">
+              <div class="truth-factor-fill neutral" id="truthExpressionBar" style="width:0%"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="camera-view">
+        <canvas id="truthCamera" class="mini-cam-canvas"></canvas>
+        <p class="camera-label">Live webcam view for the Truth Scanner</p>
+      </div>
+      <p class="truth-instructions">Smile, pause, and let the system read your micro-expressions — the gauge responds to blink speed, jitter, and emotion chemistry.</p>
+    </section>
   </main>
 
     <script>
@@ -834,6 +1123,18 @@
       const surprisedBar = document.getElementById('surprisedBar');
       const neutralBar = document.getElementById('neutralBar');
 
+      // Morse & Truth Elements
+      const morseBlinkIndicator = document.getElementById('morseBlinkIndicator');
+      const morseCurrentSymbol = document.getElementById('morseCurrentSymbol');
+      const morseBufferDisplay = document.getElementById('morseBufferDisplay');
+      const morseDecodedWord = document.getElementById('morseDecodedWord');
+      const truthGaugeFill = document.getElementById('truthGaugeFill');
+      const truthGaugeLabel = document.getElementById('truthGaugeLabel');
+      const truthVerdict = document.getElementById('truthVerdict');
+      const truthBlinkBar = document.getElementById('truthBlinkBar');
+      const truthGazeBar = document.getElementById('truthGazeBar');
+      const truthExpressionBar = document.getElementById('truthExpressionBar');
+
       // Racing Elements
       const racingCanvas = document.getElementById('racingCanvas');
       const racingCtx = racingCanvas ? racingCanvas.getContext('2d') : null;
@@ -846,7 +1147,9 @@
         eye: document.getElementById('eyeMiniCam'),
         asl: document.getElementById('aslMiniCam'),
         emotion: document.getElementById('emotionMiniCam'),
-        racing: document.getElementById('racingMiniCam')
+        racing: document.getElementById('racingMiniCam'),
+        morse: document.getElementById('morseCamera'),
+        truth: document.getElementById('truthCamera')
       };
       const miniCamCtxs = {};
       Object.keys(miniCams).forEach(key => {
@@ -883,6 +1186,40 @@
         roadOffset: 0,
         gameOver: false,
         headTilt: 0
+      };
+
+      const MORSE_CLOSE_THRESHOLD = 0.17;
+      const MORSE_OPEN_THRESHOLD = 0.21;
+      const MORSE_LONG_BLINK_MS = 320;
+      const MORSE_LETTER_PAUSE_MS = 1100;
+      const MORSE_WORD_PAUSE_MS = 2200;
+      const morseState = {
+        buffer: '',
+        decoded: '',
+        lastBlinkEnd: 0,
+        isClosed: false,
+        closeStart: 0,
+        lastSymbol: '—',
+        lastWordSpace: 0
+      };
+      const eyeClosureHistory = [];
+
+      const MORSE_CODE_MAP = {
+        '.-': 'A', '-...': 'B', '-.-.': 'C', '-..': 'D', '.': 'E',
+        '..-.': 'F', '--.': 'G', '....': 'H', '..': 'I', '.---': 'J',
+        '-.-': 'K', '.-..': 'L', '--': 'M', '-.': 'N', '---': 'O',
+        '.--.': 'P', '--.-': 'Q', '.-.': 'R', '...': 'S', '-': 'T',
+        '..-': 'U', '...-': 'V', '.--': 'W', '-..-': 'X', '-.--': 'Y',
+        '--..': 'Z', '-----': '0', '.----': '1', '..---': '2', '...--': '3',
+        '....-': '4', '.....': '5', '-....': '6', '--...': '7', '---..': '8',
+        '----.': '9'
+      };
+
+      const truthState = {
+        blinkLog: [],
+        lastGaze: null,
+        gazeOscillation: 0,
+        score: 0
       };
 
       function updateStatus(message, tone = 'muted') {
@@ -1444,6 +1781,134 @@
         if (emotionLabel) emotionLabel.textContent = emotions[0].name.charAt(0).toUpperCase() + emotions[0].name.slice(1);
       }
 
+      function getEyeOpennessRatio() {
+        if (!lastFaceLandmarks) return null;
+        function measure(indices) {
+          const points = indices.map(idx => lastFaceLandmarks[idx]).filter(Boolean);
+          if (!points.length) return null;
+          const xs = points.map(point => point.x);
+          const ys = points.map(point => point.y);
+          const width = Math.max(...xs) - Math.min(...xs) || 0.0001;
+          const height = Math.max(...ys) - Math.min(...ys);
+          return height / width;
+        }
+        const left = measure(LEFT_EYE);
+        const right = measure(RIGHT_EYE);
+        if (left === null || right === null) return null;
+        return (left + right) / 2;
+      }
+
+      function decodeMorseBuffer(addSpace = false, now = performance.now()) {
+        if (!morseState.buffer) return;
+        const letter = MORSE_CODE_MAP[morseState.buffer] || '?';
+        morseState.decoded += letter;
+        morseState.buffer = '';
+        morseState.lastWordSpace = now;
+        if (addSpace) {
+          morseState.decoded += ' ';
+          morseState.lastWordSpace = now;
+        }
+        if (morseDecodedWord) {
+          morseDecodedWord.textContent = morseState.decoded;
+        }
+        if (morseBufferDisplay) {
+          morseBufferDisplay.textContent = 'waiting for blinks';
+        }
+      }
+
+      function updateMorse(timestamp) {
+        if (!timestamp) return;
+        const ratio = getEyeOpennessRatio();
+        if (ratio === null) return;
+
+        eyeClosureHistory.push(ratio);
+        if (eyeClosureHistory.length > 12) eyeClosureHistory.shift();
+        const smoothRatio = eyeClosureHistory.reduce((sum, val) => sum + val, 0) / eyeClosureHistory.length;
+        const closed = smoothRatio < MORSE_CLOSE_THRESHOLD;
+        const reopened = smoothRatio > MORSE_OPEN_THRESHOLD;
+
+        if (!morseState.isClosed && closed) {
+          morseState.isClosed = true;
+          morseState.closeStart = timestamp;
+          morseBlinkIndicator?.classList.add('closed');
+        } else if (morseState.isClosed && reopened) {
+          const duration = timestamp - morseState.closeStart;
+          const symbol = duration > MORSE_LONG_BLINK_MS ? '-' : '.';
+          morseState.buffer += symbol;
+          morseState.lastSymbol = symbol === '.' ? '·' : '–';
+          if (morseCurrentSymbol) morseCurrentSymbol.textContent = morseState.lastSymbol;
+          if (morseBufferDisplay) morseBufferDisplay.textContent = morseState.buffer;
+          morseState.lastBlinkEnd = timestamp;
+          truthState.blinkLog.push({ time: timestamp });
+          morseBlinkIndicator?.classList.remove('closed');
+          morseState.isClosed = false;
+        }
+
+        if (!morseState.isClosed && morseState.buffer && timestamp - morseState.lastBlinkEnd > MORSE_LETTER_PAUSE_MS) {
+          decodeMorseBuffer(false, timestamp);
+        }
+        if (!morseState.isClosed &&
+            morseState.decoded &&
+            timestamp - morseState.lastWordSpace > MORSE_WORD_PAUSE_MS &&
+            !/\s$/.test(morseState.decoded)) {
+          morseState.decoded += ' ';
+          morseState.lastWordSpace = timestamp;
+          if (morseDecodedWord) morseDecodedWord.textContent = morseState.decoded;
+        }
+      }
+
+      function updateTruthScanner(timestamp) {
+        if (!timestamp) return;
+        truthState.blinkLog = truthState.blinkLog.filter(entry => timestamp - entry.time < 6000);
+        const blinkRate = Math.min(45, (truthState.blinkLog.length / 6) * 60);
+        truthState.gazeOscillation = truthState.gazeOscillation * 0.92;
+        if (truthState.lastGaze) {
+          const dx = Math.abs(gazePoint.x - truthState.lastGaze.x);
+          truthState.gazeOscillation += dx * 4;
+        }
+        truthState.gazeOscillation = Math.min(1, truthState.gazeOscillation);
+        truthState.lastGaze = { x: gazePoint.x, y: gazePoint.y };
+
+        const expressionPressure = Math.min(1, emotionState.sad + emotionState.surprised);
+        const blinkPenalty = Math.min(1, blinkRate / 40);
+        const score = Math.max(0, 1 - (blinkPenalty * 0.45 + truthState.gazeOscillation * 0.35 + expressionPressure * 0.25));
+        truthState.score = score;
+
+        if (truthGaugeFill) truthGaugeFill.style.height = `${score * 100}%`;
+        if (truthGaugeLabel) truthGaugeLabel.textContent = `${Math.round(score * 100)}%`;
+
+        let verdict = 'truth';
+        let verdictText = 'Trustworthy';
+        if (score < 0.4) {
+          verdict = 'lie';
+          verdictText = 'Lie detected';
+        } else if (score < 0.65) {
+          verdict = 'uncertain';
+          verdictText = 'Uncertain';
+        }
+        if (truthVerdict) {
+          truthVerdict.textContent = verdictText;
+          truthVerdict.className = `truth-verdict ${verdict}`;
+        }
+
+        const blinkWidth = Math.min(100, blinkPenalty * 150);
+        const gazeWidth = Math.min(100, truthState.gazeOscillation * 200);
+        const expressionWidth = Math.min(100, expressionPressure * 160);
+
+        if (truthBlinkBar) {
+          truthBlinkBar.style.width = `${blinkWidth}%`;
+          truthBlinkBar.className = `truth-factor-fill ${blinkPenalty > 0.7 ? 'bad' : blinkPenalty > 0.4 ? 'neutral' : 'good'}`;
+        }
+        if (truthGazeBar) {
+          truthGazeBar.style.width = `${gazeWidth}%`;
+          truthGazeBar.className = `truth-factor-fill ${truthState.gazeOscillation > 0.7 ? 'bad' : truthState.gazeOscillation > 0.35 ? 'neutral' : 'good'}`;
+        }
+        if (truthExpressionBar) {
+          truthExpressionBar.style.width = `${expressionWidth}%`;
+          truthExpressionBar.className = `truth-factor-fill ${expressionPressure > 0.6 ? 'bad' : expressionPressure > 0.3 ? 'neutral' : 'good'}`;
+        }
+      }
+
       // ===== HEAD TILT RACING =====
       function initRacing() {
         if (!racingCanvas) return;
@@ -1826,6 +2291,8 @@
         updateEyeGame(delta);
         updateASL(delta);
         detectEmotion(lastFaceLandmarks);
+        updateMorse(timestamp);
+        updateTruthScanner(timestamp);
         updateRacing(delta);
         requestAnimationFrame(gameLoop);
       }
@@ -2028,5 +2495,9 @@
       initWebcamLab();
     })();
   </script>
+
+  <!-- Theme System -->
+  <script src="/enhancements/core/ui-theme-manager.js"></script>
+  <script src="/enhancements/core/gabc-theme-switcher.js"></script>
 </body>
 </html>
