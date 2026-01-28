@@ -468,6 +468,12 @@
             <strong>Singer, actress, model, storyteller</strong>
           </div>
         </div>
+        <div class="about-hero-actions">
+          <a class="about-action" href="https://www.imdb.com/name/nm9520569/" target="_blank" rel="noopener">IMDb</a>
+          <a class="about-action" href="https://music.apple.com/us/artist/s-u-m-m-e-r/1602559220" target="_blank" rel="noopener">Apple Music</a>
+          <a class="about-action" href="https://open.spotify.com/artist/2LCLnET4J0BsEbwztWl7OL" target="_blank" rel="noopener">Spotify</a>
+          <a class="about-action" href="https://www.linkedin.com/in/eunhyung-ann/" target="_blank" rel="noopener">LinkedIn</a>
+        </div>
       </div>
       <div class="about-sphere-panel">
         <div class="about-sphere-title">Creative Orbit</div>
@@ -520,7 +526,7 @@
     let centerX = 0;
     let centerY = 0;
     let radius = 0;
-    const baseFont = 10;
+    const baseFont = 8;
 
     const points = SPHERE_WORDS.map((word, index) => {
       const goldenAngle = Math.PI * (3 - Math.sqrt(5));
@@ -592,7 +598,7 @@
       projected.forEach((p) => {
         if (p.scale < 0.6) return;
         const alpha = Math.min(1, Math.max(0.35, p.scale));
-        const size = baseFont * (0.7 + p.scale * 1.0);
+        const size = baseFont * (0.6 + p.scale * 0.9);
         ctx.font = `600 ${size}px 'Space Grotesk', system-ui, sans-serif`;
         ctx.fillStyle = `rgba(230, 235, 255, ${alpha})`;
         ctx.textAlign = 'center';
