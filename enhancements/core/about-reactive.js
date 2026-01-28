@@ -184,33 +184,33 @@
         display: inline-flex;
         align-items: center;
         gap: 8px;
-        padding: 6px 14px;
+        padding: 5px 12px;
         border-radius: 999px;
-        font-size: 11px;
+        font-size: 10px;
         letter-spacing: 0.2em;
         text-transform: uppercase;
         background: rgba(255, 255, 255, 0.08);
         border: 1px solid rgba(255, 255, 255, 0.15);
         color: rgba(255, 255, 255, 0.7);
-        margin-bottom: 18px;
+        margin-bottom: 14px;
       }
 
       #about .about-hero-title {
         font-family: var(--font-display, 'Playfair Display', serif);
         font-weight: 600;
-        font-size: clamp(2.4rem, 4vw, 3.4rem);
+        font-size: clamp(1.8rem, 3vw, 2.2rem);
         color: #f8fafc;
-        margin-bottom: 18px;
-        line-height: 1.1;
+        margin-bottom: 16px;
+        line-height: 1.2;
       }
 
       #about .about-hero-quote {
         font-family: 'Fraunces', 'Charter', 'Georgia', serif;
         font-weight: 400;
-        font-size: clamp(2rem, 3.5vw, 2.8rem);
-        line-height: 1.2;
+        font-size: clamp(1.5rem, 2.5vw, 2rem);
+        line-height: 1.3;
         color: #f8fafc;
-        margin: 32px 0 24px;
+        margin: 24px 0 20px;
         text-align: center;
         letter-spacing: -0.01em;
         font-style: italic;
@@ -244,10 +244,10 @@
       }
 
       #about .about-hero-text {
-        font-size: 1rem;
-        line-height: 1.8;
+        font-size: 0.95rem;
+        line-height: 1.7;
         color: rgba(255, 255, 255, 0.75);
-        margin-bottom: 16px;
+        margin-bottom: 14px;
       }
 
       #about .about-sphere-panel {
@@ -274,14 +274,14 @@
 
       #about .about-sphere-title {
         font-family: var(--font-heading, 'Space Grotesk', system-ui, sans-serif);
-        font-size: 0.95rem;
+        font-size: 0.85rem;
         letter-spacing: 0.18em;
         text-transform: uppercase;
         color: rgba(255, 255, 255, 0.75);
       }
 
       #about .about-sphere-hint {
-        font-size: 12px;
+        font-size: 11px;
         color: rgba(255, 255, 255, 0.55);
       }
 
@@ -315,7 +315,7 @@
 
       #about .about-stat-title {
         font-family: var(--font-heading, 'Space Grotesk', system-ui, sans-serif);
-        font-size: 0.85rem;
+        font-size: 0.75rem;
         letter-spacing: 0.16em;
         text-transform: uppercase;
         color: rgba(255, 255, 255, 0.65);
@@ -328,9 +328,9 @@
       }
 
       #about .about-chip {
-        padding: 6px 12px;
+        padding: 5px 11px;
         border-radius: 999px;
-        font-size: 12px;
+        font-size: 11px;
         font-weight: 600;
         color: #e5e7eb;
         background: rgba(99, 102, 241, 0.16);
@@ -359,14 +359,14 @@
 
       #about .about-stat strong {
         display: block;
-        font-size: 1.4rem;
+        font-size: 1.2rem;
         font-weight: 700;
         color: #f9fafb;
       }
 
       #about .about-stat span {
         display: block;
-        font-size: 12px;
+        font-size: 11px;
         color: rgba(255, 255, 255, 0.65);
       }
 
@@ -410,7 +410,7 @@
       ];
     }
 
-    return { heading, paragraphs: paragraphs.slice(0, 5) };
+    return { heading, paragraphs: paragraphs.slice(0, 6) };
   }
 
   function buildLayout(aboutSection) {
@@ -495,7 +495,7 @@
     let centerX = 0;
     let centerY = 0;
     let radius = 0;
-    const baseFont = 12;
+    const baseFont = 11;
 
     const points = SPHERE_WORDS.map((word, index) => {
       const goldenAngle = Math.PI * (3 - Math.sqrt(5));
@@ -565,7 +565,7 @@
         .sort((a, b) => a.z - b.z);
 
       projected.forEach((p) => {
-        if (p.scale < 0.4) return;
+        if (p.scale < 0.6) return;
         const alpha = Math.min(1, Math.max(0.35, p.scale));
         const size = baseFont * (0.8 + p.scale * 1.2);
         ctx.font = `600 ${size}px 'Space Grotesk', system-ui, sans-serif`;
