@@ -1417,14 +1417,49 @@
       });
     }
 
+    let totalEnergy = 0;
+    let settledFrames = 0;
+    const SETTLE_THRESHOLD = 0.5; // Energy threshold to consider settled
+    const SETTLE_FRAMES = 30; // Frames of low energy before stopping
+
     function animate() {
       if (!canvas.classList.contains('active')) {
         animationId = requestAnimationFrame(animate);
         return;
       }
+      
       update();
-      draw();
-      animationId = requestAnimationFrame(animate);
+      
+      // Calculate total energy (movement)
+      totalEnergy = 0;
+      nodes.forEach(node => {
+        if (!node.fixed) {
+          totalEnergy += Math.abs(node.vx) + Math.abs(node.vy);
+        }
+      });
+      
+      // If energy is low, count settled frames
+      if (totalEnergy < SETTLE_THRESHOLD) {
+        settledFrames++;
+      } else {
+        settledFrames = 0;
+      }
+      
+      // Only draw if not fully settled (or if user is dragging)
+      if (settledFrames < SETTLE_FRAMES || dragging) {
+        draw();
+        animationId = requestAnimationFrame(animate);
+      } else {
+        // Draw final settled state
+        draw();
+        // Check occasionally if something changes (like resize)
+        setTimeout(() => {
+          if (canvas.classList.contains('active')) {
+            settledFrames = 0; // Reset to allow animation again
+            animationId = requestAnimationFrame(animate);
+          }
+        }, 1000);
+      }
     }
 
     let dragging = false;
