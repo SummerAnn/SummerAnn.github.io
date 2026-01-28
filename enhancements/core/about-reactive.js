@@ -1243,6 +1243,7 @@
     function initGraph() {
       nodes.length = 0;
       links.length = 0;
+      maxIterations = 0; // Reset iteration counter
 
       // Select key representative words from each category (fewer, more meaningful)
       const keyWords = [
@@ -1258,11 +1259,12 @@
         'Storytelling', 'Collaboration', 'Innovation', 'Problem Solving', 'Execution'
       ];
       
+      // Better initial positioning - spread out more
       keyWords.forEach((word, index) => {
         const angle = (index / keyWords.length) * Math.PI * 2;
-        const radius = Math.min(width, height) * 0.25;
-        const x = width / 2 + Math.cos(angle) * radius * (0.7 + Math.random() * 0.3);
-        const y = height / 2 + Math.sin(angle) * radius * (0.7 + Math.random() * 0.3);
+        const radius = Math.min(width, height) * 0.28;
+        const x = width / 2 + Math.cos(angle) * radius;
+        const y = height / 2 + Math.sin(angle) * radius;
         const size = 8 + (word.length < 10 ? 2 : 0); // Larger text, bigger for shorter words
         const category = getWordCategory(word);
         
@@ -1297,7 +1299,7 @@
       const centerY = height / 2;
       const k = 0.08; // Spring constant (softer)
       const repulsion = 1200; // Stronger repulsion for better spacing
-      const damping = 0.92; // Stronger damping to settle faster
+      const damping = 0.95; // Very strong damping to settle quickly
       const minDistance = 80; // Minimum distance between nodes
 
       // Reset forces
@@ -1419,12 +1421,28 @@
 
     let totalEnergy = 0;
     let settledFrames = 0;
-    const SETTLE_THRESHOLD = 0.5; // Energy threshold to consider settled
-    const SETTLE_FRAMES = 30; // Frames of low energy before stopping
+    let maxIterations = 0;
+    const SETTLE_THRESHOLD = 0.1; // Much lower threshold
+    const SETTLE_FRAMES = 10; // Fewer frames needed
+    const MAX_ITERATIONS = 120; // Stop after ~2 seconds max
 
     function animate() {
       if (!canvas.classList.contains('active')) {
-        animationId = requestAnimationFrame(animate);
+        animationId = null;
+        return;
+      }
+      
+      maxIterations++;
+      
+      // Hard stop after max iterations
+      if (maxIterations > MAX_ITERATIONS) {
+        // Force all nodes to stop
+        nodes.forEach(node => {
+          node.vx = 0;
+          node.vy = 0;
+        });
+        draw();
+        animationId = null;
         return;
       }
       
@@ -1445,21 +1463,21 @@
         settledFrames = 0;
       }
       
-      // Only draw if not fully settled (or if user is dragging)
-      if (settledFrames < SETTLE_FRAMES || dragging) {
+      // Stop if settled or max iterations reached
+      if (settledFrames >= SETTLE_FRAMES || maxIterations > MAX_ITERATIONS) {
+        // Force stop all movement
+        nodes.forEach(node => {
+          node.vx = 0;
+          node.vy = 0;
+        });
         draw();
-        animationId = requestAnimationFrame(animate);
-      } else {
-        // Draw final settled state
-        draw();
-        // Check occasionally if something changes (like resize)
-        setTimeout(() => {
-          if (canvas.classList.contains('active')) {
-            settledFrames = 0; // Reset to allow animation again
-            animationId = requestAnimationFrame(animate);
-          }
-        }, 1000);
+        animationId = null;
+        return;
       }
+      
+      // Continue animating
+      draw();
+      animationId = requestAnimationFrame(animate);
     }
 
     let dragging = false;
@@ -1504,11 +1522,10 @@
         draggedNode.vx = 0;
         draggedNode.vy = 0;
         // Restart animation when dragging
-        if (settledFrames >= SETTLE_FRAMES) {
-          settledFrames = 0;
-          if (!animationId) {
-            animate();
-          }
+        settledFrames = 0;
+        maxIterations = 0;
+        if (!animationId) {
+          animate();
         }
       }
       lastX = x;
@@ -1527,6 +1544,7 @@
       resize();
       // Restart animation on resize
       settledFrames = 0;
+      maxIterations = 0;
       if (!animationId) {
         animate();
       }
