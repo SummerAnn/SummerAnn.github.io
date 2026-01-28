@@ -84,7 +84,25 @@
     'Teamwork', 'Networking', 'Presentation', 'Public Speaking',
     'Negotiation', 'Conflict Resolution', 'Time Management',
     'Organization', 'Prioritization', 'Delegation', 'Mentoring',
-    'Coaching', 'Feedback', 'Review', 'Evaluation'
+    'Coaching', 'Feedback', 'Review', 'Evaluation',
+    
+    // Additional Creative (20 words)
+    'Poetry', 'Lyrics', 'Songwriting', 'Recording', 'Studio Session',
+    'Photoshoot', 'Editorial', 'Runway', 'Commercial', 'Campaign',
+    'Brand Ambassador', 'Influencer', 'Content Creator', 'Producer',
+    'Director', 'Cinematographer', 'Editor', 'Colorist', 'Sound Engineer', 'Mix',
+    
+    // Additional Technical (25 words)
+    'Microservices', 'Distributed Systems', 'Scalability', 'Performance',
+    'Security', 'Encryption', 'Authentication', 'Authorization', 'OAuth',
+    'JWT', 'GraphQL', 'WebSocket', 'Real-time', 'Streaming', 'Event-driven',
+    'Message Queue', 'Kafka', 'RabbitMQ', 'Redis Cache', 'CDN', 'Load Balancing',
+    'Monitoring', 'Logging', 'Metrics', 'Observability', 'APM',
+    
+    // Additional Personal (15 words)
+    'Versatility', 'Multidisciplinary', 'Interdisciplinary', 'Cross-functional',
+    'Holistic', 'Systematic', 'Methodical', 'Analytical', 'Strategic',
+    'Tactical', 'Proactive', 'Initiative', 'Resourceful', 'Inventive', 'Original'
   ];
 
   function injectStyles() {
@@ -332,6 +350,72 @@
         overflow: hidden;
       }
 
+      #about .about-viz-toggle {
+        display: flex;
+        gap: 8px;
+        padding: 6px;
+        background: rgba(255, 255, 255, 0.05);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: 12px;
+        margin-bottom: 8px;
+      }
+
+      #about .about-viz-toggle button {
+        flex: 1;
+        padding: 6px 12px;
+        background: transparent;
+        border: none;
+        border-radius: 8px;
+        color: rgba(255, 255, 255, 0.6);
+        font-size: 10px;
+        font-weight: 600;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        cursor: pointer;
+        transition: all 0.3s ease;
+      }
+
+      #about .about-viz-toggle button.active {
+        background: rgba(99, 102, 241, 0.3);
+        color: rgba(255, 255, 255, 0.95);
+        box-shadow: 0 2px 8px rgba(99, 102, 241, 0.2);
+      }
+
+      #about .about-viz-toggle button:hover:not(.active) {
+        background: rgba(255, 255, 255, 0.05);
+        color: rgba(255, 255, 255, 0.8);
+      }
+
+      #about .about-cloud-canvas {
+        width: 100%;
+        height: 260px;
+        border-radius: 16px;
+        background: radial-gradient(circle at 25% 20%, rgba(99, 102, 241, 0.18), transparent 60%),
+          radial-gradient(circle at 70% 80%, rgba(34, 211, 238, 0.14), transparent 60%),
+          rgba(6, 8, 12, 0.85);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        display: block;
+        cursor: grab;
+        box-shadow: inset 0 0 40px rgba(0, 0, 0, 0.4);
+      }
+
+      #about .about-cloud-canvas:active {
+        cursor: grabbing;
+      }
+
+      #about .about-viz-container {
+        position: relative;
+        width: 100%;
+      }
+
+      #about .about-viz-container canvas {
+        display: none;
+      }
+
+      #about .about-viz-container canvas.active {
+        display: block;
+      }
+
       #about .about-sphere-panel::before {
         content: '';
         position: absolute;
@@ -521,8 +605,15 @@
       </div>
       <div class="about-sphere-panel">
         <div class="about-sphere-title">Creative Orbit</div>
-        <canvas class="about-sphere-canvas" aria-label="Interactive text sphere"></canvas>
-        <div class="about-sphere-hint">Drag to roll the sphere</div>
+        <div class="about-viz-toggle">
+          <button class="active" data-viz="sphere">3D Sphere</button>
+          <button data-viz="cloud">Word Cloud</button>
+        </div>
+        <div class="about-viz-container">
+          <canvas class="about-sphere-canvas active" id="sphereCanvas" aria-label="Interactive text sphere"></canvas>
+          <canvas class="about-cloud-canvas" id="cloudCanvas" aria-label="Interactive word cloud"></canvas>
+        </div>
+        <div class="about-sphere-hint">Drag to interact</div>
       </div>
       <div class="about-hero-stats">
         <div class="about-stat-title">Now Building</div>
@@ -555,8 +646,29 @@
 
     aboutSection.prepend(layout);
 
-    const canvas = layout.querySelector('.about-sphere-canvas');
-    initSphereCanvas(canvas);
+    const sphereCanvas = layout.querySelector('#sphereCanvas');
+    const cloudCanvas = layout.querySelector('#cloudCanvas');
+    const toggleButtons = layout.querySelectorAll('.about-viz-toggle button');
+    
+    initSphereCanvas(sphereCanvas);
+    initCloudCanvas(cloudCanvas);
+    
+    // Toggle between visualizations
+    toggleButtons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        const vizType = btn.dataset.viz;
+        toggleButtons.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        
+        if (vizType === 'sphere') {
+          sphereCanvas.classList.add('active');
+          cloudCanvas.classList.remove('active');
+        } else {
+          sphereCanvas.classList.remove('active');
+          cloudCanvas.classList.add('active');
+        }
+      });
+    });
   }
 
   function initSphereCanvas(canvas) {
@@ -570,7 +682,7 @@
     let centerX = 0;
     let centerY = 0;
     let radius = 0;
-    const baseFont = 6;
+    const baseFont = 5;
 
     const points = SPHERE_WORDS.map((word, index) => {
       const goldenAngle = Math.PI * (3 - Math.sqrt(5));
@@ -692,6 +804,134 @@
     ro.observe(canvas);
     resize();
     tick();
+
+    canvas.addEventListener('pointerdown', onPointerDown);
+    canvas.addEventListener('pointermove', onPointerMove);
+    canvas.addEventListener('pointerup', onPointerUp);
+    canvas.addEventListener('pointerleave', onPointerUp);
+  }
+
+  function initCloudCanvas(canvas) {
+    if (!canvas) return;
+
+    const ctx = canvas.getContext('2d');
+    if (!ctx) return;
+
+    let width = 0;
+    let height = 0;
+    let animationId = null;
+    const particles = [];
+    const maxParticles = SPHERE_WORDS.length;
+    const baseFont = 5;
+
+    function resize() {
+      const rect = canvas.getBoundingClientRect();
+      const dpr = window.devicePixelRatio || 1;
+      width = rect.width;
+      height = rect.height;
+      canvas.width = Math.max(1, Math.floor(width * dpr));
+      canvas.height = Math.max(1, Math.floor(height * dpr));
+      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+      initParticles();
+    }
+
+    function initParticles() {
+      particles.length = 0;
+      SPHERE_WORDS.forEach((word, index) => {
+        const angle = (index / SPHERE_WORDS.length) * Math.PI * 2;
+        const radius = Math.random() * Math.min(width, height) * 0.35;
+        const x = width / 2 + Math.cos(angle) * radius;
+        const y = height / 2 + Math.sin(angle) * radius;
+        const vx = (Math.random() - 0.5) * 0.3;
+        const vy = (Math.random() - 0.5) * 0.3;
+        const size = baseFont * (0.8 + Math.random() * 0.6);
+        
+        particles.push({
+          word,
+          x,
+          y,
+          vx,
+          vy,
+          size,
+          angle: Math.random() * Math.PI * 2,
+          rotationSpeed: (Math.random() - 0.5) * 0.02
+        });
+      });
+    }
+
+    function update() {
+      particles.forEach(p => {
+        p.x += p.vx;
+        p.y += p.vy;
+        p.angle += p.rotationSpeed;
+
+        // Bounce off edges
+        if (p.x < 0 || p.x > width) p.vx *= -1;
+        if (p.y < 0 || p.y > height) p.vy *= -1;
+        p.x = Math.max(0, Math.min(width, p.x));
+        p.y = Math.max(0, Math.min(height, p.y));
+      });
+    }
+
+    function draw() {
+      ctx.clearRect(0, 0, width, height);
+      
+      particles.forEach(p => {
+        ctx.save();
+        ctx.translate(p.x, p.y);
+        ctx.rotate(p.angle);
+        ctx.font = `600 ${p.size}px 'Space Grotesk', system-ui, sans-serif`;
+        ctx.fillStyle = `rgba(230, 235, 255, ${0.4 + Math.random() * 0.4})`;
+        ctx.textAlign = 'center';
+        ctx.textBaseline = 'middle';
+        ctx.fillText(p.word, 0, 0);
+        ctx.restore();
+      });
+    }
+
+    function animate() {
+      if (!canvas.classList.contains('active')) {
+        animationId = requestAnimationFrame(animate);
+        return;
+      }
+      update();
+      draw();
+      animationId = requestAnimationFrame(animate);
+    }
+
+    let dragging = false;
+    let lastX = 0;
+    let lastY = 0;
+
+    function onPointerDown(event) {
+      dragging = true;
+      lastX = event.clientX;
+      lastY = event.clientY;
+    }
+
+    function onPointerMove(event) {
+      if (!dragging) return;
+      const dx = event.clientX - lastX;
+      const dy = event.clientY - lastY;
+      lastX = event.clientX;
+      lastY = event.clientY;
+      
+      particles.forEach(p => {
+        p.x += dx * 0.5;
+        p.y += dy * 0.5;
+        p.x = Math.max(0, Math.min(width, p.x));
+        p.y = Math.max(0, Math.min(height, p.y));
+      });
+    }
+
+    function onPointerUp() {
+      dragging = false;
+    }
+
+    const ro = new ResizeObserver(resize);
+    ro.observe(canvas);
+    resize();
+    animate();
 
     canvas.addEventListener('pointerdown', onPointerDown);
     canvas.addEventListener('pointermove', onPointerMove);
