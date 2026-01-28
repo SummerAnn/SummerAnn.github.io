@@ -180,6 +180,31 @@
         color: rgba(255, 255, 255, 0.8);
       }
 
+      #about .about-hero-actions {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        margin-top: 16px;
+      }
+
+      #about .about-action {
+        padding: 8px 14px;
+        border-radius: 999px;
+        font-size: 12px;
+        font-weight: 600;
+        text-decoration: none;
+        color: rgba(255, 255, 255, 0.85);
+        background: rgba(255, 255, 255, 0.08);
+        border: 1px solid rgba(255, 255, 255, 0.18);
+        transition: transform 0.2s ease, background 0.2s ease, border-color 0.2s ease;
+      }
+
+      #about .about-action:hover {
+        transform: translateY(-2px);
+        background: rgba(255, 255, 255, 0.16);
+        border-color: rgba(99, 102, 241, 0.45);
+      }
+
       #about .about-hero-label {
         display: inline-flex;
         align-items: center;
