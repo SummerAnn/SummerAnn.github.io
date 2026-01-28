@@ -1523,7 +1523,14 @@
       dragging = false;
     }
 
-    const ro = new ResizeObserver(resize);
+    const ro = new ResizeObserver(() => {
+      resize();
+      // Restart animation on resize
+      settledFrames = 0;
+      if (!animationId) {
+        animate();
+      }
+    });
     ro.observe(canvas);
     resize();
     animate();
