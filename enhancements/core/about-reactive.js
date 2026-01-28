@@ -86,12 +86,29 @@
       #about .about-hero-copy {
         padding: 24px 26px;
         border-radius: 22px;
-        background: linear-gradient(135deg, rgba(15, 18, 24, 0.92), rgba(10, 12, 18, 0.88));
+        background: 
+          linear-gradient(135deg, rgba(15, 18, 24, 0.85), rgba(10, 12, 18, 0.82)),
+          url('/images/myProfile.jpg');
+        background-size: cover;
+        background-position: center;
+        background-blend-mode: overlay;
         border: 1px solid rgba(255, 255, 255, 0.14);
         box-shadow: 0 24px 60px rgba(0, 0, 0, 0.45);
         position: relative;
         overflow: hidden;
         transition: transform 0.3s ease, box-shadow 0.3s ease;
+      }
+
+      #about .about-hero-copy::before {
+        content: '';
+        position: absolute;
+        inset: 0;
+        background: url('/images/myProfile.jpg');
+        background-size: cover;
+        background-position: center;
+        opacity: 0.25;
+        z-index: 0;
+        pointer-events: none;
       }
 
       #about .about-hero-copy::after {
@@ -100,7 +117,13 @@
         inset: 0;
         background: linear-gradient(120deg, rgba(99, 102, 241, 0.12), transparent 60%);
         opacity: 0.6;
+        z-index: 1;
         pointer-events: none;
+      }
+
+      #about .about-hero-copy > * {
+        position: relative;
+        z-index: 2;
       }
 
       #about .about-hero-copy:hover {
@@ -225,16 +248,6 @@
         line-height: 1.8;
         color: rgba(255, 255, 255, 0.75);
         margin-bottom: 16px;
-      }
-
-      #about .about-hero-quote {
-        margin: 16px 0;
-        padding: 12px 16px;
-        border-radius: 16px;
-        background: rgba(99, 102, 241, 0.12);
-        border: 1px solid rgba(99, 102, 241, 0.35);
-        font-size: 14px;
-        color: rgba(255, 255, 255, 0.85);
       }
 
       #about .about-sphere-panel {
@@ -414,8 +427,22 @@
       <div class="about-hero-copy">
         <span class="about-hero-label">About</span>
         <h2 class="about-hero-title">${heading}</h2>
-        <div class="about-hero-quote">Every big idea needs an Enabler.</div>
+        <div class="about-hero-quote">Every big idea needs an enabler.</div>
         ${copyHtml}
+        <div class="about-hero-highlights">
+          <div class="about-highlight">
+            <span>Research</span>
+            <strong>Machine learning, LLMs, computational medicine</strong>
+          </div>
+          <div class="about-highlight">
+            <span>Builder</span>
+            <strong>Systems → product → real-world impact</strong>
+          </div>
+          <div class="about-highlight">
+            <span>Creative</span>
+            <strong>Singer, actress, model, storyteller</strong>
+          </div>
+        </div>
       </div>
       <div class="about-sphere-panel">
         <div class="about-sphere-title">Creative Orbit</div>
