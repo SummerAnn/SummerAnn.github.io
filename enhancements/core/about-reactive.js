@@ -520,7 +520,7 @@
     let centerX = 0;
     let centerY = 0;
     let radius = 0;
-    const baseFont = 11;
+    const baseFont = 10;
 
     const points = SPHERE_WORDS.map((word, index) => {
       const goldenAngle = Math.PI * (3 - Math.sqrt(5));
@@ -592,7 +592,7 @@
       projected.forEach((p) => {
         if (p.scale < 0.6) return;
         const alpha = Math.min(1, Math.max(0.35, p.scale));
-        const size = baseFont * (0.8 + p.scale * 1.2);
+        const size = baseFont * (0.7 + p.scale * 1.0);
         ctx.font = `600 ${size}px 'Space Grotesk', system-ui, sans-serif`;
         ctx.fillStyle = `rgba(230, 235, 255, ${alpha})`;
         ctx.textAlign = 'center';
