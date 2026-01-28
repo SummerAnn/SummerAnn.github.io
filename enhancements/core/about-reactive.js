@@ -1280,27 +1280,43 @@
         });
       });
 
-      // Only create links within same category (cleaner, more organized)
-      for (let i = 0; i < nodes.length; i++) {
-        for (let j = i + 1; j < nodes.length; j++) {
-          if (nodes[i].category === nodes[j].category && nodes[i].category) {
-            links.push({
-              source: nodes[i],
-              target: nodes[j],
-              strength: 1.0
-            });
-          }
+      // Create sparse links - connect each node to only 1-2 nearby nodes in same category
+      // This prevents over-connection while maintaining visual clustering
+      const categoryNodes = {};
+      nodes.forEach(node => {
+        if (node.category) {
+          if (!categoryNodes[node.category]) categoryNodes[node.category] = [];
+          categoryNodes[node.category].push(node);
         }
-      }
+      });
+
+      // Connect adjacent nodes within each category (chain, not full mesh)
+      Object.values(categoryNodes).forEach(catNodes => {
+        for (let i = 0; i < catNodes.length - 1; i++) {
+          links.push({
+            source: catNodes[i],
+            target: catNodes[i + 1],
+            strength: 1.0
+          });
+        }
+        // Optional: close the loop for categories with 4+ nodes
+        if (catNodes.length >= 4) {
+          links.push({
+            source: catNodes[catNodes.length - 1],
+            target: catNodes[0],
+            strength: 0.5
+          });
+        }
+      });
     }
 
     function update() {
       const centerX = width / 2;
       const centerY = height / 2;
-      const k = 0.08; // Spring constant (softer)
-      const repulsion = 1200; // Stronger repulsion for better spacing
-      const damping = 0.95; // Very strong damping to settle quickly
-      const minDistance = 80; // Minimum distance between nodes
+      const k = 0.03; // Softer spring to reduce oscillation
+      const repulsion = 600; // Reduced repulsion for stability
+      const damping = 0.85; // Stronger damping (lower = more friction)
+      const minDistance = 70; // Minimum distance between nodes
 
       // Reset forces
       nodes.forEach(node => {
@@ -1422,9 +1438,9 @@
     let totalEnergy = 0;
     let settledFrames = 0;
     let maxIterations = 0;
-    const SETTLE_THRESHOLD = 0.1; // Much lower threshold
-    const SETTLE_FRAMES = 10; // Fewer frames needed
-    const MAX_ITERATIONS = 120; // Stop after ~2 seconds max
+    const SETTLE_THRESHOLD = 0.5; // Higher threshold = easier to settle
+    const SETTLE_FRAMES = 8; // Fewer frames needed
+    const MAX_ITERATIONS = 90; // Stop after ~1.5 seconds max
 
     function animate() {
       if (!canvas.classList.contains('active')) {
@@ -1472,6 +1488,7 @@
         });
         draw();
         animationId = null;
+        hasSettled = true;
         return;
       }
       
@@ -1540,14 +1557,26 @@
       dragging = false;
     }
 
+    let resizeTimeout = null;
+    let hasSettled = false;
+
     const ro = new ResizeObserver(() => {
-      resize();
-      // Restart animation on resize
-      settledFrames = 0;
-      maxIterations = 0;
-      if (!animationId) {
-        animate();
-      }
+      // Debounce resize events to prevent rapid re-triggering
+      if (resizeTimeout) clearTimeout(resizeTimeout);
+      resizeTimeout = setTimeout(() => {
+        const oldWidth = width;
+        const oldHeight = height;
+        resize();
+        // Only restart animation if size actually changed significantly
+        if (Math.abs(width - oldWidth) > 10 || Math.abs(height - oldHeight) > 10) {
+          hasSettled = false;
+          settledFrames = 0;
+          maxIterations = 0;
+          if (!animationId) {
+            animate();
+          }
+        }
+      }, 100);
     });
     ro.observe(canvas);
     resize();

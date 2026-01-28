@@ -143,8 +143,17 @@
     .video-overlay {
       position: absolute;
       inset: 0;
-      background: linear-gradient(180deg, rgba(0, 0, 0, 0.35) 0%, rgba(0, 0, 0, 0.8) 70%);
+      background: linear-gradient(180deg, transparent 0%, rgba(0, 0, 0, 0.25) 70%);
       pointer-events: none;
+    }
+
+    #trackerOverlay {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      transform: scaleX(-1);
     }
 
     .hero-status {
@@ -381,6 +390,182 @@
         padding: 24px;
       }
     }
+
+    /* Sign Language Styles */
+    .asl-display {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+      flex-wrap: wrap;
+    }
+
+    .asl-letter {
+      font-size: clamp(80px, 15vw, 140px);
+      font-weight: 700;
+      color: var(--accent);
+      text-shadow: 0 0 40px rgba(125, 92, 255, 0.5);
+      min-width: 120px;
+      text-align: center;
+      line-height: 1;
+    }
+
+    .asl-word {
+      display: flex;
+      gap: 4px;
+      flex-wrap: wrap;
+      padding: 12px 20px;
+      background: rgba(125, 92, 255, 0.1);
+      border-radius: 16px;
+      border: 1px solid rgba(125, 92, 255, 0.3);
+      min-height: 48px;
+      align-items: center;
+    }
+
+    .asl-word span {
+      font-size: 28px;
+      font-weight: 600;
+      color: var(--accent-alt);
+    }
+
+    .asl-actions {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .asl-hint {
+      font-size: 13px;
+      color: var(--text-soft);
+      padding: 8px 14px;
+      background: rgba(255, 255, 255, 0.04);
+      border-radius: 12px;
+      border: 1px solid var(--border);
+    }
+
+    /* Emotion Meter Styles */
+    .emotion-display {
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+      align-items: stretch;
+    }
+
+    .emotion-face {
+      font-size: 72px;
+      min-width: 100px;
+      text-align: center;
+      filter: drop-shadow(0 0 20px rgba(255, 255, 255, 0.3));
+    }
+
+    .emotion-bars {
+      flex: 1;
+      min-width: 200px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .emotion-bar {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .emotion-bar-label {
+      font-size: 13px;
+      color: var(--text-soft);
+      min-width: 80px;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    .emotion-bar-track {
+      flex: 1;
+      height: 8px;
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 999px;
+      overflow: hidden;
+    }
+
+    .emotion-bar-fill {
+      height: 100%;
+      border-radius: 999px;
+      transition: width 0.15s ease;
+    }
+
+    .emotion-bar-fill.happy { background: linear-gradient(90deg, #ffd700, #ffeb3b); }
+    .emotion-bar-fill.sad { background: linear-gradient(90deg, #5c6bc0, #7986cb); }
+    .emotion-bar-fill.surprised { background: linear-gradient(90deg, #ff7043, #ffab91); }
+    .emotion-bar-fill.neutral { background: linear-gradient(90deg, #78909c, #b0bec5); }
+
+    /* Head Tilt Racing Styles */
+    .racing-hud {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+      flex-wrap: wrap;
+      margin-bottom: 8px;
+    }
+
+    .racing-speed {
+      font-size: 24px;
+      font-weight: 600;
+      color: var(--accent-alt);
+    }
+
+    .racing-distance {
+      font-size: 14px;
+      color: var(--text-soft);
+    }
+
+    #racingCanvas {
+      min-height: 320px;
+    }
+
+    /* Mini Camera Preview Styles */
+    .mini-cam-wrapper {
+      position: relative;
+      width: 160px;
+      height: 120px;
+      border-radius: 12px;
+      overflow: hidden;
+      border: 1px solid var(--border);
+      background: #020107;
+      flex-shrink: 0;
+    }
+
+    .mini-cam-canvas {
+      width: 100%;
+      height: 100%;
+      transform: scaleX(-1);
+      min-height: auto;
+      border-radius: 0;
+      border: none;
+      background: transparent;
+      box-shadow: none;
+    }
+
+    .game-layout {
+      display: grid;
+      grid-template-columns: 1fr 160px;
+      gap: 16px;
+      align-items: start;
+    }
+
+    .game-layout canvas:not(.mini-cam-canvas) {
+      width: 100%;
+    }
+
+    @media (max-width: 600px) {
+      .game-layout {
+        grid-template-columns: 1fr;
+      }
+      .mini-cam-wrapper {
+        width: 100%;
+        height: 100px;
+      }
+    }
   </style>
 </head>
 <body>
@@ -392,14 +577,18 @@
         <h1>Webcam Game Lab</h1>
         <p>Use your camera to trigger hand-motion and eye-tracking games, and keep the photobooth experience alive inside the same playground.</p>
         <div class="hero-actions">
-          <a href="#photobooth" data-launch-photobooth>Launch Photobooth</a>
-          <a href="#hand-play">Play Hand Motion</a>
-          <a href="#eye-play">Eye Tracker Mode</a>
+          <a href="#photobooth" data-launch-photobooth>Photobooth</a>
+          <a href="#hand-play">Hand Game</a>
+          <a href="#eye-play">Eye Tracker</a>
+          <a href="#asl-play">Sign Language</a>
+          <a href="#emotion-play">Emotions</a>
+          <a href="#racing-play">Head Racing</a>
         </div>
       </div>
       <div class="hero-media">
         <div class="video-wrapper">
           <video id="webcamFeed" autoplay muted playsinline></video>
+          <canvas id="trackerOverlay" aria-hidden="true"></canvas>
           <div class="video-overlay"></div>
         </div>
         <div class="hero-status">
@@ -423,8 +612,23 @@
       </article>
       <article class="menu-card">
         <h3>Photobooth portal</h3>
-        <p>Launch the photobooth when you want to capture screenshots. It will borrow the camera so you can switch back to the games system once you’re done.</p>
+        <p>Launch the photobooth when you want to capture screenshots. It will borrow the camera so you can switch back to the games system once you're done.</p>
         <span class="menu-pill">Capture mode</span>
+      </article>
+      <article class="menu-card">
+        <h3>ASL alphabet</h3>
+        <p>Spell words using American Sign Language fingerspelling. Hold each letter pose steady and watch it appear on screen.</p>
+        <span class="menu-pill">Sign language</span>
+      </article>
+      <article class="menu-card">
+        <h3>Emotion meter</h3>
+        <p>Your face tells a story. Watch the bars react to your expressions — smile wide, look surprised, or keep it neutral.</p>
+        <span class="menu-pill">Face analysis</span>
+      </article>
+      <article class="menu-card">
+        <h3>Head tilt racing</h3>
+        <p>Steer a car down an endless road by tilting your head left or right. Dodge obstacles and see how far you can go.</p>
+        <span class="menu-pill">Motion control</span>
       </article>
     </section>
 
@@ -451,7 +655,12 @@
         </div>
         <div class="score-pill">Score: <span id="handScore">0</span></div>
       </div>
-      <canvas id="handGameCanvas"></canvas>
+      <div class="game-layout">
+        <canvas id="handGameCanvas"></canvas>
+        <div class="mini-cam-wrapper">
+          <canvas id="handMiniCam" class="mini-cam-canvas"></canvas>
+        </div>
+      </div>
       <p class="section-meta">Wave or reach forward to intersect the neon orbs. Every cleared orb adds to the combo streak, and missing too many respawns faster.</p>
     </section>
 
@@ -467,16 +676,105 @@
         <label for="eyeSensitivity">Sensitivity <span id="eyeSensitivityValue">0.8</span></label>
         <input id="eyeSensitivity" type="range" min="0.4" max="1.3" step="0.05" value="0.8">
       </div>
-      <canvas id="eyeGameCanvas"></canvas>
+      <div class="game-layout">
+        <canvas id="eyeGameCanvas"></canvas>
+        <div class="mini-cam-wrapper">
+          <canvas id="eyeMiniCam" class="mini-cam-canvas"></canvas>
+        </div>
+      </div>
       <p class="section-meta">The paddle follows where you are looking. Adjust the slider for buttery drift or quick snap depending on lighting.</p>
+    </section>
+
+    <section id="asl-play" class="game-section">
+      <div class="section-header">
+        <div>
+          <p class="status-tag">Sign language</p>
+          <h2>ASL Alphabet</h2>
+        </div>
+        <div class="score-pill">Letters: <span id="aslLetterCount">0</span></div>
+      </div>
+      <div class="game-layout" style="align-items: center;">
+        <div class="asl-display">
+          <div class="asl-letter" id="aslCurrentLetter">?</div>
+          <div>
+            <p class="section-meta" style="margin-bottom: 10px;">Spelled word:</p>
+            <div class="asl-word" id="aslWord"></div>
+          </div>
+        </div>
+        <div class="mini-cam-wrapper">
+          <canvas id="aslMiniCam" class="mini-cam-canvas"></canvas>
+        </div>
+      </div>
+      <div class="asl-actions">
+        <button class="cta-btn" id="aslClearBtn">Clear Word</button>
+        <button class="cta-btn secondary" id="aslBackspaceBtn">Backspace</button>
+        <button class="cta-btn secondary" id="aslSpaceBtn">Add Space</button>
+      </div>
+      <div class="asl-hint" id="aslHint">Hold your hand steady in an ASL letter pose. Detection works best with good lighting and your hand clearly visible.</div>
+      <p class="section-meta">Fingerspell words using ASL alphabet. Each letter needs to be held for a moment to register. Note: ASL grammar differs from English — this just helps practice fingerspelling!</p>
+    </section>
+
+    <section id="emotion-play" class="game-section">
+      <div class="section-header">
+        <div>
+          <p class="status-tag">Face analysis</p>
+          <h2>Emotion Meter</h2>
+        </div>
+        <div class="score-pill" id="emotionLabel">Detecting...</div>
+      </div>
+      <div class="game-layout" style="align-items: center;">
+        <div class="emotion-display">
+          <div class="emotion-face" id="emotionEmoji">🙂</div>
+          <div class="emotion-bars">
+            <div class="emotion-bar">
+              <span class="emotion-bar-label">Happy</span>
+              <div class="emotion-bar-track"><div class="emotion-bar-fill happy" id="happyBar" style="width: 0%"></div></div>
+            </div>
+            <div class="emotion-bar">
+              <span class="emotion-bar-label">Sad</span>
+              <div class="emotion-bar-track"><div class="emotion-bar-fill sad" id="sadBar" style="width: 0%"></div></div>
+            </div>
+            <div class="emotion-bar">
+              <span class="emotion-bar-label">Surprised</span>
+              <div class="emotion-bar-track"><div class="emotion-bar-fill surprised" id="surprisedBar" style="width: 0%"></div></div>
+            </div>
+            <div class="emotion-bar">
+              <span class="emotion-bar-label">Neutral</span>
+              <div class="emotion-bar-track"><div class="emotion-bar-fill neutral" id="neutralBar" style="width: 50%"></div></div>
+            </div>
+          </div>
+        </div>
+        <div class="mini-cam-wrapper">
+          <canvas id="emotionMiniCam" class="mini-cam-canvas"></canvas>
+        </div>
+      </div>
+      <p class="section-meta">Your expression is analyzed using face geometry — mouth shape, eyebrow position, and eye openness. Try smiling wide, raising your eyebrows, or keeping a poker face!</p>
+    </section>
+
+    <section id="racing-play" class="game-section">
+      <div class="section-header">
+        <div>
+          <p class="status-tag">Motion control</p>
+          <h2>Head Tilt Racing</h2>
+        </div>
+        <div class="score-pill">Distance: <span id="racingDistance">0</span>m</div>
+      </div>
+      <div class="racing-hud">
+        <span class="racing-speed" id="racingSpeed">0 km/h</span>
+        <span class="racing-distance">Dodge the obstacles!</span>
+      </div>
+      <div class="game-layout">
+        <canvas id="racingCanvas"></canvas>
+        <div class="mini-cam-wrapper">
+          <canvas id="racingMiniCam" class="mini-cam-canvas"></canvas>
+        </div>
+      </div>
+      <p class="section-meta">Tilt your head left or right to steer. The car speeds up over time — see how far you can go before crashing!</p>
     </section>
   </main>
 
-  <script src="https://cdn.jsdelivr.net/npm/@mediapipe/camera_utils@0.4/camera_utils.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/@mediapipe/hands@0.4/hands.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/@mediapipe/face_mesh@0.5/face_mesh.js"></script>
-  <script>
-    (function () {
+    <script>
+      (function () {
       const video = document.getElementById('webcamFeed');
       const statusEl = document.getElementById('webcamStatus');
       const retryBtn = document.getElementById('webcamRetry');
@@ -493,6 +791,8 @@
       const eyeCanvas = document.getElementById('eyeGameCanvas');
       const handCtx = handCanvas.getContext('2d');
       const eyeCtx = eyeCanvas.getContext('2d');
+      const trackerOverlay = document.getElementById('trackerOverlay');
+      const trackerCtx = trackerOverlay ? trackerOverlay.getContext('2d') : null;
 
       let cameraInstance = null;
       let hands = null;
@@ -517,6 +817,74 @@
       let photoboothActive = false;
       let photoboothIframe = null;
 
+      // ASL Elements
+      const aslCurrentLetter = document.getElementById('aslCurrentLetter');
+      const aslWord = document.getElementById('aslWord');
+      const aslLetterCount = document.getElementById('aslLetterCount');
+      const aslClearBtn = document.getElementById('aslClearBtn');
+      const aslBackspaceBtn = document.getElementById('aslBackspaceBtn');
+      const aslSpaceBtn = document.getElementById('aslSpaceBtn');
+      const aslHint = document.getElementById('aslHint');
+
+      // Emotion Elements
+      const emotionEmoji = document.getElementById('emotionEmoji');
+      const emotionLabel = document.getElementById('emotionLabel');
+      const happyBar = document.getElementById('happyBar');
+      const sadBar = document.getElementById('sadBar');
+      const surprisedBar = document.getElementById('surprisedBar');
+      const neutralBar = document.getElementById('neutralBar');
+
+      // Racing Elements
+      const racingCanvas = document.getElementById('racingCanvas');
+      const racingCtx = racingCanvas ? racingCanvas.getContext('2d') : null;
+      const racingDistanceEl = document.getElementById('racingDistance');
+      const racingSpeedEl = document.getElementById('racingSpeed');
+
+      // Mini Camera Canvases
+      const miniCams = {
+        hand: document.getElementById('handMiniCam'),
+        eye: document.getElementById('eyeMiniCam'),
+        asl: document.getElementById('aslMiniCam'),
+        emotion: document.getElementById('emotionMiniCam'),
+        racing: document.getElementById('racingMiniCam')
+      };
+      const miniCamCtxs = {};
+      Object.keys(miniCams).forEach(key => {
+        if (miniCams[key]) {
+          miniCamCtxs[key] = miniCams[key].getContext('2d');
+        }
+      });
+
+      // ASL State
+      const aslState = {
+        currentLetter: '?',
+        word: [],
+        letterCount: 0,
+        holdTime: 0,
+        lastLetter: null,
+        cooldown: 0
+      };
+
+      // Emotion State
+      const emotionState = {
+        happy: 0,
+        sad: 0,
+        surprised: 0,
+        neutral: 0.5,
+        dominant: 'neutral'
+      };
+
+      // Racing State
+      const racingState = {
+        carX: 0.5,
+        speed: 60,
+        distance: 0,
+        obstacles: [],
+        roadOffset: 0,
+        gameOver: false,
+        headTilt: 0
+      };
+
       function updateStatus(message, tone = 'muted') {
         statusEl.textContent = message;
         statusEl.style.color = tone === 'danger' ? '#ff7373' : tone === 'success' ? '#7ef5ff' : '#fff';
@@ -533,10 +901,746 @@
       function ensureCanvases() {
         resizeCanvas(handCanvas, handCtx);
         resizeCanvas(eyeCanvas, eyeCtx);
+        // Resize tracker overlay to match video wrapper
+        if (trackerOverlay && trackerCtx) {
+          const wrapper = trackerOverlay.parentElement;
+          const rect = wrapper.getBoundingClientRect();
+          const dpr = window.devicePixelRatio || 1;
+          trackerOverlay.width = rect.width * dpr;
+          trackerOverlay.height = rect.height * dpr;
+          trackerCtx.setTransform(dpr, 0, 0, dpr, 0, 0);
+        }
       }
 
       window.addEventListener('resize', ensureCanvases);
       ensureCanvases();
+
+      // Hand landmark connections (MediaPipe hand topology)
+      const HAND_CONNECTIONS = [
+        [0, 1], [1, 2], [2, 3], [3, 4],       // thumb
+        [0, 5], [5, 6], [6, 7], [7, 8],       // index
+        [0, 9], [9, 10], [10, 11], [11, 12],  // middle
+        [0, 13], [13, 14], [14, 15], [15, 16], // ring
+        [0, 17], [17, 18], [18, 19], [19, 20], // pinky
+        [5, 9], [9, 13], [13, 17]              // palm
+      ];
+
+      // Key face landmark indices
+      const FACE_OVAL = [10, 338, 297, 332, 284, 251, 389, 356, 454, 323, 361, 288, 397, 365, 379, 378, 400, 377, 152, 148, 176, 149, 150, 136, 172, 58, 132, 93, 234, 127, 162, 21, 54, 103, 67, 109];
+      const LEFT_EYE = [362, 382, 381, 380, 374, 373, 390, 249, 263, 466, 388, 387, 386, 385, 384, 398];
+      const RIGHT_EYE = [33, 7, 163, 144, 145, 153, 154, 155, 133, 173, 157, 158, 159, 160, 161, 246];
+      const LEFT_IRIS = [468, 469, 470, 471, 472];
+      const RIGHT_IRIS = [473, 474, 475, 476, 477];
+      const LIPS_OUTER = [61, 146, 91, 181, 84, 17, 314, 405, 321, 375, 291, 409, 270, 269, 267, 0, 37, 39, 40, 185];
+
+      function drawTrackerOverlay() {
+        if (!trackerCtx) return;
+        const width = trackerOverlay.width / (window.devicePixelRatio || 1);
+        const height = trackerOverlay.height / (window.devicePixelRatio || 1);
+        trackerCtx.clearRect(0, 0, width, height);
+
+        // Draw hand landmarks
+        if (lastHandLandmarks) {
+          // Draw connections
+          trackerCtx.strokeStyle = 'rgba(34, 211, 238, 0.7)';
+          trackerCtx.lineWidth = 2;
+          HAND_CONNECTIONS.forEach(([i, j]) => {
+            const p1 = lastHandLandmarks[i];
+            const p2 = lastHandLandmarks[j];
+            if (p1 && p2) {
+              trackerCtx.beginPath();
+              trackerCtx.moveTo(p1.x * width, p1.y * height);
+              trackerCtx.lineTo(p2.x * width, p2.y * height);
+              trackerCtx.stroke();
+            }
+          });
+
+          // Draw landmark points
+          lastHandLandmarks.forEach((point, idx) => {
+            const x = point.x * width;
+            const y = point.y * height;
+            // Fingertips are brighter
+            const isTip = [4, 8, 12, 16, 20].includes(idx);
+            trackerCtx.beginPath();
+            trackerCtx.arc(x, y, isTip ? 6 : 4, 0, Math.PI * 2);
+            trackerCtx.fillStyle = isTip ? 'rgba(125, 92, 255, 1)' : 'rgba(34, 211, 238, 0.9)';
+            trackerCtx.fill();
+          });
+        }
+
+        // Draw face landmarks
+        if (lastFaceLandmarks) {
+          // Draw face oval
+          trackerCtx.strokeStyle = 'rgba(125, 92, 255, 0.4)';
+          trackerCtx.lineWidth = 1.5;
+          trackerCtx.beginPath();
+          FACE_OVAL.forEach((idx, i) => {
+            const point = lastFaceLandmarks[idx];
+            if (point) {
+              const x = point.x * width;
+              const y = point.y * height;
+              if (i === 0) trackerCtx.moveTo(x, y);
+              else trackerCtx.lineTo(x, y);
+            }
+          });
+          trackerCtx.closePath();
+          trackerCtx.stroke();
+
+          // Draw eyes
+          [LEFT_EYE, RIGHT_EYE].forEach(eyeIndices => {
+            trackerCtx.strokeStyle = 'rgba(34, 211, 238, 0.6)';
+            trackerCtx.lineWidth = 1.5;
+            trackerCtx.beginPath();
+            eyeIndices.forEach((idx, i) => {
+              const point = lastFaceLandmarks[idx];
+              if (point) {
+                const x = point.x * width;
+                const y = point.y * height;
+                if (i === 0) trackerCtx.moveTo(x, y);
+                else trackerCtx.lineTo(x, y);
+              }
+            });
+            trackerCtx.closePath();
+            trackerCtx.stroke();
+          });
+
+          // Draw irises (filled circles)
+          [LEFT_IRIS, RIGHT_IRIS].forEach(irisIndices => {
+            const center = lastFaceLandmarks[irisIndices[0]];
+            if (center) {
+              trackerCtx.beginPath();
+              trackerCtx.arc(center.x * width, center.y * height, 8, 0, Math.PI * 2);
+              trackerCtx.fillStyle = 'rgba(125, 92, 255, 0.8)';
+              trackerCtx.fill();
+              trackerCtx.strokeStyle = 'rgba(255, 255, 255, 0.6)';
+              trackerCtx.lineWidth = 1;
+              trackerCtx.stroke();
+            }
+          });
+
+          // Draw lips
+          trackerCtx.strokeStyle = 'rgba(255, 115, 150, 0.5)';
+          trackerCtx.lineWidth = 1.5;
+          trackerCtx.beginPath();
+          LIPS_OUTER.forEach((idx, i) => {
+            const point = lastFaceLandmarks[idx];
+            if (point) {
+              const x = point.x * width;
+              const y = point.y * height;
+              if (i === 0) trackerCtx.moveTo(x, y);
+              else trackerCtx.lineTo(x, y);
+            }
+          });
+          trackerCtx.closePath();
+          trackerCtx.stroke();
+        }
+      }
+
+      // ===== MINI CAMERA DRAWING =====
+      function drawMiniCams() {
+        if (!video || video.readyState < 2) return;
+
+        Object.keys(miniCams).forEach(key => {
+          const canvas = miniCams[key];
+          const ctx = miniCamCtxs[key];
+          if (!canvas || !ctx) return;
+
+          // Resize canvas if needed
+          const rect = canvas.getBoundingClientRect();
+          if (canvas.width !== rect.width || canvas.height !== rect.height) {
+            canvas.width = rect.width;
+            canvas.height = rect.height;
+          }
+
+          const w = canvas.width;
+          const h = canvas.height;
+
+          // Draw video frame
+          ctx.drawImage(video, 0, 0, w, h);
+
+          // Draw hand landmarks (for hand and asl sections)
+          if ((key === 'hand' || key === 'asl') && lastHandLandmarks) {
+            ctx.strokeStyle = 'rgba(34, 211, 238, 0.8)';
+            ctx.lineWidth = 1.5;
+            HAND_CONNECTIONS.forEach(([i, j]) => {
+              const p1 = lastHandLandmarks[i];
+              const p2 = lastHandLandmarks[j];
+              if (p1 && p2) {
+                ctx.beginPath();
+                ctx.moveTo(p1.x * w, p1.y * h);
+                ctx.lineTo(p2.x * w, p2.y * h);
+                ctx.stroke();
+              }
+            });
+            lastHandLandmarks.forEach((point, idx) => {
+              const isTip = [4, 8, 12, 16, 20].includes(idx);
+              ctx.beginPath();
+              ctx.arc(point.x * w, point.y * h, isTip ? 4 : 2, 0, Math.PI * 2);
+              ctx.fillStyle = isTip ? 'rgba(125, 92, 255, 1)' : 'rgba(34, 211, 238, 0.9)';
+              ctx.fill();
+            });
+          }
+
+          // Draw face landmarks (for eye, emotion, racing sections)
+          if ((key === 'eye' || key === 'emotion' || key === 'racing') && lastFaceLandmarks) {
+            // Draw eyes
+            [LEFT_EYE, RIGHT_EYE].forEach(eyeIndices => {
+              ctx.strokeStyle = 'rgba(34, 211, 238, 0.7)';
+              ctx.lineWidth = 1;
+              ctx.beginPath();
+              eyeIndices.forEach((idx, i) => {
+                const point = lastFaceLandmarks[idx];
+                if (point) {
+                  if (i === 0) ctx.moveTo(point.x * w, point.y * h);
+                  else ctx.lineTo(point.x * w, point.y * h);
+                }
+              });
+              ctx.closePath();
+              ctx.stroke();
+            });
+
+            // Draw irises
+            [LEFT_IRIS, RIGHT_IRIS].forEach(irisIndices => {
+              const center = lastFaceLandmarks[irisIndices[0]];
+              if (center) {
+                ctx.beginPath();
+                ctx.arc(center.x * w, center.y * h, 4, 0, Math.PI * 2);
+                ctx.fillStyle = 'rgba(125, 92, 255, 0.9)';
+                ctx.fill();
+              }
+            });
+
+            // Draw face oval for emotion
+            if (key === 'emotion') {
+              ctx.strokeStyle = 'rgba(125, 92, 255, 0.4)';
+              ctx.lineWidth = 1;
+              ctx.beginPath();
+              FACE_OVAL.forEach((idx, i) => {
+                const point = lastFaceLandmarks[idx];
+                if (point) {
+                  if (i === 0) ctx.moveTo(point.x * w, point.y * h);
+                  else ctx.lineTo(point.x * w, point.y * h);
+                }
+              });
+              ctx.closePath();
+              ctx.stroke();
+
+              // Draw lips
+              ctx.strokeStyle = 'rgba(255, 115, 150, 0.6)';
+              ctx.beginPath();
+              LIPS_OUTER.forEach((idx, i) => {
+                const point = lastFaceLandmarks[idx];
+                if (point) {
+                  if (i === 0) ctx.moveTo(point.x * w, point.y * h);
+                  else ctx.lineTo(point.x * w, point.y * h);
+                }
+              });
+              ctx.closePath();
+              ctx.stroke();
+            }
+          }
+        });
+      }
+
+      // ===== ASL LETTER CLASSIFICATION =====
+      // Uses hand landmark geometry to classify ASL fingerspelling
+      function classifyASLLetter(landmarks) {
+        if (!landmarks || landmarks.length < 21) return null;
+
+        // Helper: get fingertip and base positions
+        const wrist = landmarks[0];
+        const thumbTip = landmarks[4];
+        const thumbIP = landmarks[3];
+        const indexTip = landmarks[8];
+        const indexPIP = landmarks[6];
+        const indexMCP = landmarks[5];
+        const middleTip = landmarks[12];
+        const middlePIP = landmarks[10];
+        const middleMCP = landmarks[9];
+        const ringTip = landmarks[16];
+        const ringPIP = landmarks[14];
+        const ringMCP = landmarks[13];
+        const pinkyTip = landmarks[20];
+        const pinkyPIP = landmarks[18];
+        const pinkyMCP = landmarks[17];
+
+        // Helper: distance between two points
+        const dist = (a, b) => Math.hypot(a.x - b.x, a.y - b.y, (a.z || 0) - (b.z || 0));
+
+        // Helper: check if finger is extended (tip above PIP)
+        const isExtended = (tip, pip, mcp) => tip.y < pip.y - 0.02;
+        const isCurled = (tip, pip, mcp) => tip.y > pip.y + 0.01;
+
+        // Finger states
+        const thumbOut = dist(thumbTip, indexMCP) > 0.08;
+        const indexUp = isExtended(indexTip, indexPIP, indexMCP);
+        const middleUp = isExtended(middleTip, middlePIP, middleMCP);
+        const ringUp = isExtended(ringTip, ringPIP, ringMCP);
+        const pinkyUp = isExtended(pinkyTip, pinkyPIP, pinkyMCP);
+
+        const indexCurled = isCurled(indexTip, indexPIP, indexMCP);
+        const middleCurled = isCurled(middleTip, middlePIP, middleMCP);
+        const ringCurled = isCurled(ringTip, ringPIP, ringMCP);
+        const pinkyCurled = isCurled(pinkyTip, pinkyPIP, pinkyMCP);
+
+        // Touching detection
+        const thumbIndexTouch = dist(thumbTip, indexTip) < 0.05;
+        const thumbMiddleTouch = dist(thumbTip, middleTip) < 0.05;
+
+        // Count extended fingers
+        const extendedCount = [indexUp, middleUp, ringUp, pinkyUp].filter(Boolean).length;
+
+        // ASL Letter Classification (simplified but functional)
+        // A: Fist with thumb beside
+        if (!indexUp && !middleUp && !ringUp && !pinkyUp && thumbOut) return 'A';
+
+        // B: Four fingers up, thumb tucked
+        if (indexUp && middleUp && ringUp && pinkyUp && !thumbOut) return 'B';
+
+        // C: Curved hand (fingers together, curved)
+        if (indexUp && middleUp && ringUp && pinkyUp && thumbOut &&
+            dist(indexTip, pinkyTip) < 0.12) return 'C';
+
+        // D: Index up, others touch thumb
+        if (indexUp && !middleUp && !ringUp && !pinkyUp && thumbMiddleTouch) return 'D';
+
+        // E: All fingers curled, thumb tucked
+        if (indexCurled && middleCurled && ringCurled && pinkyCurled && !thumbOut) return 'E';
+
+        // F: Index and thumb circle, others up
+        if (thumbIndexTouch && middleUp && ringUp && pinkyUp) return 'F';
+
+        // G: Index pointing sideways, thumb out
+        if (indexUp && !middleUp && !ringUp && !pinkyUp && thumbOut &&
+            Math.abs(indexTip.x - wrist.x) > 0.1) return 'G';
+
+        // H: Index and middle pointing sideways
+        if (indexUp && middleUp && !ringUp && !pinkyUp &&
+            Math.abs(indexTip.x - wrist.x) > 0.08) return 'H';
+
+        // I: Pinky up only
+        if (!indexUp && !middleUp && !ringUp && pinkyUp) return 'I';
+
+        // K: Index and middle up, spread, thumb between
+        if (indexUp && middleUp && !ringUp && !pinkyUp &&
+            dist(indexTip, middleTip) > 0.06) return 'K';
+
+        // L: Index up, thumb out (L shape)
+        if (indexUp && !middleUp && !ringUp && !pinkyUp && thumbOut &&
+            dist(thumbTip, indexTip) > 0.12) return 'L';
+
+        // M: Three fingers over thumb
+        if (!indexUp && !middleUp && !ringUp && !pinkyUp && !thumbOut) return 'M';
+
+        // N: Two fingers over thumb (similar to M but different position)
+        // O: Fingers and thumb make O shape
+        if (thumbIndexTouch && !middleUp && !ringUp && !pinkyUp &&
+            indexCurled) return 'O';
+
+        // P: Like K but pointing down
+        if (indexUp && middleUp && !ringUp && !pinkyUp &&
+            indexTip.y > wrist.y) return 'P';
+
+        // Q: Like G but pointing down
+        if (indexUp && !middleUp && !ringUp && !pinkyUp && thumbOut &&
+            indexTip.y > wrist.y) return 'Q';
+
+        // R: Index and middle crossed
+        if (indexUp && middleUp && !ringUp && !pinkyUp &&
+            Math.abs(indexTip.x - middleTip.x) < 0.02) return 'R';
+
+        // S: Fist with thumb over fingers
+        if (!indexUp && !middleUp && !ringUp && !pinkyUp && !thumbOut) return 'S';
+
+        // U: Index and middle up together
+        if (indexUp && middleUp && !ringUp && !pinkyUp &&
+            dist(indexTip, middleTip) < 0.04) return 'U';
+
+        // V: Index and middle up, spread (peace sign)
+        if (indexUp && middleUp && !ringUp && !pinkyUp &&
+            dist(indexTip, middleTip) > 0.05) return 'V';
+
+        // W: Index, middle, ring up
+        if (indexUp && middleUp && ringUp && !pinkyUp) return 'W';
+
+        // X: Index bent like a hook
+        if (!indexUp && indexTip.y < indexPIP.y && !middleUp && !ringUp && !pinkyUp) return 'X';
+
+        // Y: Thumb and pinky out
+        if (!indexUp && !middleUp && !ringUp && pinkyUp && thumbOut) return 'Y';
+
+        return null;
+      }
+
+      function updateASL(delta) {
+        if (!lastHandLandmarks) {
+          aslState.holdTime = 0;
+          aslState.lastLetter = null;
+          return;
+        }
+
+        const detected = classifyASLLetter(lastHandLandmarks);
+
+        if (aslState.cooldown > 0) {
+          aslState.cooldown -= delta;
+          return;
+        }
+
+        if (detected) {
+          aslCurrentLetter.textContent = detected;
+          aslCurrentLetter.style.opacity = '1';
+          aslHint.textContent = `Detected: ${detected} — hold steady to add`;
+
+          if (detected === aslState.lastLetter) {
+            aslState.holdTime += delta;
+            // Need to hold for ~30 frames (~0.5s) to register
+            if (aslState.holdTime > 30) {
+              aslState.word.push(detected);
+              aslState.letterCount++;
+              aslState.holdTime = 0;
+              aslState.cooldown = 20; // Prevent rapid repeats
+              updateASLDisplay();
+              aslHint.textContent = `Added "${detected}"! Show next letter.`;
+            }
+          } else {
+            aslState.holdTime = 0;
+            aslState.lastLetter = detected;
+          }
+        } else {
+          aslCurrentLetter.style.opacity = '0.4';
+          aslState.holdTime = 0;
+          aslHint.textContent = 'Hold your hand in an ASL letter pose...';
+        }
+      }
+
+      function updateASLDisplay() {
+        aslWord.innerHTML = aslState.word.map(l =>
+          l === ' ' ? '<span style="width:12px"></span>' : `<span>${l}</span>`
+        ).join('');
+        aslLetterCount.textContent = aslState.letterCount;
+      }
+
+      if (aslClearBtn) aslClearBtn.addEventListener('click', () => {
+        aslState.word = [];
+        updateASLDisplay();
+      });
+
+      if (aslBackspaceBtn) aslBackspaceBtn.addEventListener('click', () => {
+        aslState.word.pop();
+        updateASLDisplay();
+      });
+
+      if (aslSpaceBtn) aslSpaceBtn.addEventListener('click', () => {
+        aslState.word.push(' ');
+        updateASLDisplay();
+      });
+
+      // ===== EMOTION DETECTION =====
+      function detectEmotion(landmarks) {
+        if (!landmarks) return;
+
+        // Key face points for emotion detection
+        // Mouth corners (outer)
+        const leftMouthCorner = landmarks[61];
+        const rightMouthCorner = landmarks[291];
+        // Lips
+        const upperLipTop = landmarks[0];
+        const upperLipBottom = landmarks[13];
+        const lowerLipTop = landmarks[14];
+        const lowerLipBottom = landmarks[17];
+        // Eyes
+        const leftEyeTop = landmarks[159];
+        const leftEyeBottom = landmarks[145];
+        const rightEyeTop = landmarks[386];
+        const rightEyeBottom = landmarks[374];
+        // Eyebrows (inner and outer)
+        const leftBrowInner = landmarks[107];
+        const leftBrowOuter = landmarks[70];
+        const rightBrowInner = landmarks[336];
+        const rightBrowOuter = landmarks[300];
+        // Reference points
+        const noseTip = landmarks[4];
+        const noseBase = landmarks[2];
+
+        // Calculate metrics
+        // Mouth openness (vertical distance between lips)
+        const mouthOpenness = Math.abs(lowerLipTop.y - upperLipBottom.y);
+
+        // Mouth width
+        const mouthWidth = Math.abs(rightMouthCorner.x - leftMouthCorner.x);
+
+        // Smile detection: mouth corners position relative to mouth center
+        // When smiling, corners move UP (lower y value) and OUT (wider)
+        const mouthCornerAvgY = (leftMouthCorner.y + rightMouthCorner.y) / 2;
+        const lipCenterY = (upperLipBottom.y + lowerLipTop.y) / 2;
+        // Positive = corners above lip center (smile), Negative = corners below (frown)
+        const mouthCurvature = (lipCenterY - mouthCornerAvgY) * 100;
+
+        // Eye openness
+        const leftEyeOpenness = Math.abs(leftEyeBottom.y - leftEyeTop.y);
+        const rightEyeOpenness = Math.abs(rightEyeBottom.y - rightEyeTop.y);
+        const eyeOpenness = (leftEyeOpenness + rightEyeOpenness) / 2;
+
+        // Eyebrow raise (distance from eye to brow)
+        const leftBrowHeight = leftEyeTop.y - leftBrowInner.y;
+        const rightBrowHeight = rightEyeTop.y - rightBrowInner.y;
+        const browRaise = (leftBrowHeight + rightBrowHeight) / 2;
+
+        // Brow furrow (inner brows coming together) - indicates concern/sadness
+        const browFurrow = Math.abs(rightBrowInner.x - leftBrowInner.x);
+
+        // Inner brow raise relative to outer (sad indicator)
+        const leftInnerBrowRaise = leftBrowOuter.y - leftBrowInner.y;
+        const rightInnerBrowRaise = rightBrowOuter.y - rightBrowInner.y;
+        const innerBrowRaise = (leftInnerBrowRaise + rightInnerBrowRaise) / 2;
+
+        // Calculate emotion scores
+        let happy = 0, sad = 0, surprised = 0, neutral = 0;
+
+        // Happy: wide mouth, corners turned up, eyes slightly squinted
+        const smileScore = mouthCurvature * 2 + (mouthWidth - 0.15) * 5;
+        happy = Math.max(0, Math.min(1, smileScore));
+
+        // Surprised: raised brows, wide open eyes, open mouth
+        const surpriseScore = (browRaise - 0.02) * 15 + (eyeOpenness - 0.015) * 20 + mouthOpenness * 8;
+        surprised = Math.max(0, Math.min(1, surpriseScore));
+
+        // Sad: inner brows raised, mouth corners down, brows furrowed
+        // Inner brow raise is a key sad indicator (the "worry" look)
+        const sadScore =
+          Math.max(0, -mouthCurvature * 2) +       // Frown (negative curvature)
+          Math.max(0, innerBrowRaise * 15) +        // Inner brow raise
+          Math.max(0, (0.08 - browFurrow) * 10) +   // Brows coming together
+          Math.max(0, (0.025 - browRaise) * 10);    // Lowered brows overall
+        sad = Math.max(0, Math.min(1, sadScore));
+
+        // Neutral: absence of strong emotions
+        const emotionIntensity = Math.max(happy, sad, surprised);
+        neutral = Math.max(0, Math.min(1, 1 - emotionIntensity * 1.2));
+
+        // Smooth the values for stability
+        const smooth = 0.12;
+        emotionState.happy += (happy - emotionState.happy) * smooth;
+        emotionState.sad += (sad - emotionState.sad) * smooth;
+        emotionState.surprised += (surprised - emotionState.surprised) * smooth;
+        emotionState.neutral += (neutral - emotionState.neutral) * smooth;
+
+        // Find dominant emotion
+        const emotions = [
+          { name: 'happy', value: emotionState.happy, emoji: '😊' },
+          { name: 'sad', value: emotionState.sad, emoji: '😢' },
+          { name: 'surprised', value: emotionState.surprised, emoji: '😮' },
+          { name: 'neutral', value: emotionState.neutral, emoji: '😐' }
+        ];
+        emotions.sort((a, b) => b.value - a.value);
+        emotionState.dominant = emotions[0].name;
+
+        // Update UI
+        if (happyBar) happyBar.style.width = `${emotionState.happy * 100}%`;
+        if (sadBar) sadBar.style.width = `${emotionState.sad * 100}%`;
+        if (surprisedBar) surprisedBar.style.width = `${emotionState.surprised * 100}%`;
+        if (neutralBar) neutralBar.style.width = `${emotionState.neutral * 100}%`;
+        if (emotionEmoji) emotionEmoji.textContent = emotions[0].emoji;
+        if (emotionLabel) emotionLabel.textContent = emotions[0].name.charAt(0).toUpperCase() + emotions[0].name.slice(1);
+      }
+
+      // ===== HEAD TILT RACING =====
+      function initRacing() {
+        if (!racingCanvas) return;
+        resizeCanvas(racingCanvas, racingCtx);
+        racingState.carX = 0.5;
+        racingState.speed = 60;
+        racingState.distance = 0;
+        racingState.obstacles = [];
+        racingState.gameOver = false;
+      }
+
+      function detectHeadTilt(landmarks) {
+        if (!landmarks) return 0;
+
+        // Use nose and face edges to detect tilt
+        const noseTip = landmarks[4];
+        const leftCheek = landmarks[234];
+        const rightCheek = landmarks[454];
+
+        // Calculate face center
+        const faceCenter = (leftCheek.x + rightCheek.x) / 2;
+
+        // Nose deviation from center indicates tilt
+        const tilt = (noseTip.x - faceCenter) * 8;
+
+        return Math.max(-1, Math.min(1, tilt));
+      }
+
+      function spawnObstacle() {
+        const lane = Math.random();
+        return {
+          x: lane,
+          y: -0.1,
+          width: 0.12 + Math.random() * 0.08,
+          hue: 0 + Math.random() * 40
+        };
+      }
+
+      function updateRacing(delta) {
+        if (!racingCanvas || racingState.gameOver) return;
+
+        // Detect head tilt from face landmarks
+        racingState.headTilt = detectHeadTilt(lastFaceLandmarks);
+
+        // Move car based on head tilt
+        racingState.carX += racingState.headTilt * delta * 0.015;
+        racingState.carX = Math.max(0.1, Math.min(0.9, racingState.carX));
+
+        // Increase speed over time
+        racingState.speed += delta * 0.02;
+        racingState.distance += racingState.speed * delta * 0.001;
+
+        // Move road
+        racingState.roadOffset += racingState.speed * delta * 0.0005;
+
+        // Spawn obstacles
+        if (Math.random() < 0.015 * delta) {
+          racingState.obstacles.push(spawnObstacle());
+        }
+
+        // Update obstacles
+        racingState.obstacles.forEach(obs => {
+          obs.y += racingState.speed * delta * 0.0004;
+        });
+
+        // Check collisions
+        const carY = 0.8;
+        const carWidth = 0.08;
+        racingState.obstacles.forEach(obs => {
+          if (obs.y > carY - 0.05 && obs.y < carY + 0.08) {
+            if (Math.abs(obs.x - racingState.carX) < (obs.width + carWidth) / 2) {
+              racingState.gameOver = true;
+            }
+          }
+        });
+
+        // Remove passed obstacles
+        racingState.obstacles = racingState.obstacles.filter(obs => obs.y < 1.2);
+
+        // Update UI
+        racingDistanceEl.textContent = Math.floor(racingState.distance);
+        racingSpeedEl.textContent = `${Math.floor(racingState.speed)} km/h`;
+
+        drawRacing();
+      }
+
+      function drawRacing() {
+        if (!racingCtx) return;
+        const width = racingCanvas.width / (window.devicePixelRatio || 1);
+        const height = racingCanvas.height / (window.devicePixelRatio || 1);
+
+        // Sky gradient
+        const skyGrad = racingCtx.createLinearGradient(0, 0, 0, height * 0.4);
+        skyGrad.addColorStop(0, '#1a1a2e');
+        skyGrad.addColorStop(1, '#16213e');
+        racingCtx.fillStyle = skyGrad;
+        racingCtx.fillRect(0, 0, width, height * 0.4);
+
+        // Road
+        const roadGrad = racingCtx.createLinearGradient(0, height * 0.4, 0, height);
+        roadGrad.addColorStop(0, '#2d2d2d');
+        roadGrad.addColorStop(1, '#1a1a1a');
+        racingCtx.fillStyle = roadGrad;
+        racingCtx.fillRect(width * 0.15, height * 0.4, width * 0.7, height * 0.6);
+
+        // Road lines
+        racingCtx.strokeStyle = '#ffeb3b';
+        racingCtx.lineWidth = 3;
+        racingCtx.setLineDash([20, 20]);
+        racingCtx.lineDashOffset = -racingState.roadOffset * height;
+        racingCtx.beginPath();
+        racingCtx.moveTo(width * 0.5, height * 0.4);
+        racingCtx.lineTo(width * 0.5, height);
+        racingCtx.stroke();
+        racingCtx.setLineDash([]);
+
+        // Road edges
+        racingCtx.strokeStyle = '#fff';
+        racingCtx.lineWidth = 4;
+        racingCtx.beginPath();
+        racingCtx.moveTo(width * 0.15, height * 0.4);
+        racingCtx.lineTo(width * 0.15, height);
+        racingCtx.moveTo(width * 0.85, height * 0.4);
+        racingCtx.lineTo(width * 0.85, height);
+        racingCtx.stroke();
+
+        // Obstacles
+        racingState.obstacles.forEach(obs => {
+          const obsX = width * (0.15 + obs.x * 0.7);
+          const obsY = height * obs.y;
+          const obsW = width * obs.width;
+          const obsH = 30;
+
+          racingCtx.fillStyle = `hsl(${obs.hue}, 70%, 50%)`;
+          racingCtx.fillRect(obsX - obsW/2, obsY, obsW, obsH);
+          racingCtx.strokeStyle = '#fff';
+          racingCtx.lineWidth = 2;
+          racingCtx.strokeRect(obsX - obsW/2, obsY, obsW, obsH);
+        });
+
+        // Car
+        const carX = width * (0.15 + racingState.carX * 0.7);
+        const carY = height * 0.8;
+        const carW = 36;
+        const carH = 50;
+
+        // Car body
+        racingCtx.fillStyle = '#22d3ee';
+        racingCtx.beginPath();
+        racingCtx.roundRect(carX - carW/2, carY, carW, carH, 8);
+        racingCtx.fill();
+
+        // Car windshield
+        racingCtx.fillStyle = 'rgba(255,255,255,0.3)';
+        racingCtx.fillRect(carX - carW/3, carY + 8, carW * 0.66, 15);
+
+        // Headlights
+        racingCtx.fillStyle = '#ffeb3b';
+        racingCtx.fillRect(carX - carW/2 + 4, carY, 8, 4);
+        racingCtx.fillRect(carX + carW/2 - 12, carY, 8, 4);
+
+        // Game over overlay
+        if (racingState.gameOver) {
+          racingCtx.fillStyle = 'rgba(0, 0, 0, 0.7)';
+          racingCtx.fillRect(0, 0, width, height);
+          racingCtx.fillStyle = '#ff6b6b';
+          racingCtx.font = 'bold 36px Space Grotesk, sans-serif';
+          racingCtx.textAlign = 'center';
+          racingCtx.fillText('CRASH!', width/2, height/2 - 20);
+          racingCtx.fillStyle = '#fff';
+          racingCtx.font = '18px Space Grotesk, sans-serif';
+          racingCtx.fillText(`Distance: ${Math.floor(racingState.distance)}m`, width/2, height/2 + 20);
+          racingCtx.fillText('Tilt head to restart', width/2, height/2 + 50);
+
+          // Restart on head tilt
+          if (Math.abs(racingState.headTilt) > 0.3) {
+            initRacing();
+          }
+        }
+
+        // Tilt indicator
+        const tiltIndicatorX = width * 0.5 + racingState.headTilt * 40;
+        racingCtx.fillStyle = 'rgba(125, 92, 255, 0.8)';
+        racingCtx.beginPath();
+        racingCtx.arc(tiltIndicatorX, 30, 8, 0, Math.PI * 2);
+        racingCtx.fill();
+      }
+
+      // Initialize racing on load
+      if (racingCanvas) {
+        initRacing();
+        window.addEventListener('resize', () => {
+          if (racingCanvas && racingCtx) {
+            resizeCanvas(racingCanvas, racingCtx);
+          }
+        });
+      }
 
       function createHandTarget() {
         const width = handCanvas.width;
@@ -716,24 +1820,67 @@
         const delta = (timestamp - lastTimestamp) / 16;
         lastTimestamp = timestamp;
 
+        drawTrackerOverlay();
+        drawMiniCams();
         updateHandGame(delta);
         updateEyeGame(delta);
+        updateASL(delta);
+        detectEmotion(lastFaceLandmarks);
+        updateRacing(delta);
         requestAnimationFrame(gameLoop);
       }
 
+      // MediaPipe: load ONLY from checked-in assets (no CDN). Version-pinned: hands@0.4.1675469240, face_mesh@0.4.1633559619, camera_utils@0.3.1675466862
+      const MEDIAPIPE_BASE = (typeof window !== 'undefined' && window.MEDIAPIPE_BASE) || '/static/mediapipe';
+
+      async function loadScript(url) {
+        return new Promise((resolve, reject) => {
+          if (document.querySelector(`script[src="${url}"]`)) {
+            resolve();
+            return;
+          }
+          const tag = document.createElement('script');
+          tag.src = url;
+          tag.crossOrigin = 'anonymous';
+          tag.onload = () => resolve();
+          tag.onerror = (err) => reject(new Error(`Failed to load script ${url}`));
+          document.head.appendChild(tag);
+        });
+      }
+
+      async function loadMediaPipeAssets() {
+        // Load only from local paths (no CDN fallback)
+        await loadScript(MEDIAPIPE_BASE + '/camera_utils.js');
+        await loadScript(MEDIAPIPE_BASE + '/hands/hands.js');
+        await loadScript(MEDIAPIPE_BASE + '/face_mesh/face_mesh.js');
+      }
+
       async function buildHands() {
+        // Always use local paths (no CDN)
+        // MediaPipe requests files with paths like "third_party/mediapipe/modules/hand_landmark/hand_landmark_full.tflite"
+        // We need to extract just the filename and map it to our local structure
+        const handsBase = MEDIAPIPE_BASE + '/hands/';
+        const faceMeshBase = MEDIAPIPE_BASE + '/face_mesh/';
+        
+        function getBasename(path) {
+          // Extract filename from path (handles both "hand_landmark_full.tflite" and "third_party/.../hand_landmark_full.tflite")
+          const parts = path.split('/');
+          return parts[parts.length - 1];
+        }
+        
         hands = new Hands({
-          locateFile: (file) => `https://cdn.jsdelivr.net/npm/@mediapipe/hands@0.4/${file}`
+          locateFile: (file) => handsBase + getBasename(file)
         });
         hands.setOptions({
           maxNumHands: 1,
           minDetectionConfidence: 0.65,
-          minTrackingConfidence: 0.65
+          minTrackingConfidence: 0.65,
+          modelComplexity: 1  // Use full model
         });
         hands.onResults(handleHands);
 
         faceMesh = new FaceMesh({
-          locateFile: (file) => `https://cdn.jsdelivr.net/npm/@mediapipe/face_mesh@0.5/${file}`
+          locateFile: (file) => faceMeshBase + getBasename(file)
         });
         faceMesh.setOptions({
           maxNumFaces: 1,
@@ -744,7 +1891,23 @@
         faceMesh.onResults(handleFace);
       }
 
+      function checkSecureContext() {
+        if (!window.isSecureContext && location.protocol !== 'http:' && location.protocol !== 'https:') {
+          updateStatus('Camera requires HTTPS', 'danger');
+          return false;
+        }
+        if (location.protocol === 'http:' && (!['localhost', '127.0.0.1'].includes(location.hostname))) {
+          updateStatus('Camera blocked on HTTP', 'danger');
+          return false;
+        }
+        return true;
+      }
+
       function startCameraEngine() {
+        if (!checkSecureContext()) {
+          return Promise.reject(new Error('insecure context'));
+        }
+
         if (cameraInstance) {
           cameraInstance.stop();
           cameraInstance = null;
@@ -774,8 +1937,10 @@
             updateStatus('Camera streaming live', 'success');
           })
           .catch((err) => {
-            console.error(err);
-            updateStatus('Camera blocked or unavailable', 'danger');
+            console.error('Camera start error', err);
+            const message = err?.message || 'Camera blocked or unavailable';
+            updateStatus(message, 'danger');
+            throw err;
           });
       }
 
@@ -848,13 +2013,19 @@
         eyeSensitivityValue.textContent = eyeSensitivity.value;
       });
 
-      buildHands().then(() => {
-        startCameraEngine();
-        requestAnimationFrame(gameLoop);
-      }).catch((err) => {
-        console.error('MediaPipe init error', err);
-        updateStatus('Unable to initialize camera helpers', 'danger');
-      });
+      async function initWebcamLab() {
+        try {
+          await loadMediaPipeAssets();
+          await buildHands();
+          await startCameraEngine();
+          requestAnimationFrame(gameLoop);
+        } catch (err) {
+          console.error('MediaPipe init error', err);
+          updateStatus('Unable to initialize camera helpers', 'danger');
+        }
+      }
+
+      initWebcamLab();
     })();
   </script>
 </body>
