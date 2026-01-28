@@ -386,7 +386,8 @@
         color: rgba(255, 255, 255, 0.8);
       }
 
-      #about .about-cloud-canvas {
+      #about .about-cloud-canvas,
+      #about .about-graph-canvas {
         width: 100%;
         height: 260px;
         border-radius: 16px;
@@ -399,7 +400,8 @@
         box-shadow: inset 0 0 40px rgba(0, 0, 0, 0.4);
       }
 
-      #about .about-cloud-canvas:active {
+      #about .about-cloud-canvas:active,
+      #about .about-graph-canvas:active {
         cursor: grabbing;
       }
 
@@ -608,10 +610,12 @@
         <div class="about-viz-toggle">
           <button class="active" data-viz="sphere">3D Sphere</button>
           <button data-viz="cloud">Word Cloud</button>
+          <button data-viz="graph">Network</button>
         </div>
         <div class="about-viz-container">
           <canvas class="about-sphere-canvas active" id="sphereCanvas" aria-label="Interactive text sphere"></canvas>
           <canvas class="about-cloud-canvas" id="cloudCanvas" aria-label="Interactive word cloud"></canvas>
+          <canvas class="about-graph-canvas" id="graphCanvas" aria-label="Interactive word network graph"></canvas>
         </div>
         <div class="about-sphere-hint">Drag to interact</div>
       </div>
@@ -648,10 +652,12 @@
 
     const sphereCanvas = layout.querySelector('#sphereCanvas');
     const cloudCanvas = layout.querySelector('#cloudCanvas');
+    const graphCanvas = layout.querySelector('#graphCanvas');
     const toggleButtons = layout.querySelectorAll('.about-viz-toggle button');
     
     initSphereCanvas(sphereCanvas);
     initCloudCanvas(cloudCanvas);
+    initGraphCanvas(graphCanvas);
     
     // Toggle between visualizations
     toggleButtons.forEach(btn => {
@@ -660,13 +666,9 @@
         toggleButtons.forEach(b => b.classList.remove('active'));
         btn.classList.add('active');
         
-        if (vizType === 'sphere') {
-          sphereCanvas.classList.add('active');
-          cloudCanvas.classList.remove('active');
-        } else {
-          sphereCanvas.classList.remove('active');
-          cloudCanvas.classList.add('active');
-        }
+        sphereCanvas.classList.toggle('active', vizType === 'sphere');
+        cloudCanvas.classList.toggle('active', vizType === 'cloud');
+        graphCanvas.classList.toggle('active', vizType === 'graph');
       });
     });
   }
