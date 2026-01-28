@@ -245,6 +245,43 @@
       gap: 14px;
     }
 
+    .embed-wrapper.embed-placeholder {
+      background: rgba(255, 255, 255, 0.02);
+      padding: 26px;
+    }
+    .embed-wrapper.embed-placeholder.is-active {
+      background: rgba(255, 255, 255, 0.04);
+    }
+
+    .photobooth-actions {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-top: 8px;
+    }
+
+    .cta-btn {
+      padding: 10px 16px;
+      border-radius: 999px;
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      background: linear-gradient(120deg, rgba(99, 102, 241, 0.8), rgba(14, 165, 233, 0.7));
+      color: #fff;
+      letter-spacing: 0.08em;
+      font-size: 13px;
+      cursor: pointer;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .cta-btn.secondary {
+      background: rgba(255, 255, 255, 0.05);
+      border-color: rgba(255, 255, 255, 0.15);
+    }
+
+    .cta-btn:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 8px 20px rgba(14, 165, 233, 0.3);
+    }
+
     .embed-wrapper iframe {
       width: 100%;
       min-height: 440px;
@@ -355,7 +392,7 @@
         <h1>Webcam Game Lab</h1>
         <p>Use your camera to trigger hand-motion and eye-tracking games, and keep the photobooth experience alive inside the same playground.</p>
         <div class="hero-actions">
-          <a href="#photobooth">Launch Photobooth</a>
+          <a href="#photobooth" data-launch-photobooth>Launch Photobooth</a>
           <a href="#hand-play">Play Hand Motion</a>
           <a href="#eye-play">Eye Tracker Mode</a>
         </div>
@@ -386,20 +423,24 @@
       </article>
       <article class="menu-card">
         <h3>Photobooth portal</h3>
-        <p>The desktop photobooth continues to run inside the embedded frame — perfect for snapshots between games.</p>
+        <p>Launch the photobooth when you want to capture screenshots. It will borrow the camera so you can switch back to the games system once you’re done.</p>
         <span class="menu-pill">Capture mode</span>
       </article>
     </section>
 
     <section id="photobooth">
       <div class="section-title">
-        <h2>Live Photobooth + Camera Feed</h2>
-        <p>Embedded from your desktop photobooth build so the camera stays warm while you switch between experiences.</p>
+        <h2>Live Photobooth Portal</h2>
+        <p>Launch the desktop photobooth on demand so the camera stays available for gestures until you’re ready to capture selfies.</p>
       </div>
-      <div class="embed-wrapper">
-        <iframe src="/photoboothweb/index.html" title="Photobooth" loading="lazy"></iframe>
-        <p class="embed-note">Ensure the photobooth itself has access to the camera. The iframe will keep the feed running while you play the gesture and eye games.</p>
+      <div class="embed-wrapper embed-placeholder" id="photoboothPlaceholder">
+        <p class="embed-note">Launch the photobooth to warm up the filters and filmstrip. Doing so will pause the gesture/eye games while the iframe owns the stream.</p>
+        <div class="photobooth-actions">
+          <button id="launchPhotoboothBtn" class="cta-btn">Launch Photobooth</button>
+          <button id="closePhotoboothBtn" class="cta-btn secondary" hidden>Close Photobooth</button>
+        </div>
       </div>
+      <div id="photoboothEmbed" class="embed-wrapper" aria-live="polite"></div>
     </section>
 
     <section id="hand-play" class="game-section">
@@ -443,6 +484,10 @@
       const eyeScoreEl = document.getElementById('eyeScore');
       const eyeSensitivity = document.getElementById('eyeSensitivity');
       const eyeSensitivityValue = document.getElementById('eyeSensitivityValue');
+      const launchPhotoboothBtn = document.getElementById('launchPhotoboothBtn');
+      const closePhotoboothBtn = document.getElementById('closePhotoboothBtn');
+      const photoboothEmbed = document.getElementById('photoboothEmbed');
+      const photoboothPlaceholder = document.getElementById('photoboothPlaceholder');
 
       const handCanvas = document.getElementById('handGameCanvas');
       const eyeCanvas = document.getElementById('eyeGameCanvas');
@@ -469,6 +514,8 @@
       };
 
       const gazePoint = { x: 0.5, y: 0.5 };
+      let photoboothActive = false;
+      let photoboothIframe = null;
 
       function updateStatus(message, tone = 'muted') {
         statusEl.textContent = message;
@@ -703,6 +750,11 @@
           cameraInstance = null;
         }
 
+        if (photoboothActive) {
+          updateStatus('Camera paused (photobooth active)', 'muted');
+          return Promise.resolve();
+        }
+
         if (!hands || !faceMesh) {
           updateStatus('Initializing camera modules...', 'muted');
           return Promise.reject(new Error('pipelines not ready'));
@@ -729,6 +781,67 @@
 
       retryBtn.addEventListener('click', () => {
         startCameraEngine();
+      });
+
+      function stopGameCamera() {
+        if (cameraInstance) {
+          cameraInstance.stop();
+          cameraInstance = null;
+          updateStatus('Camera paused for photobooth', 'muted');
+        }
+      }
+
+      function launchPhotobooth() {
+        if (photoboothActive) return;
+        stopGameCamera();
+        photoboothEmbed.innerHTML = '';
+        const iframe = document.createElement('iframe');
+        iframe.src = '/photoboothweb/index.html';
+        iframe.title = 'Photobooth';
+        iframe.loading = 'lazy';
+        iframe.allow = 'camera; microphone; autoplay; clipboard-write';
+        iframe.style.minHeight = '440px';
+        iframe.style.borderRadius = '20px';
+        iframe.style.border = '0';
+        photoboothEmbed.appendChild(iframe);
+        photoboothActive = true;
+        photoboothIframe = iframe;
+        closePhotoboothBtn.hidden = false;
+        launchPhotoboothBtn.disabled = true;
+        photoboothPlaceholder?.classList.add('is-active');
+      }
+
+      function closePhotobooth() {
+        if (!photoboothActive) return;
+        photoboothEmbed.innerHTML = '';
+        photoboothActive = false;
+        photoboothIframe = null;
+        closePhotoboothBtn.hidden = true;
+        launchPhotoboothBtn.disabled = false;
+        photoboothPlaceholder?.classList.remove('is-active');
+        startCameraEngine();
+      }
+
+      if (launchPhotoboothBtn) {
+        launchPhotoboothBtn.addEventListener('click', (event) => {
+          event.preventDefault();
+          launchPhotobooth();
+        });
+      }
+
+      if (closePhotoboothBtn) {
+        closePhotoboothBtn.addEventListener('click', (event) => {
+          event.preventDefault();
+          closePhotobooth();
+        });
+      }
+
+      const photoboothLinks = document.querySelectorAll('[data-launch-photobooth]');
+      photoboothLinks.forEach(link => {
+        link.addEventListener('click', (event) => {
+          event.preventDefault();
+          launchPhotobooth();
+        });
       });
 
       eyeSensitivity.addEventListener('input', () => {
