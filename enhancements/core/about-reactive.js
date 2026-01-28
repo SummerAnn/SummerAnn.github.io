@@ -9,38 +9,82 @@
   let initialized = false;
 
   const SPHERE_WORDS = [
-    // Creative & Performance
+    // Creative & Performance (25 words)
     'Singer', 'Model', 'Actress', 'Performance', 'Stage', 'Studio', 
     'Voice', 'Melody', 'Chorus', 'Rhythm', 'Dance', 'Theater',
     'Portfolio', 'Gallery', 'Art', 'Aesthetic', 'Expression',
+    'Acting', 'Fashion', 'Photography', 'Cinematography', 'Directing',
+    'Music', 'Composition', 'Vocal', 'Rehearsal', 'Audition',
     
-    // Technical & Engineering
+    // Technical & Engineering (30 words)
     'Research', 'LLMs', 'Health AI', 'Systems', 'Product', 'Builder',
     'Engineering', 'Code', 'Algorithm', 'Architecture', 'Full Stack',
     'Machine Learning', 'Data', 'Pipeline', 'Automation', 'Optimization',
+    'Python', 'JavaScript', 'React', 'Node', 'TypeScript', 'SQL',
+    'API', 'Database', 'Server', 'Client', 'Framework', 'Library',
+    'Testing', 'Debugging', 'Deployment', 'Scaling',
     
-    // Innovation & Leadership
+    // Innovation & Leadership (20 words)
     'Founder', 'Creator', 'Innovator', 'Vision', 'Strategy', 'Leadership',
-    'Startup', 'Product', 'Design', 'UX', 'UI', 'Prototype',
+    'Startup', 'Design', 'UX', 'UI', 'Prototype', 'Wireframe',
+    'Entrepreneur', 'Pioneer', 'Trailblazer', 'Mentor', 'Guide',
+    'Influence', 'Impact', 'Change',
     
-    // Personal Qualities
+    // Personal Qualities (25 words)
     'Curiosity', 'Empathy', 'Trust', 'Clarity', 'Depth', 'Passion',
     'Dedication', 'Precision', 'Excellence', 'Growth', 'Learning',
     'Adaptability', 'Resilience', 'Integrity', 'Authenticity',
+    'Confidence', 'Courage', 'Determination', 'Focus', 'Discipline',
+    'Wisdom', 'Intuition', 'Insight', 'Awareness', 'Mindfulness',
     
-    // Work & Process
+    // Work & Process (25 words)
     'Storytelling', 'Communication', 'Collaboration', 'Execution',
     'Iteration', 'Refinement', 'Quality', 'Craft', 'Detail',
     'Innovation', 'Exploration', 'Discovery', 'Experiment',
+    'Planning', 'Strategy', 'Analysis', 'Synthesis', 'Problem Solving',
+    'Critical Thinking', 'Creativity', 'Imagination', 'Inspiration',
+    'Motivation', 'Drive', 'Ambition',
     
-    // Values & Philosophy
+    // Values & Philosophy (15 words)
     'Ethics', 'Responsibility', 'Impact', 'Meaning', 'Purpose',
     'Balance', 'Harmony', 'Flow', 'Energy', 'Vibrancy',
+    'Truth', 'Beauty', 'Elegance', 'Simplicity', 'Complexity',
     
-    // Skills & Domains
+    // Skills & Domains (30 words)
     'Frontend', 'Backend', 'DevOps', 'Mobile', 'Web', 'Cloud',
     'Analytics', 'Visualization', 'Interface', 'Experience',
-    'Genomics', 'Bioinformatics', 'Healthcare', 'Wellness'
+    'Genomics', 'Bioinformatics', 'Healthcare', 'Wellness',
+    'NLP', 'Computer Vision', 'Deep Learning', 'Neural Networks',
+    'TensorFlow', 'PyTorch', 'Scikit-learn', 'Pandas', 'NumPy',
+    'Docker', 'Kubernetes', 'AWS', 'GCP', 'Azure', 'CI/CD',
+    
+    // Creative Tech & Media (20 words)
+    'Video', 'Editing', 'Post-Production', 'Color Grading', 'Sound Design',
+    'Animation', 'Motion Graphics', 'Visual Effects', 'Cinema',
+    'Documentary', 'Short Film', 'Music Video', 'Commercial',
+    'Branding', 'Identity', 'Typography', 'Layout', 'Grid',
+    'Composition', 'Narrative',
+    
+    // Academic & Research (15 words)
+    'Thesis', 'Publication', 'Conference', 'Journal', 'Paper',
+    'Methodology', 'Hypothesis', 'Experiment', 'Analysis', 'Results',
+    'Peer Review', 'Citation', 'Scholarship', 'Academic', 'Research',
+    
+    // Languages & Communication (10 words)
+    'English', 'Korean', 'German', 'French', 'Multilingual',
+    'Translation', 'Interpretation', 'Linguistics', 'Grammar', 'Syntax',
+    
+    // Tools & Technologies (20 words)
+    'Git', 'GitHub', 'VS Code', 'Terminal', 'Command Line',
+    'Linux', 'Unix', 'Shell', 'Bash', 'Zsh',
+    'PostgreSQL', 'MongoDB', 'Redis', 'Elasticsearch',
+    'GraphQL', 'REST', 'WebSocket', 'HTTP', 'HTTPS', 'SSL',
+    
+    // Soft Skills (15 words)
+    'Teamwork', 'Networking', 'Presentation', 'Public Speaking',
+    'Negotiation', 'Conflict Resolution', 'Time Management',
+    'Organization', 'Prioritization', 'Delegation', 'Mentoring',
+    'Coaching', 'Feedback', 'Review', 'Evaluation'
   ];
 
   function injectStyles() {
