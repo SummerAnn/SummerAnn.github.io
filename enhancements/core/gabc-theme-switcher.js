@@ -1,13 +1,25 @@
 /**
  * GABC Theme Switcher v2.0
- * G = Graphite - 섬머님.mp4 | A = Atelier - YouTube
- * B = Studio - Intro.mp4 | C = Arcade - Summer Arcade H.MP4 | D = Chinatown - summer chinatown h.MP4
+ * E = Focus (default, no video) | G = Graphite | A = Atelier | B = Studio | C = Arcade | D = Chinatown
  */
 
 (function() {
   'use strict';
 
   const THEME_CONFIG = {
+    'E': {
+      themeId: 'no-video',
+      name: 'Focus',
+      description: 'No video, content only',
+      colors: {
+        primary: '#6366f1',
+        secondary: '#8b5cf6',
+        gradient: 'linear-gradient(135deg, #1e1b4b 0%, #312e81 50%, #4c1d95 100%)',
+        glow: 'rgba(99, 102, 241, 0.5)',
+        text: '#f8fafc'
+      },
+      icon: '◎'
+    },
     'G': {
       themeId: 'youtube-1',
       name: 'Graphite',
@@ -86,7 +98,7 @@
       #gabc-theme-switcher {
         position: fixed;
         top: 20px;
-        right: 20px;
+        left: 20px;
         display: flex;
         gap: 12px;
         z-index: 99999;
@@ -242,6 +254,21 @@
         background: radial-gradient(circle, rgba(255, 107, 53, 0.4) 0%, rgba(247, 201, 75, 0.3) 50%, transparent 70%);
       }
 
+      /* E - Focus (no video) */
+      .gabc-e {
+        background: linear-gradient(135deg, #1e1b4b 0%, #312e81 50%, #4c1d95 100%);
+        color: #e0e7ff;
+        border-color: rgba(99, 102, 241, 0.4);
+        text-shadow: 0 0 10px rgba(99, 102, 241, 0.5);
+      }
+      .gabc-e:hover, .gabc-e.active {
+        box-shadow: 0 0 30px rgba(99, 102, 241, 0.6), 0 8px 25px rgba(0, 0, 0, 0.3);
+        border-color: #6366f1;
+      }
+      .gabc-e::before {
+        background: radial-gradient(circle, rgba(99, 102, 241, 0.4) 0%, transparent 70%);
+      }
+
       @keyframes pulse-ring {
         0% { transform: scale(1); opacity: 1; }
         50% { transform: scale(1.2); opacity: 0.5; }
@@ -282,8 +309,8 @@
         #gabc-theme-switcher {
           top: auto;
           bottom: 20px;
-          right: 50%;
-          transform: translateX(50%);
+          left: 50%;
+          transform: translateX(-50%);
           gap: 8px;
           padding: 6px 10px;
         }
@@ -453,7 +480,7 @@
     const stored = localStorage.getItem('portfolio-theme');
     if (stored) return stored;
 
-    return 'youtube-1';
+    return 'no-video';
   }
 
   function updateActiveState(activeLetter) {

@@ -1,17 +1,19 @@
 /**
  * UI Theme Manager v2.0
- * Manages 5 UI themes with video backgrounds
- * G = graphite (섬머님.mp4) - Sleek grey/silver
- * A = atelier (YouTube) - Elegant light gallery
- * B = studio (Intro.mp4) - Dark green neon
- * C = arcade (Summer Arcade H.MP4) - Cyberpunk pink/cyan
- * D = Chinatown (summer chinatown h.MP4) - Warm neon
+ * 6 themes: default = no-video (content focus), then G/A/B/C/D with videos
+ * no-video = default, no background video
+ * G = graphite (섬머님.mp4) | A = atelier (YouTube) | B = studio | C = arcade | D = Chinatown
  */
 
 (function() {
   'use strict';
 
   const THEMES = {
+    'no-video': {
+      name: 'Focus',
+      cssTheme: 'graphite',
+      videoType: 'none'
+    },
     'youtube-1': {
       name: 'Graphite',
       cssTheme: 'graphite',
@@ -57,7 +59,7 @@
     if (stored && THEMES[stored]) {
       return stored;
     }
-    return 'youtube-1';
+    return 'no-video';
   }
 
   function findOrCreateVideoContainer() {
@@ -304,11 +306,18 @@
     // 3. Find or create video container
     videoContainer = findOrCreateVideoContainer();
 
-    // 4. Create the appropriate video element
+    // 4. Create the appropriate video element (skip if no video)
     if (theme.videoType === 'youtube') {
+      videoContainer.style.display = '';
+      videoContainer.style.visibility = '';
       createYouTubeVideo(theme.videoUrl, videoContainer);
-    } else {
+    } else if (theme.videoType === 'local') {
+      videoContainer.style.display = '';
+      videoContainer.style.visibility = '';
       createLocalVideo(theme.videoUrl, videoContainer);
+    } else {
+      videoContainer.style.display = 'none';
+      videoContainer.style.visibility = 'hidden';
     }
 
     // 5. Save state

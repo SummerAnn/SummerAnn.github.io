@@ -7,6 +7,14 @@
   'use strict';
 
   const MENU_MODES = {
+    'no-video': {
+      name: 'Focus',
+      navBg: 'linear-gradient(135deg, rgba(99, 102, 241, 0.12) 0%, rgba(139, 92, 246, 0.12) 100%)',
+      linkColor: '#818cf8',
+      linkHover: '#a5b4fc',
+      borderGlow: '0 0 20px rgba(99, 102, 241, 0.4)',
+      animation: 'pulse'
+    },
     'youtube-1': { // G mode
       name: 'Gradient Glow',
       navBg: 'linear-gradient(135deg, rgba(102, 126, 234, 0.15) 0%, rgba(118, 75, 162, 0.15) 100%)',
@@ -38,22 +46,30 @@
       linkHover: '#43e97b',
       borderGlow: '0 0 20px rgba(56, 249, 215, 0.5)',
       animation: 'glow'
+    },
+    'saved-3': {
+      name: 'Chinatown',
+      navBg: 'linear-gradient(135deg, rgba(255, 107, 53, 0.15) 0%, rgba(247, 201, 75, 0.15) 100%)',
+      linkColor: '#ff6b35',
+      linkHover: '#f7c94b',
+      borderGlow: '0 0 20px rgba(255, 107, 53, 0.5)',
+      animation: 'glow'
     }
   };
 
   function getCurrentTheme() {
     const urlParams = new URLSearchParams(window.location.search);
-    return urlParams.get('theme') || localStorage.getItem('portfolio-theme') || 'youtube-1';
+    return urlParams.get('theme') || localStorage.getItem('portfolio-theme') || 'no-video';
   }
 
   function applyMenuMode(themeId) {
-    const mode = MENU_MODES[themeId] || MENU_MODES['youtube-1'];
+    const mode = MENU_MODES[themeId] || MENU_MODES['no-video'];
     const nav = document.getElementById('enhanced-nav') || document.querySelector('nav');
     
     if (!nav) return;
 
-    // Remove previous mode classes
-    nav.classList.remove('mode-g', 'mode-a', 'mode-b', 'mode-c');
+    // Remove previous mode classes (themeId prefix: no-video->no, youtube-1/2->youtube, saved-1/2/3->saved)
+    nav.classList.remove('mode-no', 'mode-youtube', 'mode-saved');
     nav.classList.add(`mode-${themeId.split('-')[0]}`);
 
     // Create or update style

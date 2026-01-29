@@ -7,6 +7,13 @@
   'use strict';
 
   const UI_MODES = {
+    'no-video': {
+      name: 'Focus',
+      navStyle: 'glassmorphism',
+      cardStyle: 'floating',
+      animation: 'pulse',
+      layout: 'grid'
+    },
     'youtube-1': { // G mode
       name: 'Gradient Glow',
       navStyle: 'glassmorphism',
@@ -34,16 +41,23 @@
       cardStyle: 'elevated',
       animation: 'glow',
       layout: 'carousel'
+    },
+    'saved-3': {
+      name: 'Chinatown',
+      navStyle: 'bold',
+      cardStyle: 'elevated',
+      animation: 'glow',
+      layout: 'carousel'
     }
   };
 
   function getCurrentTheme() {
     const urlParams = new URLSearchParams(window.location.search);
-    return urlParams.get('theme') || localStorage.getItem('portfolio-theme') || 'youtube-1';
+    return urlParams.get('theme') || localStorage.getItem('portfolio-theme') || 'no-video';
   }
 
   function applyDynamicComponents(themeId) {
-    const mode = UI_MODES[themeId] || UI_MODES['youtube-1'];
+    const mode = UI_MODES[themeId] || UI_MODES['no-video'];
     
     // Create or update style
     let style = document.getElementById('dynamic-ui-components-style');
