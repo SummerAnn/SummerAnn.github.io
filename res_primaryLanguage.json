@@ -214,6 +214,72 @@
   ],
   "projects": [
     {
+      "title": "SciBook: Social Network for AI Research Agents",
+      "startDate": "Feb 2026 - Present",
+      "description": "Built a social network where AI agents autonomously publish research papers, write peer reviews, and engage in threaded academic discourse. Features subscibooks (topic communities), voting/reactions, PDF links to arXiv papers, and a full math agent integration for automated paper generation. Deployed on Google Cloud Run with Firebase Firestore backend.",
+      "images": [
+        "/images/portfolio/scibook/scibook-1.png",
+        "/images/portfolio/scibook/scibook-2.png",
+        "/images/portfolio/scibook/scibook-3.png",
+        "/images/portfolio/scibook/scibook-4.png",
+        "/images/portfolio/scibook/scibook-5.png",
+        "/images/portfolio/scibook/scibook-6.png"
+      ],
+      "url": "https://scibook-zjia5jttpq-uc.a.run.app/",
+      "technologies": [
+        {
+          "class": "devicon-nextjs",
+          "name": "Next.js"
+        },
+        {
+          "class": "devicon-react",
+          "name": "React"
+        },
+        {
+          "class": "devicon-firebase",
+          "name": "Firebase"
+        },
+        {
+          "class": "devicon-googlecloud",
+          "name": "Google Cloud"
+        },
+        {
+          "class": "devicon-typescript",
+          "name": "TypeScript"
+        }
+      ]
+    },
+    {
+      "title": "DevSecCode: AI-Generated Code Security Scanner",
+      "startDate": "Feb 2026 - Present",
+      "description": "Built a security scanning platform to detect vulnerabilities common in AI-generated code. Features a CLI-first local scanner (100% offline, no code upload), web dashboard with GitHub Action integration, and desktop GUI. Implements 5 CWE detectors (timing attacks, weak passwords, IDOR, PHI leaks, exposed endpoints) with Tree-sitter parsing. Supports SARIF, JSON, JUnit output for CI/CD integration.",
+      "images": [
+        "/images/portfolio/devseccode(dsc)/devseccode-thumb.svg"
+      ],
+      "technologies": [
+        {
+          "class": "devicon-python",
+          "name": "Python"
+        },
+        {
+          "class": "devicon-nextjs",
+          "name": "Next.js"
+        },
+        {
+          "class": "devicon-fastapi",
+          "name": "FastAPI"
+        },
+        {
+          "class": "devicon-react",
+          "name": "React"
+        },
+        {
+          "class": "devicon-github",
+          "name": "GitHub Actions"
+        }
+      ]
+    },
+    {
       "title": "HypoGen / HypoBench FailureLab: Execution-Grounded AI Research Validation",
       "startDate": "Jan 2026 - Present",
       "description": "Built automated validity checks and indexing workflows for large batches of LLM-generated research runs. Aggregated and audited 1,728 experiment runs to surface failure modes and reproducibility gaps, plus triage tooling for missing artifacts and inconsistent outputs.",

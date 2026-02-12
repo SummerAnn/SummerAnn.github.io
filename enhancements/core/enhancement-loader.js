@@ -30,6 +30,8 @@
         ],
         webcamLink: { id: 'webcam-gaming', label: 'Webcam Lab', url: '/demos/webcam-gaming/', icon: 'fas fa-video' },
         demoLinks: [
+          { id: 'scibook', label: 'SciBook', url: '/demos/scibook/', icon: 'fas fa-flask' },
+          { id: 'devseccode', label: 'DevSecCode', url: '/demos/devseccode/', icon: 'fas fa-shield-alt' },
           { id: 'webcam-gaming', label: 'Webcam Lab', url: '/demos/webcam-gaming/', icon: 'fas fa-video' },
           { id: 'intro-cinematic', label: 'Intro Cinematic', url: '/demos/intro-cinematic/', icon: 'fas fa-film' },
           { id: 'yammoing', label: 'Yammoing', url: '/demos/yammoing/', icon: 'fas fa-heartbeat' },
@@ -90,70 +92,77 @@
   }
 
   /**
-   * Initialize all enhancement modules in order
+   * Initialize all enhancement modules - OPTIMIZED for parallel loading
    */
   async function initializeModules() {
-    console.log('Initializing Summer Ann Portfolio Enhancements v2.0...');
+    console.log('Initializing Summer Ann Portfolio Enhancements v2.1 (Optimized)...');
 
-    // Core modules - load in order
-    const coreModules = [
-      // Image fixes (load first)
+    // CRITICAL modules - load first (sequential, small set)
+    const criticalModules = [
+      '/enhancements/core/performance-optimizer.js',
+      '/enhancements/navigation/enhanced-nav.js'
+    ];
+
+    // HIGH PRIORITY - load in parallel after critical
+    const highPriorityModules = [
       '/enhancements/core/image-loader-fix.js',
-      '/enhancements/core/image-lock.js',
       '/enhancements/core/avatar-fix.js',
-      // Content fixes
       '/enhancements/core/text-contrast-fix.js',
       '/enhancements/core/project-sorter.js',
-      // Features
+      '/enhancements/core/about-reactive.js'
+    ];
+
+    // DEFERRED modules - load after initial render (non-blocking)
+    const deferredModules = [
+      '/enhancements/core/image-lock.js',
       '/enhancements/core/model-profile-carousel.js',
       '/enhancements/core/carousel-debug.js',
       '/enhancements/core/art-carousel.js',
-      '/enhancements/core/about-reactive.js',
       '/enhancements/core/demo-fix.js',
       '/enhancements/core/visibility-debugger.js',
-      // Theme system (load after content)
       '/enhancements/core/ui-theme-manager.js',
       '/enhancements/core/gabc-theme-switcher.js',
-      // UI components
       '/enhancements/core/dynamic-ui-components.js',
-      '/enhancements/core/lenis-init.js'
-    ];
-
-    // Navigation modules
-    const navModules = [
-      '/enhancements/navigation/enhanced-nav.js',
+      '/enhancements/core/lenis-init.js',
       '/enhancements/navigation/fun-menu-modes.js',
-      '/enhancements/navigation/scroll-indicators.js'
-    ];
-
-    // Motion modules
-    const motionModules = [
+      '/enhancements/navigation/scroll-indicators.js',
       '/enhancements/motion/gsap-animations.js',
-      '/enhancements/motion/magnetic-buttons.js',
-      '/enhancements/motion/particle-canvas.js'
+      '/enhancements/motion/magnetic-buttons.js'
     ];
 
-    // Games
-    const gameModules = [
+    // LAZY modules - load on idle or user interaction
+    const lazyModules = [
+      '/enhancements/motion/particle-canvas.js',
       '/enhancements/games/game-hub.js'
     ];
 
-    // Load all modules
-    const allModules = [...coreModules, ...navModules, ...motionModules, ...gameModules];
-
-    for (const modulePath of allModules) {
-      try {
-        await loadModule(modulePath);
-      } catch (err) {
-        // Continue even if a module fails
-      }
+    // Step 1: Load critical modules sequentially (fast)
+    for (const modulePath of criticalModules) {
+      await loadModule(modulePath);
     }
 
-    SAE.initialized = true;
-    console.log('All enhancement modules loaded');
+    // Step 2: Load high priority modules in PARALLEL
+    await Promise.all(highPriorityModules.map(loadModule));
 
-    // Dispatch custom event for other scripts
+    SAE.initialized = true;
+    console.log('Core enhancement modules loaded');
+
+    // Dispatch event early so UI is responsive
     window.dispatchEvent(new CustomEvent('enhancementsReady', { detail: SAE }));
+
+    // Step 3: Load deferred modules in parallel (non-blocking)
+    requestIdleCallback(() => {
+      Promise.all(deferredModules.map(loadModule)).then(() => {
+        console.log('Deferred modules loaded');
+      });
+    }, { timeout: 2000 });
+
+    // Step 4: Load lazy modules only when browser is idle
+    requestIdleCallback(() => {
+      Promise.all(lazyModules.map(loadModule)).then(() => {
+        console.log('Lazy modules loaded');
+      });
+    }, { timeout: 5000 });
   }
 
   /**

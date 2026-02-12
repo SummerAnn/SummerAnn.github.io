@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0d1117"/>
+      <stop offset="100%" style="stop-color:#161b22"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#f85149"/>
+      <stop offset="100%" style="stop-color:#a371f7"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="800" height="600" fill="url(#bg)"/>
+
+  <!-- Terminal Window -->
+  <rect x="80" y="80" width="640" height="440" rx="12" fill="#000" stroke="#30363d" stroke-width="2"/>
+
+  <!-- Terminal Header -->
+  <rect x="80" y="80" width="640" height="40" rx="12" fill="#1a1a1a"/>
+  <circle cx="110" cy="100" r="8" fill="#ff5f56"/>
+  <circle cx="135" cy="100" r="8" fill="#ffbd2e"/>
+  <circle cx="160" cy="100" r="8" fill="#27c93f"/>
+
+  <!-- Terminal Content -->
+  <text x="100" y="160" font-family="monospace" font-size="14" fill="#3fb950">$</text>
+  <text x="120" y="160" font-family="monospace" font-size="14" fill="#8b949e">dsc scan ./src --format terminal</text>
+
+  <text x="100" y="200" font-family="monospace" font-size="14" fill="#58a6ff">DevSecCode Scanner v1.0.0</text>
+  <text x="100" y="225" font-family="monospace" font-size="14" fill="#8b949e">Scanning directory: ./src</text>
+
+  <text x="100" y="270" font-family="monospace" font-size="14" fill="#f85149">FOUND: CWE-208 Timing Attack in auth/login.py:47</text>
+  <text x="100" y="295" font-family="monospace" font-size="14" fill="#f85149">FOUND: CWE-521 Weak Password in auth/register.py:23</text>
+  <text x="100" y="320" font-family="monospace" font-size="14" fill="#f85149">FOUND: CWE-639 IDOR in api/users.py:89</text>
+  <text x="100" y="345" font-family="monospace" font-size="14" fill="#d29922">FOUND: CWE-532 PHI Leak in services/patient.py:156</text>
+  <text x="100" y="370" font-family="monospace" font-size="14" fill="#d29922">FOUND: CWE-669 No Rate Limit in api/auth.py:34</text>
+
+  <text x="100" y="420" font-family="monospace" font-size="14" fill="#3fb950">Scan complete: 5 findings in 23 files (0.8s)</text>
+
+  <!-- Shield Icon -->
+  <g transform="translate(620, 450)">
+    <path d="M50 10 L90 25 L90 55 Q90 85 50 100 Q10 85 10 55 L10 25 Z"
+          fill="none" stroke="url(#accent)" stroke-width="3"/>
+    <path d="M35 55 L45 65 L65 45" fill="none" stroke="#3fb950" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+
+  <!-- Title -->
+  <text x="400" y="550" font-family="system-ui, sans-serif" font-size="24" font-weight="bold" fill="#e6edf3" text-anchor="middle">DevSecCode Scanner</text>
+</svg>

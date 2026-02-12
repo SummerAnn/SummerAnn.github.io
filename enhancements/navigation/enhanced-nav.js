@@ -20,6 +20,8 @@
         ],
         webcamLink: { id: 'webcam-gaming', label: 'Webcam Lab', url: '/demos/webcam-gaming/index.html', icon: 'fas fa-video' },
         demoLinks: [
+          { id: 'scibook', label: 'SciBook', url: '/demos/scibook/index.html', icon: 'fas fa-flask' },
+          { id: 'devseccode', label: 'DevSecCode', url: '/demos/devseccode/index.html', icon: 'fas fa-shield-alt' },
           { id: 'webcam-gaming', label: 'Webcam Lab', url: '/demos/webcam-gaming/index.html', icon: 'fas fa-video' },
           { id: 'intro-cinematic', label: 'Intro Cinematic', url: '/demos/intro-cinematic/index.html', icon: 'fas fa-film' },
           { id: 'yammoing', label: 'Yammoing', url: '/demos/yammoing/index.html', icon: 'fas fa-heartbeat' },
